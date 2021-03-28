@@ -1,5 +1,11 @@
-#! /bin/bash
+#!/bin/bash
 #ova linija ispod obrise stari ./backup da bi se novi lepo kopirao
+
+if[[ $EUID <= 0 ]]
+	then echo "Please run WITHOUT sudo(or root/superuser access)."
+	exit
+fi
+
 sudo rm -r ./backup
 
 sudo mkdir -pv backup/.config

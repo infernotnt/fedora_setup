@@ -1,0 +1,14 @@
+transarency, compton, fade
+i3 bindings,
+i3lock
+mozda arc, arc dark, drakula ili kao se vec zove
+
+vsync
+tabbed layout, float ,float pemranje misom n shit
+workspace-ovi
+resize mozda bez alt
+
+ikone: svi koriste papyrus
+
+shortcut i3 za:
+neka bolja verzija htop(luke smith vrv)(ctrl + alt + delte, ili ctrl + shift + esc mozda)

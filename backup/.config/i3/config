@@ -1,0 +1,194 @@
+#ako ti baguje mnogo toga probaj da obrises nautilus i koristis neki drugi file explorer
+#koristim rofi(umesto dmenu), mislim(nisam sig) da je on X11 specific, tojest ne moze na wayland, ako si na wayland istrazi
+#koristim compton, za transparacy rofi-ja
+#koristim polybar
+set $mod Mod4
+set $alt Mod1
+
+#font pango:monospace 8
+#font pango:DejaVu Sans Mono 8
+font pango:System San Francisco Display 8 
+
+set $innerDefault 3
+set $outerDefault 0
+gaps inner $innerDefault 
+gaps outer $outerDefault
+
+#wallpaper i window borderi
+for_window [class="^.*"] border pixel 2
+exec_always feh --bg-scale ~/Pictures/wallpaper/wallpaper 
+
+bindsym $mod+Return exec alacritty
+
+bindsym $mod+Shift+q kill
+bindsym $alt+F4 kill
+
+bindsym $mod+w exec firefox
+bindsym $mod+t split toggle
+
+#Polybar launch
+exec_always --no-startup-id ~/.config/polybar/scripts/launch.sh
+
+#dodatak 2------------------------------------------
+bindsym $mod+Shift+space floating toggle
+#ne znam sta ovo radi
+bindsym $mod+space mode_toggle
+
+#ne znam sta ovo radi
+bindsym $mod+Escape workspace prev
+
+#ne znam sta ovo radi
+bindsym $mod+p exec --no-startup-id winresize
+
+#ne znam sta ovo radi
+bindsym $mod+$alt+o sticky toggle
+
+#TODO: namesti da ovo radi, izmeni celu komandu ako treba
+bindsym $mod+a exec --no-startup-id ddspawn dropdowncalc -f mono:pixelsize=24
+
+#ne znam sta ovo radi
+bindsym $mod+g workspace prev
+
+#premesti sve contain-ere u workspace-u u drugi workspace
+bindsym $mod+Ctrl+h move workspace to output left
+bindsym $mod+Ctrl+j move workspace to output down
+bindsym $mod+Ctrl+k move workspace to output up
+bindsym $mod+Ctrl+l move workspace to output right
+
+bindsym $mod+f fullscreen toggle
+
+#bindsym $mod+s layout tabbed
+#bindsym $mod+e layout toggle split
+
+#------------------------------------------------------------------------
+#ovo sam samo copy paste-ovao, uzmi modifikuj, npr sive granice, plave kad je fokus, malo plavlje sa one strane gde ide nov prozor, ukloniti mozda crvenilo na prozoru(ostaviti na workspace) kada stigne notifikacija, workspace boje i okvir workspace dole boje
+#set $bg-color 	         #3050ffff
+set $bg-color 	         #3c6eb4ff
+#set $bg-color 	         #294172ff
+set $inactive-bg-color   #2f343f
+set $text-color          #888888
+set $inactive-text-color #888888
+set $urgent-bg-color     #ff0000
+
+# window colors
+#                       border              background         text                 indicator
+client.focused          $bg-color           $bg-color          $text-color          #00ff00
+client.unfocused        $inactive-bg-color	$inactive-bg-color $inactive-text-color #00ff00
+client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
+#------------------------------------------------------------------------------------------------------------
+
+#Super key/ Windows key se upali dmenu, vrlo slicno kao na windows 10
+#samo GUI aplikacije
+bindcode --release 133 exec rofi -show drun -matching fuzzy -theme Arc-Dark
+#sve, i konzolne i gui aplikacije
+bindsym $mod+d exec rofi -show run -matching fuzzy -theme Arc-Dark 
+#mozes menjati teme, lista stoji u: /usr/share/rofi/themes
+
+# A more modern dmenu replacement is rofi:
+#bindcode --release 133 exec rofi -modi drun,run -show drun
+
+#resize od luke smith-a
+bindsym $mod+y		exec --no-startup-id "bash ~/.scripts/i3resize left"
+bindsym $mod+u		exec --no-startup-id "bash ~/.scripts/i3resize down"
+bindsym $mod+i		exec --no-startup-id "bash ~/.scripts/i3resize up"
+bindsym $mod+o		exec --no-startup-id "bash ~/.scripts/i3resize right"
+
+bindsym $mod+semicolon exec i3lock --color "$bg-color"
+
+# move focused window
+bindsym $mod+$alt+h move left 30
+bindsym $mod+$alt+j move down 30
+bindsym $mod+$alt+k move up 30
+bindsym $mod+$alt+l move right 30
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+#restart i3, uradis posle menjanja config file-a da bi promene bile primenjene
+bindsym $mod+r restart
+
+#gaps
+bindsym $mod+$alt+t gaps inner current set $innerDefault; gaps outer current set $outterDefault
+bindsym $mod+$alt+d gaps inner current set 0; gaps outer current set 0
+bindsym $mod+s gaps inner current plus 5
+bindsym $mod+$alt+s gaps inner current minus 5
+bindsym $mod+z gaps outer current plus 5
+bindsym $mod+$alt+z gaps outer current minus 5
+
+# workspace stvari
+bindsym $mod+Home workspace $ws1
+bindsym $mod+$alt+Home move container to workspace $ws1
+bindsym $mod+End workspace $ws9
+bindsym $mod+$alt+End move container to workspace $ws9
+
+bindsym	$mod+m				workspace prev
+bindsym $mod+comma			workspace next
+
+bindsym $mod+slash			workspace back_and_forth
+
+bindsym $mod+$alt+m			move container to workspace prev
+bindsym $mod+$alt+comma		move container to workspace next
+
+# WORKSPACE-ovi
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+
+# move focused container to workspace
+bindsym $mod+$alt+1 move container to workspace number $ws1
+bindsym $mod+$alt+2 move container to workspace number $ws2
+bindsym $mod+$alt+3 move container to workspace number $ws3
+bindsym $mod+$alt+4 move container to workspace number $ws4
+bindsym $mod+$alt+5 move container to workspace number $ws5
+bindsym $mod+$alt+6 move container to workspace number $ws6
+bindsym $mod+$alt+7 move container to workspace number $ws7
+bindsym $mod+$alt+8 move container to workspace number $ws8
+bindsym $mod+$alt+9 move container to workspace number $ws9
+
+#ovo ispod ne znam sta je dosta toga
+# The combination of xss-lock, nm-applet and pactl is a popular choice, so
+# they are included here as an example. Modify as you see fit.
+
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+# NetworkManager is the most popular way to manage wireless networks on Linux,
+# and nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id nm-applet
+
+# Use pactl to adjust volume in PulseAudio.
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+#zameni caps lock i escape
+exec setxkbmap -option caps:swapescape 
+#zameni levi i desni monitor
+#exec xrandr --output DVI-D-0 --left-of HDMI-A-0
+exec_always compton -f -D 4 #compton se koristi za transparentnost rofi-ja, i za smooth tranisiton izmedju stvari -f je za fade

@@ -1,0 +1,13 @@
+.vimrc
+.bashrc
+.config/alactritty
+.config/i3
+.scripts/
+PlugInstall da bi instalirao sve addonove za vim
+awesome font, jetbrains monofont(sa italic bold itd), fontovi idu u .fonts/, kada ih stavis stavis tamo uradi fc-cache -f -v( mozes proveriti da li su instalirani na fc-list)
+system san francisco display font treba instalirati
+zscroll(polybar)
+playerctl(dnf install playerctl)
+vim download plugins na svezem kompu
+sudo dnf install playerctl(za spotify polybar, i za sve druge player da mogu da interaguju sa polybar)
+polybar internet speed(download/upload), treba promeniti interfejs u config file-u polybar-a

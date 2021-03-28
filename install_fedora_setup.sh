@@ -9,7 +9,10 @@
 #mala dekoracija: terminal ce pocinjati sa necim tipa "milos@fed:$"
 sudo hostnamectl set-hostname fed
 
-sudo dnf update; sudo dnf -y upgrade; sudo dnf update
+sudo dnf -y update
+sudo dnf -y upgrade
+sudo dnf -y update
+
 sudo dnf -y remove vi
 sudo dnf -y remove vim
 sudo dnf -y remove i3; sudo dnf -y copr enable fuhrmann/i3-gaps; 

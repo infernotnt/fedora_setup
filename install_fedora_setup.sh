@@ -1,8 +1,4 @@
 #!/bin/bash
-#If you can't "sudo", and when you try, the terminal outputs that you need to in the sudoers file, try "sudo usermod -aG wheel username". If adding the user to the group does not work immediately, you may have to edit the /etc/sudoers file to uncomment the line with the group name(https://docs.fedoraproject.org/en-US/quick-docs/adding_user_to_sudoers_file/):
-# $ sudo visudo
-# ...
-# %wheel ALL=(ALL) ALL
 
 if [[ $EUID > 0 ]]
 then echo "Please run with sudo.(The ONLY way you should is \"sudo ./install_fedora_setup.sh\")"

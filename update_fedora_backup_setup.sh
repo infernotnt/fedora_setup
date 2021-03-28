@@ -8,9 +8,9 @@ fi
 
 sudo rm -r ./backup
 
-sudo mkdir -pv backup/.config
-sudo mkdir -pv backup/.scripts
-sudo mkdir -pv backup/.fonts
+mkdir -pv backup/.config
+mkdir -pv backup/.scripts
+mkdir -pv backup/.fonts
 
 sudo cp -rvp ~/.config/i3 backup/.config/i3 
 sudo cp -rvp ~/.config/polybar backup/.config/polybar 

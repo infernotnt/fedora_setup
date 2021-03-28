@@ -1,10 +1,14 @@
-#! /bin/bash
+#!/bin/bash
 #If you can't "sudo", and when you try, the terminal outputs that you need to in the sudoers file, try "sudo usermod -aG wheel username". If adding the user to the group does not work immediately, you may have to edit the /etc/sudoers file to uncomment the line with the group name(https://docs.fedoraproject.org/en-US/quick-docs/adding_user_to_sudoers_file/):
 # $ sudo visudo
 # ...
 # %wheel ALL=(ALL) ALL
 
-
+if [[ $EUID > 0 ]]
+then echo "Please run with sudo.(\"sudo ./install_fedora_setup.sh\")"
+	exit
+fi
+USER_HOME=$(getent passwd $SUDO_USER | cut -d: -f6)
 
 #mala dekoracija: terminal ce pocinjati sa necim tipa "milos@fed:$"
 sudo hostnamectl set-hostname fed
@@ -20,26 +24,27 @@ sudo dnf -y install i3-gaps polybar alacritty compton neovim firefox rofi feh gi
 #opciono
 sudo dnf -y install mpv
 
-sudo mkdir -v ~/.config
-sudo mkdir -v ~/.scripts
-sudo mkdir -v ~/.fonts
+sudo mkdir -v $USER_HOME/.config
+sudo mkdir -v $USER_HOME/.scripts
+sudo mkdir -v $USER_HOME/.fonts
 
-sudo cp -rv backup/.config/i3 ~/.config/i3
-sudo cp -rv backup/.config/polybar ~/.config/polybar
-sudo cp -rv backup/.scripts/* ~/.scripts
-sudo cp -rv backup/.fonts/* ~/.fonts/
+sudo cp -rv backup/.config/i3 $USER_HOME/.config/i3
+sudo cp -rv backup/.config/polybar $USER_HOME/.config/polybar
+sudo cp -rv backup/.scripts/* $USER_HOME/.scripts
+sudo cp -rv backup/.fonts/* $USER_HOME/.fonts/
 
-sudo cp -v backup/.vimrc ~/.vimrc
-sudo cp -v backup/.bashrc ~/.bashrc
-sudo cp -v backup/.profile ~/.profile
+sudo cp -v backup/.vimrc $USER_HOME/.vimrc
+sudo cp -v backup/.bashrc $USER_HOME/.bashrc
+sudo cp -v backup/.profile $USER_HOME/.profile
 
 sudo fc-cache -f -v
 
-sudo mkdir -pv ~/Pictures/wallpaper
-sudo cp backup/wallpaper ~/Pictures/wallpaper
+sudo mkdir -pv $USER_HOME/Pictures/wallpaper
+sudo cp backup/wallpaper $USER_HOME/Pictures/wallpaper
 
 #download za vim-plug. vim-plug ti daje da skidas plugin-ove za vim/nvim
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+#OVDEM MOZDA GRESKA SA USER_HOME UMESTO HOME
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$USER_HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 #ovo treba da instalira sve plug-inove(preko PlugInstall) koje se nalaze u ~/.vimrc

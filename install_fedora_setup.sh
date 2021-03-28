@@ -5,7 +5,7 @@
 # %wheel ALL=(ALL) ALL
 
 if [[ $EUID > 0 ]]
-then echo "Please run with sudo.(\"sudo ./install_fedora_setup.sh\")"
+then echo "Please run with sudo.(The ONLY way you should is \"sudo ./install_fedora_setup.sh\")"
 	exit
 fi
 USER_HOME=$(getent passwd $SUDO_USER | cut -d: -f6)
@@ -28,14 +28,14 @@ sudo mkdir -v $USER_HOME/.config
 sudo mkdir -v $USER_HOME/.scripts
 sudo mkdir -v $USER_HOME/.fonts
 
-sudo cp -rv backup/.config/i3 $USER_HOME/.config/i3
-sudo cp -rv backup/.config/polybar $USER_HOME/.config/polybar
-sudo cp -rv backup/.scripts/* $USER_HOME/.scripts
-sudo cp -rv backup/.fonts/* $USER_HOME/.fonts/
+sudo cp -rvp backup/.config/i3 $USER_HOME/.config/i3
+sudo cp -rvp backup/.config/polybar $USER_HOME/.config/polybar
+sudo cp -rvp backup/.scripts/* $USER_HOME/.scripts
+sudo cp -rvp backup/.fonts/* $USER_HOME/.fonts/
 
-sudo cp -v backup/.vimrc $USER_HOME/.vimrc
-sudo cp -v backup/.bashrc $USER_HOME/.bashrc
-sudo cp -v backup/.profile $USER_HOME/.profile
+sudo cp -vp backup/.vimrc $USER_HOME/.vimrc
+sudo cp -vp backup/.bashrc $USER_HOME/.bashrc
+sudo cp -vp backup/.profile $USER_HOME/.profile
 
 sudo fc-cache -f -v
 

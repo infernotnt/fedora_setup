@@ -190,5 +190,5 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 #zameni caps lock i escape
 exec setxkbmap -option caps:swapescape 
 #zameni levi i desni monitor
-#exec xrandr --output DVI-D-0 --left-of HDMI-A-0
+exec xrandr --output DVI-D-0 --left-of HDMI-A-0
 exec_always compton -f -D 4 #compton se koristi za transparentnost rofi-ja, i za smooth tranisiton izmedju stvari -f je za fade

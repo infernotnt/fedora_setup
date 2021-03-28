@@ -1,3 +1,4 @@
+#! /bin/bash
 #ova linija ispod obrise stari ./backup da bi se novi lepo kopirao
 sudo rm -r ./backup
 

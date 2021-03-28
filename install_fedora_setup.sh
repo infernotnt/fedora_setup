@@ -1,3 +1,4 @@
+#! /bin/bash
 #If you can't "sudo", and when you try, the terminal outputs that you need to in the sudoers file, try "sudo usermod -aG wheel username". If adding the user to the group does not work immediately, you may have to edit the /etc/sudoers file to uncomment the line with the group name(https://docs.fedoraproject.org/en-US/quick-docs/adding_user_to_sudoers_file/):
 # $ sudo visudo
 # ...
@@ -8,11 +9,11 @@
 #mala dekoracija: terminal ce pocinjati sa necim tipa "milos@fed:$"
 sudo hostnamectl set-hostname fed
 
-sudo dnf update; sudo dnf upgrade; sudo dnf update
-sudo dnf remove vi
-sudo dnf remove vim
-sudo dnf remove i3; sudo dnf copr enable fuhrmann/i3-gaps; 
-sudo dnf install i3-gaps polybar alacritty compton neovim firefox rofi feh git youtube-dl cava cmatrix neofetch htop playerctl
+sudo dnf update; sudo dnf -y upgrade; sudo dnf update
+sudo dnf -y remove vi
+sudo dnf -y remove vim
+sudo dnf -y remove i3; sudo dnf -y copr enable fuhrmann/i3-gaps; 
+sudo dnf -y install i3-gaps polybar alacritty compton neovim firefox rofi feh git youtube-dl cava cmatrix neofetch htop playerctl
 #opciono
 sudo dnf install mpv
 

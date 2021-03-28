@@ -48,7 +48,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 nvim --headless +PlugInstall +qall
 
 #update new i3-gaps settings
-sudo i3-msg restart
+#sudo i3-msg restart
 
 #!!!!STVARI KOJE USER KOJI INSTALIRA MORA DA URADI: 
 #1. polybar internet speed da se namesti:

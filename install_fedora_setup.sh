@@ -9,16 +9,16 @@
 #mala dekoracija: terminal ce pocinjati sa necim tipa "milos@fed:$"
 sudo hostnamectl set-hostname fed
 
-sudo dnf -y update
 sudo dnf -y upgrade
-sudo dnf -y update
 
 sudo dnf -y remove vi
 sudo dnf -y remove vim
-sudo dnf -y remove i3; sudo dnf -y copr enable fuhrmann/i3-gaps; 
+sudo dnf -y remove i3
+sudo dnf -y copr enable fuhrmann/i3-gaps; 
+
 sudo dnf -y install i3-gaps polybar alacritty compton neovim firefox rofi feh git youtube-dl cava cmatrix neofetch htop playerctl
 #opciono
-sudo dnf install mpv
+sudo dnf -y install mpv
 
 sudo mkdir -v ~/.config
 sudo mkdir -v ~/.scripts
@@ -43,12 +43,11 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 #ovo treba da instalira sve plug-inove(preko PlugInstall) koje se nalaze u ~/.vimrc
-#nvim +'PlugInstall --sync' +qa
+nvim +'PlugInstall --sync' +qa
 #nvim --headless +PlugInstall +qall
-nvim --headless +PlugInstall +qall
 
 #update new i3-gaps settings
-#sudo i3-msg restart
+sudo i3-msg restart
 
 #!!!!STVARI KOJE USER KOJI INSTALIRA MORA DA URADI: 
 #1. polybar internet speed da se namesti:

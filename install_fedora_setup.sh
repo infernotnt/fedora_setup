@@ -8,6 +8,11 @@ if [[ $EUID > 0 ]]
 then echo "Please run with sudo.(The ONLY way you should is \"sudo ./install_fedora_setup.sh\")"
 	exit
 fi
+
+echo "WARNING: The ONLY way to run this is with sudo, \"sudo ./fedora_setup.sh\"." 
+echo "Make sure you ran it this way."
+sleep 3
+
 USER_HOME=$(getent passwd $SUDO_USER | cut -d: -f6)
 
 #mala dekoracija: terminal ce pocinjati sa necim tipa "milos@fed:$"
@@ -24,9 +29,18 @@ sudo dnf -y install i3-gaps polybar alacritty compton neovim firefox rofi feh gi
 #opciono
 sudo dnf -y install mpv
 
+
+
 sudo mkdir -v $USER_HOME/.config
 sudo mkdir -v $USER_HOME/.scripts
 sudo mkdir -v $USER_HOME/.fonts
+
+#give correct ownership to the folders
+sudo chown -Rv $SUDO_USER $USER_HOME/.config
+sudo chown -Rv $SUDO_USER $USER_HOME/.scripts
+sudo chown -Rv $SUDO_USER $USER_HOME/.fonts
+
+
 
 sudo cp -rvp backup/.config/i3 $USER_HOME/.config/i3
 sudo cp -rvp backup/.config/polybar $USER_HOME/.config/polybar
@@ -53,6 +67,9 @@ nvim +'PlugInstall --sync' +qa
 
 #update new i3-gaps settings
 sudo i3-msg restart
+
+#clean some temporary files
+sudo dnf clean all
 
 #!!!!STVARI KOJE USER KOJI INSTALIRA MORA DA URADI: 
 #1. polybar internet speed da se namesti:

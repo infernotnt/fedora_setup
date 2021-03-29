@@ -55,14 +55,10 @@ sudo fc-cache -f -v
 sudo mkdir -pv $USER_HOME/Pictures/wallpaper
 sudo cp backup/wallpaper $USER_HOME/Pictures/wallpaper
 
+
 #download za vim-plug. vim-plug ti daje da skidas plugin-ove za vim/nvim
 #mozda bez sudo?
-CURRENT_SHELL=$(ps -p $$ -ofname=)
-if [[ CURRENT_SHELL != "bash" ]]
-	then echo "ERROR: This scripts must be ran ONLY through bash" ; exit
-fi
-
-sudo curl -fLo "${XDG_DATA_HOME:-$USER_HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -fLo "${XDG_DATA_HOME:-$USER_HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 #ovo treba da instalira sve plug-inove(preko PlugInstall) koje se nalaze u ~/.vimrc
 nvim +'PlugInstall --sync' +qa

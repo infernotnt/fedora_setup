@@ -61,8 +61,7 @@ sudo cp backup/wallpaper $USER_HOME/Pictures/wallpaper
 sudo -u $SUDO_USER curl -fLo "${XDG_DATA_HOME:-$USER_HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 #ovo treba da instalira sve plug-inove(preko PlugInstall) koje se nalaze u ~/.vimrc
-sudo -u $SUDO_USER nvim +'PlugInstall --sync' +qa
-#nvim --headless +PlugInstall +qall
+sudo -u $SUDO_USER nvim -es -u ${USER_HOME}/.vimrc -i NONE -c "PlugInstall" -c "qa"
 
 #update new i3-gaps settings
 sudo i3-msg restart

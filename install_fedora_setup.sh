@@ -1,4 +1,4 @@
-#!/bin/bash
+aa#!/bin/bash
 
 if [[ $EUID > 0 ]]
 then echo "Please run with sudo.(The ONLY way you should is \"sudo ./install_fedora_setup.sh\")"

@@ -24,7 +24,7 @@ sudo dnf -y remove vim
 sudo dnf -y remove i3
 sudo dnf -y copr enable fuhrmann/i3-gaps; 
 
-sudo dnf -y install i3-gaps polybar alacritty compton neovim firefox rofi feh git youtube-dl cava cmatrix neofetch htop playerctl
+sudo dnf -y install i3-gaps i3lock polybar alacritty compton neovim firefox rofi feh git youtube-dl cava cmatrix neofetch htop playerctl
 #opciono
 sudo dnf -y install mpv
 
@@ -73,3 +73,4 @@ sudo dnf clean all
 #1. polybar internet speed da se namesti:
 #			treba promeniti interface u config file-u polybar-a, znaci odes u ~/.config/polybar/config, nadjes modul za internet i promenis interface u: interface sa komandom:"ip link show", ne mora da znaci da je prvi interface u izlazu te komande, ali tu je vrv
 #2. 
+#3. this is optional, but consider making it so you dont ever have to type the password when doing "sudo X", you can do that by: "sudo visudo", and adding "$USER ALL=(ALL) NOPASSWD: ALL", where $USER is your username to the end of the file.

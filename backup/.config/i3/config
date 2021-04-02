@@ -94,7 +94,7 @@ bindsym $mod+u		exec --no-startup-id "bash ~/.scripts/i3resize down"
 bindsym $mod+i		exec --no-startup-id "bash ~/.scripts/i3resize up"
 bindsym $mod+o		exec --no-startup-id "bash ~/.scripts/i3resize right"
 
-bindsym $mod+semicolon exec i3lock --color "$bg-color"
+bindsym $mod+e exec i3lock --color=116611
 
 # move focused window
 bindsym $mod+$alt+h move left 30

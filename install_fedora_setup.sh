@@ -72,8 +72,13 @@ sudo dnf clean all
 #!!!!STVARI KOJE USER KOJI INSTALIRA MORA DA URADI: 
 #1. polybar internet speed da se namesti:
 #			treba promeniti interface u config file-u polybar-a, znaci odes u ~/.config/polybar/config, nadjes modul za internet i promenis interface u: interface sa komandom:"ip link show", ne mora da znaci da je prvi interface u izlazu te komande, ali tu je vrv
+
 #2. 
+
 #3. optional: but consider making it so you dont ever have to type the password when doing "sudo X", you can do that by: "sudo visudo", and adding "$USER ALL=(ALL) NOPASSWD: ALL", where $USER is your username to the end of the file.
+
 #4. optional: github ssh
+
 #5. optional: .config/git/config email and username set to your own 
+
 #6. optional: the grub2(bootloader) theme, read the README.md

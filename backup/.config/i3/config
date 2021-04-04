@@ -35,9 +35,6 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space mode_toggle
 
 #ne znam sta ovo radi
-bindsym $mod+Escape workspace prev
-
-#ne znam sta ovo radi
 bindsym $mod+p exec --no-startup-id winresize
 
 #ne znam sta ovo radi

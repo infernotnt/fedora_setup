@@ -9,13 +9,13 @@ set $alt Mod1
 #font pango:DejaVu Sans Mono 8
 font pango:System San Francisco Display 8 
 
-set $innerDefault 3
+set $innerDefault 0
 set $outerDefault 0
 gaps inner $innerDefault 
 gaps outer $outerDefault
 
 #wallpaper i window borderi
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 1
 exec_always feh --bg-scale ~/Pictures/wallpaper/wallpaper 
 
 bindsym $mod+Return exec alacritty
@@ -23,8 +23,52 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 bindsym $alt+F4 kill
 
-bindsym $mod+w exec firefox
+bindsym $mod+w exec brave-browser
 bindsym $mod+t split toggle
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused window
+bindsym $mod+$alt+h move left 30
+bindsym $mod+$alt+j move down 30
+bindsym $mod+$alt+k move up 30
+bindsym $mod+$alt+l move right 30
+
+#resize od luke smith-a, you can resize with the mouse(TODO: povecati hitbox?)
+bindsym $mod+y		exec --no-startup-id "bash ~/.scripts/i3resize left"
+bindsym $mod+u		exec --no-startup-id "bash ~/.scripts/i3resize down"
+bindsym $mod+i		exec --no-startup-id "bash ~/.scripts/i3resize up"
+bindsym $mod+o		exec --no-startup-id "bash ~/.scripts/i3resize right"
+
+#NE ZNAM STA OVO RADI
+bindsym $mod+Ctrl+h move workspace to output left
+bindsym $mod+Ctrl+j move workspace to output down
+bindsym $mod+Ctrl+k move workspace to output up
+bindsym $mod+Ctrl+l move workspace to output right
+
+bindsym $mod+e exec i3lock --color=116611
+
+bindsym $mod+f fullscreen toggle
+
+
+# workspace things
+bindsym $mod+Home workspace $ws1
+bindsym $mod+$alt+Home move container to workspace $ws1
+bindsym $mod+End workspace $ws9
+bindsym $mod+$alt+End move container to workspace $ws9
+
+bindsym	$mod+m				workspace prev
+bindsym $mod+comma			workspace next
+
+bindsym $mod+slash			workspace back_and_forth
+
+bindsym $mod+$alt+m			move container to workspace prev
+bindsym $mod+$alt+comma		move container to workspace next
+
 
 #Polybar launch
 exec_always --no-startup-id ~/.config/polybar/scripts/launch.sh
@@ -46,14 +90,7 @@ bindsym $mod+a exec --no-startup-id ddspawn dropdowncalc -f mono:pixelsize=24
 #ne znam sta ovo radi
 bindsym $mod+g workspace prev
 
-#premesti sve contain-ere u workspace-u u drugi workspace
-bindsym $mod+Ctrl+h move workspace to output left
-bindsym $mod+Ctrl+j move workspace to output down
-bindsym $mod+Ctrl+k move workspace to output up
-bindsym $mod+Ctrl+l move workspace to output right
-
-bindsym $mod+f fullscreen toggle
-
+#TODO: Integrate this or one of thi?
 #bindsym $mod+s layout tabbed
 #bindsym $mod+e layout toggle split
 
@@ -85,26 +122,6 @@ bindsym $mod+d exec rofi -show run -matching fuzzy -theme Arc-Dark
 # A more modern dmenu replacement is rofi:
 #bindcode --release 133 exec rofi -modi drun,run -show drun
 
-#resize od luke smith-a
-bindsym $mod+y		exec --no-startup-id "bash ~/.scripts/i3resize left"
-bindsym $mod+u		exec --no-startup-id "bash ~/.scripts/i3resize down"
-bindsym $mod+i		exec --no-startup-id "bash ~/.scripts/i3resize up"
-bindsym $mod+o		exec --no-startup-id "bash ~/.scripts/i3resize right"
-
-bindsym $mod+e exec i3lock --color=116611
-
-# move focused window
-bindsym $mod+$alt+h move left 30
-bindsym $mod+$alt+j move down 30
-bindsym $mod+$alt+k move up 30
-bindsym $mod+$alt+l move right 30
-
-# change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
-
 #restart i3, uradis posle menjanja config file-a da bi promene bile primenjene
 bindsym $mod+r restart
 
@@ -116,19 +133,6 @@ bindsym $mod+$alt+s gaps inner current minus 5
 bindsym $mod+z gaps outer current plus 5
 bindsym $mod+$alt+z gaps outer current minus 5
 
-# workspace stvari
-bindsym $mod+Home workspace $ws1
-bindsym $mod+$alt+Home move container to workspace $ws1
-bindsym $mod+End workspace $ws9
-bindsym $mod+$alt+End move container to workspace $ws9
-
-bindsym	$mod+m				workspace prev
-bindsym $mod+comma			workspace next
-
-bindsym $mod+slash			workspace back_and_forth
-
-bindsym $mod+$alt+m			move container to workspace prev
-bindsym $mod+$alt+comma		move container to workspace next
 
 # WORKSPACE-ovi
 # Define names for default workspaces for which we configure key bindings later on.
@@ -189,3 +193,14 @@ exec setxkbmap -option caps:swapescape
 #zameni levi i desni monitor
 exec xrandr --output DVI-D-0 --left-of HDMI-A-0
 exec_always compton -f -D 4 #compton se koristi za transparentnost rofi-ja, i za smooth tranisiton izmedju stvari -f je za fade
+
+#floating shit calculator
+for_window [instance="dropdown"] floating enable
+for_window [instance="dropdown"] resize set 625 400
+for_window [instance="dropdown"] move position center
+for_window [instance="dropdown"] move scratchpad
+exec --no-startup-id $calc -name dropdown -e tmux
+
+#TODO: U SUSTINI UGASI SAV ZVUK I PREDJE NA NOVI WORKSPACE, DOBRO AKO TI NEKO UDJE U SOBU I OCES DA SAKRIJES STA RADIS ZAPRAVO
+bindsym $mod+Shift+Delte exec $truemute ; exec $truepause ; workspace lmao ; exec $term -e htop ; exec $term -e ranger
+

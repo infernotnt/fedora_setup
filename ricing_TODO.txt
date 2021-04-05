@@ -1,6 +1,5 @@
 transarency, compton, fade
 i3 bindings,
-i3lock
 mozda arc, arc dark, drakula ili kao se vec zove
 
 vsync
@@ -12,3 +11,11 @@ ikone: svi koriste papyrus
 
 shortcut i3 za:
 neka bolja verzija htop(luke smith vrv)(ctrl + alt + delte, ili ctrl + shift + esc mozda)
+
+
+NOVO:----------------------------------------
+tabular view workspace-ova
+
+mozda znak fedore(obojen?) gore desno na polybar ili tako negde
+
+videti why the f je dnf tolko spor na pocetku(non ricing)

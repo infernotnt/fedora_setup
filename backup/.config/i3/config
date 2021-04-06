@@ -1,24 +1,21 @@
-#ako ti baguje mnogo toga probaj da obrises nautilus i koristis neki drugi file explorer
-#koristim rofi(umesto dmenu), mislim(nisam sig) da je on X11 specific, tojest ne moze na wayland, ako si na wayland istrazi
-#koristim compton, za transparacy rofi-ja
-#koristim polybar
+#ako ti baguje mnogo toga probaj da obrises nautilus i koristis neki drugi file explorer, wayland fuck that shit
+#koriste se vim-like key bindings na mnogim mestima(uglavnom h,j,k,l stvari)
+#TODO:? mozda dodati veci border kod file browser windowa zbog toga sto je belo na granicama pa se teze vidi
 set $mod Mod4
 set $alt Mod1
+set $term alacritty
+set $file_browser pcmanfm
 
-#font pango:monospace 8
-#font pango:DejaVu Sans Mono 8
 font pango:System San Francisco Display 8 
 
-set $innerDefault 0
-set $outerDefault 0
-gaps inner $innerDefault 
-gaps outer $outerDefault
+#Super key/ Windows key se upali rofi, vrlo slicno kao na windows 10
+#samo GUI aplikacije
+bindcode --release 133 exec rofi -show drun -matching fuzzy -theme Arc-Dark
+#sve, i konzolne i gui aplikacije
+bindsym $mod+d exec rofi -show run -matching fuzzy -theme Arc-Dark 
+#mozes menjati teme, lista stoji u: /usr/share/rofi/themes
 
-#wallpaper i window borderi
-for_window [class="^.*"] border pixel 1
-exec_always feh --bg-scale ~/Pictures/wallpaper/wallpaper 
-
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec $term
 
 bindsym $mod+Shift+q kill
 bindsym $alt+F4 kill
@@ -38,7 +35,7 @@ bindsym $mod+$alt+j move down 30
 bindsym $mod+$alt+k move up 30
 bindsym $mod+$alt+l move right 30
 
-#resize od luke smith-a, you can resize with the mouse(TODO: povecati hitbox?)
+#resize(luke smith), you can resize with the mouse(TODO: increase hitbox?)
 bindsym $mod+y		exec --no-startup-id "bash ~/.scripts/i3resize left"
 bindsym $mod+u		exec --no-startup-id "bash ~/.scripts/i3resize down"
 bindsym $mod+i		exec --no-startup-id "bash ~/.scripts/i3resize up"
@@ -68,7 +65,7 @@ bindsym $mod+slash			workspace back_and_forth
 
 bindsym $mod+$alt+m			move container to workspace prev
 bindsym $mod+$alt+comma		move container to workspace next
-
+# end of workspace things
 
 #Polybar launch
 exec_always --no-startup-id ~/.config/polybar/scripts/launch.sh
@@ -112,18 +109,23 @@ client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-co
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
 #------------------------------------------------------------------------------------------------------------
 
-#Super key/ Windows key se upali dmenu, vrlo slicno kao na windows 10
-#samo GUI aplikacije
-bindcode --release 133 exec rofi -show drun -matching fuzzy -theme Arc-Dark
-#sve, i konzolne i gui aplikacije
-bindsym $mod+d exec rofi -show run -matching fuzzy -theme Arc-Dark 
-#mozes menjati teme, lista stoji u: /usr/share/rofi/themes
 
 # A more modern dmenu replacement is rofi:
 #bindcode --release 133 exec rofi -modi drun,run -show drun
 
 #restart i3, uradis posle menjanja config file-a da bi promene bile primenjene
 bindsym $mod+r restart
+
+set $innerDefault 0
+set $outerDefault 0
+gaps inner $innerDefault 
+gaps outer $outerDefault
+
+#window border
+for_window [class="^.*"] border pixel 1
+
+#wallpaper
+exec_always feh --bg-scale ~/Pictures/wallpaper/wallpaper 
 
 #gaps
 bindsym $mod+$alt+t gaps inner current set $innerDefault; gaps outer current set $outterDefault
@@ -202,5 +204,5 @@ for_window [instance="dropdown"] move scratchpad
 exec --no-startup-id $calc -name dropdown -e tmux
 
 #TODO: U SUSTINI UGASI SAV ZVUK I PREDJE NA NOVI WORKSPACE, DOBRO AKO TI NEKO UDJE U SOBU I OCES DA SAKRIJES STA RADIS ZAPRAVO
-bindsym $mod+Shift+Delte exec $truemute ; exec $truepause ; workspace lmao ; exec $term -e htop ; exec $term -e ranger
-
+#bindsym $mod+Shift+Delte exec $truemute ; exec $truepause ; workspace lmao ; exec $term -e htop ; exec $term -e ranger
+bindsym $mod+Shift+Delete workspace 2 ; exec $term -e htop ; exec $file_browser

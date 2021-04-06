@@ -19,3 +19,9 @@ tabular view workspace-ova
 mozda znak fedore(obojen?) gore desno na polybar ili tako negde
 
 videti why the f je dnf tolko spor na pocetku(non ricing)
+
+naci i configure file explorer i ikonice lepe staiviti
+zvuk kada se utakne usb
+ona macka kada se pojacava zvuk
+win+e pali file explorer(mora se promeniti keybind za i3lock)
+compton, ovde mozda ima bas mnogo da se gleda, fazon treba da izgleda lepo (one senke i tako neke stvari, slicno sa windows 10)

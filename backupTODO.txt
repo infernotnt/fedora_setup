@@ -1,6 +1,5 @@
 dodati vlc u download?
 backup git config files(update i install)
-stacer u download?
 dodati note da je caps i escape obrnut
 dodati ono sto user treba da promeni
 ono sranje za mute od luke smith

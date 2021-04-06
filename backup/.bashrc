@@ -21,7 +21,8 @@ shopt -s autocd #mozes menjati directory bez cd, npr: asdf = cd asdf
 HISTSIZE= HISTFILESIZE= #beskonacna istorija komandi
 
 alias sudo="sudo " #potrebno da bi sudo radio sa drugim aliasima
-alias d="sudo dnf -y"
+alias d="sudo dnf"
+alias D="sudo dnf -y"
 alias v="nvim -S ~/.vimrc"
 alias nvim="nvim -S ~/.vimrc"
 alias mkdir="mkdir -pv"

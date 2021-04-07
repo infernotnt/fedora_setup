@@ -11,3 +11,7 @@ visual tearing
 
 
 na google drive linux deo spomenuti type, i which
+brave backup mozda?
+ukloniti firefox backup iz onog sranja
+dodati sve ono za wayland (u readme.md?)
+?dodati ono na .gitignore za .ssh za github, i napomenuti u README.md?

@@ -25,3 +25,10 @@ zvuk kada se utakne usb
 ona macka kada se pojacava zvuk
 win+e pali file explorer(mora se promeniti keybind za i3lock)
 compton, ovde mozda ima bas mnogo da se gleda, fazon treba da izgleda lepo (one senke i tako neke stvari, slicno sa windows 10)
+
+smanjiti fade time na comptonu
+customize the shit out of compton
+
+mozda staviti ps1 da bude kao george hotz:
+export PS1="TheNameYouWant\[\e[31m\] \[\e[m\]\[\e[31m\]:\[\e[m\]\[\e[31m\]:\[\e[m\] \[\e[32m\]\w\[\e[m\] \[\e[34m\]»\[\e[m\] "
+

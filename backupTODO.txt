@@ -19,3 +19,7 @@ dodati sve ono za wayland (u readme.md?)
 flux ili redshift, i dodaj u backup i configuruj
 
 dodati u .config/i3 u liniji gde se pali kompton neku malo pomoc, sta raditi sa freesync/gsync sta raiditi sa gaming, i cinjenicu da se koristi vsync itd
+
+dodati zapis negde, jos uvek ne znam gde, mozda cak i na vise mesta, kako sam zamenio caps lock i escape karakter, i mozda jos negde da moze da se koristi "d" i "D" umest "sudo dnf" i "sudo dnf -y", i mozda jos negde spomenuti da se koristi "v" za vim/nvim
+
+spomenuti negde vimtutor, vrv u tutorijalu za vim, ako bas vec stavljas sve te tutorijale i sve to, postaraj se da ne bude kao da su oni main, nego nekako ih skloni sa strane, kao da su relativno nebitni sta ja znam

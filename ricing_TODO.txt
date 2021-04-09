@@ -29,9 +29,6 @@ compton, ovde mozda ima bas mnogo da se gleda, fazon treba da izgleda lepo (one 
 smanjiti fade time na comptonu
 customize the shit out of compton
 
-mozda staviti ps1 da bude kao george hotz:
-export PS1="TheNameYouWant\[\e[31m\] \[\e[m\]\[\e[31m\]:\[\e[m\]\[\e[31m\]:\[\e[m\] \[\e[32m\]\w\[\e[m\] \[\e[34m\]»\[\e[m\] "
-
 spomenuti u readme.md da se ne treba gejmovati sa compositorom, i da moze freesync da se upali??MOZDA
 
 ovo zeleno sranje na Ctrl+T malo promeniti, ne znam kako i sta

@@ -23,3 +23,5 @@ dodati u .config/i3 u liniji gde se pali kompton neku malo pomoc, sta raditi sa 
 dodati zapis negde, jos uvek ne znam gde, mozda cak i na vise mesta, kako sam zamenio caps lock i escape karakter, i mozda jos negde da moze da se koristi "d" i "D" umest "sudo dnf" i "sudo dnf -y", i mozda jos negde spomenuti da se koristi "v" za vim/nvim
 
 spomenuti negde vimtutor, vrv u tutorijalu za vim, ako bas vec stavljas sve te tutorijale i sve to, postaraj se da ne bude kao da su oni main, nego nekako ih skloni sa strane, kao da su relativno nebitni sta ja znam
+
+na google drive za linux, otici i staviti one shortcute da budu najbitniji prvi, i staviti povezanost izmedju engleskog jezika i samog shortcuta da bi se lakse zapamtilo

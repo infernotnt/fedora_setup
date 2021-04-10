@@ -36,3 +36,6 @@ ovo zeleno sranje na Ctrl+T malo promeniti, ne znam kako i sta
 ovo mozda u backup: staviti onako da se brze klikce dugme kad ga drzis, korisno za vim, pogledati one duge videje na jutubu za vim, jedan od njih nesto spominje za to
 
 brave staviti da brzi skroll bude, kao na windowsu
+
+
+dodati neki shit koji moze da skrinsotuje, da selektujes isto, i nesto za wayland gde bi moglo da radi

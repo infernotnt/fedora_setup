@@ -1,0 +1,129 @@
+Vim se prakticno ne moze koristiti ako ne swap-ujes escape i caps lock
+u terminalu za podsecanje: vimtutor
+modovi:--------------------------------------------
+<Escape>, normal mode
+i, insert mode
+a, insert mod u sledecem karakteru
+v, visual mode(select)
+V, visual mode selectuje po redovima
+<Ctrl> + v, visual block, geometrijski select 
+
+--------------------------------------------------------------------------------------
+nacin na koji se veliki broj funkcija u vim-u formatira:
+        
+
+                operator [broj] motion/pokret
+                            
+                            moze i
+
+                      [broj] motion/pokret
+--------------------------------------------------------------------------------------
+
+
+motions/pokreti:--------------------------------------------
+h, j, k, l, levo dole gore desno
+w, word, ode da pocetak sl reci
+W, slicno w
+e, (end)ode na kraj sl. reci
+E, slicno e
+b, (back)rec unazad
+B, slicno b
+$, kraj jeda
+0 / ^, pocetak reda
+%, druga zagrada, npr ako je kursor na (, odnsese te do ), i obrnuto
+*, ode na sledecu instancu te reci(vrv, nzm)
+{ / }, ode do proslog/sledeceg bloka koda
+fX, (find)ode do karaktera X, gde je X bilo koji karakter 
+tX, (to)ode jedan karakter do X
+FX, kao f, samo unazad
+TX, kao t, samo unazad
+;, kod f(find), i t(to), nadje sledecu instancu
+
+10G, (go)ode na 10. liniju
+gg, vrh fajla
+G, dno fajla
+
+KORISNO:
+<Ctrl> + o, proslo jump mesto
+<Ctrl> + i, suprotno od <Ctrl> + o
+
+
+operatori/glagoli:--------------------------------------------
+d, delete(zapravo CUT, moze paste posle)
+c, change(delete i stavi te u instert mode)
+y, yank(copy)
+p, paste
+
+kao operatori, ne znam kakvi su za kombinovanje:
+x, delete character
+r, replace character
+P, paste above
+C, change do kraja reda
+D, delete do kraja reda
+dd, cut line 
+yy, yank line, kopira liniju
+cc, change line 
+A, append na kraj reda
+I, insert pocetak reda
+o, (open) nov red ispod + insert
+O, nov red iznad + insert
+J, spoji 2 reda 
+R, replace mode, ne bas previse korisno
+S, delete ceo red + insert mod
+s, delete char(<x>) + insert mod, ne bas korisno
+
+Search and replace:------------------------------------------
+/asdf, searchuje posle kursora ceo fajl za "asdf", <Enter> da bi mogao da ides kroz nadjenje
+n, sledeci "asdf" u fajlu u istom smeru
+N, sledeci "asdf" u suporotnom smeru
+?asdf, searchuje pre kursora ceo fajl za "asdf", n i N rade suprotno
+
+:s/stara/nova, zameni prvi u toj liniji, :s/stara/nova/g, (g=global), zameni sve u TOJ liniji
+:3,10s/stara/nova/g, replace svih od 3. do 10. reda 
+:%s/stara/nova/g, zameni sve u celom fajlu
+:%s/stara/nova/gc, zameni sve u celom fajlu, trazi confirmaciju(c) na svakom
+
+:set ic, case insensitive
+:set noic, case sensitive
+:set hl is, highlight
+:set nohlsearch, iskljuci highlight
+
+
+
+undo, redo:----------------------
+u, undo
+U, vrati ceo red na najstarije stanje(nzm)
+<Ctrl> + R, redo
+
+jos neke stvari:----------------------
+., ponovi proslu komandu, MOCNOOOOOO
+zz, center cursor
+~ swap case
+<Esc>, cancel command
+
+editor commands:
+:q, quit
+:w, write(save)
+:!q, (quit without save)
+:wq, save and quit
+:w FILE, save u fajl FILE
+:help cmd, daje help, <Ctrl> + d daje sugestije, TAB daje autocomplete 
+<Ctrl+g>, koja linija i koji fajl si
+
+execute spoljanjih komandi u terminalu:
+:!cmd, npr ":!ls"
+
+neki dobri komboi:----------------------
+ctX, dFX, 4dd, 10cc, yy+p, ytX, dTX
+
+
+precice za kucanje editor komandi su iste kao i precice za terminnal
+
+NOVO NOVO NOVO NOVO:------------------------------------------------------------
+-Ctrl+f, (forward) down one page
+-Ctrl+b, (back) up one page
+-TODO: write comments for every line you are writing in .vimrc
+-ne znam sta radi":q(iliti q/, msm da je same thing)
+-Just type & to repeat the last substitution on the current line. You can repeat it on all lines by typing g&
+
+-Repeating macro calls: Just type @@.

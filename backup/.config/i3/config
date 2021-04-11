@@ -194,7 +194,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 #zameni caps lock i escape
-exec setxkbmap -option caps:swapescape 
+exec_always setxkbmap -option caps:swapescape 
 #zameni levi i desni monitor
 exec xrandr --output DVI-D-0 --left-of HDMI-A-0
 exec_always compton --backend glx --unredir-if-possible --vsync opengl-swc #compton se koristi za transparentnost rofi-ja, i za smooth tranisiton izmedju stvari -f je za fade
@@ -210,3 +210,6 @@ exec --no-startup-id $calc -name dropdown -e tmux
 #TODO: U SUSTINI UGASI SAV ZVUK I PREDJE NA NOVI WORKSPACE, DOBRO AKO TI NEKO UDJE U SOBU I OCES DA SAKRIJES STA RADIS ZAPRAVO
 #bindsym $mod+Shift+Delte exec $truemute ; exec $truepause ; workspace lmao ; exec $term -e htop ; exec $term -e ranger
 bindsym $mod+Shift+Delete workspace 2 ; exec $term -e htop ; exec $file_browser
+#TODO exec vs exec_always
+#makes key repeat faster TODO, bolji opis jer nije samo key repeat nego ima i neko drugo sranje to se sve moze naci u onom videu na jutubu
+exec_always xset r rate 300 25

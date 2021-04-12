@@ -18,14 +18,18 @@ bindcode --release 133 exec rofi -show drun -matching fuzzy -theme Arc-Dark
 bindsym $mod+d exec rofi -show run -matching fuzzy -theme Arc-Dark 
 
 # Opens terminal
-bindsym $mod+Return exec $term
+bindsym $mod+Return exec --no-startup-id $term
 
 # Kills the currently focused window
-bindsym $mod+Shift+q kill #TODO: consider the luke smith shit
+# TODO: consider the luke smith shit(maybe its good for scratchpads??)
+bindsym $mod+Shift+d kill 
 bindsym $alt+F4 kill
 
-# Turns on the preffered web browser
+# Opens the preffered web browser
 bindsym $mod+w exec $browser
+
+# Opens the preffered file browser
+bindsym $mod+e exec $file_browser
 
 # Changes in which orientation a new window will open(horizontal/vertical)
 bindsym $mod+t split toggle
@@ -81,11 +85,10 @@ for_window [instance="dropdown"] border pixel 2
 #bindsym $mod+Ctrl+k move workspace to output up
 #bindsym $mod+Ctrl+l move workspace to output right
 
-# Lock the current screen
+# Lock the screen
 # NOTE: this is not 100% secure, it can be bypassed if you try
 # NOTE: no encryption is used
-#TODO, staviti da je na mod+e file explorer(zbog toga sto je isti shortcut na windows 10), lock premestiti na nesto drugo
-bindsym $mod+e exec i3lock --color=116611
+bindsym $mod+x exec i3lock --color=116611
 
 # Makes the currently focused window fullscreen
 bindsym $mod+f fullscreen toggle
@@ -234,7 +237,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-# Swap caps lock and escape buttons on your keyboard
+# Swap caps lock and escape buttons on your keyboard (very handy for everything, especially for vim)
 exec_always --no-startup-id setxkbmap -option caps:swapescape 
 # Makes key repeat faster TODO, bolji opis jer nije samo key repeat nego ima i neko drugo sranje to se sve moze naci u onom videu na jutubu
 exec_always --no-startup-id xset r rate 300 25
@@ -242,11 +245,12 @@ exec_always --no-startup-id xset r rate 300 25
 exec --no-startup-id xrandr --output DVI-D-0 --left-of HDMI-A-0
 
 # Compton, used for vsync, transparency and stuff
-# NOTE: might impact GAMING performance, usefull video: https://www.youtube.com/watch?v=3esPpe-fclIe
-exec_always --no-startup-id compton --backend glx --unredir-if-possible --vsync opengl-swc #compton se koristi za transparentnost rofi-ja, i za smooth tranisiton izmedju stvari -f je za fade
-#exec_always compton -f -D 4
+# NOTE: compton might impact GAMING performance, usefull video: https://www.youtube.com/watch?v=3esPpe-fclIe
+exec_always killall compton
+# TODO: ukloniti ovo, wtf se desava exec_always sleep 1
+exec_always --no-startup-id compton -f -D 2 --backend glx --unredir-if-possible --vsync opengl-swc #compton se koristi za transparentnost rofi-ja, i za smooth tranisiton izmedju stvari -f je za fade
 
 #TODO: U SUSTINI UGASI SAV ZVUK I PREDJE NA NOVI WORKSPACE, DOBRO AKO TI NEKO UDJE U SOBU I OCES DA SAKRIJES STA RADIS ZAPRAVO
 #bindsym $mod+Shift+Delte exec $truemute ; exec $truepause ; workspace lmao ; exec $term -e htop ; exec $term -e ranger
-# Disables all sound, moves to a new workspace and opens innocent programs
-bindsym $mod+Shift+Delete workspace $wslmao ; exec $term -e htop ; exec $file_browser
+# Disables all sound, moves to a new workspace and opens innocent looking programs
+bindsym $mod+Shift+Delete workspace $wslmao ; exec --no-startup-id $term -e htop ; exec --no-startup-id $file_browser

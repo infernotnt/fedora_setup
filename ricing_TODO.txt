@@ -51,3 +51,7 @@ vim plugin za i3config, mozes ga ukloniti posle main setup shit
 note taking with markdown, mozda uradi integraziju sa google drive ili google notes, ako to radis stavi ta google spieware sranja u neki container ili tako nesto: https://www.youtube.com/watch?v=zB_3FIGRWRU
 
 na brave-browseru bookmark folder "vim"
+
+premestiti polybar skripte u ~/.scripts
+
+dodati da se moze menjati tastatura, shorcut isti kao na windows 10 (dodati srpsku latinicu i cirilicu kao default i ./install_fedora_setup.sh?)

@@ -10,3 +10,12 @@
 -For a nice looking boot loader(a grub2 sekiro theme) do "git clone https://github.com/infernotnt/sekiro_grub_theme.git"
 
 -Compositor tutorial(applies only to X11): https://www.youtube.com/watch?v=3esPpe-fclI
+
+-Shortcuts(TODO):
+-Mod + W			- web browser (default: brave) (w=web)
+-Mod + Enter		- terminal (default: alacritty)
+-Mod + Shift + d		- kill currently focused window (vim-like) (d=delete)
+-Mod + h/j/k/l		- focus the left/down/up/right window (vim-like)
+-Mod + Ctrl + h/j/k/l	- move the focused window to the left/down/up/right (vim-like)
+TODO: -Mod + Alt + h/j/k/l	- resize the window to the left/down/up/right window (vim-like)
+-Mod + s			- lock the screen. NOT REALLY SECURE, CAN BE BYPASSED. ALSO NO ENCRYPTION USED (s=secure)

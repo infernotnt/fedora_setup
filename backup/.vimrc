@@ -1,3 +1,15 @@
+"do ":so%" after changing the config file to reflect the changes(only works in this file) light or dark theme
+set bg=dark
+
+" make vim share the copy-paste clipboard with the system
+set clipboard=unnamedplus
+vnoremap <C-c> "+y
+map <C-p> "+P
+
+" Replace all globaly is aliased to R(R has a default bind which is unbound, you really need the default R, bind the replace to S)
+nnoremap R :%s//g<left><left>
+
+
 " set the tab length in spaces
 set tabstop=10 softtabstop=10
 " auto indentation on new line
@@ -11,7 +23,16 @@ set shiftwidth=5
 " automatski pretvara tabove u space-ove, i mozda autoindentation isto pravi
 " space-ove umesto tabova
 
+"idk, maybe put "set autoindent" insead of this??
 set smartindent
+
+syntax on
+
+" (default on)
+set ruler
+
+set wildmode=longest,list,full
+
 
 " something for having seperate .vimrc for every project(that has a .vimrc in
 " it), usefull for having specific vim configs for each project
@@ -24,7 +45,7 @@ set smartindent
 set relativenumber
 
 " disables highlighting on every search(/)(PREFERENCE)
-set nohlsearch
+set hlsearch
 
 " idk, something for saving buffers
 set hidden
@@ -89,4 +110,8 @@ call plug#end()
 " colorscheme
 colorscheme gruvbox
 
-highlight normal guibg=none
+" idk, i think it makes the background more like the usual terminal background(maby transparency too?)
+"highlight normal guibg=none
+
+"if you are using windows, consider the command "set nocompatible"
+" TODO: Automatically deletes all trailing whitespaces on save

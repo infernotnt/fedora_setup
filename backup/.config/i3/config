@@ -18,7 +18,7 @@ bindsym $mod+d exec rofi -show run -matching fuzzy -theme Arc-Dark
 
 bindsym $mod+Return exec $term
 
-bindsym $mod+Shift+q kill
+bindsym $mod+Shift+q kill #TODO: consider the luke smith shit
 bindsym $alt+F4 kill
 
 bindsym $mod+w exec brave-browser
@@ -44,12 +44,42 @@ bindsym $mod+Ctrl+j		exec --no-startup-id "bash ~/.scripts/i3resize down"
 bindsym $mod+Ctrl+k		exec --no-startup-id "bash ~/.scripts/i3resize up"
 bindsym $mod+Ctrl+l		exec --no-startup-id "bash ~/.scripts/i3resize right"
 
+#dodati da se floating window moze misem pomerati
+#------------------------------------------------------------------------------------------
+
+bindsym $mod+Shift+space floating toggle
+
+#todo, maybe use speedcrunch, maybe use python?
+for_window [title="kita"] floating enable
+#exec_always --no-startup-id $term --title calc
+exec_always --no-startup-id $term --title kita
+bindsym $mod+u [title="kita"] scratchpad show
+#[instance="dropdown"] move position center
+
+for_window [instance="dropdown"] floating enable
+for_window [instance="dropdown"] resize set 800 300
+for_window [instance="dropdown"] move scratchpad
+#for_window [instance="dropdown"] sticky enable
+#for_window [instance="dropdown"] scratchpad show
+for_window [instance="dropdown"] border pixel 2
+#for_window [instance="dropdown"] move position center
+#exec_always --no-startup-id $term --title dropdown
+
+#------------------------------------------------------------------------------------------------
+
+#bindsym $mod+q			[con_id="__focused__" instance="^(?!dropdown_).*$"] kill
+#bindsym $mod+Shift+q		[con_id="__focused__" instance="^(?!dropdown_).*$"] exec --no-startup-id kill -9 `xdotool getwindowfocus getwindowpid`
+
+
+
+
 #NE ZNAM STA OVO RADI, (PREBACITI UMSETO CTRL NA SHIFT!!!!)
 #bindsym $mod+Ctrl+h move workspace to output left
 #bindsym $mod+Ctrl+j move workspace to output down
 #bindsym $mod+Ctrl+k move workspace to output up
 #bindsym $mod+Ctrl+l move workspace to output right
 
+#TODO, staviti da je na mod+e file explorer(zbog toga sto je isti shortcut na windows 10), lock premestiti na nesto drugo
 bindsym $mod+e exec i3lock --color=116611
 
 bindsym $mod+f fullscreen toggle
@@ -79,7 +109,7 @@ exec_always --no-startup-id ~/.config/polybar/scripts/launch.sh
 #bindsym $mod+space mode_toggle
 
 #ne znam sta ovo radi
-bindsym $mod+p exec --no-startup-id winresize
+#bindsym $mod+p exec --no-startup-id winresize
 
 #ne znam sta ovo radi
 bindsym $mod+$alt+o sticky toggle
@@ -113,9 +143,6 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 #------------------------------------------------------------------------------------------------------------
 
 
-# A more modern dmenu replacement is rofi:
-#bindcode --release 133 exec rofi -modi drun,run -show drun
-
 #restart i3, uradis posle menjanja config file-a da bi promene bile primenjene
 bindsym $mod+r restart
 
@@ -128,7 +155,7 @@ gaps outer $outerDefault
 for_window [class="^.*"] border pixel 1
 
 #wallpaper
-exec_always feh --bg-scale ~/Pictures/wallpaper/wallpaper 
+exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper/wallpaper 
 
 #gaps
 bindsym $mod+$alt+t gaps inner current set $innerDefault; gaps outer current set $outterDefault
@@ -151,6 +178,7 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
+set $wslmao "0"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -162,6 +190,7 @@ bindsym $mod+6 workspace number $ws6
 bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $wslmao
 
 # move focused container to workspace
 bindsym $mod+$alt+1 move container to workspace number $ws1
@@ -173,6 +202,7 @@ bindsym $mod+$alt+6 move container to workspace number $ws6
 bindsym $mod+$alt+7 move container to workspace number $ws7
 bindsym $mod+$alt+8 move container to workspace number $ws8
 bindsym $mod+$alt+9 move container to workspace number $ws9
+bindsym $mod+$alt+0 move container to workspace number $wslmao
 
 #ovo ispod ne znam sta je dosta toga
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
@@ -194,22 +224,14 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 #zameni caps lock i escape
-exec_always setxkbmap -option caps:swapescape 
+exec_always --no-startup-id setxkbmap -option caps:swapescape 
+#makes key repeat faster TODO, bolji opis jer nije samo key repeat nego ima i neko drugo sranje to se sve moze naci u onom videu na jutubu
+exec_always --no-startup-id xset r rate 300 25
 #zameni levi i desni monitor
-exec xrandr --output DVI-D-0 --left-of HDMI-A-0
-exec_always compton --backend glx --unredir-if-possible --vsync opengl-swc #compton se koristi za transparentnost rofi-ja, i za smooth tranisiton izmedju stvari -f je za fade
+exec --no-startup-id xrandr --output DVI-D-0 --left-of HDMI-A-0
+exec_always --no-startup-id compton --backend glx --unredir-if-possible --vsync opengl-swc #compton se koristi za transparentnost rofi-ja, i za smooth tranisiton izmedju stvari -f je za fade
 #exec_always compton -f -D 4
-
-#floating shit calculator
-for_window [instance="dropdown"] floating enable
-for_window [instance="dropdown"] resize set 625 400
-for_window [instance="dropdown"] move position center
-for_window [instance="dropdown"] move scratchpad
-exec --no-startup-id $calc -name dropdown -e tmux
 
 #TODO: U SUSTINI UGASI SAV ZVUK I PREDJE NA NOVI WORKSPACE, DOBRO AKO TI NEKO UDJE U SOBU I OCES DA SAKRIJES STA RADIS ZAPRAVO
 #bindsym $mod+Shift+Delte exec $truemute ; exec $truepause ; workspace lmao ; exec $term -e htop ; exec $term -e ranger
-bindsym $mod+Shift+Delete workspace 2 ; exec $term -e htop ; exec $file_browser
-#TODO exec vs exec_always
-#makes key repeat faster TODO, bolji opis jer nije samo key repeat nego ima i neko drugo sranje to se sve moze naci u onom videu na jutubu
-exec_always xset r rate 300 25
+bindsym $mod+Shift+Delete workspace $wslmao ; exec $term -e htop ; exec $file_browser

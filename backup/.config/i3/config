@@ -131,27 +131,32 @@ bindsym $mod+g workspace prev
 #bindsym $mod+e layout toggle split
 
 #------------------------------------------------------------------------
-#ovo sam samo copy paste-ovao, uzmi modifikuj, npr sive granice, plave kad je fokus, malo plavlje sa one strane gde ide nov prozor, ukloniti mozda crvenilo na prozoru(ostaviti na workspace) kada stigne notifikacija, workspace boje i okvir workspace dole boje
-#set $bg-color 	         #3050ffff
-set $bg-color 	         #3c6eb4ff
-#set $bg-color 	         #294172ff
-set $inactive-bg-color   #2f343f
-set $text-color          #888888
-set $inactive-text-color #888888
-set $urgent-bg-color     #ff0000
+# Active window border color (the color is taken from fedora 2021 logo)
+set $active-bg-color             #3c6eb4ff
+# Inactive window border color
+set $inactive-bg-color           #2f343f
+set $text-color                  #888888
+set $inactive-text-color         #888888
+set $urgent-bg-color             #ff0000
+# Indicator on active window color (indicator is used for showing where a new widnow will spawn) (green option: #3caa34cc)
+set $indicator-active-color      #aaaa34cc
+# Indicator on inactive window color (indicator is used for showing where a new widnow will spawn)(in this case the color is the same as if there was not indicator)
+set $indicator-inactive-color    #2f343f
 
 # window colors
 #                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $text-color          #00ff00
-client.unfocused        $inactive-bg-color	$inactive-bg-color $inactive-text-color #00ff00
-client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
+client.focused          $active-bg-color    $active-bg-color   $text-color          $indicator-active-color
+client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $indicator-inactive-color
+client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $indicator-inactive-color
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $indicator-inactive-color
 #------------------------------------------------------------------------------------------------------------
 
 
-#restart i3, uradis posle menjanja config file-a da bi promene bile primenjene
+
+# Restarts i3, use after changing (and saving) the config file for i3
 bindsym $mod+r restart
 
+# Default gaps stuff
 set $innerDefault 0
 set $outerDefault 0
 gaps inner $innerDefault 
@@ -236,10 +241,12 @@ exec_always --no-startup-id xset r rate 300 25
 # Orients 2 monitors correctly (probably specific to my setup)
 exec --no-startup-id xrandr --output DVI-D-0 --left-of HDMI-A-0
 
-# Compton(TODO: dodaj onaj link za gaming ovde)
+# Compton, used for vsync, transparency and stuff
+# NOTE: might impact GAMING performance, usefull video: https://www.youtube.com/watch?v=3esPpe-fclIe
 exec_always --no-startup-id compton --backend glx --unredir-if-possible --vsync opengl-swc #compton se koristi za transparentnost rofi-ja, i za smooth tranisiton izmedju stvari -f je za fade
 #exec_always compton -f -D 4
 
 #TODO: U SUSTINI UGASI SAV ZVUK I PREDJE NA NOVI WORKSPACE, DOBRO AKO TI NEKO UDJE U SOBU I OCES DA SAKRIJES STA RADIS ZAPRAVO
 #bindsym $mod+Shift+Delte exec $truemute ; exec $truepause ; workspace lmao ; exec $term -e htop ; exec $term -e ranger
+# Disables all sound, moves to a new workspace and opens innocent programs
 bindsym $mod+Shift+Delete workspace $wslmao ; exec $term -e htop ; exec $file_browser

@@ -5,32 +5,38 @@
 set $mod Mod4
 set $alt Mod1
 set $term alacritty
+set $browser brave-browser
 set $file_browser pcmanfm
 
 font pango:System San Francisco Display 8 
 
-#Super key/ Windows key se upali rofi, vrlo slicno kao na windows 10
-#samo GUI aplikacije
+# Super key enables rofi. What follows is similar to what happens when you press the Super/Windows key on Windows 10
+# You can change rofi themes. The list is in /usr/share/rofi/themes
+# Gui programs only
 bindcode --release 133 exec rofi -show drun -matching fuzzy -theme Arc-Dark
-#sve, i konzolne i gui aplikacije
+# Console and gui programs
 bindsym $mod+d exec rofi -show run -matching fuzzy -theme Arc-Dark 
-#mozes menjati teme, lista stoji u: /usr/share/rofi/themes
 
+# Opens terminal
 bindsym $mod+Return exec $term
 
+# Kills the currently focused window
 bindsym $mod+Shift+q kill #TODO: consider the luke smith shit
 bindsym $alt+F4 kill
 
-bindsym $mod+w exec brave-browser
+# Turns on the preffered web browser
+bindsym $mod+w exec $browser
+
+# Changes in which orientation a new window will open(horizontal/vertical)
 bindsym $mod+t split toggle
 
-# change focus
+# Change focus(vim-like)
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# move focused window
+# Move focused window(vim-like)
 bindsym $mod+$alt+h move left 30
 bindsym $mod+$alt+j move down 30
 bindsym $mod+$alt+k move up 30
@@ -38,7 +44,7 @@ bindsym $mod+$alt+l move right 30
 
 #bindsym $mod+space 
 
-#resize(luke smith), you can resize with the mouse(TODO: increase hitbox?)
+# Resize currently focused window(TODO: Increase hitbox)
 bindsym $mod+Ctrl+h		exec --no-startup-id "bash ~/.scripts/i3resize left"
 bindsym $mod+Ctrl+j		exec --no-startup-id "bash ~/.scripts/i3resize down"
 bindsym $mod+Ctrl+k		exec --no-startup-id "bash ~/.scripts/i3resize up"
@@ -47,6 +53,7 @@ bindsym $mod+Ctrl+l		exec --no-startup-id "bash ~/.scripts/i3resize right"
 #dodati da se floating window moze misem pomerati
 #------------------------------------------------------------------------------------------
 
+# Make the currently focused window floating
 bindsym $mod+Shift+space floating toggle
 
 #todo, maybe use speedcrunch, maybe use python?
@@ -67,11 +74,6 @@ for_window [instance="dropdown"] border pixel 2
 
 #------------------------------------------------------------------------------------------------
 
-#bindsym $mod+q			[con_id="__focused__" instance="^(?!dropdown_).*$"] kill
-#bindsym $mod+Shift+q		[con_id="__focused__" instance="^(?!dropdown_).*$"] exec --no-startup-id kill -9 `xdotool getwindowfocus getwindowpid`
-
-
-
 
 #NE ZNAM STA OVO RADI, (PREBACITI UMSETO CTRL NA SHIFT!!!!)
 #bindsym $mod+Ctrl+h move workspace to output left
@@ -79,19 +81,23 @@ for_window [instance="dropdown"] border pixel 2
 #bindsym $mod+Ctrl+k move workspace to output up
 #bindsym $mod+Ctrl+l move workspace to output right
 
+# Lock the current screen
+# NOTE: this is not 100% secure, it can be bypassed if you try
+# NOTE: no encryption is used
 #TODO, staviti da je na mod+e file explorer(zbog toga sto je isti shortcut na windows 10), lock premestiti na nesto drugo
 bindsym $mod+e exec i3lock --color=116611
 
+# Makes the currently focused window fullscreen
 bindsym $mod+f fullscreen toggle
 
 
-# workspace things
+# Workspace stuff
 bindsym $mod+Home workspace $ws1
 bindsym $mod+$alt+Home move container to workspace $ws1
 bindsym $mod+End workspace $ws9
 bindsym $mod+$alt+End move container to workspace $ws9
 
-bindsym	$mod+m				workspace prev
+bindsym $mod+m				workspace prev
 bindsym $mod+comma			workspace next
 
 bindsym $mod+slash			workspace back_and_forth
@@ -151,13 +157,13 @@ set $outerDefault 0
 gaps inner $innerDefault 
 gaps outer $outerDefault
 
-#window border
-for_window [class="^.*"] border pixel 1
+# Window border (1 pixel is more aesthetic but less practical)
+for_window [class="^.*"] border pixel 2
 
-#wallpaper
+# Wallpaper
 exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper/wallpaper 
 
-#gaps
+# Gaps stuff
 bindsym $mod+$alt+t gaps inner current set $innerDefault; gaps outer current set $outterDefault
 bindsym $mod+$alt+d gaps inner current set 0; gaps outer current set 0
 bindsym $mod+s gaps inner current plus 5
@@ -223,12 +229,14 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-#zameni caps lock i escape
+# Swap caps lock and escape buttons on your keyboard
 exec_always --no-startup-id setxkbmap -option caps:swapescape 
-#makes key repeat faster TODO, bolji opis jer nije samo key repeat nego ima i neko drugo sranje to se sve moze naci u onom videu na jutubu
+# Makes key repeat faster TODO, bolji opis jer nije samo key repeat nego ima i neko drugo sranje to se sve moze naci u onom videu na jutubu
 exec_always --no-startup-id xset r rate 300 25
-#zameni levi i desni monitor
+# Orients 2 monitors correctly (probably specific to my setup)
 exec --no-startup-id xrandr --output DVI-D-0 --left-of HDMI-A-0
+
+# Compton(TODO: dodaj onaj link za gaming ovde)
 exec_always --no-startup-id compton --backend glx --unredir-if-possible --vsync opengl-swc #compton se koristi za transparentnost rofi-ja, i za smooth tranisiton izmedju stvari -f je za fade
 #exec_always compton -f -D 4
 

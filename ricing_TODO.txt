@@ -45,3 +45,11 @@ KUL IDEJA, ne znam da li ikad treba ovo uraditi ali eto nek stoji na nekoj listi
 ako ostavim window bordere na 2 pixela, ono zeleno sranje sto pokazuje kada sam splitovao window treba da bude samo 1 pixel siroko, iako su generalno borderi 2 pixela
 
 mozda staviti da se kalkulator pali na Super+C, i da ne bude ono luke smith sranje jer mozda bude upaljen u pozadini tad, proveri
+
+dodati da ti ispise sve odma posle 1 tab
+
+vim plugin za i3config, mozes ga ukloniti posle main setup shit
+
+note taking with markdown: https://www.youtube.com/watch?v=zB_3FIGRWRU
+
+na brave-browseru bookmark folder "vim"

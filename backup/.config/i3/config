@@ -41,54 +41,46 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # Move focused window(vim-like)
-bindsym $mod+$alt+h move left 30
-bindsym $mod+$alt+j move down 30
-bindsym $mod+$alt+k move up 30
-bindsym $mod+$alt+l move right 30
+bindsym $mod+Ctrl+h move left 30
+bindsym $mod+Ctrl+j move down 30
+bindsym $mod+Ctrl+k move up 30
+bindsym $mod+Ctrl+l move right 30
 
 #bindsym $mod+space 
 
 # Resize currently focused window(TODO: Increase hitbox)
-bindsym $mod+Ctrl+h		exec --no-startup-id "bash ~/.scripts/i3resize left"
-bindsym $mod+Ctrl+j		exec --no-startup-id "bash ~/.scripts/i3resize down"
-bindsym $mod+Ctrl+k		exec --no-startup-id "bash ~/.scripts/i3resize up"
-bindsym $mod+Ctrl+l		exec --no-startup-id "bash ~/.scripts/i3resize right"
+bindsym $mod+$alt+h		exec --no-startup-id "bash ~/.scripts/i3resize left"
+bindsym $mod+$alt+j		exec --no-startup-id "bash ~/.scripts/i3resize down"
+bindsym $mod+$alt+k		exec --no-startup-id "bash ~/.scripts/i3resize up"
+bindsym $mod+$alt+l		exec --no-startup-id "bash ~/.scripts/i3resize right"
 
-#dodati da se floating window moze misem pomerati
-#------------------------------------------------------------------------------------------
+# TODO: dodati da se floating window moze misem pomerati
 
 # Make the currently focused window floating
 bindsym $mod+Shift+space floating toggle
 
+#------------------------------------------------------------------------------------------
 #todo, maybe use speedcrunch, maybe use python?
-for_window [title="kita"] floating enable
-#exec_always --no-startup-id $term --title calc
-exec_always --no-startup-id $term --title kita
-bindsym $mod+u [title="kita"] scratchpad show
-#[instance="dropdown"] move position center
+exec_always --no-startup-id $term --title dropcalc
 
-for_window [instance="dropdown"] floating enable
-for_window [instance="dropdown"] resize set 800 300
-for_window [instance="dropdown"] move scratchpad
-#for_window [instance="dropdown"] sticky enable
-#for_window [instance="dropdown"] scratchpad show
-for_window [instance="dropdown"] border pixel 2
-#for_window [instance="dropdown"] move position center
-#exec_always --no-startup-id $term --title dropdown
+for_window [title="dropcalc"] floating enable
+for_window [title="dropcalc"] move scratchpad
+for_window [title="dropcalc"] resize set 800 300
+for_window [title="dropcalc"] border pixel 2
 
+bindsym $mod+u [title="dropcalc"] scratchpad show; [title="dropdown"] move position center
 #------------------------------------------------------------------------------------------------
 
-
 #NE ZNAM STA OVO RADI, (PREBACITI UMSETO CTRL NA SHIFT!!!!)
-#bindsym $mod+Ctrl+h move workspace to output left
-#bindsym $mod+Ctrl+j move workspace to output down
-#bindsym $mod+Ctrl+k move workspace to output up
-#bindsym $mod+Ctrl+l move workspace to output right
+#bindsym $mod+Shift+h move workspace to output left
+#bindsym $mod+Shift+j move workspace to output down
+#bindsym $mod+Shift+k move workspace to output up
+#bindsym $mod+Shift+l move workspace to output right
 
 # Lock the screen
 # NOTE: this is not 100% secure, it can be bypassed if you try
 # NOTE: no encryption is used
-bindsym $mod+x exec i3lock --color=116611
+bindsym $mod+s exec i3lock --color=116611
 
 # Makes the currently focused window fullscreen
 bindsym $mod+f fullscreen toggle
@@ -174,8 +166,8 @@ exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper/wallpaper
 # Gaps stuff
 bindsym $mod+$alt+t gaps inner current set $innerDefault; gaps outer current set $outterDefault
 bindsym $mod+$alt+d gaps inner current set 0; gaps outer current set 0
-bindsym $mod+s gaps inner current plus 5
-bindsym $mod+$alt+s gaps inner current minus 5
+bindsym $mod+v gaps inner current plus 5
+bindsym $mod+$alt+v gaps inner current minus 5
 bindsym $mod+z gaps outer current plus 5
 bindsym $mod+$alt+z gaps outer current minus 5
 

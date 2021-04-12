@@ -50,6 +50,6 @@ dodati da ti ispise sve odma posle 1 tab
 
 vim plugin za i3config, mozes ga ukloniti posle main setup shit
 
-note taking with markdown: https://www.youtube.com/watch?v=zB_3FIGRWRU
+note taking with markdown, mozda uradi integraziju sa google drive ili google notes, ako to radis stavi ta google spieware sranja u neki container ili tako nesto: https://www.youtube.com/watch?v=zB_3FIGRWRU
 
 na brave-browseru bookmark folder "vim"

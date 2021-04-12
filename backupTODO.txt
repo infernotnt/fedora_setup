@@ -31,3 +31,5 @@ dodati negde:"xset r rate 300 25", sluzi da key repeat i delay until repeat budu
 dodati xset r rate 300 25 mozda van i3 configa nego ovako u nesto sto se pokrene pri pokretanju sistema, npr .xresources ili tako nesto
 
 dodati u git komande onaj shit koji je kao "man git" ali kao za human ljude kojima ne treba svaka jebena komanda detaljno
+
+dodati neki deo za windows 10 reccomendation, umzi sad kad budes to pisao na primer i nadji na guglu krsa toga o tome, za sad sam cuo da AUTOHOTKEY pomaze

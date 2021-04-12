@@ -61,14 +61,20 @@ bindsym $mod+Shift+space floating toggle
 
 #------------------------------------------------------------------------------------------
 #todo, maybe use speedcrunch, maybe use python?
-exec_always --no-startup-id $term --title dropcalc
+#exec_always --no-startup-id $term --title dropcalc
 
-for_window [title="dropcalc"] floating enable
-for_window [title="dropcalc"] move scratchpad
-for_window [title="dropcalc"] resize set 800 300
-for_window [title="dropcalc"] border pixel 2
+#for_window [title="dropcalc"] floating enable
+#for_window [title="dropcalc"] move scratchpad
+#for_window [title="dropcalc"] resize set 800 300
+#for_window [title="dropcalc"] border pixel 2
+#
+#bindsym $mod+u [title="dropcalc"] scratchpad show; [title="dropdown"] move position center
+#
+#bindsym $mod+i exec --no-startup-id $term --title calc
+#for_window [title="calc"] floating enable
+#for_window [title="calc"] resize set 800 300
+#for_window [title="calc"] border pixel 2
 
-bindsym $mod+u [title="dropcalc"] scratchpad show; [title="dropdown"] move position center
 #------------------------------------------------------------------------------------------------
 
 #NE ZNAM STA OVO RADI, (PREBACITI UMSETO CTRL NA SHIFT!!!!)
@@ -239,7 +245,8 @@ exec --no-startup-id xrandr --output DVI-D-0 --left-of HDMI-A-0
 # Compton, used for vsync, transparency and stuff
 # NOTE: compton might impact GAMING performance, usefull video: https://www.youtube.com/watch?v=3esPpe-fclIe
 exec_always killall compton
-# TODO: ukloniti ovo, wtf se desava exec_always sleep 1
+# TODO: ukloniti ovo, wtf se desava 
+exec_always sleep 1
 exec_always --no-startup-id compton -f -D 2 --backend glx --unredir-if-possible --vsync opengl-swc #compton se koristi za transparentnost rofi-ja, i za smooth tranisiton izmedju stvari -f je za fade
 
 #TODO: U SUSTINI UGASI SAV ZVUK I PREDJE NA NOVI WORKSPACE, DOBRO AKO TI NEKO UDJE U SOBU I OCES DA SAKRIJES STA RADIS ZAPRAVO

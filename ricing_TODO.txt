@@ -31,8 +31,6 @@ customize the shit out of compton
 
 spomenuti u readme.md da se ne treba gejmovati sa compositorom, i da moze freesync da se upali??MOZDA
 
-ovo zeleno sranje na Ctrl+T malo promeniti, ne znam kako i sta
-
 ovo mozda u backup: staviti onako da se brze klikce dugme kad ga drzis, korisno za vim, pogledati one duge videje na jutubu za vim, jedan od njih nesto spominje za to
 
 brave staviti da brzi skroll bude, kao na windowsu

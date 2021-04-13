@@ -44,3 +44,8 @@ alias term="exec alacritty&"
 #luke smith PS1: export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
 #PS1='-> '
 export PS1=" \u\[\e[31m\] \[\e[m\]\[\e[31m\]:\[\e[m\]\[\e[31m\]:\[\e[m\] \[\e[32m\]\w\[\e[m\] \[\e[34m\]»\[\e[m\] "
+
+
+# Just some small conviniences
+alias cfi="nvim .config/i3/config"
+alias cfv="nvim .vimrc"

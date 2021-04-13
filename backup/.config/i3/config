@@ -124,7 +124,8 @@ bindsym $mod+$alt+o sticky toggle
 #TODO: namesti da ovo radi, izmeni celu komandu ako treba
 bindsym $mod+a exec --no-startup-id ddspawn dropdowncalc -f mono:pixelsize=24
 
-#ne znam sta ovo radi
+#ne znam sta ovo radi(prev!= preview nego previous?)
+#TODO: mozda dodati keybind za next and preview workspace?, slicno kao u windows 10, mozda  cak i prakticnije od back and forth
 bindsym $mod+g workspace prev
 
 #TODO: Integrate this or one of thi?
@@ -245,7 +246,7 @@ exec --no-startup-id xrandr --output DVI-D-0 --left-of HDMI-A-0
 # Compton, used for vsync, transparency and stuff
 # NOTE: compton might impact GAMING performance, usefull video: https://www.youtube.com/watch?v=3esPpe-fclIe
 exec_always killall compton
-# TODO: ukloniti ovo, wtf se desava 
+# TODO: ukloniti ovo, wtf se desava, takodje: iz nekog razloga kad se pali kompjuter compton ne radi kako treba, a kad uradim Mod+R posle paljenja proradi?(ovo je mozda do ovog sleep 1 i zapravo mi se sve cini)
 exec_always sleep 1
 exec_always --no-startup-id compton -f -D 2 --backend glx --unredir-if-possible --vsync opengl-swc #compton se koristi za transparentnost rofi-ja, i za smooth tranisiton izmedju stvari -f je za fade
 

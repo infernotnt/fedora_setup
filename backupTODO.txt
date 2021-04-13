@@ -35,3 +35,7 @@ dodati u git komande onaj shit koji je kao "man git" ali kao za human ljude koji
 dodati neki deo za windows 10 reccomendation, umzi sad kad budes to pisao na primer i nadji na guglu krsa toga o tome, za sad sam cuo da AUTOHOTKEY pomaze
 
 mozda moze da se napravi integracija sa google drive tako da se tamo salje samo enkriptovano, ili ima neki drugi servis mozda koji to provajduje, nije bitno za sad, ovo je mali prioritet, prvo napravi automastki da se uploaduje i sve to, ni ne moram uploadovati sve fajlove, tako da i nije problem da se uploaduje ne-enkriptovano
+
+dodati da se update-uje .ssh, i da se instalira
+
+readme.md treba da bude lepo formatiran(markdown?), ovo uradi jednog dana u relativno dalekoj buducnosti

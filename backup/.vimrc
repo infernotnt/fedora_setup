@@ -9,6 +9,24 @@ map <C-p> "+P
 " Replace all globaly is aliased to R(R has a default bind which is unbound, you really need the default R, bind the replace to S)
 nnoremap R :%s//g<left><left>
 
+"------------------------------------------------------------------------------------------------------------
+" TODO: set the leader key to " ", why?
+let mapleader =  " "
+
+" TODO,(msm da onaj tip u how to do 90% of what plugins do with just vim objasni ovo)
+filetype plugin on
+" Eh, ne moras al kao pogledaj tomm scott ili neki video za utf-8, al nepotrebno je
+set encoding=utf-8
+" Disable automatic commenting on new line
+set formatoptions-=cro
+
+
+" TODO: kad budem radio latex/markdown/cpp/c/python, staviti da se uvek kompajluje na isto dugme?
+
+" TODO: vidi ovo, |luke smith|, syntax check za .sh fajlove, i da je sugestije(za .sh fajlove)
+map <leader>s :!clear && spellcheck %<CR>
+
+"------------------------------------------------------------------------------------------------------------
 
 " set the tab length in spaces
 set tabstop=10 softtabstop=10
@@ -59,6 +77,7 @@ set nu
 " makes is so when you run out of screen space, the text doesnt wrap to a new line
 set nowrap
 
+
 " idk, something for history, useful for undotree(the last 2)(TODO, pogledaj sve ovo neki drugi dan)
 set noswapfile
 set nobackup
@@ -100,10 +119,8 @@ set shortmess+=c
 
 " plugin stuff
 call plug#begin("~/.vim/plugged")
-" TODO
-Plug 'nvim-telescope/telescope.nvim'
 
-"apperently these are useful: telescope, treesitter, undotree, fugitive?(mozda nisam dobro cuo)
+" apperently these are useful: telescope, treesitter, undotree, fugitive?(mozda nisam dobro cuo)
 Plug 'gruvbox-community/gruvbox'
 call plug#end()
 
@@ -113,5 +130,5 @@ colorscheme gruvbox
 " idk, i think it makes the background more like the usual terminal background(maby transparency too?)
 "highlight normal guibg=none
 
-"if you are using windows, consider the command "set nocompatible"
-" TODO: Automatically deletes all trailing whitespaces on save
+" Automatically deletes all trailing whitespaces on save
+autocmd BufWritePre * %s/\s\+$//e

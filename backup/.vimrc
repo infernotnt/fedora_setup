@@ -26,6 +26,9 @@ set formatoptions-=cro
 " TODO: vidi ovo, |luke smith|, syntax check za .sh fajlove, i da je sugestije(za .sh fajlove)
 map <leader>s :!clear && spellcheck %<CR>
 
+" potencijalno bolja opcija za copy paste iz ostatka sistema(luke smith, video: Copy and Paste to/from Vim from/to Other Programs!)
+"vnoremap <C-c> "+y
+"map <C-v> "+P
 "------------------------------------------------------------------------------------------------------------
 
 " set the tab length in spaces
@@ -117,9 +120,8 @@ set shortmess+=c
 
 " END OF SECTION---------------------------------------------
 
-" plugin stuff
+" Plugin stuff
 call plug#begin("~/.vim/plugged")
-
 " apperently these are useful: telescope, treesitter, undotree, fugitive?(mozda nisam dobro cuo)
 Plug 'gruvbox-community/gruvbox'
 call plug#end()

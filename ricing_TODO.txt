@@ -57,3 +57,10 @@ premestiti polybar skripte u ~/.scripts
 dodati da se moze menjati tastatura, shorcut isti kao na windows 10 (dodati srpsku latinicu i cirilicu kao default i ./install_fedora_setup.sh?)
 
 mozda kao neki mode, ili da to bude default, u sustini, kada upalis samo jedan window, nece biti lockovan nego ce stojati negde na sredini, mozda je najbolje ovako nesto staviti kao da prepozna koji window si upalio i onda da ga namestI? a ako ne prepozna samo da ga lockuje full screen, a mozda i ne, a mozda nesto od ovoga iskominovano i jos iskombinujes za vise windowa, ne znam stvarno, i jos ni settingse sa floating windowe nisam namestio tkd sta ja mogu da kazem
+
+dodati opciju da u vim moze da se koristi mis kao inance?
+
+customizacija onih registra, na primer mozda staviti ako radit Change da ne stavlja u registar? ovo bi bilo previse specificno za moj setup mozda. ne znam.
+ dodati u vim kao, seach visual selection, ili taok nesto
+
+za nvim: navodno "coc" plugin, lynting?(idk dfq is this), plugin: vim-which-key(pomaze za keybindinge), plugin:fzf, slike u konzoli sa Uberzug?(luke smith, dt, video), plugin: nvim-colorizer oboji hex boje u samom tesktu(eye candy), airline ili lightline(mozda nijedan, vise je barebones osecaj)

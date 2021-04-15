@@ -8,21 +8,21 @@ set $term alacritty
 set $browser brave-browser
 set $file_browser pcmanfm
 
-font pango:System San Francisco Display 8 
+font pango:System San Francisco Display 8
 
 # Super key enables rofi. What follows is similar to what happens when you press the Super/Windows key on Windows 10
 # You can change rofi themes. The list is in /usr/share/rofi/themes
 # Gui programs only
 bindcode --release 133 exec rofi -show drun -matching fuzzy -theme Arc-Dark
 # Console and gui programs
-bindsym $mod+d exec rofi -show run -matching fuzzy -theme Arc-Dark 
+bindsym $mod+d exec rofi -show run -matching fuzzy -theme Arc-Dark
 
 # Opens terminal
 bindsym $mod+Return exec --no-startup-id $term
 
 # Kills the currently focused window
 # TODO: consider the luke smith shit(maybe its good for scratchpads??)
-bindsym $mod+Shift+d kill 
+bindsym $mod+Shift+d kill
 bindsym $alt+F4 kill
 
 # Opens the preffered web browser
@@ -46,7 +46,7 @@ bindsym $mod+Ctrl+j move down 30
 bindsym $mod+Ctrl+k move up 30
 bindsym $mod+Ctrl+l move right 30
 
-#bindsym $mod+space 
+#bindsym $mod+space
 
 # Resize currently focused window(TODO: Increase hitbox)
 bindsym $mod+$alt+h		exec --no-startup-id "bash ~/.scripts/i3resize left"
@@ -161,14 +161,14 @@ bindsym $mod+r restart
 # Default gaps stuff
 set $innerDefault 0
 set $outerDefault 0
-gaps inner $innerDefault 
+gaps inner $innerDefault
 gaps outer $outerDefault
 
 # Window border (1 pixel is more aesthetic but less practical)
 for_window [class="^.*"] border pixel 2
 
 # Wallpaper
-exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper/wallpaper 
+exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper/wallpaper
 
 # Gaps stuff
 bindsym $mod+$alt+t gaps inner current set $innerDefault; gaps outer current set $outterDefault
@@ -237,9 +237,9 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Swap caps lock and escape buttons on your keyboard (very handy for everything, especially for vim)
-exec_always --no-startup-id setxkbmap -option caps:swapescape 
+exec_always --no-startup-id setxkbmap -option caps:swapescape
 # Makes key repeat faster TODO, bolji opis jer nije samo key repeat nego ima i neko drugo sranje to se sve moze naci u onom videu na jutubu
-exec_always --no-startup-id xset r rate 300 25
+exec_always --no-startup-id xset r rate 250 25
 # Orients 2 monitors correctly (probably specific to my setup)
 exec --no-startup-id xrandr --output DVI-D-0 --left-of HDMI-A-0
 

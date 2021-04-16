@@ -4,7 +4,11 @@
 "2., stvari koje ne moram bas da koristim, ali korisne su ponekad, samo ne treba bas da mi stoje ukljucene jer krse vim filozofiju ili tako nesto (think: misem da mozes da pomeras gde ces biti, better tabbing...)
 "3., stvari koje jos ne znam sta rade, ali ce mi mozda biti korisno jednog dana (think: window navigation)
 
-" essential (geohot) shit: -----------------------------------
+
+" TODO, does not work: Y    -treba da kopira od kursora do kraja reda, a on kopira ceo red, kao da sam uradio yy umesto Y
+" essential (geohot) shit: ----------------------------------------------------------------------------
+set background=dark
+
 syntax enable
 set tabstop=10
 set expandtab
@@ -26,6 +30,7 @@ set number
 " Highlights as you search
 set incsearch
 
+
 " Automatically deletes all trailing whitespaces on file save
 autocmd BufWritePre * %s/\s\+$//e
 
@@ -35,12 +40,23 @@ nnoremap <f6> <esc>:w<enter>:!g++ -std=c++11 %<enter>
 " Autocomplete (TODO, used for what)
 set wildmode=longest,list,full
 
-" Optional section:---------------------------------
+" Optional section: ------------------------------------------------------------------------------
 
-set cursorline " Pussy
+" Enables chaning your cursor position with mouse (you should use this very rarely)
+set mouse=a
+
+" Enables the graphical line on your current line
+"set cursorline
+
+"highlight Cursorline cterm=bold
+
+" Enables transparency. Makes yor background be like the usual highlight normal guibg=none
 
 set nowrap " Makes is so when you run out of screen space, the text doesnt wrap to a new line
 
+
+" When you scroll up/down, it makes your screen move before your cursor hits the last/first line
+set scrolloff=8
 
 " Probably good default, but just to be secure - Section:
 
@@ -49,8 +65,8 @@ set noerrorbells " (default: off) Disables error bells and flashes
 
 set smartindent " Idk, some say you should use, some say you shouldn't
 
-set title " Sets the process title to something useful
-" Probably useless - Section:--------------------------------
+set title " Sets the process title to something useful (TODO)
+" Probably useless - Section: - -------------------------------
 
 nnoremap \ :te<enter> " Enables a terminal (you already have a window manager and shortcuts, just use those)
 
@@ -66,13 +82,14 @@ set showcmd " (default: on) Show (partial) command in the last line of the scree
 "TODO: negde izspamuj kako je "." najjaca komanda u vimu
 "do ":so%" after changing the config file to reflect the changes(only works in this file) light or dark theme
 "TODO:, staviti sve ove komentare u isti red kao i samu komandu
-set background=dark
 
 " TODO, mozda staviti onako da ti se vidi linija, ali ne skroz, neko samo linija dole msm(ali ovo kao krsi george hotz minimalizam?)
 
 " make vim share the copy-paste clipboard with the system
 set clipboard=unnamedplus
-vnoremap <C-c> "+y
+"wat dis
+vnoremap <C-c>
+"wat dis
 map <C-p> "+P
 
 " Replace all globaly is aliased to S (S = substitute)
@@ -85,11 +102,6 @@ nnoremap // :noh<return> " Press "//" after searching to unhighlight
 " Makes popup menu smaller
 "set pumheight=10
 
-" Enables chaning your cursor position with mouse (only use if you're a virigin)
-"set mouse=a
-
-" Enables the graphical line on your current line
-"set cursorline
 
 set iskeyword+=- " Treat dash seperated wods as a word text object
 
@@ -154,7 +166,7 @@ inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 "nnoremap <C-k> <C-w>k
 "nnoremap <C-l> <C-w>l
 
-"------------------------------------------------------------------------------------------------------------
+" TODO: spellcheck, luke smith ima solidan, mozes i jezik da biras
 
 "------------------------------------------------------------------------------------------------------------
 " Set the leader key to " " (space)
@@ -213,8 +225,6 @@ set undofile
 " TODO
 set termguicolors
 
-" When you scroll up/down, it makes your screen move before your cursor hits the last/first line
-set scrolloff=8
 
 " TODO
 set noshowmode
@@ -233,9 +243,19 @@ set updatetime=50
 set shortmess+=c
 " END OF SECTION---------------------------------------------
 
+" usefull plugins (apparently):
+"nerdtree
+"fzf (ili Ctrl P)
+" ove imam osecaj da su manje korisne, ali nisam nijednu zapravo gledao
+"airline
+"telescope
+"treesitter
+"undotree
+"fugitive
+"AG(search)
+"tpope/vim-surround
 " Plugin stuff
 call plug#begin("~/.vim/plugged")
-" apperently these are useful: telescope, treesitter, undotree, fugitive?(mozda nisam dobro cuo)
 Plug 'gruvbox-community/gruvbox'
 call plug#end()
 
@@ -247,17 +267,12 @@ colorscheme gruvbox
 
 " TODO this shit
 "set noswapfile " doesn't create swap files
-"set noshowmode
 "set shortmess+=c
 "set omnifunc=syntaxcomplete#Complete
 "enable folding
 
 "set foldmethod=indent
 "set foldlevel=99
-" Plugin: nerdtree"
-"Plug 'tpope/vim-surround'
-"Plug 'junegunn/fzf.vim'
-" Plugin: AG(search)
 " Ctrl-P, ili fzf
 " Airline (theme=luna?)
 " TODO, nije setup, ali naci na netu kako ide case sensitive search i kako case insensitive search

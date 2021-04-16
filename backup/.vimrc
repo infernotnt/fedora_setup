@@ -30,7 +30,6 @@ set number
 " Highlights as you search
 set incsearch
 
-
 " Automatically deletes all trailing whitespaces on file save
 autocmd BufWritePre * %s/\s\+$//e
 
@@ -247,6 +246,7 @@ set shortmess+=c
 "nerdtree
 "fzf (ili Ctrl P)
 " ove imam osecaj da su manje korisne, ali nisam nijednu zapravo gledao
+" vis.vim"
 "airline
 "telescope
 "treesitter
@@ -255,6 +255,7 @@ set shortmess+=c
 "AG(search)
 "tpope/vim-surround
 " Plugin stuff
+"smoothscroll (da se ne izgubis kad skrolas)
 call plug#begin("~/.vim/plugged")
 Plug 'gruvbox-community/gruvbox'
 call plug#end()
@@ -297,3 +298,9 @@ colorscheme gruvbox
 ""-Ctrl+x+(ctrl)n, samo za taj file
 ""-Ctrl+x+(ctrl)], za imena fajlova
 ""-Ctrl+x+(ctrl)j, samo za tagove
+"TODO: Neki shortcut za š, itd? Da ne moram da menjam tastaturu
+"TODO: mozda? ukljuciti wrap za beleske
+
+"random citat: I use exuberate ctags/FZF/vim-vinegar to navigate between buffers and files, vimwiki for note taking and task management, ALE for linting/code formatting, and a couple of other tpope plugins to improve the native Vim experience like vim-commentary and vim-surround.
+
+"random citat: Anecdotally... Almost everyone where I work uses vim + YCM + vimspector. We mostly c++ with lots of java and TCL and you name it. Reasonably big multi national company.

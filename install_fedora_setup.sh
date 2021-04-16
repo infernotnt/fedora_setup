@@ -5,7 +5,7 @@ then echo "Please run with sudo.(The ONLY way you should is \"sudo ./install_fed
 	exit
 fi
 
-echo "WARNING: The ONLY way to run this is with sudo, \"sudo ./fedora_setup.sh\"." 
+echo "WARNING: The ONLY way to run this is with sudo, \"sudo ./fedora_setup.sh\"."
 echo "Make sure you ran it this way."
 sleep 3
 
@@ -22,12 +22,16 @@ sudo dnf -y upgrade
 sudo dnf -y remove vi
 sudo dnf -y remove vim
 sudo dnf -y remove i3
-sudo dnf -y copr enable fuhrmann/i3-gaps; 
+sudo dnf -y copr enable fuhrmann/i3-gaps;
 
 sudo dnf -y install i3-gaps i3lock polybar alacritty compton neovim firefox rofi feh git youtube-dl cava cmatrix neofetch htop playerctl
-#opciono
+# Optional stuff-------------------------
+
 sudo dnf -y install mpv
 
+# Used for checking the syntax and suggests edits in .sh scripts
+sudo dnf -y install shellcheck
+# ---------------------------------------
 
 
 sudo mkdir -v $USER_HOME/.config
@@ -69,16 +73,16 @@ sudo i3-msg restart
 #clean some temporary files
 sudo dnf clean all
 
-#!!!!STVARI KOJE USER KOJI INSTALIRA MORA DA URADI: 
+#!!!!STVARI KOJE USER KOJI INSTALIRA MORA DA URADI:
 #1. polybar internet speed da se namesti:
 #			treba promeniti interface u config file-u polybar-a, znaci odes u ~/.config/polybar/config, nadjes modul za internet i promenis interface u: interface sa komandom:"ip link show", ne mora da znaci da je prvi interface u izlazu te komande, ali tu je vrv
 
-#2. 
+#2.
 
 #3. optional: but consider making it so you dont ever have to type the password when doing "sudo X", you can do that by: "sudo visudo", and adding "$USER ALL=(ALL) NOPASSWD: ALL", where $USER is your username to the end of the file.
 
 #4. optional: github ssh
 
-#5. optional: .config/git/config email and username set to your own 
+#5. optional: .config/git/config email and username set to your own
 
 #6. optional: the grub2(bootloader) theme, read the README.md

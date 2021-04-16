@@ -49,6 +49,7 @@ set noerrorbells " (default: off) Disables error bells and flashes
 
 set smartindent " Idk, some say you should use, some say you shouldn't
 
+set title " Sets the process title to something useful
 " Probably useless - Section:--------------------------------
 
 nnoremap \ :te<enter> " Enables a terminal (you already have a window manager and shortcuts, just use those)
@@ -171,7 +172,8 @@ set formatoptions-=cro " Disable automatic commenting on new line
 
 " TODO: kad budem radio latex/markdown/cpp/c/python, staviti da se uvek kompajluje na isto dugme?
 
-map <leader>s :!clear && spellcheck %<CR> " TODO: vidi ovo, |luke smith|, syntax check za .sh fajlove, i da je sugestije(za .sh fajlove)
+" TODO: vidi ovo, |luke smith|, syntax check za .sh fajlove, i da je sugestije(za .sh fajlove)
+map <leader>s :!clear && shellcheck -x %<CR>
 
 " potencijalno bolja opcija za copy paste iz ostatka sistema(luke smith, video: Copy and Paste to/from Vim from/to Other Programs!)
 "vnoremap <C-c> "+y

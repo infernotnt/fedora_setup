@@ -3,6 +3,64 @@
 "2., stvari koje ne moram bas da koristim, ali korisne su ponekad, samo ne treba bas da mi stoje ukljucene jer krse vim filozofiju ili tako nesto (think: misem da mozes da pomeras gde ces biti, better tabbing...)
 "3., stvari koje jos ne znam sta rade, ali ce mi mozda biti korisno jednog dana (think: window navigation)
 
+" essential (geohot) shit: -----------------------------------
+syntax enable
+set tabstop=10
+set expandtab
+set autoindent " Enables auto indentation. Indents the next line like the current one.
+
+set softtabstop=10 " vidi da li je essential, grupisati sa: set tabstop=
+
+" (default on)
+set ruler
+
+set hlsearch
+
+" Enable relative lines
+set relativenumber
+
+" Makes your current line show the actual line number in the file
+set number
+
+" highlights as you search(work even with nohlsearch)
+set incsearch
+
+" Automatically deletes all trailing whitespaces on save
+autocmd BufWritePre * %s/\s\+$//e
+
+" Compile C++ code on F6
+nnoremap <f6> <esc>:w<enter>:!g++ -std=c++11 %<enter>
+
+" Autocomplete
+set wildmode=longest,list,full
+
+" Optional section:---------------------------------
+
+" Makes is so when you run out of screen space, the text doesnt wrap to a new line
+set nowrap
+
+
+" Probably good default, but just to be secure - Section:
+
+" idk, something about disabling error flashes/bells?
+set noerrorbells
+
+set smartindent " Idk, some say you should use, some say you shouldn't
+
+" Probably useless - Section:--------------------------------
+
+" Enables a terminal (you already have a window manager and shortcuts, just use those)
+nnoremap \ :te<enter>
+
+set pastetoggle=<F2> " Enable paste mode (disables indentation, pastes everything literally)
+
+"set lazyredraw " Redraws the screen when it needs to, usefull when using long macros, or on slow pc-s
+
+
+set backspace=indent,eol,start " Makes backspace behave normally
+set showcmd " (default: on) Show (partial) command in the last line of the screen.  Set this option off if your terminal is slow.
+
+
 "TODO: negde izspamuj kako je "." najjaca komanda u vimu
 "do ":so%" after changing the config file to reflect the changes(only works in this file) light or dark theme
 "TODO:, staviti sve ove komentare u isti red kao i samu komandu
@@ -17,6 +75,9 @@ map <C-p> "+P
 
 " Replace all globaly is aliased to S (S = substitute)
 nnoremap S :%s//g<left><left>
+
+" Press "//" after searching to unhighlight
+nnoremap // :noh<return>
 
 "------------------------------------------------------------------------------------------------------------
 " ovaj section je iz (tip stvarno preteruje sa svime): https://www.youtube.com/watch?v=gZCXaF-Lmco
@@ -123,7 +184,6 @@ map <leader>s :!clear && spellcheck %<CR>
 "------------------------------------------------------------------------------------------------------------
 
 " set the tab length in spaces
-set tabstop=10 softtabstop=10
 " auto indentation on new line
 set shiftwidth=5
 
@@ -135,14 +195,7 @@ set shiftwidth=5
 " automatski pretvara tabove u space-ove, i mozda autoindentation isto pravi
 " space-ove umesto tabova
 
-"idk, maybe put "set autoindent" insead of this?? (george hotz uses autoindent(=ai))
-set smartindent
 
-" bolje nego syntax on(ukloni ovaj komentar)
-syntax enable
-
-" (default on)
-set ruler
 
 set wildmode=longest,list,full
 
@@ -151,26 +204,14 @@ set wildmode=longest,list,full
 " it), usefull for having specific vim configs for each project
 "set exrc
 
-" make cursor a block even in insert mode(ERROR, does not work, and i probably don't want it to work)
+" Some form of this is command is probably used for making it so your cursor is different on insert mode (default: on)
 "set guicursor
-
-" enable relative lines
-set relativenumber
-
-" disables highlighting on every search(/)(PREFERENCE)
-set hlsearch
 
 " idk, something for saving buffers
 set hidden
 
-" idk, something about disabling error flashes/bells?
-set noerrorbells
 
-" makes is so you see your current line number if you're using relative line numbers
-set nu
 
-" makes is so when you run out of screen space, the text doesnt wrap to a new line
-set nowrap
 
 
 " idk, something for history, useful for undotree(the last 2)(TODO, pogledaj sve ovo neki drugi dan)
@@ -180,36 +221,28 @@ set undodir=~/.vim/undodir
 set undofile
 
 
-" highlights as you search(work even with nohlsearch)
-set incsearch
 
 " TODO
 set termguicolors
 
-" when you scroll up/down, it makes your screen move before your cursor hits the last/first line
+" When you scroll up/down, it makes your screen move before your cursor hits the last/first line
 set scrolloff=8
-
 
 " TODO
 set noshowmode
 set completeopt=menuone,noinsert,noselect
-
 
 " vertical line on the right
 "set colorcolumn=80
 
 " idk, usefull for some stuff i dont know about, useful for git integration
 set signcolumn=yes
-
 " idk, TODO, Give more space for displaying messages
 set cmdheight=2
-
 " idk, TODO, Having longer updatetime(default is 4000ms = 4s) leads to more noticiable delays and poor user experience.
 set updatetime=50
-
 " idk, TODO, don't pass messages to |ins-completion-menu|
 set shortmess+=c
-
 " END OF SECTION---------------------------------------------
 
 " Plugin stuff
@@ -224,5 +257,15 @@ colorscheme gruvbox
 " idk, i think it makes the background more like the usual terminal background(maby transparency too?)
 "highlight normal guibg=none
 
-" Automatically deletes all trailing whitespaces on save
-autocmd BufWritePre * %s/\s\+$//e
+" TODO this shit
+"set noswapfile " doesn't create swap files
+"set noshowmode
+"set shortmess+=c
+"set omnifunc=syntaxcomplete#Complete
+"enable folding
+
+"set foldmethod=indent
+"set foldlevel=99
+"Plug 'tpope/vim-surround'
+"Plug 'junegunn/fzf.vim'
+" TODO, nije setup, ali naci na netu kako ide case sensitive search i kako case insensitive search

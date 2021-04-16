@@ -1,3 +1,4 @@
+"TODO za slecee urdejivanje: gledaj koje komande gde da stavis u koju kategoriju
 "TODO: kad budes pravio finalni .vimrc, podeliti na 3 sekcije (sve je komentirano sem prve sekcije, i mozdaaaa malog dela druge, mada onda vec mozes staviti u prvu mozda?):
 "1., korisna sigurno, ova se koristi (think george hotz .vimrc?(https://github.com/littlemountainman/geohot-terminal)
 "2., stvari koje ne moram bas da koristim, ali korisne su ponekad, samo ne treba bas da mi stoje ukljucene jer krse vim filozofiju ili tako nesto (think: misem da mozes da pomeras gde ces biti, better tabbing...)
@@ -19,38 +20,38 @@ set hlsearch
 " Enable relative lines
 set relativenumber
 
-" Makes your current line show the actual line number in the file
+" Makes your current line show the actual line number in the file (used for "set relativenumber")
 set number
 
-" highlights as you search(work even with nohlsearch)
+" Highlights as you search
 set incsearch
 
-" Automatically deletes all trailing whitespaces on save
+" Automatically deletes all trailing whitespaces on file save
 autocmd BufWritePre * %s/\s\+$//e
 
 " Compile C++ code on F6
 nnoremap <f6> <esc>:w<enter>:!g++ -std=c++11 %<enter>
 
-" Autocomplete
+" Autocomplete (TODO, used for what)
 set wildmode=longest,list,full
 
 " Optional section:---------------------------------
 
-" Makes is so when you run out of screen space, the text doesnt wrap to a new line
-set nowrap
+set cursorline " Pussy
+
+set nowrap " Makes is so when you run out of screen space, the text doesnt wrap to a new line
 
 
 " Probably good default, but just to be secure - Section:
 
-" idk, something about disabling error flashes/bells?
-set noerrorbells
+set noerrorbells " (default: off) Disables error bells and flashes
+
 
 set smartindent " Idk, some say you should use, some say you shouldn't
 
 " Probably useless - Section:--------------------------------
 
-" Enables a terminal (you already have a window manager and shortcuts, just use those)
-nnoremap \ :te<enter>
+nnoremap \ :te<enter> " Enables a terminal (you already have a window manager and shortcuts, just use those)
 
 set pastetoggle=<F2> " Enable paste mode (disables indentation, pastes everything literally)
 
@@ -76,8 +77,7 @@ map <C-p> "+P
 " Replace all globaly is aliased to S (S = substitute)
 nnoremap S :%s//g<left><left>
 
-" Press "//" after searching to unhighlight
-nnoremap // :noh<return>
+nnoremap // :noh<return> " Press "//" after searching to unhighlight
 
 "------------------------------------------------------------------------------------------------------------
 " ovaj section je iz (tip stvarno preteruje sa svime): https://www.youtube.com/watch?v=gZCXaF-Lmco
@@ -90,8 +90,7 @@ nnoremap // :noh<return>
 " Enables the graphical line on your current line
 "set cursorline
 
-" Treat dash seperated wods as a word text object
-set iskeyword+=-
+set iskeyword+=- " Treat dash seperated wods as a word text object
 
 " TODO, idk
 "set t_Co=256
@@ -123,8 +122,7 @@ set iskeyword+=-
 "set timeoutlen=100
 
 " TODO
-" We don't need to see things like --INSER-- anymore
-"set noshowmode
+set noshowmode " We don't need to see things like --INSER-- anymore (TODO, disable make it acutally show the mode)
 
 "remapings section:
 
@@ -158,25 +156,22 @@ inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 "------------------------------------------------------------------------------------------------------------
 
 "------------------------------------------------------------------------------------------------------------
-" TODO: set the leader key to " ", why?
+" Set the leader key to " " (space)
 let mapleader =  " "
 
-" TODO,(msm da onaj tip u how to do 90% of what plugins do with just vim objasni ovo)
-filetype plugin on
+filetype plugin on " TODO,(msm da onaj tip u how to do 90% of what plugins do with just vim objasni ovo)
 
 " TODO: koji je koji
 " Eh, ne moras al kao pogledaj tomm scott ili neki video za utf-8, al nepotrebno je
 set encoding=utf-8
 set fileencoding=utf-8
 
-" Disable automatic commenting on new line
-set formatoptions-=cro
+set formatoptions-=cro " Disable automatic commenting on new line
 
 
 " TODO: kad budem radio latex/markdown/cpp/c/python, staviti da se uvek kompajluje na isto dugme?
 
-" TODO: vidi ovo, |luke smith|, syntax check za .sh fajlove, i da je sugestije(za .sh fajlove)
-map <leader>s :!clear && spellcheck %<CR>
+map <leader>s :!clear && spellcheck %<CR> " TODO: vidi ovo, |luke smith|, syntax check za .sh fajlove, i da je sugestije(za .sh fajlove)
 
 " potencijalno bolja opcija za copy paste iz ostatka sistema(luke smith, video: Copy and Paste to/from Vim from/to Other Programs!)
 "vnoremap <C-c> "+y
@@ -195,11 +190,6 @@ set shiftwidth=5
 " automatski pretvara tabove u space-ove, i mozda autoindentation isto pravi
 " space-ove umesto tabova
 
-
-
-set wildmode=longest,list,full
-
-
 " something for having seperate .vimrc for every project(that has a .vimrc in
 " it), usefull for having specific vim configs for each project
 "set exrc
@@ -209,10 +199,6 @@ set wildmode=longest,list,full
 
 " idk, something for saving buffers
 set hidden
-
-
-
-
 
 " idk, something for history, useful for undotree(the last 2)(TODO, pogledaj sve ovo neki drugi dan)
 set noswapfile
@@ -266,6 +252,31 @@ colorscheme gruvbox
 
 "set foldmethod=indent
 "set foldlevel=99
+" Plugin: nerdtree"
 "Plug 'tpope/vim-surround'
 "Plug 'junegunn/fzf.vim'
+" Plugin: AG(search)
+" Ctrl-P, ili fzf
+" Airline (theme=luna?)
 " TODO, nije setup, ali naci na netu kako ide case sensitive search i kako case insensitive search
+
+" NEKI FAJL, EVO CELI CONTETNI OVDE
+
+"set path+=**
+"
+""-moze se koristiti :find <file> da bi se nasao file, moze se TAB-ovati (moze
+""se koristiti wildcard-ovi)
+""-kad je upaljeno vise fajlova mogu se listovati sa :ls, a da bi usao u neki
+""od njih moze sa :b <substring_imena_fajla>
+"
+"
+""-nesto za nalazenje tagova: moze Ctrl+] ili Ctrl+g (ovo drugo cesce radi iz
+""nekog razloga), da bi namestio tagove odes u parent directory i napises
+"""ctags -R ."
+"
+""autocomplete:---------------------------------------
+""-autocomplete Ctrl+n (trebaju tags)(kod tih lista kad se upale, moze Ctrl+P za
+""previous element)
+""-Ctrl+x+(ctrl)n, samo za taj file
+""-Ctrl+x+(ctrl)], za imena fajlova
+""-Ctrl+x+(ctrl)j, samo za tagove

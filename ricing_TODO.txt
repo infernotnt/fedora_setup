@@ -64,3 +64,9 @@ customizacija onih registra, na primer mozda staviti ako radit Change da ne stav
  dodati u vim kao, seach visual selection, ili taok nesto
 
 za nvim: navodno "coc" plugin, lynting?(idk dfq is this), plugin: vim-which-key(pomaze za keybindinge), plugin:fzf, slike u konzoli sa Uberzug?(luke smith, dt, video), plugin: nvim-colorizer oboji hex boje u samom tesktu(eye candy), airline ili lightline(mozda nijedan, vise je barebones osecaj)
+
+za skrinsot program(parag): flameshot?
+
+cool shit za read: SLS(distro, otack slackware, znaci slackware ipak nije najstariji linux distro?),lindows (distro), damn vulnerable linux(distro), enoch(otac gentoo), torbox/whonix, fuduntu(distro, fedora+ubuntu?), WGS linux pro(distro, fedorin brat blizanac?), linux router project -> LEAF
+
+zsh, tab completion navigation h/j/k/l da radi i kad je terminal mali?

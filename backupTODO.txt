@@ -39,3 +39,5 @@ mozda moze da se napravi integracija sa google drive tako da se tamo salje samo 
 dodati da se update-uje .ssh, i da se instalira
 
 readme.md treba da bude lepo formatiran(markdown?), ovo uradi jednog dana u relativno dalekoj buducnosti
+
+.profile, what the fuck is that, ili ga ukloniti iz .config ili ga dodati u update skriptu ako je koristan

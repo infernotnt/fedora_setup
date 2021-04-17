@@ -12,7 +12,7 @@ then
 fi
 export PATH
 
-# -------------------------------------------
+# ---------------------------------------------------------------------
 #set -o vi # Turns on vi mode for bash
 shopt -s autocd #mozes menjati directory bez cd, npr: asdf = cd asdf
 stty -ixon # Disable ctrl-s and ctrl-q
@@ -22,7 +22,6 @@ alias sudo="sudo " #potrebno da bi sudo radio sa drugim aliasima
 alias d="sudo dnf"
 alias D="sudo dnf -y"
 alias v="nvim -S ~/.vimrc"
-alias f="b"
 alias nvim="nvim -S ~/.vimrc"
 alias mkdir="mkdir -pv"
 alias mkd="mkdir -pv"

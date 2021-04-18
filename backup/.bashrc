@@ -54,7 +54,6 @@ export PS1=" \u\[\e[31m\] \[\e[m\]\[\e[31m\]:\[\e[m\]\[\e[31m\]:\[\e[m\] \[\e[32
 # george hotz colors for macOS, does NOT work on linux, might consider converting it to linux
 #export LS_COLORS=cxgxfxexbxegedabagacad
 
-export EDITOR='nvim'
 #-----
 # Just some small conviniences
 alias cfi="nvim ~/.config/i3/config"

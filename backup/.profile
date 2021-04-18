@@ -1,6 +1,6 @@
 #!/bin/bash
 #Profile file. Runs on login.
 
-export EDITOR="nvim"
+export EDITOR="neovim"
 export TERMINAL="alacritty"
-export BROWSER="firefox"
+export BROWSER="brave-browser"

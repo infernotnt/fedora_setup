@@ -9,6 +9,7 @@
 " essential (geohot) shit: ----------------------------------------------------------------------------
 set background=dark
 
+
 syntax enable
 set tabstop=10
 set expandtab
@@ -36,16 +37,15 @@ autocmd BufWritePre * %s/\s\+$//e
 " Compile C++ code on F6
 nnoremap <f6> <esc>:w<enter>:!g++ -std=c++11 %<enter>
 
+
 " Autocomplete (TODO, used for what)
 set wildmode=longest,list,full
 
-" Optional section: ------------------------------------------------------------------------------
+" Optional - SECTION: ------------------------------------------------------------------------------
 
 " Enables chaning your cursor position with mouse (you should use this very rarely)
 set mouse=a
 
-" Enables the graphical line on your current line
-"set cursorline
 
 "highlight Cursorline cterm=bold
 
@@ -59,13 +59,22 @@ set scrolloff=8
 
 " Probably good default, but just to be secure - Section:
 
-set noerrorbells " (default: off) Disables error bells and flashes
 
 
 set smartindent " Idk, some say you should use, some say you shouldn't
 
 set title " Sets the process title to something useful (TODO)
-" Probably useless - Section: - -------------------------------
+
+" Enables the graphical line on your current line
+"set cursorline
+
+" Set by default, but it's here just in case - SECTION:-----------------------------------------------
+
+
+set noerrorbells " (default: off) Disables error bells and flashes
+
+
+" Probably useless - SECTION: - -------------------------------
 
 nnoremap \ :te<enter> " Enables a terminal (you already have a window manager and shortcuts, just use those)
 
@@ -102,7 +111,7 @@ nnoremap // :noh<return> " Press "//" after searching to unhighlight
 "set pumheight=10
 
 
-set iskeyword+=- " Treat dash seperated wods as a word text object
+set iskeyword+=- " (Doesnt work)Treat dash seperated wods as a word text object
 
 " TODO, idk
 "set t_Co=256
@@ -120,9 +129,9 @@ set iskeyword+=- " Treat dash seperated wods as a word text object
 " TODO: idk irl (Always show tabs)
 "set showtabline=2
 
- "TODO: idk, recommended by coc
+"TODO: idk, recommended by coc
 "set nobackup
- "TODO: idk, recommended by coc
+"TODO: idk, recommended by coc
 "set nowritebackup
 
 " TODO

@@ -24,15 +24,27 @@ sudo dnf -y remove vim
 sudo dnf -y remove i3
 sudo dnf -y copr enable fuhrmann/i3-gaps;
 
-sudo dnf -y install i3-gaps i3lock polybar alacritty compton neovim firefox rofi feh git youtube-dl cava cmatrix neofetch htop playerctl
+sudo dnf -y install i3-gaps i3lock polybar alacritty compton neovim rofi feh git youtube-dl cava cmatrix neofetch htop playerctl
 # Optional stuff-------------------------
 
-sudo dnf -y install mpv
-
+sudo dnf -y install mpv vlc
+sudo dnf -y install qbittorrent
 # Used for checking the syntax and suggests edits in .sh scripts
 sudo dnf -y install shellcheck
+
 # ---------------------------------------
 
+
+# Brave browser----------------------------------------------------------------
+sudo dnf install dnf-plugins-core
+
+sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
+
+sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+
+sudo dnf install brave-browser
+
+#------------------------------------
 
 sudo mkdir -v $USER_HOME/.config
 sudo mkdir -v $USER_HOME/.scripts
@@ -53,6 +65,8 @@ sudo cp -rvp backup/.fonts/* $USER_HOME/.fonts/
 sudo cp -vp backup/.vimrc $USER_HOME/.vimrc
 sudo cp -vp backup/.bashrc $USER_HOME/.bashrc
 sudo cp -vp backup/.profile $USER_HOME/.profile
+sudo cp -vp backup/.zshrc $USER_HOME/.zshrc
+sudo cp -vp backup/.inputrc $USER_HOME/.inputrc
 
 sudo fc-cache -f -v
 

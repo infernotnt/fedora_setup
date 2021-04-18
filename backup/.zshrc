@@ -112,4 +112,5 @@ alias cfi="nvim ~/.config/i3/config"
 alias cfv="nvim ~/.vimrc"
 alias cfb="nvim ~/.bashrc"
 alias cfz="nvim ~/.zshrc"
+alias cfr="nvim ~/fedora_setup/README.md"
 

@@ -313,3 +313,4 @@ colorscheme gruvbox
 "random citat: I use exuberate ctags/FZF/vim-vinegar to navigate between buffers and files, vimwiki for note taking and task management, ALE for linting/code formatting, and a couple of other tpope plugins to improve the native Vim experience like vim-commentary and vim-surround.
 
 "random citat: Anecdotally... Almost everyone where I work uses vim + YCM + vimspector. We mostly c++ with lots of java and TCL and you name it. Reasonably big multi national company.
+"userfull plugins za nvim: navodno "coc" plugin, lynting?(idk dfq is this), plugin: vim-which-key(pomaze za keybindinge), plugin:fzf, slike u konzoli sa Uberzug?(luke smith, dt, video), plugin: nvim-colorizer oboji hex boje u samom tesktu(eye candy), airline ili lightline(mozda nijedan, vise je barebones osecaj)

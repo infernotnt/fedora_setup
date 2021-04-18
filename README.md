@@ -15,6 +15,11 @@
 
 - If you want to game, you will need to configure compton. Compton is being run from ~/.config/i3. Usefull video: # NOTE: compton might impact GAMING performance. Usefull video: https://www.youtube.com/watch?v=3esPpe-fclIe
 
+## User todo
+- Polybar network interface
+
+- Changer sudoers file so you never have to type in password when doing "sudo".
+
 ## Some general keyboard settings:
 
 - The caps lock key, and the escape key are swapped. It is much easier to use vim (and other stuff) like this.(TODO: komanda za x i wayland)(on X11, this is done in ~/.config/i3/config    -   setxkbmap -option caps:swapescape)
@@ -38,7 +43,8 @@
 - Mod + s			- lock the screen. NOT REALLY SECURE, CAN BE BYPASSED. ALSO NO ENCRYPTION USED (s=secure)
 
 ## Tips for new users
-- If running windows 10, consider autohotkey instead of i3
+
+- If running windows 10, consider using "autohotkey" instead of sway/i3.
 
 - To learn vim, you can use "vimtutor". There are also some simple games that teach you.
 
@@ -47,48 +53,78 @@
 
 ### TODO:
 
+- ovo mora: chown na svaki file, npr .bashrc i .zshrc radi samo ako se oba usera zovu milos najvrv, mozes proveriti
+
 - ono sranje za mute od luke smith
+
 - backup brave shit
+
 - mozda moze da se napravi integracija sa google drive tako da se tamo salje samo enkriptovano, ili ima neki drugi servis mozda koji to provajduje, nije bitno za sad, ovo je mali prioritet, prvo napravi automastki da se uploaduje i sve to, ni ne moram uploadovati sve fajlove, tako da i nije problem da se uploaduje ne-enkriptovano
+
 - .ssh full setup u skriptama
+
 - .profile, what the fuck is that, ili ga ukloniti iz .config ili ga dodati u update skriptu ako je koristan
+
 - .initrc, koristi se za da moze da se clear screen radi i u insert modu u zsh shellu
+
 - dodati da se mozda autocompletuje na 2. tabu,a da opcije nudi odma na 1.
+
 - update na google drive shortcute za terminal (ctrl w, ctrl e, itd), u smislu: obrisati one koje nisu potrebne jer se koristi vim mode, ostaviti c-d, c-l, c-a, c-w i mozda jos neke
+
 ### ricing_todo.txt
 
-- ovo mora: chown na svaki file, npr .bashrc i .zshrc radi samo ako se oba usera zovu milos najvrv, mozes proveriti
-- transarency, compton, fade
 - i3 bindings,
-- mozda arc, arc dark, drakula ili kao se vec zove
-- vsync
+
 - tabbed layout, float ,float pemranje misom n shit
+
 - workspace-ovi
+
 - resize mozda bez alt
+
 - ikone: svi koriste papyrus
-- shortcut i3 za:
+
 - neka bolja verzija htop(luke smith vrv)(ctrl + alt + delte, ili ctrl + shift + esc mozda)
 
 
 NOVO:----------------------------------------
+
 - tabular view workspace-ova
+
 - brave staviti da brzi skroll bude, kao na windowsu
+
 - calculator, i shortcut za njega
+
 - Vim markdown latex note taking: https://www.youtube.com/watch?v=zB_3FIGRWRU
+
 - na brave-browseru bookmark folder "vim"
+
 - premestiti polybar skripte u ~/.scripts
+
 - dodati da se moze menjati tastatura, shorcut isti kao na windows 10 (dodati srpsku latinicu i cirilicu kao default i ./install_fedora_setup.sh?)
+
 - zsh, tab completion navigation h/j/k/l da radi i kad je terminal mali?
+
 - vim TODO stoji u .vimrc
+
 - naci i configure file explorer i ikonice lepe staiviti
+
 - za skrinsot program(parag): flameshot?
 
+
 ## Potencijalne ideje:
+
 - mozda znak fedore(obojen?) gore desno na polybar ili tako negde
+
 - videti why the f je dnf tolko spor na pocetku(non ricing)
+
 - zvuk kada se utakne usb
+
 - ona macka kada se pojacava zvuk
+
 - kad god uradis "cd" ili "clear" u terminalu, ispise "ls", "pwd" i mozda neke git stvari
+
 - mozda kao neki mode, ili da to bude default, u sustini, kada upalis samo jedan window, nece biti lockovan nego ce stojati negde na sredini, mozda je najbolje ovako nesto staviti kao da prepozna koji window si upalio i onda da ga namestI? a ako ne prepozna samo da ga lockuje full screen, a mozda i ne, a mozda nesto od ovoga iskominovano i jos iskombinujes za vise windowa, ne znam stvarno, i jos ni settingse sa floating windowe nisam namestio tkd sta ja mogu da kazem
+
 - cool shit za read: SLS(distro, otack slackware, znaci slackware ipak nije najstariji linux distro?),lindows (distro), damn vulnerable linux(distro), enoch(otac gentoo), torbox/whonix, fuduntu(distro, fedora+ubuntu?), WGS linux pro(distro, fedorin brat blizanac?), linux router project -> LEAF
+
 - man page ricing

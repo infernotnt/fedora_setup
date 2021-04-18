@@ -87,6 +87,8 @@ sudo i3-msg restart
 #clean some temporary files
 sudo dnf clean all
 
+chsh -s /bin/zsh $SUDO_USER # Changes the default shell from presumably bash to zsh
+
 #!!!!STVARI KOJE USER KOJI INSTALIRA MORA DA URADI:
 #1. polybar internet speed da se namesti:
 #			treba promeniti interface u config file-u polybar-a, znaci odes u ~/.config/polybar/config, nadjes modul za internet i promenis interface u: interface sa komandom:"ip link show", ne mora da znaci da je prvi interface u izlazu te komande, ali tu je vrv

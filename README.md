@@ -55,6 +55,7 @@
 
 - ovo mora: chown na svaki file, npr .bashrc i .zshrc radi samo ako se oba usera zovu milos najvrv, mozes proveriti
 
+- ^e kao edit komande u nvim ne radi
 - ono sranje za mute od luke smith
 
 - backup brave shit
@@ -128,3 +129,12 @@ NOVO:----------------------------------------
 - cool shit za read: SLS(distro, otack slackware, znaci slackware ipak nije najstariji linux distro?),lindows (distro), damn vulnerable linux(distro), enoch(otac gentoo), torbox/whonix, fuduntu(distro, fedora+ubuntu?), WGS linux pro(distro, fedorin brat blizanac?), linux router project -> LEAF
 
 - man page ricing
+
+### Kul programi:
+
+- pazi, moving between directories in cli
+- hyperfine, tool for benchmarking
+- exa, prettier ls (exa -T, exa -lT, exa -IT, exa --icons,...)
+- SUPER: tokei, for counting lines of code
+- vim u rust-u(samo 11k redova): https://github.com/jmacdonald/amp
+- timeshift, valjda nesto za backup

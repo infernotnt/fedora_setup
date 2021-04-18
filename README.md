@@ -1,6 +1,8 @@
 # fedora_setup
 -This was made using Fedora(v33).
 
+-WORKS ONLY ON X11. IF YOU HAVE WAYLAND IT DOES NOT WORK.
+
 -Run it on a completely fresh/new fedora install.
 
 -Run "install_fedora_setup.sh" to install it on your local machine. The ONLY way to run it is "sudo ./install_fedora_setup.sh".
@@ -53,6 +55,7 @@ TODO: -Mod + Alt + h/j/k/l	- resize the window to the left/down/up/right window 
 - update na google drive shortcute za terminal (ctrl w, ctrl e, itd), u smislu: obrisati one koje nisu potrebne jer se koristi vim mode, ostaviti c-d, c-l, c-a, c-w i mozda jos neke
 ### ricing_todo.txt
 
+- ovo mora: chown na svaki file, npr .bashrc i .zshrc radi samo ako se oba usera zovu milos najvrv, mozes proveriti
 - transarency, compton, fade
 - i3 bindings,
 - mozda arc, arc dark, drakula ili kao se vec zove

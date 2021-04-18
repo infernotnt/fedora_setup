@@ -24,25 +24,25 @@ sudo dnf -y remove vim
 sudo dnf -y remove i3
 sudo dnf -y copr enable fuhrmann/i3-gaps;
 
-sudo dnf -y install i3-gaps i3lock polybar alacritty compton neovim rofi feh git youtube-dl cava cmatrix neofetch htop playerctl
+sudo dnf -y install zsh neovim alacritty i3-gaps i3lock rofi polybar compton feh git youtube-dl  neofetch htop playerctl
 # Optional stuff-------------------------
 
 sudo dnf -y install mpv vlc
-sudo dnf -y install qbittorrent
+sudo dnf -y install qbittorrent cava cmatrix
 # Used for checking the syntax and suggests edits in .sh scripts
-sudo dnf -y install shellcheck
+sudo dnf -y install ShellCheck
 
 # ---------------------------------------
 
 
 # Brave browser----------------------------------------------------------------
-sudo dnf install dnf-plugins-core
+sudo dnf -y install dnf-plugins-core
 
-sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
+sudo dnf -y config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
 
 sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 
-sudo dnf install brave-browser
+sudo dnf -y install brave-browser
 
 #------------------------------------
 
@@ -50,7 +50,7 @@ sudo mkdir -v $USER_HOME/.config
 sudo mkdir -v $USER_HOME/.scripts
 sudo mkdir -v $USER_HOME/.fonts
 
-#give correct ownership to the folders
+# Give correct ownership to the folders
 sudo chown -Rv $SUDO_USER $USER_HOME/.config
 sudo chown -Rv $SUDO_USER $USER_HOME/.scripts
 sudo chown -Rv $SUDO_USER $USER_HOME/.fonts

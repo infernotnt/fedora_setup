@@ -1,17 +1,19 @@
 # fedora_setup
--This was made using Fedora(v33).
+- This was made using Fedora(v33).
 
--WORKS ONLY ON X11. IF YOU HAVE WAYLAND IT DOES NOT WORK.
+- WORKS ONLY ON X11. IF YOU HAVE WAYLAND IT DOES NOT WORK.
 
--Run it on a completely fresh/new fedora install.
+- Run it on a completely fresh/new fedora install.
 
--Run "install_fedora_setup.sh" to install it on your local machine. The ONLY way to run it is "sudo ./install_fedora_setup.sh".
+- Run "install_fedora_setup.sh" to install it on your local machine. The ONLY way to run it is "sudo ./install_fedora_setup.sh".
 
--If you later on change some of the settings on your machine and want those changes to be reflected on the automatic installer, run "update_backup_fedora_setup.sh". This will not change your local setup. It will only change the automatici installer.
+- If you later on change some of the settings on your machine and want those changes to be reflected on the automatic installer, run "update_backup_fedora_setup.sh". This will not change your local setup. It will only change the automatici installer.
 
--For a nice looking boot loader(a grub2 sekiro theme) do "git clone https://github.com/infernotnt/sekiro_grub_theme.git"
+- For a nice looking boot loader(a grub2 sekiro theme) do "git clone https://github.com/infernotnt/sekiro_grub_theme.git"
 
--Compositor tutorial(applies only to X11): https://www.youtube.com/watch?v=3esPpe-fclI
+- Compositor tutorial(applies only to X11): https://www.youtube.com/watch?v=3esPpe-fclI
+
+- If you want to game, you will need to configure compton. Compton is being run from ~/.config/i3. Usefull video: # NOTE: compton might impact GAMING performance. Usefull video: https://www.youtube.com/watch?v=3esPpe-fclIe
 
 ## Some general keyboard settings:
 
@@ -70,34 +72,23 @@ TODO: -Mod + Alt + h/j/k/l	- resize the window to the left/down/up/right window 
 
 NOVO:----------------------------------------
 - tabular view workspace-ova
-- mozda znak fedore(obojen?) gore desno na polybar ili tako negde
-- videti why the f je dnf tolko spor na pocetku(non ricing)
-- naci i configure file explorer i ikonice lepe staiviti
-- zvuk kada se utakne usb
-- ona macka kada se pojacava zvuk
-- win+e pali file explorer(mora se promeniti keybind za i3lock)
-- compton, ovde mozda ima bas mnogo da se gleda, fazon treba da izgleda lepo (one senke i tako neke stvari, slicno sa windows 10)
-- smanjiti fade time na comptonu
-- customize the shit out of compton
-- spomenuti u readme.md da se ne treba gejmovati sa compositorom, i da moze freesync da se upali??MOZDA
-- ovo mozda u backup: staviti onako da se brze klikce dugme kad ga drzis, korisno za vim, pogledati one duge videje na jutubu za vim, jedan od njih nesto spominje za to
 - brave staviti da brzi skroll bude, kao na windowsu
-- dodati neki shit koji moze da skrinsotuje, da selektujes isto, i nesto za wayland gde bi moglo da radi
-- KUL IDEJA, ne znam da li ikad treba ovo uraditi ali eto nek stoji na nekoj listi kul ideja koje mogu da postoje: svaki put u termilalu kada uradis "cd" ili "clear" on automastki uradi "ls" I neko sranje za git mozda(ima na netu ps1 git shit vrv, mozda nesto drugo stvarno nemam pojma)
-- ako ostavim window bordere na 2 pixela, ono zeleno sranje sto pokazuje kada sam splitovao window treba da bude samo 1 pixel siroko, iako su generalno borderi 2 pixela
-- mozda staviti da se kalkulator pali na Super+C, i da ne bude ono luke smith sranje jer mozda bude upaljen u pozadini tad, proveri
-- dodati da ti ispise sve odma posle 1 tab
-- vim plugin za i3config, mozes ga ukloniti posle main setup shit
-- note taking with markdown, mozda uradi integraziju sa google drive ili google notes, ako to radis stavi ta google spieware sranja u neki container ili tako nesto: https://www.youtube.com/watch?v=zB_3FIGRWRU
+- calculator, i shortcut za njega
+- Vim markdown latex note taking: https://www.youtube.com/watch?v=zB_3FIGRWRU
 - na brave-browseru bookmark folder "vim"
 - premestiti polybar skripte u ~/.scripts
 - dodati da se moze menjati tastatura, shorcut isti kao na windows 10 (dodati srpsku latinicu i cirilicu kao default i ./install_fedora_setup.sh?)
-- mozda kao neki mode, ili da to bude default, u sustini, kada upalis samo jedan window, nece biti lockovan nego ce stojati negde na sredini, mozda je najbolje ovako nesto staviti kao da prepozna koji window si upalio i onda da ga namestI? a ako ne prepozna samo da ga lockuje full screen, a mozda i ne, a mozda nesto od ovoga iskominovano i jos iskombinujes za vise windowa, ne znam stvarno, i jos ni settingse sa floating windowe nisam namestio tkd sta ja mogu da kazem
-- dodati opciju da u vim moze da se koristi mis kao inance?
-- customizacija onih registra, na primer mozda staviti ako radit Change da ne stavlja u registar? ovo bi bilo previse specificno za moj setup mozda. ne znam.
-- dodati u vim kao, seach visual selection, ili taok nesto
-- za nvim: navodno "coc" plugin, lynting?(idk dfq is this), plugin: vim-which-key(pomaze za keybindinge), plugin:fzf, slike u konzoli sa Uberzug?(luke smith, dt, video), plugin: nvim-colorizer oboji hex boje u samom tesktu(eye candy), airline ili lightline(mozda nijedan, vise je barebones osecaj)
-- za skrinsot program(parag): flameshot?
-- cool shit za read: SLS(distro, otack slackware, znaci slackware ipak nije najstariji linux distro?),lindows (distro), damn vulnerable linux(distro), enoch(otac gentoo), torbox/whonix, fuduntu(distro, fedora+ubuntu?), WGS linux pro(distro, fedorin brat blizanac?), linux router project -> LEAF
 - zsh, tab completion navigation h/j/k/l da radi i kad je terminal mali?
+- vim TODO stoji u .vimrc
+- naci i configure file explorer i ikonice lepe staiviti
+- za skrinsot program(parag): flameshot?
+
+## Potencijalne ideje:
+- mozda znak fedore(obojen?) gore desno na polybar ili tako negde
+- videti why the f je dnf tolko spor na pocetku(non ricing)
+- zvuk kada se utakne usb
+- ona macka kada se pojacava zvuk
+- kad god uradis "cd" ili "clear" u terminalu, ispise "ls", "pwd" i mozda neke git stvari
+- mozda kao neki mode, ili da to bude default, u sustini, kada upalis samo jedan window, nece biti lockovan nego ce stojati negde na sredini, mozda je najbolje ovako nesto staviti kao da prepozna koji window si upalio i onda da ga namestI? a ako ne prepozna samo da ga lockuje full screen, a mozda i ne, a mozda nesto od ovoga iskominovano i jos iskombinujes za vise windowa, ne znam stvarno, i jos ni settingse sa floating windowe nisam namestio tkd sta ja mogu da kazem
+- cool shit za read: SLS(distro, otack slackware, znaci slackware ipak nije najstariji linux distro?),lindows (distro), damn vulnerable linux(distro), enoch(otac gentoo), torbox/whonix, fuduntu(distro, fedora+ubuntu?), WGS linux pro(distro, fedorin brat blizanac?), linux router project -> LEAF
 - man page ricing

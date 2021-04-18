@@ -1,25 +1,43 @@
+"do ":so%" after changing the config file to reflect the changes(only works in this file) light or dark theme
+
 "TODO za slecee urdejivanje: gledaj koje komande gde da stavis u koju kategoriju
 "TODO: kad budes pravio finalni .vimrc, podeliti na 3 sekcije (sve je komentirano sem prve sekcije, i mozdaaaa malog dela druge, mada onda vec mozes staviti u prvu mozda?):
 "1., korisna sigurno, ova se koristi (think george hotz .vimrc?(https://github.com/littlemountainman/geohot-terminal)
 "2., stvari koje ne moram bas da koristim, ali korisne su ponekad, samo ne treba bas da mi stoje ukljucene jer krse vim filozofiju ili tako nesto (think: misem da mozes da pomeras gde ces biti, better tabbing...)
 "3., stvari koje jos ne znam sta rade, ali ce mi mozda biti korisno jednog dana (think: window navigation)
 
+"TEST---------
+
+" Always display the status line (TODO: idk irl)
+set laststatus=2
+
+"TEST---------
 
 " TODO, does not work: Y    -treba da kopira od kursora do kraja reda, a on kopira ceo red, kao da sam uradio yy umesto Y
 " essential (geohot) shit: ----------------------------------------------------------------------------
 set background=dark
 
 
+" Enables syntax highlighting
 syntax enable
+
 set tabstop=10
+
 set expandtab
-set autoindent " Enables auto indentation. Indents the next line like the current one.
 
-set softtabstop=10 " vidi da li je essential, grupisati sa: set tabstop=
+filetype plugin on
 
-" (default on)
-set ruler
+" Set the leader key to " " (space)
+let mapleader =  " "
 
+" Enables auto indentation. Indents the next line like the current one.
+set autoindent
+
+" vidi da li je essential, grupisati sa: set tabstop=
+set softtabstop=10
+
+
+" Enables highlighting when searching with "/", to disable do // or ":nohl"
 set hlsearch
 
 " Enable relative lines
@@ -37,61 +55,67 @@ autocmd BufWritePre * %s/\s\+$//e
 " Compile C++ code on F6
 nnoremap <f6> <esc>:w<enter>:!g++ -std=c++11 %<enter>
 
+" Spell check (o for ortography??), staviti mozda da detektuje na kojoj sam tastaturi i da taj jezik checkuje?
+nnoremap <leader>o :setlocal spell! spelllang=en_us<CR>
 
-" Autocomplete (TODO, used for what)
+
+" Enables autocompletion for file names
+set path+=**
+
+" Autocomplete commands, files, everything. Ctrl+n(n=next), Ctrl+p(p=previous)
 set wildmode=longest,list,full
 
-" Optional - SECTION: ------------------------------------------------------------------------------
+" ----- Optional - SECTION: ------------------------------------------------------------------------------
 
-" Enables chaning your cursor position with mouse (you should use this very rarely)
+" Enables changing your cursor position with mouse (you should use this very rarely)
 set mouse=a
 
 
 "highlight Cursorline cterm=bold
 
-" Enables transparency. Makes yor background be like the usual highlight normal guibg=none
+" Enables transparency. Makes your background be like the usual
+"highlight normal guibg=none
 
-set nowrap " Makes is so when you run out of screen space, the text doesnt wrap to a new line
-
+" Makes is so when you run out of screen space, the text doesn't wrap to a new line
+set nowrap
 
 " When you scroll up/down, it makes your screen move before your cursor hits the last/first line
-set scrolloff=8
-
-" Probably good default, but just to be secure - Section:
-
-
+"set scrolloff=8
 
 set smartindent " Idk, some say you should use, some say you shouldn't
 
-set title " Sets the process title to something useful (TODO)
+" Sets the process title to something related to the file name
+set title
 
 " Enables the graphical line on your current line
 "set cursorline
 
-" Set by default, but it's here just in case - SECTION:-----------------------------------------------
+" Replace all globally is aliased to S (S = substitute)
+nnoremap S :%s//g<left><left>
 
+nnoremap // :noh<return> " Press "//" after searching to unhighlight
+
+" ------ Set by default, but it's here just in case - SECTION:-----------------------------------------------
+
+set ruler " (default on)
+
+" (default: on) Show (partial) command in the last line of the screen.  Set this option off if your terminal is slow.
+set showcmd
 
 set noerrorbells " (default: off) Disables error bells and flashes
-
 
 " Probably useless - SECTION: - -------------------------------
 
 nnoremap \ :te<enter> " Enables a terminal (you already have a window manager and shortcuts, just use those)
 
-set pastetoggle=<F2> " Enable paste mode (disables indentation, pastes everything literally)
+" Enable paste mode (disables indentation, pastes everything literally)
+"set pastetoggle=<F2>
 
 "set lazyredraw " Redraws the screen when it needs to, usefull when using long macros, or on slow pc-s
 
-
-set backspace=indent,eol,start " Makes backspace behave normally
-set showcmd " (default: on) Show (partial) command in the last line of the screen.  Set this option off if your terminal is slow.
-
-
-"TODO: negde izspamuj kako je "." najjaca komanda u vimu
-"do ":so%" after changing the config file to reflect the changes(only works in this file) light or dark theme
+" Makes backspace behave normally
+set backspace=indent,eol,start
 "TODO:, staviti sve ove komentare u isti red kao i samu komandu
-
-" TODO, mozda staviti onako da ti se vidi linija, ali ne skroz, neko samo linija dole msm(ali ovo kao krsi george hotz minimalizam?)
 
 " make vim share the copy-paste clipboard with the system
 set clipboard=unnamedplus
@@ -100,21 +124,10 @@ vnoremap <C-c>
 "wat dis
 map <C-p> "+P
 
-" Replace all globaly is aliased to S (S = substitute)
-nnoremap S :%s//g<left><left>
-
-nnoremap // :noh<return> " Press "//" after searching to unhighlight
-
 "------------------------------------------------------------------------------------------------------------
 " ovaj section je iz (tip stvarno preteruje sa svime): https://www.youtube.com/watch?v=gZCXaF-Lmco
 " Makes popup menu smaller
 "set pumheight=10
-
-
-set iskeyword+=- " (Doesnt work)Treat dash seperated wods as a word text object
-
-" TODO, idk
-"set t_Co=256
 
 " So THAT I can see `` in markdown files (TODO: isprobati sa razlicitim levelima, mozda ce auto formatirati kad editujem da vec bude formatirano???)
 "set conceallevel=0
@@ -123,8 +136,6 @@ set iskeyword+=- " (Doesnt work)Treat dash seperated wods as a word text object
 " TODO:
 "set smarttab
 
-" Always display the status line (TODO: idk irl)
-"set laststatus=0
 
 " TODO: idk irl (Always show tabs)
 "set showtabline=2
@@ -133,14 +144,6 @@ set iskeyword+=- " (Doesnt work)Treat dash seperated wods as a word text object
 "set nobackup
 "TODO: idk, recommended by coc
 "set nowritebackup
-
-" TODO
-" faster completion
-"set updatetime=300
-
-" TODO
-" By default timeoutlen is 1000ms
-"set timeoutlen=100
 
 " TODO
 set noshowmode " We don't need to see things like --INSER-- anymore (TODO, disable make it acutally show the mode)
@@ -177,10 +180,7 @@ inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 " TODO: spellcheck, luke smith ima solidan, mozes i jezik da biras
 
 "------------------------------------------------------------------------------------------------------------
-" Set the leader key to " " (space)
-let mapleader =  " "
 
-filetype plugin on " TODO,(msm da onaj tip u how to do 90% of what plugins do with just vim objasni ovo)
 
 " TODO: koji je koji
 " Eh, ne moras al kao pogledaj tomm scott ili neki video za utf-8, al nepotrebno je
@@ -241,56 +241,43 @@ set completeopt=menuone,noinsert,noselect
 " vertical line on the right
 "set colorcolumn=80
 
-" idk, usefull for some stuff i dont know about, useful for git integration
-set signcolumn=yes
-" idk, TODO, Give more space for displaying messages
-set cmdheight=2
-" idk, TODO, Having longer updatetime(default is 4000ms = 4s) leads to more noticiable delays and poor user experience.
-set updatetime=50
-" idk, TODO, don't pass messages to |ins-completion-menu|
-set shortmess+=c
+" idk, the bar on the left of line numbers, useful for git integration apparently
+"set signcolumn=yes
+
+" idk, apparently not worth it, gives more space for displaying messages, but takes away from working space (the thing on the bottom of the screen)
+"set cmdheight=2
+
+" Idk, TODO, Having longer updatetime(default is 4000ms = 4s) leads to more noticiable delays and poor user experience.
+"set updatetime=50
+
+" Idk, likely useless
+"set shortmess+=c
+
 " END OF SECTION---------------------------------------------
 
 " usefull plugins (apparently):
-"nerdtree
-"fzf (ili Ctrl P)
-" ove imam osecaj da su manje korisne, ali nisam nijednu zapravo gledao
-" vis.vim"
-"airline
-"telescope
-"treesitter
-"undotree
-"fugitive
-"AG(search)
-"tpope/vim-surround
-" Plugin stuff
-"smoothscroll (da se ne izgubis kad skrolas)
+"         pictures in terminal: Uberzug, coc, nerdtree, fzf (ili Ctrl P), vis.vim", lightline, airline, telescope, vim-which-key(keybind helper), nvim colorizer (oboji hex boje u terminalu), treesitter, undotree, fugitive, AG(search), tpope/vim-surround, Plugin stuff, smoothscroll (da se ne izgubis kad skrolas)
 call plug#begin("~/.vim/plugged")
-Plug 'gruvbox-community/gruvbox'
+Plug 'gruvbox-community/gruvbox'   " Colorscheme
 call plug#end()
+colorscheme gruvbox " Colorscheme
 
-" colorscheme
-colorscheme gruvbox
 
-" idk, i think it makes the background more like the usual terminal background(maby transparency too?)
+" Makes nvim background same as regular terminal. Used for transparency
 "highlight normal guibg=none
+
+
 
 " TODO this shit
 "set noswapfile " doesn't create swap files
-"set shortmess+=c
 "set omnifunc=syntaxcomplete#Complete
 "enable folding
 
 "set foldmethod=indent
 "set foldlevel=99
-" Ctrl-P, ili fzf
-" Airline (theme=luna?)
-" TODO, nije setup, ali naci na netu kako ide case sensitive search i kako case insensitive search
 
 " NEKI FAJL, EVO CELI CONTETNI OVDE
 
-"set path+=**
-"
 ""-moze se koristiti :find <file> da bi se nasao file, moze se TAB-ovati (moze
 ""se koristiti wildcard-ovi)
 ""-kad je upaljeno vise fajlova mogu se listovati sa :ls, a da bi usao u neki
@@ -310,7 +297,6 @@ colorscheme gruvbox
 "TODO: Neki shortcut za š, itd? Da ne moram da menjam tastaturu
 "TODO: mozda? ukljuciti wrap za beleske
 
+" usefull plugins: ctags, fzf, vim-vinegar,
 "random citat: I use exuberate ctags/FZF/vim-vinegar to navigate between buffers and files, vimwiki for note taking and task management, ALE for linting/code formatting, and a couple of other tpope plugins to improve the native Vim experience like vim-commentary and vim-surround.
-
 "random citat: Anecdotally... Almost everyone where I work uses vim + YCM + vimspector. We mostly c++ with lots of java and TCL and you name it. Reasonably big multi national company.
-"userfull plugins za nvim: navodno "coc" plugin, lynting?(idk dfq is this), plugin: vim-which-key(pomaze za keybindinge), plugin:fzf, slike u konzoli sa Uberzug?(luke smith, dt, video), plugin: nvim-colorizer oboji hex boje u samom tesktu(eye candy), airline ili lightline(mozda nijedan, vise je barebones osecaj)

@@ -113,8 +113,6 @@
 
 - cool shit za read: SLS(distro, otack slackware, znaci slackware ipak nije najstariji linux distro?),lindows (distro), damn vulnerable linux(distro), enoch(otac gentoo), torbox/whonix, fuduntu(distro, fedora+ubuntu?), WGS linux pro(distro, fedorin brat blizanac?), linux router project -> LEAF
 
-- man page ricing
-
 ### Kul programi:
 
 - pazi, moving between directories in cli

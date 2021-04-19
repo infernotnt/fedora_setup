@@ -18,6 +18,10 @@ set laststatus=2
 set background=dark
 
 
+" Copy/paste from and to system with Ctrl-c and Ctrl-p . Potentially better than sharing the vim copy/paste clipboard with the system. This will only put it to the system clipboard if you do Ctr+c (in visual mode) and Ctrl+p(any mode). If using this, disable the line "set clipboard=unnamedplus". (the system clipboard is in the "+ register)
+vnoremap <C-c> "+y
+noremap <C-v> "+P
+
 " Enables syntax highlighting
 syntax enable
 
@@ -68,6 +72,9 @@ set wildmode=longest,list,full
 " ----- Optional - SECTION: ------------------------------------------------------------------------------
 
 " Enables changing your cursor position with mouse (you should use this very rarely)
+" Makes vim share the copy paste clipboard with the system
+
+"set clipboard=unnamedplus
 set mouse=a
 
 
@@ -93,7 +100,8 @@ set title
 " Replace all globally is aliased to S (S = substitute)
 nnoremap S :%s//g<left><left>
 
-nnoremap // :noh<return> " Press "//" after searching to unhighlight
+" Press "//" after searching to unhighlight
+nnoremap // :noh<return>
 
 " ------ Set by default, but it's here just in case - SECTION:-----------------------------------------------
 
@@ -117,12 +125,6 @@ nnoremap \ :te<enter> " Enables a terminal (you already have a window manager an
 set backspace=indent,eol,start
 "TODO:, staviti sve ove komentare u isti red kao i samu komandu
 
-" make vim share the copy-paste clipboard with the system
-set clipboard=unnamedplus
-"wat dis
-vnoremap <C-c>
-"wat dis
-map <C-p> "+P
 
 "------------------------------------------------------------------------------------------------------------
 " ovaj section je iz (tip stvarno preteruje sa svime): https://www.youtube.com/watch?v=gZCXaF-Lmco
@@ -195,9 +197,6 @@ set formatoptions-=cro " Disable automatic commenting on new line
 " TODO: vidi ovo, |luke smith|, syntax check za .sh fajlove, i da je sugestije(za .sh fajlove)
 map <leader>s :!clear && shellcheck -x %<CR>
 
-" potencijalno bolja opcija za copy paste iz ostatka sistema(luke smith, video: Copy and Paste to/from Vim from/to Other Programs!)
-"vnoremap <C-c> "+y
-"map <C-v> "+P
 "------------------------------------------------------------------------------------------------------------
 
 " set the tab length in spaces

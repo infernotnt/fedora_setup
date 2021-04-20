@@ -4,37 +4,50 @@
 #mozda da dodamo ovo sto oni stavljaju "--no-startup-id" na krsa stvari, pogledaj na netu sta to radi
 set $mod Mod4
 set $alt Mod1
-set $term alacritty
+set $terminal alacritty
 set $browser brave-browser
 set $file_browser pcmanfm
-
 font pango:System San Francisco Display 8
 
-# Super key enables rofi. What follows is similar to what happens when you press the Super/Windows key on Windows 10
-# You can change rofi themes. The list is in /usr/share/rofi/themes
-# Gui programs only
-bindcode --release 133 exec rofi -show drun -matching fuzzy -theme Arc-Dark
-# Console and gui programs
-bindsym $mod+d exec rofi -show run -matching fuzzy -theme Arc-Dark
+#TODO: resize, floating i obican da budu iste brzine, i da moze i gore i desno u isto vreme
+#TODO: scratchpad, ali da se ne upali odma tamo kao kod luke smitha, nego neki shortcut koji TRENUTNO upaljen window posalje u scratchpad, recimo pacman -Syu, ili tako nesto sto treba da se ceka, i onda kada zavrsi mogu da ga vratim. Mada umesto ovoga moze samo i stacked layout, ne znam jos. A mogu i da imam jedan workspace gde saljem tako stvari koje treba kad se cekaju. Sve u svemu, zakljucak mi je da mi vrv nece trebati scratchpad. idk dud
+#TODO: dodati da se floating window moze misem pomerati
+#TODO: Increase hitbox of resizing windows(stacked and floating)
+
+#Ovako treba lista da izgleda 0.keyboard          1.term,kill,split        2.rofi              3.foucs,move,resize                4.float             5.workspace
+
+# Swap caps lock and escape buttons on your keyboard (very handy for everything, especially for vim)
+exec_always --no-startup-id setxkbmap -option caps:swapescape
+
+# Makes key repeat faster
+exec_always --no-startup-id xset r rate 250 25
+
 
 # Opens terminal
-bindsym $mod+Return exec --no-startup-id $term
+bindsym $mod+Return exec --no-startup-id $terminal
 
 # Kills the currently focused window
 # TODO: consider the luke smith shit(maybe its good for scratchpads??)
-bindsym $mod+Shift+d kill
-bindsym $alt+F4 kill
+bindsym $mod+control+d kill
 
-# Opens the preffered web browser
-bindsym $mod+w exec $browser
 
-# Opens the preffered file browser
-bindsym $mod+e exec $file_browser
 
-# Changes in which orientation a new window will open(horizontal/vertical)
+#TODO: gde
+# TODO: Toggles in which orientation a new window will open(horizontal/vertical)
 bindsym $mod+t split toggle
 
-# Change focus(vim-like)
+
+# Rofi, the application launcher. Extremely usefull.
+# Super key enables rofi. What follows is similar to what happens when you press the Super/Windows key on Windows 10
+# You can change rofi themes. The list is in /usr/share/rofi/themes
+# Searches gui programs only
+bindcode --release 133 exec --no-startup-id rofi -show drun -matching fuzzy -theme Arc-Dark
+# Searches all programs (gui and terminal-like)
+bindsym $mod+d exec  --no-startup-id rofi -show run -matching fuzzy -theme Arc-Dark
+
+
+
+# Change window focus (vim-like)
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
@@ -46,42 +59,66 @@ bindsym $mod+Ctrl+j move down 30
 bindsym $mod+Ctrl+k move up 30
 bindsym $mod+Ctrl+l move right 30
 
-#bindsym $mod+space
-
-# Resize currently focused window(TODO: Increase hitbox)
+# Resize currently focused window (vim-like)
 bindsym $mod+$alt+h		exec --no-startup-id "bash ~/.scripts/i3resize left"
 bindsym $mod+$alt+j		exec --no-startup-id "bash ~/.scripts/i3resize down"
 bindsym $mod+$alt+k		exec --no-startup-id "bash ~/.scripts/i3resize up"
 bindsym $mod+$alt+l		exec --no-startup-id "bash ~/.scripts/i3resize right"
 
-# TODO: dodati da se floating window moze misem pomerati
 
-# Make the currently focused window floating
-bindsym $mod+Shift+space floating toggle
 
-#------------------------------------------------------------------------------------------
-#todo, maybe use speedcrunch, maybe use python?
-#exec_always --no-startup-id $term --title dropcalc
 
-#for_window [title="dropcalc"] floating enable
-#for_window [title="dropcalc"] move scratchpad
-#for_window [title="dropcalc"] resize set 800 300
-#for_window [title="dropcalc"] border pixel 2
-#
-#bindsym $mod+u [title="dropcalc"] scratchpad show; [title="dropdown"] move position center
-#
-#bindsym $mod+i exec --no-startup-id $term --title calc
-#for_window [title="calc"] floating enable
-#for_window [title="calc"] resize set 800 300
-#for_window [title="calc"] border pixel 2
+bindsym $mod+y layout stacking
+bindsym $mod+u layout tabbed
 
-#------------------------------------------------------------------------------------------------
 
-#NE ZNAM STA OVO RADI, (PREBACITI UMSETO CTRL NA SHIFT!!!!)
-#bindsym $mod+Shift+h move workspace to output left
-#bindsym $mod+Shift+j move workspace to output down
-#bindsym $mod+Shift+k move workspace to output up
-#bindsym $mod+Shift+l move workspace to output right
+
+# Toggles currenty focused window floating/stacking (TODO, space za floating shit-ove?)
+bindsym $mod+$alt+space floating toggle
+
+# Toggles selection mode (floating or stacking)
+bindsym $mod+space focus mode_toggle
+
+
+# Opens the preffered web browser
+bindsym $mod+w exec --no-startup-id $browser
+
+# Opens the preffered file browser
+bindsym $mod+e exec --no-startup-id $file_browser
+
+
+
+
+# Restarts i3, use after changing (and saving) the config file for i3
+bindsym $mod+r restart
+
+# Default gaps stuff
+set $innerDefault 0
+set $outerDefault 0
+gaps inner $innerDefault
+gaps outer $outerDefault
+
+# Window border (1 pixel is more aesthetic but less practical)
+for_window [class="^.*"] border pixel 2
+
+# Wallpaper
+exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper/wallpaper
+
+#TODO: U SUSTINI UGASI SAV ZVUK I PREDJE NA NOVI WORKSPACE, DOBRO AKO TI NEKO UDJE U SOBU I OCES DA SAKRIJES STA RADIS ZAPRAVO
+#bindsym $mod+Shift+Delte exec $truemute ; exec $truepause ; workspace lmao ; exec $terminal -e htop ; exec $terminal -e ranger
+# Disables all sound, moves to a new workspace and opens innocent looking programs
+bindsym $mod+Shift+Delete workspace $wslmao ; exec --no-startup-id $terminal -e htop ; exec --no-startup-id $file_browser
+
+
+bindsym $mod+Shift+Escape     exec --no-startup-id killall i3
+
+set $freeze Distraction-free mode (super+shift+f to reactivate bindings)
+mode "$freeze" { bindsym $mod+Shift+f mode "default"
+}
+bindsym $mod+Shift+f		mode "$freeze" ;; exec --no-startup-id notify-send "Distraction-free mode activated." "Press Super+Shift+f to return."
+
+
+
 
 # Lock the screen
 # NOTE: this is not 100% secure, it can be bypassed if you try
@@ -90,8 +127,93 @@ bindsym $mod+s exec i3lock --color=116611
 
 # Makes the currently focused window fullscreen
 bindsym $mod+f fullscreen toggle
+# Orients 2 monitors correctly (probably specific to my setup)
+#exec --no-startup-id xrandr --output DVI-D-0 --left-of HDMI-A-0
+
+# Compton, used for vsync, transparency and stuff
+# NOTE: compton might impact GAMING performance, usefull video: https://www.youtube.com/watch?v=3esPpe-fclIe
+exec_always killall compton
+# TODO: ukloniti ovo, wtf se desava, takodje: iz nekog razloga kad se pali kompjuter compton ne radi kako treba, a kad uradim Mod+R posle paljenja proradi?(ovo je mozda do ovog sleep 1 i zapravo mi se sve cini)
+exec_always sleep 1
+exec_always --no-startup-id compton -f -D 2 --backend glx --unredir-if-possible --vsync opengl-swc #compton se koristi za transparentnost rofi-ja, i za smooth tranisiton izmedju stvari -f je za fade
 
 
+
+
+#-------------------------------------------------------------------------------------------
+
+#TODO: namesti da ovo radi, izmeni celu komandu ako treba
+bindsym $mod+a exec --no-startup-id ddspawn dropdowncalc -f mono:pixelsize=24
+
+
+#TODO, does not hover where it should
+bindsym $mod+Shift+b	floating toggle; sticky toggle; exec --no-startup-id hover left
+bindsym $mod+Shift+n	floating toggle; sticky toggle; exec --no-startup-id hover right
+
+bindsym $mod+Shift+x exec --no-startup-id "sudo poweroff"
+bindsym $mod+Shift+r exec --no-startup-id "bash restart"
+
+# Screenshot (wayland todo, not working on X)
+bindsym Print       exec --no-startup-id maim pic-full-"$(date '+%y%m%d-%H%M-%S').png"
+
+#TODO
+# #---Workspace Bindings---# #
+
+bindsym $mod+o sticky toggle #TODO
+bindsym $mod+g workspace prev #TODO
+
+# TODO
+bindsym $mod+Shift+h          move workspace to output left
+bindsym $mod+Shift+j          move workspace to output down
+bindsym $mod+Shift+k          move workspace to output up
+bindsym $mod+Shift+l          move workspace to output right
+
+#bindsym $mod+Home		workspace $ws1
+#bindsym $mod+Shift+Home		move container to workspace $ws1
+#bindsym $mod+End		workspace $ws10
+#bindsym $mod+Shift+End		move container to workspace $ws10
+#bindsym $mod+Prior		workspace prev
+#bindsym $mod+Shift+Prior	move container to workspace prev
+#bindsym $mod+Next		workspace next
+#bindsym $mod+Shift+Next		move container to workspace next
+#bindsym $mod+Tab		workspace back_and_forth
+#bindsym $mod+XF86Back		workspace prev
+#bindsym $mod+Shift+XF86Back	move container to workspace prev
+#bindsym $mod+XF86Forward	workspace next
+#bindsym $mod+Shift+XF86Forward	move container to workspace next
+#bindsym $mod+semicolon		workspace next
+#bindsym $mod+apostrophe		split horizontal ;; exec $terminal
+#bindsym $mod+slash		split vertical ;; exec $terminal
+#bindsym $mod+Shift+slash	kill
+#bindsym $mod+backslash		workspace back_and_forth
+# #---End of Workspace Bindings---# #
+
+
+#------------------------------------------------------------------------------------------------
+
+
+
+#------------------------------------------------------------------------------------------
+#todo, maybe use speedcrunch, maybe use python?
+#exec_always --no-startup-id $terminal --title dropcalc
+
+#for_window [title="dropcalc"] floating enable
+#for_window [title="dropcalc"] move scratchpad
+#for_window [title="dropcalc"] resize set 800 300
+#for_window [title="dropcalc"] border pixel 2
+#
+#bindsym $mod+u [title="dropcalc"] scratchpad show; [title="dropdown"] move position center
+#
+#bindsym $mod+i exec --no-startup-id $terminal --title calc
+#for_window [title="calc"] floating enable
+#for_window [title="calc"] resize set 800 300
+#for_window [title="calc"] border pixel 2
+
+#------------------------------------------------------------------------------------------------
+
+
+
+#TODO
 # Workspace stuff
 bindsym $mod+Home workspace $ws1
 bindsym $mod+$alt+Home move container to workspace $ws1
@@ -105,34 +227,12 @@ bindsym $mod+slash			workspace back_and_forth
 
 bindsym $mod+$alt+m			move container to workspace prev
 bindsym $mod+$alt+comma		move container to workspace next
-# end of workspace things
+# End of workspace stuff
 
 #Polybar launch
 exec_always --no-startup-id ~/.config/polybar/scripts/launch.sh
 
-#dodatak 2------------------------------------------
-#bindsym $mod+Shift+space floating toggle
-#ne znam sta ovo radi
-#bindsym $mod+space mode_toggle
-
-#ne znam sta ovo radi
-#bindsym $mod+p exec --no-startup-id winresize
-
-#ne znam sta ovo radi
-bindsym $mod+$alt+o sticky toggle
-
-#TODO: namesti da ovo radi, izmeni celu komandu ako treba
-bindsym $mod+a exec --no-startup-id ddspawn dropdowncalc -f mono:pixelsize=24
-
-#ne znam sta ovo radi(prev!= preview nego previous?)
-#TODO: mozda dodati keybind za next and preview workspace?, slicno kao u windows 10, mozda  cak i prakticnije od back and forth
-bindsym $mod+g workspace prev
-
-#TODO: Integrate this or one of thi?
-#bindsym $mod+s layout tabbed
-#bindsym $mod+e layout toggle split
-
-#------------------------------------------------------------------------
+# Window borders and stuff------------------------------------------------------------------------
 # Active window border color (the color is taken from fedora 2021 logo)
 set $active-bg-color             #3c6eb4ff
 # Inactive window border color
@@ -155,21 +255,6 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 
 
 
-# Restarts i3, use after changing (and saving) the config file for i3
-bindsym $mod+r restart
-
-# Default gaps stuff
-set $innerDefault 0
-set $outerDefault 0
-gaps inner $innerDefault
-gaps outer $outerDefault
-
-# Window border (1 pixel is more aesthetic but less practical)
-for_window [class="^.*"] border pixel 2
-
-# Wallpaper
-exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper/wallpaper
-
 # Gaps stuff
 bindsym $mod+$alt+t gaps inner current set $innerDefault; gaps outer current set $outterDefault
 bindsym $mod+$alt+d gaps inner current set 0; gaps outer current set 0
@@ -191,7 +276,7 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $wslmao "0"
+set $wslmao lmao
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -217,7 +302,8 @@ bindsym $mod+$alt+8 move container to workspace number $ws8
 bindsym $mod+$alt+9 move container to workspace number $ws9
 bindsym $mod+$alt+0 move container to workspace number $wslmao
 
-#ovo ispod ne znam sta je dosta toga
+# I have no stuff under this line is ---------------------------------------------------------------------------------
+
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
@@ -235,22 +321,3 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
-# Swap caps lock and escape buttons on your keyboard (very handy for everything, especially for vim)
-exec_always --no-startup-id setxkbmap -option caps:swapescape
-# Makes key repeat faster TODO, bolji opis jer nije samo key repeat nego ima i neko drugo sranje to se sve moze naci u onom videu na jutubu
-exec_always --no-startup-id xset r rate 250 25
-# Orients 2 monitors correctly (probably specific to my setup)
-exec --no-startup-id xrandr --output DVI-D-0 --left-of HDMI-A-0
-
-# Compton, used for vsync, transparency and stuff
-# NOTE: compton might impact GAMING performance, usefull video: https://www.youtube.com/watch?v=3esPpe-fclIe
-exec_always killall compton
-# TODO: ukloniti ovo, wtf se desava, takodje: iz nekog razloga kad se pali kompjuter compton ne radi kako treba, a kad uradim Mod+R posle paljenja proradi?(ovo je mozda do ovog sleep 1 i zapravo mi se sve cini)
-exec_always sleep 1
-exec_always --no-startup-id compton -f -D 2 --backend glx --unredir-if-possible --vsync opengl-swc #compton se koristi za transparentnost rofi-ja, i za smooth tranisiton izmedju stvari -f je za fade
-
-#TODO: U SUSTINI UGASI SAV ZVUK I PREDJE NA NOVI WORKSPACE, DOBRO AKO TI NEKO UDJE U SOBU I OCES DA SAKRIJES STA RADIS ZAPRAVO
-#bindsym $mod+Shift+Delte exec $truemute ; exec $truepause ; workspace lmao ; exec $term -e htop ; exec $term -e ranger
-# Disables all sound, moves to a new workspace and opens innocent looking programs
-bindsym $mod+Shift+Delete workspace $wslmao ; exec --no-startup-id $term -e htop ; exec --no-startup-id $file_browser

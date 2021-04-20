@@ -72,6 +72,7 @@
 - Vim markdown latex note taking: https://www.youtube.com/watch?v=zB_3FIGRWRU
 - dodati da se moze menjati tastatura, shorcut isti kao na windows 10 (dodati srpsku latinicu i cirilicu kao default i ./install_fedora_setup.sh?)
 - dodati da se mozda autocompletuje na 2. tabu,a da opcije nudi odma na 1.
+- proveriti da li je system san francisco instaliran
 
 #Second priority
 
@@ -98,6 +99,8 @@
 - za skrinsot program(parag): flameshot?
 
 ## Potencijalne ideje:
+
+- navodno rofi moze da se koristi kao application switcher? sta ovo znaci?
 
 - mozda znak fedore(obojen?) gore desno na polybar ili tako negde
 

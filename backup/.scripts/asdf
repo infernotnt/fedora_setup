@@ -27,22 +27,3 @@ case $1 in
     moveChoice grow right shrink left
     ;;
 esac
-
-
-#case $1 in
-#  up)
-#    moveChoice grow up
-#    ;;
-#  down)
-#    moveChoice grow down
-#    ;;
-#  left)
-#    moveChoice grow left
-#    ;;
-#  right)
-#    moveChoice grow right
-#    ;;
-#  cu)
-#    moveChoice grow right shrink left
-#    ;;
-#esac

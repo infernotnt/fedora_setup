@@ -19,8 +19,8 @@ set background=dark
 
 
 " Copy/paste from and to system with Ctrl-c and Ctrl-p . Potentially better than sharing the vim copy/paste clipboard with the system. This will only put it to the system clipboard if you do Ctr+c (in visual mode) and Ctrl+p(any mode). If using this, disable the line "set clipboard=unnamedplus". (the system clipboard is in the "+ register)
-vnoremap <C-c> "+y
-noremap <C-v> "+P
+"vnoremap <C-c> "+y
+"noremap <C-v> "+P
 
 " Enables syntax highlighting
 syntax enable
@@ -74,7 +74,7 @@ set wildmode=longest,list,full
 " Enables changing your cursor position with mouse (you should use this very rarely)
 " Makes vim share the copy paste clipboard with the system
 
-"set clipboard=unnamedplus
+set clipboard=unnamedplus
 set mouse=a
 
 

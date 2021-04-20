@@ -10,6 +10,10 @@ echo "Make sure you ran it this way."
 sleep 3
 
 #TODO, videti da li qbittorrent radi
+#TODO, update skripta moze da bude ista na oba.
+#TODO, ssh u update skriptu
+#TODO, home directory cleanup
+#TODO, mooozda kao 3 skripte za install, jedna radi arch specific, druga radi fedora specific, i treca radi generalno
 
 USER_HOME=$(getent passwd $SUDO_USER | cut -d: -f6)
 

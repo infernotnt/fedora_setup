@@ -23,4 +23,4 @@ sudo cp -vp ~/.profile backup/.profile
 sudo cp -vp ~/.zshrc backup/.zshrc
 sudo cp -vp ~/.inputrc backup/.inputrc
 
-#sudo cp -vp ~/Pictures/wallpaper/wallpaper backup/wallpaper
+sudo cp -vp ~/Pictures/wallpaper/wallpaper backup/wallpaper

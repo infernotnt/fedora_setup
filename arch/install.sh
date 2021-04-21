@@ -78,7 +78,7 @@ sudo fc-cache -f -v
 
 #SWAY TODO: wallpaper
 sudo mkdir -pv $USER_HOME/Pictures/wallpaper
-sudo cp backup/wallpaper $USER_HOME/Pictures/wallpaper
+sudo cp backup/wallpaper $USER_HOME/Pictures/wallpaper/wallpaper
 
 
 #download za vim-plug. vim-plug ti daje da skidas plugin-ove za vim/nvim

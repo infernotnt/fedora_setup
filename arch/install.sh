@@ -25,6 +25,7 @@ pacman --noconfirm -S sway swaylock firefox alsa alacritty
 
 pacman --noconfirm -S git youtube-dl shellcheck cava cmatrix
 
+pacman --coconfirm -S alsa alsa-utils pavucontrol
 #copy pasting from and to vim
 pacman --noconfirm -S wl-clipboard
 

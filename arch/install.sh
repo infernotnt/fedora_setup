@@ -21,7 +21,7 @@ sudo hostnamectl set-hostname archio
 
 pacman --noconfirm -S sudo man-db zsh htop neofetch
 
-pacman --noconfirm -S sway firefox alsa alacritty
+pacman --noconfirm -S sway swaylock firefox alsa alacritty
 
 pacman --noconfirm -S git youtube-dl shellcheck cava cmatrix
 

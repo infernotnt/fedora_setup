@@ -16,11 +16,15 @@ font pango:System San Francisco Display 8
 
 #Ovako treba lista da izgleda 0.keyboard          1.term,kill,split        2.rofi              3.foucs,move,resize                4.float             5.workspace
 
+input * {
+
+     xkb_options "caps:swapescape"
+}
 # Swap caps lock and escape buttons on your keyboard (very handy for everything, especially for vim)
-exec_always --no-startup-id setxkbmap -option caps:swapescape
+#exec_always --no-startup-id setxkbmap -option caps:swapescape
 
 # Makes key repeat faster
-exec_always --no-startup-id xset r rate 250 25
+#exec_always --no-startup-id xset r rate 250 25
 
 
 # Opens terminal
@@ -60,10 +64,10 @@ bindsym $mod+Ctrl+k move up 30
 bindsym $mod+Ctrl+l move right 30
 
 # Resize currently focused window (vim-like)
-bindsym $mod+$alt+h		exec --no-startup-id "bash ~/.scripts/i3resize left"
-bindsym $mod+$alt+j		exec --no-startup-id "bash ~/.scripts/i3resize down"
-bindsym $mod+$alt+k		exec --no-startup-id "bash ~/.scripts/i3resize up"
-bindsym $mod+$alt+l		exec --no-startup-id "bash ~/.scripts/i3resize right"
+bindsym $mod+$alt+h		exec --no-startup-id "bash ~/.scripts/sway_resize left"
+bindsym $mod+$alt+j		exec --no-startup-id "bash ~/.scripts/sway_resize down"
+bindsym $mod+$alt+k		exec --no-startup-id "bash ~/.scripts/sway_resize up"
+bindsym $mod+$alt+l		exec --no-startup-id "bash ~/.scripts/sway_resize right"
 
 
 
@@ -89,8 +93,8 @@ bindsym $mod+e exec --no-startup-id $file_browser
 
 
 
-# Restarts i3, use after changing (and saving) the config file for i3
-bindsym $mod+r restart
+# Restarts sway, use after changing (and saving) the config file for i3
+bindsym $mod+r reload
 
 # Default gaps stuff
 set $innerDefault 0
@@ -110,12 +114,13 @@ exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper/wallpaper
 bindsym $mod+Shift+Delete workspace $wslmao ; exec --no-startup-id $terminal -e htop ; exec --no-startup-id $file_browser
 
 
-bindsym $mod+Shift+Escape     exec --no-startup-id killall i3
+bindsym $mod+Shift+Escape     exec --no-startup-id killall sway
 
-set $freeze Distraction-free mode (super+shift+f to reactivate bindings)
-mode "$freeze" { bindsym $mod+Shift+f mode "default"
-}
-bindsym $mod+Shift+f		mode "$freeze" ;; exec --no-startup-id notify-send "Distraction-free mode activated." "Press Super+Shift+f to return."
+#NE RADI NA SWAY
+#set $freeze Distraction-free mode (super+shift+f to reactivate bindings)
+#mode "$freeze" { bindsym $mod+Shift+f mode "default"
+#}
+#bindsym $mod+Shift+f		mode "$freeze" ;; exec --no-startup-id notify-send "Distraction-free mode activated." "Press Super+Shift+f to return."
 
 
 
@@ -123,7 +128,7 @@ bindsym $mod+Shift+f		mode "$freeze" ;; exec --no-startup-id notify-send "Distra
 # Lock the screen
 # NOTE: this is not 100% secure, it can be bypassed if you try
 # NOTE: no encryption is used
-bindsym $mod+s exec i3lock --color=116611
+bindsym $mod+s exec swaylock --color=116611
 
 # Makes the currently focused window fullscreen
 bindsym $mod+f fullscreen toggle
@@ -132,10 +137,7 @@ bindsym $mod+f fullscreen toggle
 
 # Compton, used for vsync, transparency and stuff
 # NOTE: compton might impact GAMING performance, usefull video: https://www.youtube.com/watch?v=3esPpe-fclIe
-exec_always killall compton
 # TODO: ukloniti ovo, wtf se desava, takodje: iz nekog razloga kad se pali kompjuter compton ne radi kako treba, a kad uradim Mod+R posle paljenja proradi?(ovo je mozda do ovog sleep 1 i zapravo mi se sve cini)
-exec_always sleep 1
-exec_always --no-startup-id compton -f -D 2 --backend glx --unredir-if-possible --vsync opengl-swc #compton se koristi za transparentnost rofi-ja, i za smooth tranisiton izmedju stvari -f je za fade
 
 
 
@@ -151,7 +153,7 @@ bindsym $mod+Shift+b	floating toggle; sticky toggle; exec --no-startup-id hover 
 bindsym $mod+Shift+n	floating toggle; sticky toggle; exec --no-startup-id hover right
 
 bindsym $mod+Shift+x exec --no-startup-id "sudo poweroff"
-bindsym $mod+Shift+r exec --no-startup-id "bash restart"
+bindsym $mod+Shift+r exec --no-startup-id "sudo restart"
 
 # Screenshot (wayland todo, not working on X)
 bindsym Print       exec --no-startup-id maim pic-full-"$(date '+%y%m%d-%H%M-%S').png"

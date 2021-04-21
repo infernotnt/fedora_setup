@@ -15,19 +15,25 @@ sleep 3
 #TODO, home directory cleanup
 #TODO, mooozda kao 3 skripte za install, jedna radi arch specific, druga radi fedora specific, i treca radi generalno
 
+#mozda nije potrebno skinuti alsa i alsa-utlis kad se vec skida pulseaudio
+
 USER_HOME=$(getent passwd $SUDO_USER | cut -d: -f6)
 
 sudo hostnamectl set-hostname archio
 
 pacman --noconfirm -S sudo man-db zsh htop neofetch
 
-pacman --noconfirm -S sway swaylock firefox alsa alacritty
+pacman --noconfirm -S sway swaylock swaybg
+
+pacman --noconfirm -S firefox alacritty
 
 pacman --noconfirm -S git youtube-dl shellcheck cava cmatrix
 
-pacman --coconfirm -S alsa alsa-utils pavucontrol
-#copy pasting from and to vim
-pacman --noconfirm -S wl-clipboard
+pacman --coconfirm -S alsa alsa-utils pavucontrol pulseaudio
+
+# wl-clipboard, copy pasting
+# imv, image viewer
+pacman --noconfirm -S wl-clipboard imv
 
 #audio pogle na archwiki
 
@@ -71,8 +77,8 @@ sudo cp -vp backup/.inputrc $USER_HOME/.inputrc
 sudo fc-cache -f -v
 
 #SWAY TODO: wallpaper
-#sudo mkdir -pv $USER_HOME/Pictures/wallpaper
-#sudo cp backup/wallpaper $USER_HOME/Pictures/wallpaper
+sudo mkdir -pv $USER_HOME/Pictures/wallpaper
+sudo cp backup/wallpaper $USER_HOME/Pictures/wallpaper
 
 
 #download za vim-plug. vim-plug ti daje da skidas plugin-ove za vim/nvim

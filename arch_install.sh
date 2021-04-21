@@ -19,11 +19,11 @@ USER_HOME=$(getent passwd $SUDO_USER | cut -d: -f6)
 
 sudo hostnamectl set-hostname archio
 
-pacman --noconfirm -S sudo man-db zsh
+pacman --noconfirm -S sudo man-db zsh htop neofetch
 
-pacman --noconfirm -S sway firefox alsa zsh alacritty
+pacman --noconfirm -S sway firefox alsa alacritty
 
-pacman --noconfirm -S git youtube-dl neofetch htop shellcheck cava cmatrix
+pacman --noconfirm -S git youtube-dl shellcheck cava cmatrix
 
 #copy pasting from and to vim
 pacman --noconfirm -S wl-clipboard

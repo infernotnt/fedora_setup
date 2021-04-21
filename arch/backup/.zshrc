@@ -109,8 +109,10 @@ PS1='-> '
 #-----
 # Just some small conviniences
 alias cfi="nvim ~/.config/i3/config"
-alias cfv="nvim ~/.vimrc"
+alias cfv="nvim ~/.config/nvim/init.vim"
 alias cfb="nvim ~/.bashrc"
 alias cfz="nvim ~/.zshrc"
 alias cfr="nvim ~/fedora_setup/README.md"
+alias cfs="nvim ~/.config/sway/config"
 
+alias ff="export MOZ_ENABLE_WAYLAND=1 ; firefox"

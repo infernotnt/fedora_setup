@@ -16,16 +16,17 @@ font pango:System San Francisco Display 8
 
 #Ovako treba lista da izgleda 0.keyboard          1.term,kill,split        2.rofi              3.foucs,move,resize                4.float             5.workspace
 
-input * {
+#SWAY
+# Window border (1 pixel is more aesthetic but less practical)
+default_border pixel 2
 
+#SWAY
+input * {
+     repeat_rate 25
+     repeat_delay 250
+     #Swaps caps lock and escape keys
      xkb_options "caps:swapescape"
 }
-# Swap caps lock and escape buttons on your keyboard (very handy for everything, especially for vim)
-#exec_always --no-startup-id setxkbmap -option caps:swapescape
-
-# Makes key repeat faster
-#exec_always --no-startup-id xset r rate 250 25
-
 
 # Opens terminal
 bindsym $mod+Return exec --no-startup-id $terminal
@@ -102,8 +103,6 @@ set $outerDefault 0
 gaps inner $innerDefault
 gaps outer $outerDefault
 
-# Window border (1 pixel is more aesthetic but less practical)
-for_window [class="^.*"] border pixel 2
 
 # Wallpaper
 exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper/wallpaper
@@ -128,6 +127,7 @@ bindsym $mod+Shift+Escape     exec --no-startup-id killall sway
 # Lock the screen
 # NOTE: this is not 100% secure, it can be bypassed if you try
 # NOTE: no encryption is used
+#SWAY
 bindsym $mod+s exec swaylock --color=116611
 
 # Makes the currently focused window fullscreen

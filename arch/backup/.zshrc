@@ -116,3 +116,7 @@ alias cfr="nvim ~/fedora_setup/README.md"
 alias cfs="nvim ~/.config/sway/config"
 
 alias ff="export MOZ_ENABLE_WAYLAND=1 ; firefox"
+alias cfa="cd ~/fedora_setup/arch"
+alias p="sudo pacman"
+alias P="sudo pacman --noconfirm"
+alias g="git add . ; git commit -m "c" ; git push"

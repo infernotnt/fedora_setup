@@ -54,13 +54,14 @@ sudo chown -Rv $SUDO_USER $USER_HOME/.fonts
 
 
 #SWAY
-sudo cp -rvp backup/.config/sway $USER_HOME/.config/sway
+#sudo cp -rvp backup/.config/sway $USER_HOME/.config/sway
 
-sudo cp -rvp backup/.config/polybar $USER_HOME/.config/polybar
+sudo cp -rvp backup/.config/* $USER_HOME/.config/
+
+#sudo cp -rvp backup/.config/polybar $USER_HOME/.config/polybar
 sudo cp -rvp backup/.scripts/* $USER_HOME/.scripts
 sudo cp -rvp backup/.fonts/* $USER_HOME/.fonts/
 
-sudo cp -vp backup/.vimrc $USER_HOME/.vimrc
 sudo cp -vp backup/.bashrc $USER_HOME/.bashrc
 sudo cp -vp backup/.profile $USER_HOME/.profile
 sudo cp -vp backup/.zshrc $USER_HOME/.zshrc

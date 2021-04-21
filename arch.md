@@ -1,3 +1,7 @@
+#TODO arch_install:
+     pre svega, mozda namestiti pacman config da bude lep dok se sve skida, ako moze bez sed, bilo bi super
+
+
 Arch komande se obicno sastoje od prvo jednog velikog slova(e.g., S, R, Q) i mnogo malih slova.
 
 

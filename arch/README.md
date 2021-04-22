@@ -1,6 +1,15 @@
 #TODO arch_install:
      pre svega, mozda namestiti pacman config da bude lep dok se sve skida, ako moze bez sed, bilo bi super
 
+#TODO rice:
+     aur
+     ps1
+     swaybar, waybar
+     rofi, wofi, ona komanda
+     auto sound
+     bluetooth
+     fade (kao compton)
+
 
 Arch komande se obicno sastoje od prvo jednog velikog slova(e.g., S, R, Q) i mnogo malih slova.
 

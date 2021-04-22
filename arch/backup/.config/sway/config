@@ -42,6 +42,7 @@ bindsym $mod+control+d kill
 bindsym $mod+t split toggle
 
 
+#?pokusaj da namestis da ovo radi umseto rofija mozda?
 #bindsym $mod+i exec $terminal --title launcher -e "bash -c 'compgen -c | grep -v fzf | sort -u | fzf --layout=reverse | xargs -r swaymsg -t command exec'"
 #for_window [app_id="^launcher$"] floating enable, border none, opacity 0.8
 
@@ -110,7 +111,7 @@ gaps outer $outerDefault
 # SWAY
 # Wallpaper
 #exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper/wallpaper
-output "*" bg ~/Downloads/index.jpg fill
+output "*" bg ~/Pictures/wallpaper/wallpaper fill
 
 #TODO: U SUSTINI UGASI SAV ZVUK I PREDJE NA NOVI WORKSPACE, DOBRO AKO TI NEKO UDJE U SOBU I OCES DA SAKRIJES STA RADIS ZAPRAVO
 #bindsym $mod+Shift+Delte exec $truemute ; exec $truepause ; workspace lmao ; exec $terminal -e htop ; exec $terminal -e ranger

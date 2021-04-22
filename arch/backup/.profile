@@ -2,6 +2,7 @@
 #Profile file. Runs on login.
 
 export EDITOR="nvim"
+export VISUAL="nvim"
 export TERMINAL="alacritty"
 export BROWSER="brave-browser"
 export FILE_BROWSER="pcmanfm"

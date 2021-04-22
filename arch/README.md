@@ -10,6 +10,8 @@
      bluetooth
      fade (kao compton)
 
+#TODO USER - AFTER INSTALL:
+     change ~/.config/git/config
 
 Arch komande se obicno sastoje od prvo jednog velikog slova(e.g., S, R, Q) i mnogo malih slova.
 

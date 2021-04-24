@@ -6,6 +6,14 @@
 "2., stvari koje ne moram bas da koristim, ali korisne su ponekad, samo ne treba bas da mi stoje ukljucene jer krse vim filozofiju ili tako nesto (think: misem da mozes da pomeras gde ces biti, better tabbing...)
 "3., stvari koje jos ne znam sta rade, ali ce mi mozda biti korisno jednog dana (think: window navigation)
 
+"Vim note taking------------------------------------------------------------------------------------------------------------
+
+" Automatically compile *.md files on file write to the .pdf equivalent.
+autocmd BufWritePost *.md silent !~/.scripts/nvim/compile_note.sh %:p
+
+
+"------------------------------------------------------------------------------------------------------------
+
 "TEST---------
 
 " Always display the status line (TODO: idk irl)
@@ -189,7 +197,7 @@ inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 set encoding=utf-8
 set fileencoding=utf-8
 
-set formatoptions-=cro " Disable automatic commenting on new line
+set formatoptions-=cro " TODO: ne radi| Disable automatic commenting on new line
 
 
 " TODO: kad budem radio latex/markdown/cpp/c/python, staviti da se uvek kompajluje na isto dugme?

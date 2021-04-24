@@ -69,10 +69,10 @@ bindsym $mod+Ctrl+k move up 30
 bindsym $mod+Ctrl+l move right 30
 
 # Resize currently focused window (vim-like)
-bindsym $mod+$alt+h		exec --no-startup-id "bash ~/.scripts/sway_resize left"
-bindsym $mod+$alt+j		exec --no-startup-id "bash ~/.scripts/sway_resize down"
-bindsym $mod+$alt+k		exec --no-startup-id "bash ~/.scripts/sway_resize up"
-bindsym $mod+$alt+l		exec --no-startup-id "bash ~/.scripts/sway_resize right"
+bindsym $mod+$alt+h		exec --no-startup-id "bash ~/.scripts/sway/resize left"
+bindsym $mod+$alt+j		exec --no-startup-id "bash ~/.scripts/sway/resize down"
+bindsym $mod+$alt+k		exec --no-startup-id "bash ~/.scripts/sway/resize up"
+bindsym $mod+$alt+l		exec --no-startup-id "bash ~/.scripts/sway/resize right"
 
 
 

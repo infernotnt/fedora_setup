@@ -31,7 +31,7 @@ pacman --noconfirm -S git youtube-dl shellcheck cava cmatrix
 
 pacman --noconfirm -S alsa alsa-utils pavucontrol pulseaudio
 
-pacman --noconfirm -S vlc qbittorrent tldr
+pacman --noconfirm -S vlc qbittorrent tldr tokei tree
 
 # Za kompajlovanje, koristi se za AUR
 pacman -noconfirm --needed base-devel

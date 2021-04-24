@@ -1,18 +1,23 @@
 #TODO arch_install:
      pre svega, mozda namestiti pacman config da bude lep dok se sve skida, ako moze bez sed, bilo bi super
 
-#TOdo RICE (prio 1): ps1
+#TODO USER - AFTER INSTALL:
+     change ~/.config/git/config
+
+#TODO backup:
+     proveriti u virtual machine da li sve radi pre nego sto obrisem trenutni arch sistem
+
+#TODO RICE (prio 1): ps1
      swaybar, waybar
      rofi, wofi, ona komanda
      bluetooth
      fade (kao compton)
+
 ## rice (prio 2)
      na sway-u mi se cini da resize nije konstantne brzine nego se menja sa velicinom prozora
      aur
      dodati padding na alacritty
 
-#TODO USER - AFTER INSTALL:
-     change ~/.config/git/config
 
 Arch komande se obicno sastoje od prvo jednog velikog slova(e.g., S, R, Q) i mnogo malih slova.
 

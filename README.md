@@ -61,7 +61,6 @@
 - .ssh full setup u skriptama
 - update na google drive shortcute za terminal (ctrl w, ctrl e, itd), u smislu: obrisati one koje nisu potrebne jer se koristi vim mode, ostaviti c-d, c-l, c-a, c-w i mozda jos neke
 
-### ricing_todo.txt
 
 #first priority(functonal):
 - i3 bindings,
@@ -97,6 +96,8 @@
 - naci i configure file explorer i ikonice lepe staiviti
 
 - za skrinsot program(parag): flameshot?
+
+- alacritty basic ricing, moze se staviti padding na ivicama window-a na primer: https://www.youtube.com/watch?v=S5ra0DUDZww&list=PLhoH5vyxr6QpGSDfaYLxOgjCzCej6q0kP&index=7
 
 ## Potencijalne ideje:
 

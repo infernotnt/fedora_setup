@@ -208,3 +208,7 @@ indent commands:
 < i >
 =, uradi autoindent
 ako ponovis komandu 2 puta izvrsice se samo u tom redu, npr >>, <<, ==
+
+Playlista za vim setup https://www.youtube.com/watch?v=S5ra0DUDZww&list=PLhoH5vyxr6QpGSDfaYLxOgjCzCej6q0kP&index=6
+Verovatno dobar video za projekte sa vise fajlova: https://www.youtube.com/watch?v=on1AzaZzQ7k
+Vim input(emulacija nvim) svuda u browseru: https://github.com/glacambre/firenvim

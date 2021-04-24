@@ -257,10 +257,12 @@ set completeopt=menuone,noinsert,noselect
 " usefull plugins (apparently):
 "         pictures in terminal: Uberzug, coc, nerdtree, fzf (ili Ctrl P), vis.vim", lightline, airline, telescope, vim-which-key(keybind helper), nvim colorizer (oboji hex boje u terminalu), treesitter, undotree, fugitive, AG(search), tpope/vim-surround, Plugin stuff, smoothscroll (da se ne izgubis kad skrolas)
 call plug#begin("~/.vim/plugged")
-Plug 'gruvbox-community/gruvbox'   " Colorscheme
+Plug 'gruvbox-community/gruvbox'        " Colorscheme
+Plug 'tomasiser/vim-code-dark'          " Colorscheme
+Plug 'glacambre/firenvim'
 call plug#end()
-colorscheme gruvbox " Colorscheme
-
+"colorscheme gruvbox " Colorscheme
+colorscheme codedark
 
 " Makes nvim background same as regular terminal. Used for transparency
 "highlight normal guibg=none

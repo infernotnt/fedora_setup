@@ -9,6 +9,7 @@
      auto sound
      bluetooth
      fade (kao compton)
+     na sway-u mi se cini da resize nije konstantne brzine nego se menja sa velicinom prozora
 
 #TODO USER - AFTER INSTALL:
      change ~/.config/git/config

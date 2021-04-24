@@ -33,8 +33,14 @@ pacman --noconfirm -S alsa alsa-utils pavucontrol pulseaudio
 
 pacman --noconfirm -S vlc qbittorrent tldr
 
-# wl-clipboard, copy pasting
-# imv, image viewer
+# Za kompajlovanje, koristi se za AUR
+pacman -noconfirm --needed base-devel
+
+# Ne znam da li ovo ukljucuje server
+pacman --noconfirm openssh
+
+# wl-clipboard      -  copy pasting
+# imv               -  image viewer
 pacman --noconfirm -S wl-clipboard imv
 
 #audio pogle na archwiki

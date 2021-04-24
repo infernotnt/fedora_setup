@@ -29,7 +29,9 @@ pacman --noconfirm -S firefox alacritty
 
 pacman --noconfirm -S git youtube-dl shellcheck cava cmatrix
 
-pacman --coconfirm -S alsa alsa-utils pavucontrol pulseaudio
+pacman --noconfirm -S alsa alsa-utils pavucontrol pulseaudio
+
+pacman --noconfirm -S vlc qbittorrent tldr
 
 # wl-clipboard, copy pasting
 # imv, image viewer

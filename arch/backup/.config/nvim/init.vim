@@ -261,8 +261,10 @@ Plug 'gruvbox-community/gruvbox'        " Colorscheme
 Plug 'tomasiser/vim-code-dark'          " Colorscheme
 Plug 'glacambre/firenvim'
 call plug#end()
-"colorscheme gruvbox " Colorscheme
-colorscheme codedark
+
+" Vim-studio-dark colortheme for everything except for markdown (.md) files
+autocmd BufEnter * colorscheme codedark
+autocmd BufEnter *.md colorscheme gruvbox
 
 " Makes nvim background same as regular terminal. Used for transparency
 "highlight normal guibg=none

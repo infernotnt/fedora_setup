@@ -42,6 +42,9 @@ pacman -Qdt, list of orphans
 
 pacman -Qs, search for locally installed packages
 
+pacman -Si, information for a package
+
+pacman -Qi, information for a locally installed package
 U file-u /etc/pacman.conf:
 
 # Misc options

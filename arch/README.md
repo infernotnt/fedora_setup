@@ -36,11 +36,8 @@
      * aur
      * dodati padding na alacritty
      * zsh da ne smara na auto-completion-u, videti da neka smaranja ostanu, npr ona sto retko budu
-<<<<<<< HEAD
      * u konzoli kada uzmem proslu komandu <Escape, k> ne moze da se brise na <C-w> vecina komande
-=======
      * kul fonts
->>>>>>> 75106ec6554f5500ebcb02765f8efee6bb82d131
 
 
 Downloaded compressed packages are still kept on the system at /var/cache/pacman/pkg/

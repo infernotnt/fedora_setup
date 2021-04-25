@@ -1,14 +1,20 @@
 #TODO arch_install:
      pre svega, mozda namestiti pacman config da bude lep dok se sve skida, ako moze bez sed, bilo bi super
 
+#TODO USER - BEFORE INSTALL
+     * set your grahics card drivers
+
 #TODO USER - AFTER INSTALL:
      * change ~/.config/git/config
+     * visudo, add yourself to wheel and make it so password isn't required(TODO: this is perhaps possible to automate)
 
 #TODO backup:
      * dafuq is .config/zsh/.zcompdump?, vrv ne treba da bude u backupu
      * proveriti u virtual machine da li sve radi pre nego sto obrisem trenutni arch sistem
      * videti da pre nego sto pacman -S sway, prvo skinem mesa drivere ili one druge, treba videti koji se nude od ta 2
      * mozda staviti da se bluetooth module pali tek kada upalim sway? https://wiki.archlinux.org/index.php/Sway#Manage_Sway-specific_daemons_with_systemd
+     * vim :PlugInstall i dalje nije automatski izgleda, ako budes automatizovao pazi posto se skripta nece raditi kao user account nego kao admin account
+     * da pita za username, i onda je full instalacija sa sudo account-a, i da pita za driver koji se koristi, nvidia ili mesa
 
 
 #TODO RICE (prio 1):
@@ -29,6 +35,8 @@
      * dodati padding na alacritty
      * zsh da ne smara na auto-completion-u, videti da neka smaranja ostanu, npr ona sto retko budu
 
+
+Downloaded compressed packages are still kept on the system at /var/cache/pacman/pkg/
 
 Arch komande se obicno sastoje od prvo jednog velikog slova(e.g., S, R, Q) i mnogo malih slova.
 

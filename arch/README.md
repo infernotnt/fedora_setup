@@ -15,6 +15,7 @@
      * mozda staviti da se bluetooth module pali tek kada upalim sway? https://wiki.archlinux.org/index.php/Sway#Manage_Sway-specific_daemons_with_systemd
      * vim :PlugInstall i dalje nije automatski izgleda, ako budes automatizovao pazi posto se skripta nece raditi kao user account nego kao admin account
      * da pita za username, i onda je full instalacija sa sudo account-a, i da pita za driver koji se koristi, nvidia ili mesa
+     * brave/firefox, njihovi settings i bookmarks potencijalno, ako budem njih dodavao, neka bude van github repositoryija, nego gitignore
 
 
 #TODO RICE (prio 1):
@@ -34,6 +35,7 @@
      * aur
      * dodati padding na alacritty
      * zsh da ne smara na auto-completion-u, videti da neka smaranja ostanu, npr ona sto retko budu
+     * kul fonts
 
 
 Downloaded compressed packages are still kept on the system at /var/cache/pacman/pkg/

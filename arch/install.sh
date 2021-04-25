@@ -27,7 +27,7 @@ pacman --noconfirm -S sway swaylock swaybg
 
 pacman --noconfirm -S firefox alacritty
 
-pacman --noconfirm -S git youtube-dl shellcheck cava cmatrix
+pacman --noconfirm -S git youtube-dl shellcheck cava cmatrix parted playerctl fzf
 
 pacman --noconfirm -S alsa alsa-utils pavucontrol pulseaudio
 

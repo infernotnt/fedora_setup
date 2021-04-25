@@ -42,17 +42,17 @@ bindsym $mod+control+d kill
 bindsym $mod+t split toggle
 
 
-#?pokusaj da namestis da ovo radi umseto rofija mozda?
-#bindsym $mod+i exec $terminal --title launcher -e "bash -c 'compgen -c | grep -v fzf | sort -u | fzf --layout=reverse | xargs -r swaymsg -t command exec'"
-#for_window [app_id="^launcher$"] floating enable, border none, opacity 0.8
+# Rofi replacement
+bindcode --release 133 exec --no-startup-id $terminal --title application_launcher -e bash -c 'compgen -c | grep -v fzf | sort -u | fzf --layout=reverse | xargs -r swaymsg -t command exec'
+for_window [title="application_launcher"] floating enable, border none, opacity 0.8, move position center, resize set 800 300
 
 # Rofi, the application launcher. Extremely usefull.
 # Super key enables rofi. What follows is similar to what happens when you press the Super/Windows key on Windows 10
 # You can change rofi themes. The list is in /usr/share/rofi/themes
 # Searches gui programs only
-bindcode --release 133 exec --no-startup-id rofi -show drun -matching fuzzy -theme Arc-Dark
+#bindcode --release 133 exec --no-startup-id rofi -show drun -matching fuzzy -theme Arc-Dark
 # Searches all programs (gui and terminal-like)
-bindsym $mod+d exec  --no-startup-id rofi -show run -matching fuzzy -theme Arc-Dark
+#bindsym $mod+d exec  --no-startup-id rofi -show run -matching fuzzy -theme Arc-Dark
 
 
 

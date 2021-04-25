@@ -45,6 +45,20 @@ pacman --noconfirm -S wl-clipboard imv
 
 #audio pogle na archwiki
 
+#======Bluetooth
+
+pacman --noconfirm -S bluez bluez-utils
+
+# TODO, check wheather btusb module is loaded in kernel
+systemctl enable --now bluetooth.service
+
+# Vrv postoji nesto minimalnije ali ne znam da li da idem na tako nesto
+pacman --noconfirm -S blueman
+
+rfkill unblock bluetooth
+
+#======
+
 
 #download za vim-plug. vim-plug ti daje da skidas plugin-ove za vim/nvim
 #mozda bez sudo?

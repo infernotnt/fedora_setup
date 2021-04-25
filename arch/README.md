@@ -2,21 +2,28 @@
      pre svega, mozda namestiti pacman config da bude lep dok se sve skida, ako moze bez sed, bilo bi super
 
 #TODO USER - AFTER INSTALL:
-     change ~/.config/git/config
+     * change ~/.config/git/config
 
 #TODO backup:
-     proveriti u virtual machine da li sve radi pre nego sto obrisem trenutni arch sistem
+     * proveriti u virtual machine da li sve radi pre nego sto obrisem trenutni arch sistem
+     * videti da pre nego sto pacman -S sway, prvo skinem mesa drivere ili one druge, treba videti koji se nude od ta 2
+
 
 #TODO RICE (prio 1): ps1
-     swaybar, waybar
-     rofi, wofi, ona komanda
-     bluetooth
-     fade (kao compton)
+     * swaybar, waybar,
+          * zscroll,
+          * luke smith video za temperature, ima jos nesto, ima video na jutubu za zscroll
+          * workspace-ovi ima na youtube-u i na unixporn ideje, msm da imam jednu dobru u bookmarks
+
+     * rofi, wofi, ona komanda
+     * bluetooth
+     * fade (kao compton)
 
 ## rice (prio 2)
-     na sway-u mi se cini da resize nije konstantne brzine nego se menja sa velicinom prozora
-     aur
-     dodati padding na alacritty
+     * na sway-u mi se cini da resize nije konstantne brzine nego se menja sa velicinom prozora
+     * aur
+     * dodati padding na alacritty
+     * zsh da ne smara na auto-completion-u, videti da neka smaranja ostanu, npr ona sto retko budu
 
 
 Arch komande se obicno sastoje od prvo jednog velikog slova(e.g., S, R, Q) i mnogo malih slova.
@@ -60,4 +67,3 @@ TotalDownload
 CheckSpace
 VerbosePkgLists
 ILoveCandy
-

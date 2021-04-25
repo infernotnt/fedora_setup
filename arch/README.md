@@ -16,6 +16,8 @@
      * vim :PlugInstall i dalje nije automatski izgleda, ako budes automatizovao pazi posto se skripta nece raditi kao user account nego kao admin account
      * da pita za username, i onda je full instalacija sa sudo account-a, i da pita za driver koji se koristi, nvidia ili mesa
      * brave/firefox, njihovi settings i bookmarks potencijalno, ako budem njih dodavao, neka bude van github repositoryija, nego gitignore
+     * awesome font mozda moze samo da se skine direktno iz repositorija (pacman -S ttf-font-awesome), mozda moze i na fedori
+     * caps lock i escape swap vec u samom tty-u, ne oslanjaj se na sway
 
 
 #TODO RICE (prio 1):

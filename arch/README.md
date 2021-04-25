@@ -18,6 +18,7 @@
 
 
 #TODO RICE (prio 1):
+     * win+w doesn't open web browser
      * swaybar, waybar,
           * zscroll,
           * luke smith video za temperature, ima jos nesto, ima video na jutubu za zscroll
@@ -34,6 +35,7 @@
      * aur
      * dodati padding na alacritty
      * zsh da ne smara na auto-completion-u, videti da neka smaranja ostanu, npr ona sto retko budu
+     * u konzoli kada uzmem proslu komandu <Escape, k> ne moze da se brise na <C-w> vecina komande
 
 
 Downloaded compressed packages are still kept on the system at /var/cache/pacman/pkg/

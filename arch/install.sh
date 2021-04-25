@@ -49,6 +49,8 @@ pacman --noconfirm openssh
 # imv               -  image viewer
 pacman --noconfirm -S wl-clipboard imv
 
+#TODO, dodati da pita korisnika na pocetku (zajedno sa username i driver i ovo), da li zeli da skine latex, i da uzima tipa 2.5GB ili tako nesto
+pacman --noconfirm -S pandoc texlive-most
 #audio pogle na archwiki
 
 #======Bluetooth

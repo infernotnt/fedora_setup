@@ -5,6 +5,7 @@
      * change ~/.config/git/config
 
 #TODO backup:
+     * dafuq is .config/zsh/.zcompdump?, vrv ne treba da bude u backupu
      * proveriti u virtual machine da li sve radi pre nego sto obrisem trenutni arch sistem
      * videti da pre nego sto pacman -S sway, prvo skinem mesa drivere ili one druge, treba videti koji se nude od ta 2
      * mozda staviti da se bluetooth module pali tek kada upalim sway? https://wiki.archlinux.org/index.php/Sway#Manage_Sway-specific_daemons_with_systemd

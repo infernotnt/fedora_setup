@@ -11,6 +11,7 @@ sudo rm -vr ./backup
 mkdir -pv backup/.config
 mkdir -pv backup/.scripts
 mkdir -pv backup/.fonts
+mkdir -pv backup/wallpaper
 
 sudo cp -rvp ~/.config/sway backup/.config/sway
 sudo cp -rvp ~/.config/zsh backup/.config/zsh #novo
@@ -27,4 +28,4 @@ sudo cp -vp ~/.profile backup/.profile
 
 sudo cp -vp ~/.inputrc backup/.inputrc
 
-sudo cp -vp ~/Pictures/wallpaper/wallpaper backup/wallpaper
+sudo cp -vp ~/Pictures/wallpaper/* backup/wallpaper/

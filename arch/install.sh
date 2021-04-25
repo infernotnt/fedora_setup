@@ -21,13 +21,19 @@ USER_HOME=$(getent passwd $SUDO_USER | cut -d: -f6)
 
 sudo hostnamectl set-hostname archio
 
-pacman --noconfirm -S sudo man-db zsh htop neofetch
+pacman --noconfirm -S sudo man-db zsh htop neofetch parted fzf tree tokei neovim
+
+#NOTE: don't install if you have nvidia graphics card
+pacman --noconfirm -S mesa
+
+#NOTE: don't install if going for a minimal install
+pacman --noconfirm -S noto-fonts
 
 pacman --noconfirm -S sway swaylock swaybg
 
 pacman --noconfirm -S firefox alacritty
 
-pacman --noconfirm -S git youtube-dl shellcheck cava cmatrix parted playerctl fzf
+pacman --noconfirm -S git youtube-dl shellcheck cmatrix playerctl
 
 pacman --noconfirm -S alsa alsa-utils pavucontrol pulseaudio
 
@@ -82,18 +88,14 @@ sudo chown -Rv $SUDO_USER $USER_HOME/.fonts
 
 
 
-#SWAY
-#sudo cp -rvp backup/.config/sway $USER_HOME/.config/sway
-
 sudo cp -rvp backup/.config/* $USER_HOME/.config/
 
 #sudo cp -rvp backup/.config/polybar $USER_HOME/.config/polybar
 sudo cp -rvp backup/.scripts/* $USER_HOME/.scripts
 sudo cp -rvp backup/.fonts/* $USER_HOME/.fonts/
 
-sudo cp -vp backup/.bashrc $USER_HOME/.bashrc
+sudo cp -vp backup/.zshenv $USER_HOME/.zshenv
 sudo cp -vp backup/.profile $USER_HOME/.profile
-sudo cp -vp backup/.zshrc $USER_HOME/.zshrc
 sudo cp -vp backup/.inputrc $USER_HOME/.inputrc
 
 sudo fc-cache -f -v

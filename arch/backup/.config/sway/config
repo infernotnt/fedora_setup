@@ -20,6 +20,14 @@ font pango:System San Francisco Display 8
 # Window border (1 pixel is more aesthetic but less practical)
 default_border pixel 2
 
+#exec_always swayidle timeout 3 'if pgrep -x swaylock; then swaymsg "output * dpms off"; fi'
+
+#exec swayidle -w \
+#	timeout 3 'swaylock' \
+#	timeout 5 'swaymsg "output * dpms off"' \
+#	resume 'swaymsg "output * dpms on"'
+
+#
 #SWAY
 input * {
      repeat_rate 25
@@ -134,7 +142,8 @@ bindsym $mod+Shift+Escape     exec --no-startup-id killall sway
 # NOTE: this is not 100% secure, it can be bypassed if you try
 # NOTE: no encryption is used
 #SWAY
-bindsym $mod+s exec swaylock --color=116611
+#bindsym $mod+s exec swaylock --color=000000
+bindsym $mod+s exec swaylock -F -f -k -l --indicator-radius 80 --indicator-thickness 6 --color=000000 #--color=116611 green
 
 # Makes the currently focused window fullscreen
 bindsym $mod+f fullscreen toggle

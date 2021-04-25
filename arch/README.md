@@ -7,6 +7,7 @@
 #TODO backup:
      * proveriti u virtual machine da li sve radi pre nego sto obrisem trenutni arch sistem
      * videti da pre nego sto pacman -S sway, prvo skinem mesa drivere ili one druge, treba videti koji se nude od ta 2
+     * mozda staviti da se bluetooth module pali tek kada upalim sway? https://wiki.archlinux.org/index.php/Sway#Manage_Sway-specific_daemons_with_systemd
 
 
 #TODO RICE (prio 1): ps1
@@ -15,11 +16,13 @@
           * luke smith video za temperature, ima jos nesto, ima video na jutubu za zscroll
           * workspace-ovi ima na youtube-u i na unixporn ideje, msm da imam jednu dobru u bookmarks
 
+     * brave working with video playback
      * rofi, wofi, ona komanda
      * bluetooth
      * fade (kao compton)
 
 ## rice (prio 2)
+     * all floating shit, dodati i u fedora setup
      * na sway-u mi se cini da resize nije konstantne brzine nego se menja sa velicinom prozora
      * aur
      * dodati padding na alacritty

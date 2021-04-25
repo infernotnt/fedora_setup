@@ -10,14 +10,14 @@
      * mozda staviti da se bluetooth module pali tek kada upalim sway? https://wiki.archlinux.org/index.php/Sway#Manage_Sway-specific_daemons_with_systemd
 
 
-#TODO RICE (prio 1): ps1
+#TODO RICE (prio 1):
      * swaybar, waybar,
           * zscroll,
           * luke smith video za temperature, ima jos nesto, ima video na jutubu za zscroll
           * workspace-ovi ima na youtube-u i na unixporn ideje, msm da imam jednu dobru u bookmarks
 
      * brave working with video playback
-     * rofi, wofi, ona komanda
+     * rofi, wofi
      * bluetooth
      * fade (kao compton)
 

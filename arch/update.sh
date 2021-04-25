@@ -13,18 +13,17 @@ mkdir -pv backup/.scripts
 mkdir -pv backup/.fonts
 
 sudo cp -rvp ~/.config/sway backup/.config/sway
-sudo cp -rvp ~/.config/git backup/.config/git #NOVO
+sudo cp -rvp ~/.config/zsh backup/.config/zsh #novo
+sudo cp -rvp ~/.config/git backup/.config/git #novo
 sudo cp -rvp ~/.config/nvim backup/.config/nvim
+
 #sudo cp -rvp ~/.config/polybar backup/.config/polybar
 sudo cp -rvp ~/.scripts/* backup/.scripts/
 sudo cp -vp ~/.fonts/* backup/.fonts
 
+sudo cp -vp ~/.zshenv backup/.zshenv #novo
 sudo cp -vp ~/.bashrc backup/.bashrc
 sudo cp -vp ~/.profile backup/.profile
-sudo cp -vp ~/.zshrc backup/.zshrc
-
-sudo cp -vp ~/.config/zsh/.zshrc backup/.config/zsh/.zshrc
-sudo cp -vp ~/.zshenv backup/.zshenv #NOVO
 
 sudo cp -vp ~/.inputrc backup/.inputrc
 

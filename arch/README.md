@@ -41,6 +41,14 @@
      * u konzoli kada uzmem proslu komandu <Escape, k> ne moze da se brise na <C-w> vecina komande
      * kul fonts
 
+#TODO nauciti (ne ovim redom):
+     regx, (luke smith msm)
+     wild card
+     pgrep, pkill
+     awk (izaberes koji argument zelis)
+     xargs ("xargs -r <idk?>" je kul)
+     sed (onaj tip iz medical schoola sto pravi vim tutoriale ima jedan dobar za ovo msm)
+
 
 Downloaded compressed packages are still kept on the system at /var/cache/pacman/pkg/
 

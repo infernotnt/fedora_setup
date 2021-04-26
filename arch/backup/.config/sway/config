@@ -66,7 +66,7 @@ bindsym $mod+t split toggle
 #ideja:
 bindcode --release 133 exec --no-startup-id ~/.scripts/sway/start_application_launcher.sh
 
-# UKLJUCI
+# Enable window settings for application launcher window called EXCATLY "application_launcher"
 for_window [title="^application_launcher$"] floating enable, border none, opacity 0.8, move position center, resize set 800 300
 #====================
 

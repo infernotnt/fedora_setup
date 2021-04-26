@@ -16,6 +16,15 @@ font pango:System San Francisco Display 8
 
 #Ovako treba lista da izgleda 0.keyboard          1.term,kill,split        2.rofi              3.foucs,move,resize                4.float             5.workspace
 
+
+#Polybar launch
+#exec_always --no-startup-id ~/.config/polybar/scripts/launch.sh
+bar {
+     swaybar_command waybar
+}
+
+
+
 #SWAY
 # Window border (1 pixel is more aesthetic but less practical)
 default_border pixel 2
@@ -29,6 +38,9 @@ default_border pixel 2
 
 #
 #SWAY
+#input "type:keyboard" xkb_options caps:swapescape | alternativa za menjanje caps lock i escape
+# Disable mouse acceleration
+input * accel_profile flat
 input * {
      repeat_rate 25
      repeat_delay 250
@@ -50,9 +62,14 @@ bindsym $mod+control+d kill
 bindsym $mod+t split toggle
 
 
-# Rofi replacement
-bindcode --release 133 exec --no-startup-id $terminal --title application_launcher -e bash -c 'compgen -c | grep -v fzf | sort -u | fzf --layout=reverse | xargs -r swaymsg -t command exec'
-for_window [title="application_launcher"] floating enable, border none, opacity 0.8, move position center, resize set 800 300
+#====================
+#ideja:
+bindcode --release 133 exec --no-startup-id ~/.scripts/sway/start_application_launcher.sh
+
+# UKLJUCI
+for_window [title="^application_launcher$"] floating enable, border none, opacity 0.8, move position center, resize set 800 300
+#====================
+
 
 # Rofi, the application launcher. Extremely usefull.
 # Super key enables rofi. What follows is similar to what happens when you press the Super/Windows key on Windows 10
@@ -246,8 +263,6 @@ bindsym $mod+$alt+m			move container to workspace prev
 bindsym $mod+$alt+comma		move container to workspace next
 # End of workspace stuff
 
-#Polybar launch
-exec_always --no-startup-id ~/.config/polybar/scripts/launch.sh
 
 # Window borders and stuff------------------------------------------------------------------------
 # Active window border color (the color is taken from fedora 2021 logo)

@@ -28,6 +28,7 @@
           * workspace-ovi ima na youtube-u i na unixporn ideje, msm da imam jednu dobru u bookmarks
           * mikrofon mute da pokaze, i mozda da se klikne
           * kliktanje na audio module pali "pavucontrol" ili nesto tako
+          * kliktanje na bluetooth module upale blueman
 
      * brave working with video playback
      * rofi, wofi
@@ -35,6 +36,7 @@
      * fade (kao compton)
 
 ## rice (prio 2)
+     * dodati window border arch linux svetlo plavu opciju, i ostaviti onu fedora opciju
      * all floating shit, dodati i u fedora setup
      * na sway-u mi se cini da resize nije konstantne brzine nego se menja sa velicinom prozora
      * aur
@@ -47,6 +49,12 @@
      * dodati da se floating windowi mogu "snap-ovati" kao na windowsu 10, onako u cetvrtine
      * bluelight, i na swaybar da bude gore neka click-able oznaka, mozda neki sway shortcut, mozda da bude uvek upaljeno u pozadini, ne znam stvarno. Ikonica na sway moze da bude npr neko oko ili tako nesto
      * pipes.sh kao wallpaper? (https://github.com/pipeseroni/pipes.sh)
+     * cbonsai
+     * dugme na waybar za sync note-ova na google drive? (ikonica kao strelice koje idu u krug)
+     * lock screen na Super+S da sakrije ekran a da idle lock screen ne sakrije, samo blur, ako uopste bude idle lock screen (https://github.com/indicozy/sway-dotfiles), login manager shit      * login
+     * papirus icons navodno dobar
+     * kao jednu cetvrtinu navodno
+     * alacritty terminal background color kao kod luke_smith/mental_outlaw
 
 #TODO nauciti (ne ovim redom):
      regx, (luke smith msm)

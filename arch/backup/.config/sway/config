@@ -141,7 +141,7 @@ output "*" bg ~/Pictures/wallpaper/wallpaper fill
 #TODO: U SUSTINI UGASI SAV ZVUK I PREDJE NA NOVI WORKSPACE, DOBRO AKO TI NEKO UDJE U SOBU I OCES DA SAKRIJES STA RADIS ZAPRAVO
 #bindsym $mod+Shift+Delte exec $truemute ; exec $truepause ; workspace lmao ; exec $terminal -e htop ; exec $terminal -e ranger
 # Disables all sound, moves to a new workspace and opens innocent looking programs
-bindsym $mod+Shift+Delete workspace $wslmao ; exec --no-startup-id $terminal -e htop ; exec --no-startup-id $file_browser
+bindsym $mod+Shift+Delete workspace $ws9 ; exec --no-startup-id $terminal -e htop ; exec --no-startup-id $file_browser
 
 
 bindsym $mod+Shift+Escape     exec --no-startup-id killall sway
@@ -308,7 +308,6 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $wslmao lmao
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -320,7 +319,6 @@ bindsym $mod+6 workspace number $ws6
 bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $wslmao
 
 # move focused container to workspace
 bindsym $mod+$alt+1 move container to workspace number $ws1
@@ -332,7 +330,6 @@ bindsym $mod+$alt+6 move container to workspace number $ws6
 bindsym $mod+$alt+7 move container to workspace number $ws7
 bindsym $mod+$alt+8 move container to workspace number $ws8
 bindsym $mod+$alt+9 move container to workspace number $ws9
-bindsym $mod+$alt+0 move container to workspace number $wslmao
 
 # I have no stuff under this line is ---------------------------------------------------------------------------------
 

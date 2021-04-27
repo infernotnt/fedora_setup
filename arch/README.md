@@ -26,6 +26,8 @@
           * zscroll,
           * luke smith video za temperature, ima jos nesto, ima video na jutubu za zscroll
           * workspace-ovi ima na youtube-u i na unixporn ideje, msm da imam jednu dobru u bookmarks
+          * mikrofon mute da pokaze, i mozda da se klikne
+          * kliktanje na audio module pali "pavucontrol" ili nesto tako
 
      * brave working with video playback
      * rofi, wofi
@@ -41,6 +43,10 @@
      * u konzoli kada uzmem proslu komandu <Escape, k> ne moze da se brise na <C-w> vecina komande
      * kul fonts
      * neki key binding-i za transparency, npr da ima jedan key koji smanji transparency trenutnog focusiranog prozora ili svih trenutno otvorenih terimnala ili tako nesto
+     * staviti da se i compajluje markdown na F6 kao i c++ kod, i da se c++ kod koji se kompajluje zove po tom fajlu, npr asdf.cpp -> asdf
+     * dodati da se floating windowi mogu "snap-ovati" kao na windowsu 10, onako u cetvrtine
+     * bluelight, i na swaybar da bude gore neka click-able oznaka, mozda neki sway shortcut, mozda da bude uvek upaljeno u pozadini, ne znam stvarno. Ikonica na sway moze da bude npr neko oko ili tako nesto
+     * pipes.sh kao wallpaper? (https://github.com/pipeseroni/pipes.sh)
 
 #TODO nauciti (ne ovim redom):
      regx, (luke smith msm)

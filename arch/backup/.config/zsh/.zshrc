@@ -33,12 +33,10 @@ unsetopt beep
 bindkey -v
 # End of lines configured by zsh-newuser-install
 
-#----------------------------------------------------------------------------------------------------------------------------
-# TODO:
-#         comp_options+=(globdots) # Include hidden files ( luke smith)
-#         da zsh stoji negde lepse, na initrc stoji negde lepse (luke smith, cleaning your home)
-#         dodati oba u update i install skriptu
+setopt SHARE_HISTORY          #TODO: Share history between all sessions.
+setopt HIST_VERIFY            #TODO: Do not execute inmediately upon history expansion.
 
+_comp_options+=(globdots) # Include hidden files
 stty -ixon # Disable ctrl-s and ctrl-q
 
 export KEYTIMEOUT=1 # Something for vim mode. Does not matter in practice.
@@ -88,6 +86,10 @@ alias rmdir="rmdir -v"
 alias ls="ls -h --color=auto --group-directories-first"
 alias grep="grep --color=auto"
 alias diff="diff --color=auto"
+alias tree="tree -C"
+alias df="df -h"
+alias du="du -h"
+
 alias starwars="telnet towel.blinkenlights.nl"
 alias bt="blueman-manager"
 alias snd="pavucontrol"
@@ -100,7 +102,12 @@ alias term="exec alacritty&" # Opens terminal in current directory
 #PS1 AREA============================
 
 #PS1='-> '
-PS1=" %n %{$fg[red]::%} %{$fg[green]%~%} %{$fg[blue]»%} %{$reset_color%}"
+
+#Mental outlaw, luke smith prompt
+PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+
+#George hotz prompt
+#PS1=" %n %{$fg[red]::%} %{$fg[green]%~%} %{$fg[blue]»%} %{$reset_color%}"
 
 #-----
 #LS_COLORS='di=1;35:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35:*.rpm=90:*.png=35:*.gif=36:*.jpg=35:*.c=92:*.jar=33:*.py=93:*.h=90:*.txt=94:*.doc=104:*.docx=104:*.odt=104:*.csv=102:*.xlsx=102:*.xlsm=102:*.rb=31:*.cpp=92:*.sh=92:*.html=96:*.zip=4;33:*.tar.gz=4;33:*.mp4=105:*.mp3=106'
@@ -118,6 +125,7 @@ alias cfb="nvim ~/.bashrc"
 alias cfz="nvim ~/.config/zsh/.zshrc"
 alias cfr="nvim ~/fedora_setup/README.md"
 alias cfs="nvim ~/.config/sway/config"
+alias cdc="cd ~/.config"
 
 alias cda="cd ~/fedora_setup/arch"
 alias p="sudo pacman"

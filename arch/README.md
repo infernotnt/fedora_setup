@@ -55,6 +55,7 @@
      * papirus icons navodno dobar
      * kao jednu cetvrtinu navodno
      * alacritty terminal background color kao kod luke_smith/mental_outlaw
+     * OD OVOG TIPA KRSA TOGA UZMI: https://github.com/infernotnt/sway-dotfiles (evo slike tog tipa https://www.reddit.com/r/unixporn/comments/msol11/sway_focus/)
 
 #TODO nauciti (ne ovim redom):
      regx, (luke smith msm)

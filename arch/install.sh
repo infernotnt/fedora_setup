@@ -29,7 +29,7 @@ pacman --noconfirm -S mesa
 #NOTE: don't install if going for a minimal install
 pacman --noconfirm -S noto-fonts
 
-pacman --noconfirm -S sway swaylock swaybg
+pacman --noconfirm -S sway swaylock swaybg waybar
 
 pacman --noconfirm -S firefox alacritty
 

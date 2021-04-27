@@ -311,3 +311,21 @@ autocmd BufEnter *.md colorscheme gruvbox
 " usefull plugins: ctags, fzf, vim-vinegar,
 "random citat: I use exuberate ctags/FZF/vim-vinegar to navigate between buffers and files, vimwiki for note taking and task management, ALE for linting/code formatting, and a couple of other tpope plugins to improve the native Vim experience like vim-commentary and vim-surround.
 "random citat: Anecdotally... Almost everyone where I work uses vim + YCM + vimspector. We mostly c++ with lots of java and TCL and you name it. Reasonably big multi national company.
+
+" dobro resenje za copy paste?
+"
+" " Copy to clipboard
+"vnoremap  <leader>y  "+y
+"nnoremap  <leader>Y  "+yg_
+"nnoremap  <leader>y  "+y
+"nnoremap  <leader>yy  "+yy
+"
+"" " Paste from clipboard
+"nnoremap <leader>p "+p
+"nnoremap <leader>P "+P
+"vnoremap <leader>p "+p
+"vnoremap <leader>P "+P
+
+" Better indenting, ovo vrv bolje ne koristiti, jer moze samo . command da se koristi
+"vnoremap < <gv
+"vnoremap > >gv

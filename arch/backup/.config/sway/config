@@ -1,4 +1,4 @@
-# Fix for GTK+ application taking 20 second to start (namely, waybar) (https://github.com/swaywm/sway/wiki)
+# Fix for GTK+ application taking 20 seconds to start (namely, waybar) (https://github.com/swaywm/sway/wiki)
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
@@ -13,6 +13,17 @@ set $browser brave-browser
 set $file_browser pcmanfm
 font pango:System San Francisco Display 8
 
+#==============
+smart_gaps on
+
+#Scratchpad stuff I guess
+## Move the currently focused window to the scratchpad
+#bindsym $mod+Shift+minus move scratchpad
+## Show the next scratchpad window or hide the focused scratchpad window.
+## If there are multiple scratchpad windows, this command cycles through them.
+#bindsym $mod+minus scratchpad show
+#
+#==============
 set $mute_mic_and_sound exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle ; exec --no-startup-id pactl set-sink-mute 0 1
 
 #TODO: resize, floating i obican da budu iste brzine, i da moze i gore i desno u isto vreme
@@ -133,11 +144,6 @@ bindsym $mod+e exec --no-startup-id $file_browser
 # Restarts sway, use after changing (and saving) the config file for i3
 bindsym $mod+r reload
 
-# Default gaps stuff
-set $innerDefault 0
-set $outerDefault 0
-gaps inner $innerDefault
-gaps outer $outerDefault
 
 
 # SWAY
@@ -167,7 +173,7 @@ bindsym $mod+Shift+Escape     exec --no-startup-id killall sway
 # NOTE: no encryption is used
 #SWAY
 #bindsym $mod+s exec swaylock --color=000000
-bindsym $mod+s exec swaylock -F -f -k -l --indicator-radius 80 --indicator-thickness 6 --color=000000 #--color=116611 green
+bindsym $mod+s exec ~/.scripts/sway/swaylock.sh
 
 # Makes the currently focused window fullscreen
 bindsym $mod+f fullscreen toggle
@@ -292,14 +298,22 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 
 
 
-# Gaps stuff
-bindsym $mod+$alt+t gaps inner current set $innerDefault; gaps outer current set $outterDefault
-bindsym $mod+$alt+d gaps inner current set 0; gaps outer current set 0
-bindsym $mod+v gaps inner current plus 5
-bindsym $mod+$alt+v gaps inner current minus 5
-bindsym $mod+z gaps outer current plus 5
-bindsym $mod+$alt+z gaps outer current minus 5
+# Gaps stuff ==================================================================
 
+# Default gaps stuff
+#set $innerDefault 0
+#set $outerDefault 0
+#gaps inner $innerDefault
+#gaps outer $outerDefault
+#
+#bindsym $mod+$alt+t gaps inner current set $innerDefault; gaps outer current set $outterDefault
+#bindsym $mod+$alt+d gaps inner current set 0; gaps outer current set 0
+#bindsym $mod+v gaps inner current plus 5
+#bindsym $mod+$alt+v gaps inner current minus 5
+#bindsym $mod+z gaps outer current plus 5
+#bindsym $mod+$alt+z gaps outer current minus 5
+
+#==============================================================================
 
 # WORKSPACE-ovi
 # Define names for default workspaces for which we configure key bindings later on.

@@ -1,6 +1,9 @@
 #TODO DANAS:
-     * traj ili tako nesto valjda,
-     * disk nemoj ubacivat
+     * Prvo stavi da ide ikonica, pa onda posle toga odma broj, i nek budu jedno uz drugo, nabijeno, i onda razmak izmedju 2 modula (i mali razmak izmedju mikrofona i zvucnika u pulseaudio modulu)
+     * mikrofon je nepotrebno da pise procenat, a i mozes staviti mikrofon ispred zvucnika mozda
+     * termometar da mozda bude napunjen skroz (pogledat van onog cheat sheet-a na kom inace gledam, nego pogledati na google search pvi primer pa mi onda ono ponudi kao njihov search)
+     * mozda dole desno staviti sve te koji se menjaju da budu desno (pre onih za lock, gasenje itd)? mozda ce biti previse nabijeno? mozda nece ako nabijem sva ova sranja za gasenje na jedno mesto? kako to uraditi? onaj tip na redditu od kog sve kopiram je izgleda bas to uradio pre .go jezika, a obriso sam te fajlove tkd mozes ih naci.
+     * toggle (shorcut?)za bluelight
 
 #TODO arch_install:
      pre svega, mozda namestiti pacman config da bude lep dok se sve skida, ako moze bez sed, bilo bi super
@@ -37,7 +40,6 @@
 
 
 #TODO RICE (prio 1):
-     * win+w doesn't open web browser
      * swaybar, waybar,
           * zscroll,
           * luke smith video za temperature, ima jos nesto, ima video na jutubu za zscroll
@@ -77,6 +79,12 @@
      * DOBRA IDEJA: da napravim kao drugi "mod" gde se korsiti scratchpad za: calculator, neki terminal i application launcher (da bi se sve brze palilo, pogotov application launcher), i tako neke stvari koje nisu toliko optimalne za idle usage ali su generlano korisne. Napravi da se lako, i tipa sa jednom komandom moze izaci iz ovog moda.
      * mozda ove skripte za shutdown kad kliknes na dugme u waybar-u da ne pale "zenity" nego dmenu, luke smith msm da ima video nesto slicno o tome za dmenu
      * numix icon theme?
+     * waybar: ona dugmadi za: screen lock, suspend, restart, power off: da se sva stave na jedno dugme, koje kad kliknes expand-uje se. ako to upste moze u waybar-u.
+     * waybar: kad kliknes na sat, ili datum ili tako nesto, upali se kalendar
+     * navnodno (proveri) --no-startup-id, ne radi nista u sway-u, tako da se moze obrisati, mada, mozda bi bilo dobro ostaviti za backwards comptability?
+     * dircolors
+     * base16 themes? (tip koji je spomenuo je hard hard core ricer, mozda je previse ovo)
+     * quote za rice na dnu fajla
 
 #kul programi:
      vmrs - virtual richard stallman, kaze ti koji programi na tvom kompu nisu full-y free. msm da kaze i koji nemaju gpl license ili tako neke
@@ -134,3 +142,16 @@ TotalDownload
 CheckSpace
 VerbosePkgLists
 ILoveCandy
+
+#Quote za rice:
+In my opinion, what matter the most to make your desktop experience look elegant is to make colors consistent across apps.
+
+Start at base16, it is a way to standardize coloring across apps. Choose a color scheme (you can create your own but I would start by one of the defaults). This can be some gruesome work, as some apps are not so friendly to customization.
+
+As other users said Waybar is important. Choose what information you need to be displayed and try to apply the color you choose. You can see some reference for Waybar on github or on r/unixporn.
+
+For Sway itself, the only coloring is in the title bar and window border. Look for "client.<class>" on Sway man page for how to change the coloring of that.
+
+Then there is the Browser and the Terminal which are generally the most important apps. I guess it is safe to say that most of us try to use a browser with no UI. Qutebrowser is popular, I use Firefox+Trydactyl. Again try applying the colors of your color scheme using base16.
+
+For terminal there are plenty of options but I usually go for either Alacritty or Kitty. Applying the colors is fairly easy, use can again use base16 or copy one of the many dotfiles you will find online.

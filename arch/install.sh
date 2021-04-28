@@ -27,7 +27,7 @@ pacman --noconfirm -S sudo man-db zsh htop neofetch parted fzf tree tokei neovim
 pacman --noconfirm -S mesa
 
 #NOTE: don't install if going for a minimal install
-pacman --noconfirm -S noto-fonts
+#pacman --noconfirm -S noto-fonts
 
 pacman --noconfirm -S sway swaylock swaybg waybar
 

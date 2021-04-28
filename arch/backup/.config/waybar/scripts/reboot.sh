@@ -7,5 +7,5 @@ zenity --question \
 	--width 200
 
 if [[ $? -eq 0 ]]; then
-	shutdown -r now
+	reboot -r now
 fi

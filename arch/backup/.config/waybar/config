@@ -1,192 +1,183 @@
-// -*- mode: json -*-
+//TODOOO: da li staviti da ikonica bude pre ili posle broja?
+// Great resource for waybar:
+//        https://github.com/Alexays/Waybar/wiki
+//        The default configuration and sytling.css from this place. Also the minimal configuration and sytling.css from the same place.
+//        https://github.com/infernotnt/sway-dotfiles       -         Some random guy from /r/unixporn
 {
-	"layer": "top",
-	"height":0,
-	"position": "bottom",
-	"margin-top": 0,
-	"margin-right": 0,
-	"margin-left": 0,
-	"margin-bottom":0,
-	"modules-center": [
-		"sway/workspaces"
-		
-	],
-	"modules-left": [
-		"custom/menu",
-		"wlr/taskbar",
-		"custom/separator",
-		"sway/window"
-	],
-	"modules-right": [
-		"sway/mode",
-		"idle_inhibitor",
-		"network",
-		"battery",
-		"memory",
-		"cpu",
-		"backlight",
-		"pulseaudio",
-		"tray",
-		"clock",
-		"custom/separator",
-		"custom/suspend",
-		"custom/separator",
-		"custom/reboot",
-		"custom/shutdown",
-	],
-	"sway/workspaces": {
-"persistent_workspaces": {
-           "1": [],
-           "2": [],
-           "3": [],
-           "4": [],
-		   "5": []
-       },
-		"disable-scroll": false,
- 		"all-outputs": false,
- 		"format": "{icon}",
-		"format-default": "{name}",
-		"format-icons": {
-			"1": "",
-			"2": "",
-			"3": "",
-			"4": "",
-			"5": "",
-			"urgent": "",
-			"focused": "",
-			"default": ""
-		}
-	},
-	"idle_inhibitor": {
-		"format": "{icon}",
-		"format-icons": {
-			"activated": "",
-			"deactivated": ""
-		}
-	},
-"wlr/taskbar": {
-		"all-outputs": false,
-		"format": "{icon}",
-		"icon-theme": "Tela-black-dark",
-		"icon-size": 16,
-		"on-click": "activate",
-		"on-click-right": "minimize",
-		"on-click-middle": "close"
-	},
-	"backlight": {
-		"format": "{icon}{percent}%",
-		"format-icons": ["", ""],
-		"on-scroll-up": "light -A 2",
-		"on-scroll-down": "light -U 2"
-	},
-	"sway/window": {
-	},
-	"sway/mode": {
-		"format": "{}",
-	},
-	"tray": {
-		"icon-size": 12,
-		"spacing":5
-	},
-	"sway/window": {
-        "format": "{}",
-        "max-length": 60,
-        "tooltip": false
+              // "layer": "top", // Waybar at top layer
+              // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 30, // Waybar height (to be removed for auto height)
+              // "width": 1280, // Waybar width
+              // Choose the order of the modules
+
+    "modules-left": [
+          "custom/menu",
+          "wlr/taskbar",
+          "sway/workspaces",
+          //"sway/mode",
+          "custom/media"
+    ],
+    "modules-center": [
+    ],
+    "modules-right": [
+              "network",
+              "memory",
+              "cpu",
+              "pulseaudio",
+              "temperature",
+              "tray",//TODO
+              "clock",//TODO
+              "tray",
+              "custom/separator",
+              "custom/suspend",
+              "custom/separator",
+              "custom/reboot",
+              "custom/shutdown",
+    ],
+
+              // Modules configuration
+              // "sway/workspaces": {
+              //     "disable-scroll": true,
+              //     "all-outputs": true,
+              //     "format": "{name}: {icon}",
+              //     "format-icons": {
+              //         "1": "",
+              //         "2": "",
+              //         "3": "",
+              //         "4": "",
+              //         "5": "",
+              //         "urgent": "",
+              //         "focused": "",
+              //         "default": ""
+              //     }
+              // },
+   // "sway/mode": {
+   //     "format": "KITAAA: <span style=\"italic\">{}</span>"
+   // },
+     "sway/mode": {//TODO pogledaj na waywiki. NE RADI IZGLEDA
+          "format": "aaaaa{}",
+     },
+
+
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
     },
-	"network": {
+    "custom/weather": {
+        "format": "{} naPolje",
+        "exec": "curl 'https://wttr.in/?format=1'",
+        "interval": 3600
+    },
+          // USEFULL icons from awesome font     -      -    (user lock)  -   -    -     -  (align) -   (elipsis)  -     -      -         -       (th)     - 
+    "custom/menu": {
+              "format": "  ",
+              //"on-click": "rofi -combi-modi drun,ssh -show combi",
+              "on-click": "~/.scripts/sway/start_application_launcher.sh",
+              "tooltip": false
+    },
+    "wlr/taskbar": {
+        "all-outputs": false,
+        "format": "{icon}",
+        "icon-size": 16,
+        "icon-theme": "Tela-black-dark",//TODO: staviti da uzme obicne/preinstalirane ako nema tela black jer je ogromno  "icon-theme": "Numix-Circle",
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-right": "minimize",//idk, nzm sta ovo radi
+        "on-click-middle": "close"
+    },
+
+    "network": {
        // "interface": "wlp2s0", // (Optional) To force the use of this interface
         "format-wifi": "",
-        "format-ethernet": "",
+        "format-ethernet": "",//alternative icon: 
         "format-disconnected": "ﲁ", //An empty format will hide the module.
         "tooltip-format-wifi": "{essid} ({signalStrength}%) "
     },
-	"clock": {
-		"format": "{:%H:%M}",
-        "format-alt": "{:%A %e, %B %Y}",
-        "tooltip": false
-	},
-	"pulseaudio": {
-		"format": "{icon}{volume}% {format_source}",
-		"format-bluetooth": "{icon}{volume}% {format_source}",
-		"format-bluetooth-muted": "{icon} {format_source}",
-		"format-muted": "{format_source}",
-		"format-source": "{volume}%",
-		"format-source-muted": "",
 
-		"format-icons": {
-			"headphone": "",
-			"hands-free": "",
-			"headset": "",
-			"phone": "",
-			"portable": "",
-			"car": "",
-			"default": [
-				"",
-				"",
-				""
-			]
-		},
-		"on-click": "pavucontrol",
-		"on-scroll-up": "pamixer -i 2",
-		"on-scroll-down": "pamixer -d 2",
-		"on-click-middle": "pamixer -t",
-		"on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
-		"tooltip": false
-	},
-	"memory": {
-		"states": {
-			"good": 0,
-			"warning": 60,
-			"critical": 80
-		},
-		"interval": 5,
-		"format": "{}%"
-	},
-	"cpu": {
-		"states": {
-			"good": 0,
-			"warning": 70,
-			"critical": 95
-		},
-		"interval": 1,
-		"format": "{usage:2}%"
-	},
-	 "battery": {
-        //"bat": "BAT0",
-        "states": {
-            "full": 100,
-            "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon}",
-        //"format-good": "", // An empty format will hide the module
-        //"format-full": "",
-        "format-icons": ["", "", "", "", ""]
+    "cpu": {
+        "interval": 1,
+        "format": "{usage}% ",
+        "on-click": "alacritty -e htop"//TODO?, potencijalno u floating modu da upali?
     },
-	"custom/separator": {
-		"format": " ",
-		"tooltip": false
-	},
-	"custom/shutdown": {
-		"format": "",
-		"on-click": "~/.config/waybar/modules/shutdown.sh",
-		"tooltip": false
-	},
-	"custom/reboot": {
-		"format": "",
-		"on-click": "~/.config/waybar/modules/reboot.sh",
-		"tooltip": false
-	},
-	"custom/suspend": {
-		"format": "",
-		"on-click": "~/.config/waybar/modules/suspend.sh",
-		"tooltip": false
-	},
-	"custom/menu": {
-		"format": "  ",
-		"on-click": "rofi -combi-modi drun,ssh -show combi",
-		"tooltip": false
-	},
+    "memory": {
+        "interval": 1,
+        "format": "{}% ",
+        "on-click": "alacritty -e htop"
+    },
 
+    "pulseaudio": {
+              "format": "{icon}{volume}% {format_source}",
+              "format-bluetooth": "{icon}{volume}% {format_source}",
+              "format-bluetooth-muted": "{icon} {format_source}",
+              "format-muted": "{format_source}",
+              "format-source": "{volume}%",
+              "format-source-muted": "",
+
+              "format-icons": {
+         	     "headphone": "",
+         	     "hands-free": "",
+         	     "headset": "",
+         	     "phone": "",
+         	     "portable": "",
+         	     "car": "",
+         	     "default": [
+         		     "",
+         		     "",
+         		     ""
+         	     ]
+              },
+
+              "scroll-step": 1, // %, can be a float
+              "on-click": "pavucontrol",
+              "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+              "on-click-middle": "pactl set-sink-mute 0 toggle",
+              "tooltip": false
+    },
+
+
+    "clock": {
+         "format": "{:%H:%M}",
+         "format-alt": "{:%A %e, %B %Y}",
+         "tooltip": false
+    },
+
+    //"clock": {
+    //    // "timezone": "America/New_York",
+    //    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    //    "format-alt": "{:%Y-%m-%d}"
+    //},
+
+
+     "temperature": {
+        "format": "{temperatureC}°C "
+    },
+    "custom/shutdown": {
+        "format": "",
+        "on-click": "~/.config/waybar/scripts/shutdown.sh",
+        "tooltip": false
+    },
+    "custom/reboot": {
+        "format": "",
+        "on-click": "~/.config/waybar/scripts/reboot.sh",
+        "tooltip": false
+    },
+    "custom/suspend": {
+        "format": "",
+        "on-click": "~/.config/waybar/scripts/suspend.sh",
+        "tooltip": false
+    },
+
+     //=================kraj koriscenih==========
+    "custom/media": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "",
+            "default": "🎜"
+        },
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    }
 }

@@ -1,3 +1,7 @@
+#TODO DANAS:
+     * traj ili tako nesto valjda,
+     * disk nemoj ubacivat
+
 #TODO arch_install:
      pre svega, mozda namestiti pacman config da bude lep dok se sve skida, ako moze bez sed, bilo bi super
 
@@ -8,7 +12,19 @@
      * change ~/.config/git/config
      * visudo, add yourself to wheel and make it so password isn't required(TODO: this is perhaps possible to automate)
 
+#guide
+##waybar:
+     * kliktanje na program u taskbaru: levi klik - focus; middle click - iskljuci
+     * kad naciljas na procesor module pise koliko koji core trosi
+     * kliktanje na cpu/memory module pali htop
+     * audio module:
+          * kliktanje na audio module pali pavucontrol
+          * mouse scroll na pulseaudio module utisava/pojacava
+          * desni klik - mute mikrofon
+          * TODO: srednji klik - mute zvuk
+
 #TODO backup:
+     * ukloniti sve x11/i3 specific stvari iz sway configa. ima vrv mnogo vise stvari nego sto mislis koje treba da se uklone. msm da bi najbolji nacin bio da pogledam default sway config, pogledam moj, i izbacim sve iz mog sto ne znam tacno sta radi
      * dafuq is .config/zsh/.zcompdump?, vrv ne treba da bude u backupu
      * proveriti u virtual machine da li sve radi pre nego sto obrisem trenutni arch sistem
      * videti da pre nego sto pacman -S sway, prvo skinem mesa drivere ili one druge, treba videti koji se nude od ta 2
@@ -56,6 +72,15 @@
      * kao jednu cetvrtinu navodno
      * alacritty terminal background color kao kod luke_smith/mental_outlaw
      * OD OVOG TIPA KRSA TOGA UZMI: https://github.com/infernotnt/sway-dotfiles (evo slike tog tipa https://www.reddit.com/r/unixporn/comments/msol11/sway_focus/)
+     * da mi se application launcher upali na svim monitorima i da bude sinhonizovan. ovo je vrv vrlo tesko, pogledaj da li uopste na windows 10 ovo radi
+     * kad stisten F1 ispise ti sva objasnjenja za shorctute. nesto potencijalno mozda za linux generalno one fajlove sa drajva
+     * DOBRA IDEJA: da napravim kao drugi "mod" gde se korsiti scratchpad za: calculator, neki terminal i application launcher (da bi se sve brze palilo, pogotov application launcher), i tako neke stvari koje nisu toliko optimalne za idle usage ali su generlano korisne. Napravi da se lako, i tipa sa jednom komandom moze izaci iz ovog moda.
+     * mozda ove skripte za shutdown kad kliknes na dugme u waybar-u da ne pale "zenity" nego dmenu, luke smith msm da ima video nesto slicno o tome za dmenu
+     * numix icon theme?
+
+#kul programi:
+     vmrs - virtual richard stallman, kaze ti koji programi na tvom kompu nisu full-y free. msm da kaze i koji nemaju gpl license ili tako neke
+
 
 #TODO nauciti (ne ovim redom):
      regx, (luke smith msm)

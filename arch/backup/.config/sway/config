@@ -1,3 +1,7 @@
+# Fix for GTK+ application taking 20 second to start (namely, waybar) (https://github.com/swaywm/sway/wiki)
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
 #ako ti baguje mnogo toga probaj da obrises nautilus i koristis neki drugi file explorer, wayland fuck that shit
 #koriste se vim-like key bindings na mnogim mestima(uglavnom h,j,k,l stvari)
 #TODO:? mozda dodati veci border kod file browser windowa zbog toga sto je belo na granicama pa se teze vidi
@@ -8,6 +12,8 @@ set $terminal alacritty
 set $browser brave-browser
 set $file_browser pcmanfm
 font pango:System San Francisco Display 8
+
+set $mute_mic_and_sound exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle ; exec --no-startup-id pactl set-sink-mute 0 1
 
 #TODO: resize, floating i obican da budu iste brzine, i da moze i gore i desno u isto vreme
 #TODO: scratchpad, ali da se ne upali odma tamo kao kod luke smitha, nego neki shortcut koji TRENUTNO upaljen window posalje u scratchpad, recimo pacman -Syu, ili tako nesto sto treba da se ceka, i onda kada zavrsi mogu da ga vratim. Mada umesto ovoga moze samo i stacked layout, ne znam jos. A mogu i da imam jedan workspace gde saljem tako stvari koje treba kad se cekaju. Sve u svemu, zakljucak mi je da mi vrv nece trebati scratchpad. idk dud
@@ -68,6 +74,7 @@ bindcode --release 133 exec --no-startup-id ~/.scripts/sway/start_application_la
 
 # Enable window settings for application launcher window called EXCATLY "application_launcher"
 for_window [title="^application_launcher$"] floating enable, border none, opacity 0.8, move position center, resize set 800 300
+for_window [app_id="zenity"] floating enable, border none, move position center, resize set 800 300
 #====================
 
 
@@ -138,10 +145,10 @@ gaps outer $outerDefault
 #exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper/wallpaper
 output "*" bg ~/Pictures/wallpaper/wallpaper fill
 
-#TODO: U SUSTINI UGASI SAV ZVUK I PREDJE NA NOVI WORKSPACE, DOBRO AKO TI NEKO UDJE U SOBU I OCES DA SAKRIJES STA RADIS ZAPRAVO
-#bindsym $mod+Shift+Delte exec $truemute ; exec $truepause ; workspace lmao ; exec $terminal -e htop ; exec $terminal -e ranger
-# Disables all sound, moves to a new workspace and opens innocent looking programs
-bindsym $mod+Shift+Delete workspace $ws9 ; exec --no-startup-id $terminal -e htop ; exec --no-startup-id $file_browser
+
+# Requires on pulseaudio. TODO: also change workspace on other monitors?
+# Disables all sound, mutes microphone, moves to a new workspace and opens innocent looking programs
+bindsym $mod+Shift+Delete $mute_mic_and_sound ; workspace $ws9 ; exec --no-startup-id $terminal -e htop ; exec --no-startup-id $file_browser
 
 
 bindsym $mod+Shift+Escape     exec --no-startup-id killall sway
@@ -164,8 +171,6 @@ bindsym $mod+s exec swaylock -F -f -k -l --indicator-radius 80 --indicator-thick
 
 # Makes the currently focused window fullscreen
 bindsym $mod+f fullscreen toggle
-# Orients 2 monitors correctly (probably specific to my setup)
-#exec --no-startup-id xrandr --output DVI-D-0 --left-of HDMI-A-0
 
 # Compton, used for vsync, transparency and stuff
 # NOTE: compton might impact GAMING performance, usefull video: https://www.youtube.com/watch?v=3esPpe-fclIe
@@ -254,7 +259,7 @@ bindsym $mod+$alt+Home move container to workspace $ws1
 bindsym $mod+End workspace $ws9
 bindsym $mod+$alt+End move container to workspace $ws9
 
-bindsym $mod+m				workspace prev
+bindsym $mod+m			workspace prev
 bindsym $mod+comma			workspace next
 
 bindsym $mod+slash			workspace back_and_forth

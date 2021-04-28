@@ -14,6 +14,8 @@ autocmd BufWritePost *.md silent !~/.scripts/nvim/compile_note.sh %:p
 
 "------------------------------------------------------------------------------------------------------------
 
+"TODO: smanjiti malkice onaj waste-ovan space ispod kucanja editor komande, msm da sam imao setting koji to radi ili ga idalje imam negde
+
 "TEST---------
 
 " Always display the status line (TODO: idk irl)

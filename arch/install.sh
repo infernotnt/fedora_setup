@@ -39,6 +39,9 @@ pacman --noconfirm -S alsa alsa-utils pavucontrol pulseaudio
 
 pacman --noconfirm -S vlc qbittorrent tldr tokei tree
 
+# For screenshots. Grim is for screenshots. Slurp is for screenshoting a selected part of the screen.
+pacman --noconfirm -S grim slurp
+
 # Za kompajlovanje, koristi se za AUR
 pacman -noconfirm --needed base-devel
 
@@ -81,18 +84,18 @@ sudo chown -Rv $SUDO_USER *
 
 sudo mkdir -v $USER_HOME/.config
 sudo mkdir -v $USER_HOME/.scripts
-sudo mkdir -v $USER_HOME/.fonts
+sudo mkdir -pv $USER_HOME/.local/share/fonts
 
 # Give correct ownership to the folders
 sudo chown -Rv $SUDO_USER $USER_HOME/.config
 sudo chown -Rv $SUDO_USER $USER_HOME/.scripts
-sudo chown -Rv $SUDO_USER $USER_HOME/.fonts
+sudo chown -Rv $SUDO_USER $USER_HOME/.local/
 
 
 
 sudo cp -rvp backup/.config/* $USER_HOME/.config/
 
-#sudo cp -rvp backup/.config/polybar $USER_HOME/.config/polybar
+sudo cp -rvp backup/.config/waybar $USER_HOME/.config/waybar
 sudo cp -rvp backup/.scripts/* $USER_HOME/.scripts
 sudo cp -rvp backup/.fonts/* $USER_HOME/.fonts/
 
@@ -102,9 +105,9 @@ sudo cp -vp backup/.inputrc $USER_HOME/.inputrc
 
 sudo fc-cache -f -v
 
-#SWAY TODO: wallpaper
 sudo mkdir -pv $USER_HOME/Pictures/wallpaper
 sudo cp backup/wallpaper $USER_HOME/Pictures/wallpaper/wallpaper
+sudo mkdir -pv $USER_HOME/Pictures/screenshots
 
 
 #download za vim-plug. vim-plug ti daje da skidas plugin-ove za vim/nvim

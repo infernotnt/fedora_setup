@@ -1,32 +1,15 @@
 #TODO DANAS:
-     * Prvo stavi da ide ikonica, pa onda posle toga odma broj, i nek budu jedno uz drugo, nabijeno, i onda razmak izmedju 2 modula (i mali razmak izmedju mikrofona i zvucnika u pulseaudio modulu)
-     * mikrofon je nepotrebno da pise procenat, a i mozes staviti mikrofon ispred zvucnika mozda
-     * termometar da mozda bude napunjen skroz (pogledat van onog cheat sheet-a na kom inace gledam, nego pogledati na google search pvi primer pa mi onda ono ponudi kao njihov search)
-     * mozda dole desno staviti sve te koji se menjaju da budu desno (pre onih za lock, gasenje itd)? mozda ce biti previse nabijeno? mozda nece ako nabijem sva ova sranja za gasenje na jedno mesto? kako to uraditi? onaj tip na redditu od kog sve kopiram je izgleda bas to uradio pre .go jezika, a obriso sam te fajlove tkd mozes ih naci.
+     * tastatura, pogledati kakav je shortcut na windows 10, staviti jedan od tih, ili vise
+     * tastatura display na waybar kao na windows 10
      * toggle (shorcut?)za bluelight
-
-#TODO arch_install:
-     pre svega, mozda namestiti pacman config da bude lep dok se sve skida, ako moze bez sed, bilo bi super
-
-#TODO USER - BEFORE INSTALL
-     * set your grahics card drivers
-
-#TODO USER - AFTER INSTALL:
-     * change ~/.config/git/config
-     * visudo, add yourself to wheel and make it so password isn't required(TODO: this is perhaps possible to automate)
-
-#guide
-##waybar:
-     * kliktanje na program u taskbaru: levi klik - focus; middle click - iskljuci
-     * kad naciljas na procesor module pise koliko koji core trosi
-     * kliktanje na cpu/memory module pali htop
-     * audio module:
-          * kliktanje na audio module pali pavucontrol
-          * mouse scroll na pulseaudio module utisava/pojacava
-          * desni klik - mute mikrofon
-          * TODO: srednji klik - mute zvuk
+     * screnshot
+     * workspace
+     * bluelight
+     * dafuq je package "xdg-user-dirs"? da li je to konacno xdg-user specification?
+     * grim+slurp=grimshot?
 
 #TODO backup:
+
      * ukloniti sve x11/i3 specific stvari iz sway configa. ima vrv mnogo vise stvari nego sto mislis koje treba da se uklone. msm da bi najbolji nacin bio da pogledam default sway config, pogledam moj, i izbacim sve iz mog sto ne znam tacno sta radi
      * dafuq is .config/zsh/.zcompdump?, vrv ne treba da bude u backupu
      * proveriti u virtual machine da li sve radi pre nego sto obrisem trenutni arch sistem
@@ -37,6 +20,7 @@
      * brave/firefox, njihovi settings i bookmarks potencijalno, ako budem njih dodavao, neka bude van github repositoryija, nego gitignore
      * awesome font mozda moze samo da se skine direktno iz repositorija (pacman -S ttf-font-awesome), mozda moze i na fedori
      * caps lock i escape swap vec u samom tty-u, ne oslanjaj se na sway
+     * u install skripti, nemoj koristiti sudo, neko neku promenljivu, tipa $AUTH, i onda mogu staviti umesto nje "doas" umesto "sudo".
 
 
 #TODO RICE (prio 1):
@@ -52,6 +36,7 @@
      * rofi, wofi
      * bluetooth
      * fade (kao compton)
+     * pogledati na netu (firefox bookmark) koji font trenutno koristim pre nego sto srusim sistem
 
 ## rice (prio 2)
      * dodati window border arch linux svetlo plavu opciju, i ostaviti onu fedora opciju
@@ -86,18 +71,32 @@
      * base16 themes? (tip koji je spomenuo je hard hard core ricer, mozda je previse ovo)
      * quote za rice na dnu fajla
 
-#kul programi:
-     vmrs - virtual richard stallman, kaze ti koji programi na tvom kompu nisu full-y free. msm da kaze i koji nemaju gpl license ili tako neke
+
+#guide
+##waybar:
+     * kliktanje na program u taskbaru: levi klik - focus; middle click - iskljuci
+     * kad naciljas na procesor module pise koliko koji core trosi
+     * kliktanje na cpu/memory module pali htop
+     * audio module:
+          * kliktanje na audio module pali pavucontrol
+          * mouse scroll na pulseaudio module utisava/pojacava
+          * desni klik - mute mikrofon
+          * TODO: srednji klik - mute zvuk
+
+#TODO laptop: wifi, baterija, brightness?
+
+#waybar random ideje:
+     * termometar za temperaturu da bude napunjen do kraja ili skroz prazan
 
 
-#TODO nauciti (ne ovim redom):
-     regx, (luke smith msm)
-     wild card
-     pgrep, pkill
-     awk (izaberes koji argument zelis)
-     xargs ("xargs -r <idk?>" je kul)
-     sed (onaj tip iz medical schoola sto pravi vim tutoriale ima jedan dobar za ovo msm)
+#TODO USER - PRE-INSTALL
+     * pre svega, mozda namestiti pacman config da bude lep dok se sve skida, ako moze bez sed, bilo bi super
+     * username? depends on the installer i guess, maby just make it so the user has to run with an alredy made non root account (but still in sudoers file)?
+     * set your grahics card drivers
 
+#TODO USER - POST-INSTALL:
+     * change ~/.config/git/config
+     * visudo, add yourself to wheel and make it so password isn't required(TODO: this is perhaps possible to automate)
 
 Downloaded compressed packages are still kept on the system at /var/cache/pacman/pkg/
 

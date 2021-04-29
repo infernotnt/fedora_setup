@@ -24,14 +24,13 @@
           "sway/workspaces"
     ],
     "modules-right": [
+              "tray",//nisam isprobao, TODO
               "network",
+              "pulseaudio",
+              "clock",//TODO
               "memory",
               "cpu",
-              "pulseaudio",
               "temperature",
-              "tray",//nisam isprobao, TODO
-              "clock",//TODO
-              "tray",
               "custom/swaylock",
               "custom/separator",
               "custom/suspend",
@@ -98,13 +97,14 @@
     },
 
     "cpu": {
-        "interval": 1,
-        "format": "{usage}% ",
+        "interval": 10,
+        "format": " {usage}%",
         "on-click": "alacritty -e htop"//TODO?, potencijalno u floating modu da upali?
     },
     "memory": {
-        "interval": 1,
-        "format": "{}% ",
+        "interval": 10,
+        //"format": " {}%",
+        "format": " {used:0.2f}G",
         "on-click": "alacritty -e htop"
     },
 
@@ -113,7 +113,7 @@
               "format-bluetooth": "{icon}{volume}% {format_source}",
               "format-bluetooth-muted": "{icon} {format_source}",
               "format-muted": "{format_source}",
-              "format-source": "{volume}%",
+              "format-source": "",
               "format-source-muted": "",
 
               "format-icons": {
@@ -152,7 +152,7 @@
 
 
      "temperature": {
-        "format": "{temperatureC}°"
+        "format": " {temperatureC}°"
     },
     "custom/shutdown": {
         "format": "",

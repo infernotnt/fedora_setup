@@ -14,6 +14,8 @@
 ## Puts the picture in the actual system clipboard
 #wl-copy <$pathToScreenshot
 
+
+
 # This script is used for putting the image in the current system (copy/paste) clipboard into a screenshot image file
 
 sleep 1

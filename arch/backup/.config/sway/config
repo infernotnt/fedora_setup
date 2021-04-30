@@ -19,7 +19,7 @@ font pango:System San Francisco Display 8
 
 # Impacts screen during the day, fuck off
 #exec_always ~/.scripts/run_gammastep.sh
-exec_always ~/.script/run_wlsunset.sh
+exec_always ~/.scripts/run_wlsunset.sh
 
 
 ## Screenshot whole screen (first part of command saves the screenshot, second part of the commands saves it to system clipboard)

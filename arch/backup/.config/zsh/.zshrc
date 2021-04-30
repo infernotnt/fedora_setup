@@ -1,12 +1,12 @@
 # The following lines were added by compinstall
 
-zstyle ':completion:*' auto-description 'specify %d'
+#zstyle ':completion:*' auto-description 'specify %d'
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
-zstyle ':completion:*' format 'Completing %d'
+#zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' insert-unambiguous false
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+#zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
 zstyle ':completion:*' list-suffixes true
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]} m:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|[._-/]=** r:|=**' 'l:|=* r:|=*'
 zstyle ':completion:*' menu select=1
@@ -15,7 +15,7 @@ zstyle ':completion:*' preserve-prefix '//[^/]##/'
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 zstyle ':completion:*' use-compctl true
 zstyle ':completion:*' verbose true
-zstyle :compinstall filename '/home/milos/.zshrc'
+zstyle :compinstall filename "$HOME/.config/zsh/.zshrc"
 
 # NOTE: you CAN still use many emacs(and other) style commands in vim (either modes), e.g. Ctrl+w, Ctrl+d, Ctrl+l
 

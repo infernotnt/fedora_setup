@@ -47,8 +47,8 @@ pacman --noconfirm -S grim slurp
 # Blue light filter (wayland)
 pacman --noconfirm -S gammastep
 
-# Za kompajlovanje, koristi se za AUR
-pacman -noconfirm --needed base-devel
+# Za kompajlovanje, koristi se za AUR (iskljucen radi minimalizma)
+#pacman -noconfirm --needed base-devel
 
 # Ne znam da li ovo ukljucuje server
 pacman --noconfirm openssh

@@ -1,4 +1,6 @@
-"do ":so%" after changing the config file to reflect the changes(only works in this file) light or dark theme
+" Do ":so%" after changing the config file to reflect the changes(only works in this file) light or dark theme
+
+" For help about any nvim command (anything from this file) do: ':h <command>'
 
 "TODO za slecee urdejivanje: gledaj koje komande gde da stavis u koju kategoriju
 "TODO: kad budes pravio finalni .vimrc, podeliti na 3 sekcije (sve je komentirano sem prve sekcije, i mozdaaaa malog dela druge, mada onda vec mozes staviti u prvu mozda?):
@@ -8,8 +10,8 @@
 
 "Vim note taking------------------------------------------------------------------------------------------------------------
 
-" Automatically compile *.md files on file write to the .pdf equivalent.
-autocmd BufWritePost *.md silent !~/.scripts/nvim/compile_note.sh %:p
+
+"================================================================================================================================================
 
 
 "------------------------------------------------------------------------------------------------------------
@@ -39,8 +41,6 @@ set tabstop=10
 
 set expandtab
 
-filetype plugin on
-
 " Set the leader key to " " (space)
 let mapleader =  " "
 
@@ -50,6 +50,8 @@ set autoindent
 " vidi da li je essential, grupisati sa: set tabstop=
 set softtabstop=10
 
+" todo?
+filetype plugin on
 
 " Enables highlighting when searching with "/", to disable do // or ":nohl"
 set hlsearch
@@ -63,11 +65,17 @@ set number
 " Highlights as you search
 set incsearch
 
+
+" F6 compiles currently open file based on file type
+" Compile markdown (.md) files to the pdf equivalent
+autocmd FileType markdown nnoremap <f6> <esc>:w<enter> :silent !pandoc %:p -o %:p:r.pdf &<enter>
+" Compile C++ code (TODO: open resulting program in new window or something like that?)
+autocmd FileType cpp nnoremap <f6> <esc>:w<enter>:!g++ -std=c++17 %:p -o %:p:r<enter>
+
+
+
 " Automatically deletes all trailing whitespaces on file save
 autocmd BufWritePre * %s/\s\+$//e
-
-" Compile C++ code on F6
-nnoremap <f6> <esc>:w<enter>:!g++ -std=c++11 %<enter>
 
 " Spell check (o for ortography??), staviti mozda da detektuje na kojoj sam tastaturi i da taj jezik checkuje?
 nnoremap <leader>o :setlocal spell! spelllang=en_us<CR>

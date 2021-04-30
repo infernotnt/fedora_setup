@@ -31,6 +31,7 @@
               "memory",
               "cpu",
               "temperature",
+              "sway/language",//TEST
               "custom/swaylock",
               "custom/separator",
               "custom/suspend",
@@ -56,6 +57,10 @@
               //     }
               // },
 
+    "sway/language": {
+        "format": " {} ",
+        "max-length": 10
+    },
     "tray": {
         "icon-size": 12,
         "spacing":5

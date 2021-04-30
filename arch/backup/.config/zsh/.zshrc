@@ -119,13 +119,12 @@ PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magent
 #export LS_COLORS=cxgxfxexbxegedabagacad
 #-----
 # Just some small conviniences
-alias cfi="nvim ~/.config/i3/config"
 alias cfv="nvim ~/.config/nvim/init.vim"
-alias cfb="nvim ~/.bashrc"
 alias cfz="nvim ~/.config/zsh/.zshrc"
-alias cfr="nvim ~/fedora_setup/README.md"
+alias cfr="nvim ~/fedora_setup/arch/README.md"
 alias cfs="nvim ~/.config/sway/config"
 alias cdc="cd ~/.config"
+alias cds="cd ~/.scripts"
 
 alias cda="cd ~/fedora_setup/arch"
 alias p="sudo pacman"

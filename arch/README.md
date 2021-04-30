@@ -1,25 +1,7 @@
 #TODO DANAS:
-     * iz nekog razloga run_gammastep.sh ostane upaljen u pozadini stalno? vidi da li treba staviti exit na kraju skirpte, i vidi da li su i sve ostale skripte tako da ostaju u pozadini ukljucene, zasto?, mozda i tamo treba staviti taj exit na kraju
-     * tastatura, pogledati kakav je shortcut na windows 10, staviti jedan od tih, ili vise
-     * tastatura display na waybar kao na windows 10
-     * bluelight, toggle (shorcut? ili samo dovojlno da se klikne nesto na tray? mozda custom module da napravim ali da izgleda kao da je na tray-u samo da bi mogao da bude clickable??)za bluelight
      * workspace
      * Korisne skripte (Misc. Scripts): https://github.com/swaywm/sway/wiki/Useful-add-ons-for-sway
-
-#TODO backup:
-
-     * ukloniti sve x11/i3 specific stvari iz sway configa. ima vrv mnogo vise stvari nego sto mislis koje treba da se uklone. msm da bi najbolji nacin bio da pogledam default sway config, pogledam moj, i izbacim sve iz mog sto ne znam tacno sta radi
-     * dafuq is .config/zsh/.zcompdump?, vrv ne treba da bude u backupu
-     * proveriti u virtual machine da li sve radi pre nego sto obrisem trenutni arch sistem
-     * videti da pre nego sto pacman -S sway, prvo skinem mesa drivere ili one druge, treba videti koji se nude od ta 2
-     * mozda staviti da se bluetooth module pali tek kada upalim sway? https://wiki.archlinux.org/index.php/Sway#Manage_Sway-specific_daemons_with_systemd
-     * vim :PlugInstall i dalje nije automatski izgleda, ako budes automatizovao pazi posto se skripta nece raditi kao user account nego kao admin account
-     * da pita za username, i onda je full instalacija sa sudo account-a, i da pita za driver koji se koristi, nvidia ili mesa
-     * brave/firefox, njihovi settings i bookmarks potencijalno, ako budem njih dodavao, neka bude van github repositoryija, nego gitignore
-     * awesome font mozda moze samo da se skine direktno iz repositorija (pacman -S ttf-font-awesome), mozda moze i na fedori
-     * caps lock i escape swap vec u samom tty-u, ne oslanjaj se na sway
-     * u install skripti, nemoj koristiti sudo, neko neku promenljivu, tipa $AUTH, i onda mogu staviti umesto nje "doas" umesto "sudo".
-
+     * bluelight, toggle (shorcut? ili samo dovojlno da se klikne nesto na tray? mozda custom module da napravim ali da izgleda kao da je na tray-u samo da bi mogao da bude clickable??)za bluelight
 
 #TODO RICE (prio 1):
      * brave working with video playback
@@ -31,6 +13,25 @@
           * kliktanje na bluetooth module upale blueman
           * spotify module, sa dugmadima za premotavanje pesme i potencijalno pauziranje
      * sort celog sway configa?, da bi mogao posle da dodajem nova sranja
+
+     * iz nekog razloga run_wlsunset.sh ostane upaljen u pozadini stalno? vidi da li treba staviti exit na kraju skirpte, i vidi da li su i sve ostale skripte tako da ostaju u pozadini ukljucene, zasto?, mozda i tamo treba staviti taj exit na kraju
+     * iz nekog razloga run_gammastep.sh ostane upaljen u pozadini stalno? vidi da li treba staviti exit na kraju skirpte, i vidi da li su i sve ostale skripte tako da ostaju u pozadini ukljucene, zasto?, mozda i tamo treba staviti taj exit na kraju
+     * pipewire je ukljucen u pozadini i trosi resurse, dependency na neki drugi package je, wtfff
+
+
+#TODO backup:
+     * ukloniti sve x11/i3 specific stvari iz sway configa. ima vrv mnogo vise stvari nego sto mislis koje treba da se uklone. msm da bi najbolji nacin bio da pogledam default sway config, pogledam moj, i izbacim sve iz mog sto ne znam tacno sta radi
+     * dafuq is .config/zsh/.zcompdump?, vrv ne treba da bude u backupu
+     * proveriti u virtual machine da li sve radi pre nego sto obrisem trenutni arch sistem
+     * videti da pre nego sto pacman -S sway, prvo skinem mesa drivere ili one druge, treba videti koji se nude od ta 2
+     * mozda staviti da se bluetooth module pali tek kada upalim sway? https://wiki.archlinux.org/index.php/Sway#Manage_Sway-specific_daemons_with_systemd
+     * vim :PlugInstall i dalje nije automatski izgleda, ako budes automatizovao pazi posto se skripta nece raditi kao user account nego kao admin account
+     * da pita za username, i onda je full instalacija sa sudo account-a, i da pita za driver koji se koristi, nvidia ili mesa
+     * brave/firefox, njihovi settings i bookmarks potencijalno, ako budem njih dodavao, neka bude van github repositoryija, nego gitignore
+     * awesome font mozda moze samo da se skine direktno iz repositorija (pacman -S ttf-font-awesome), mozda moze i na fedori
+     * caps lock i escape swap vec u samom tty-u, ne oslanjaj se na sway
+     * u install skripti, nemoj koristiti sudo, neko neku promenljivu, tipa $AUTH, i onda mogu staviti umesto nje "doas" umesto "sudo".
+     * svaviti wlsunset(aur?) ili gammastep u install skriptu i ukloniti onog drugog ako je vec tamo. isto uraditi za config files i scripts files
 
 
 ## rice (prio 2)
@@ -68,6 +69,11 @@
      * dmenu, rofi, wofi
      * fade (kao compton)
      * waybar: seperator na right modules izmedju tray-a (ili kako god se zove, ono za recimo discord i gammashift itd...) i ostalih stvari desno od njega (net itd...)
+     * usefull tools for sway: login, logout manager
+     * brave, plugin malo bolji od vimium: https://www.youtube.com/watch?v=QZO80CZB9Lw (5:00 je kul), vidi jel ovo moze vec sa vimium-om ili koji god plugin da koristim  trenutno
+     * waybar: staviti vreme da bude negde distinguishable, da mogu jako lagano da samo glance-ujem i da vidim, npr u cosak ili tako nesto. Kako windows radi? (mozda stavi ispod toga jezik pa bude vislje nego drugi moduli)
+     * wlsusnset, navodno vise lightweight, mozda ne smara kao gammastep, pogledaj (najvrv koristi wlsusnset)
+     * ukloniti nekoriscene skripte u ~/.scripts
 
 
 #guide
@@ -80,6 +86,7 @@
           * mouse scroll na pulseaudio module utisava/pojacava
           * desni klik - mute mikrofon
           * TODO: srednji klik - mute zvuk
+     * input language change: alt+shift (like in windows 10) (default: english, serbian latin, serbian cyrilic
 
 #TODO laptop: wifi, baterija, brightness?
 

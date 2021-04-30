@@ -17,7 +17,9 @@ set $file_browser pcmanfm
 font pango:System San Francisco Display 8
 
 
-exec_always ~/.scripts/run_gammastep.sh
+# Impacts screen during the day, fuck off
+#exec_always ~/.scripts/run_gammastep.sh
+exec_always ~/.script/run_wlsunset.sh
 
 
 ## Screenshot whole screen (first part of command saves the screenshot, second part of the commands saves it to system clipboard)
@@ -83,14 +85,19 @@ default_border pixel 2
 
 #
 #SWAY
-#input "type:keyboard" xkb_options caps:swapescape | alternativa za menjanje caps lock i escape
-# Disable mouse acceleration
+# Disable mouse acceleration, TODO, videti da li radi, i strpati ispod negde?
 input * accel_profile flat
-input * {
+#input * {
+#}
+input "type:keyboard" {
      repeat_rate 25
      repeat_delay 250
-     #Swaps caps lock and escape keys
-     xkb_options "caps:swapescape"
+
+     # "caps:swapescape" - Swaps caps lock and escape keys
+     # grp:alt_shift_toggle - Change keybaord language input with Alt + Shift
+     # Note: to trigger several options, you need to list them separated with a comma
+     xkb_options "caps:swapescape",grp:alt_shift_toggle
+     xkb_layout us,hr,rs
 }
 
 # Opens terminal

@@ -1,12 +1,10 @@
 #TODO DANAS:
+     * iz nekog razloga run_gammastep.sh ostane upaljen u pozadini stalno? vidi da li treba staviti exit na kraju skirpte, i vidi da li su i sve ostale skripte tako da ostaju u pozadini ukljucene, zasto?, mozda i tamo treba staviti taj exit na kraju
      * tastatura, pogledati kakav je shortcut na windows 10, staviti jedan od tih, ili vise
      * tastatura display na waybar kao na windows 10
-     * toggle (shorcut?)za bluelight
-     * screnshot
+     * bluelight, toggle (shorcut? ili samo dovojlno da se klikne nesto na tray? mozda custom module da napravim ali da izgleda kao da je na tray-u samo da bi mogao da bude clickable??)za bluelight
      * workspace
-     * bluelight
-     * dafuq je package "xdg-user-dirs"? da li je to konacno xdg-user specification?
-     * grim+slurp=grimshot?
+     * Korisne skripte (Misc. Scripts): https://github.com/swaywm/sway/wiki/Useful-add-ons-for-sway
 
 #TODO backup:
 
@@ -24,19 +22,16 @@
 
 
 #TODO RICE (prio 1):
-     * swaybar, waybar,
-          * zscroll,
+     * brave working with video playback
+     * bluetooth
+     * spotify
+     * waybar,
           * luke smith video za temperature, ima jos nesto, ima video na jutubu za zscroll
           * workspace-ovi ima na youtube-u i na unixporn ideje, msm da imam jednu dobru u bookmarks
-          * mikrofon mute da pokaze, i mozda da se klikne
-          * kliktanje na audio module pali "pavucontrol" ili nesto tako
           * kliktanje na bluetooth module upale blueman
+          * spotify module, sa dugmadima za premotavanje pesme i potencijalno pauziranje
+     * sort celog sway configa?, da bi mogao posle da dodajem nova sranja
 
-     * brave working with video playback
-     * rofi, wofi
-     * bluetooth
-     * fade (kao compton)
-     * pogledati na netu (firefox bookmark) koji font trenutno koristim pre nego sto srusim sistem
 
 ## rice (prio 2)
      * dodati window border arch linux svetlo plavu opciju, i ostaviti onu fedora opciju
@@ -70,6 +65,9 @@
      * dircolors
      * base16 themes? (tip koji je spomenuo je hard hard core ricer, mozda je previse ovo)
      * quote za rice na dnu fajla
+     * dmenu, rofi, wofi
+     * fade (kao compton)
+     * waybar: seperator na right modules izmedju tray-a (ili kako god se zove, ono za recimo discord i gammashift itd...) i ostalih stvari desno od njega (net itd...)
 
 
 #guide
@@ -97,6 +95,11 @@
 #TODO USER - POST-INSTALL:
      * change ~/.config/git/config
      * visudo, add yourself to wheel and make it so password isn't required(TODO: this is perhaps possible to automate)
+     * your location for gammastep (.config/gammastep)
+     * keyboard layout (english and serbian by default)
+
+#===========================================================================================
+
 
 Downloaded compressed packages are still kept on the system at /var/cache/pacman/pkg/
 

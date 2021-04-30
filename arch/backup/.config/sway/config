@@ -17,6 +17,9 @@ set $file_browser pcmanfm
 font pango:System San Francisco Display 8
 
 
+exec_always ~/.scripts/run_gammastep.sh
+
+
 ## Screenshot whole screen (first part of command saves the screenshot, second part of the commands saves it to system clipboard)
 #bindsym Print exec grim -c ~/Pictures/screenshots/screenshot-$(date +"%Y-%m-%d-%H-%M-%S").png ; exec ~/.scripts/copy_most_recent_screenshot_to_clipboard.sh
 ## Screenshot selection (shorcut like in Windows 10)(first part of command saves the screenshot, second part of the commands saves it to system clipboard)

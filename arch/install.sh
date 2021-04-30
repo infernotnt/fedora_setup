@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Fontovi mozda ne rade: https://wiki.archlinux.org/index.php/fonts
+# Pogledati na tom sajtu chmod 444 i dodavanje u neki direktorijum (manual installation)
 if [[ $EUID > 0 ]]
 then echo "Please run with sudo.(The ONLY way you should is \"sudo ./install_fedora_setup.sh\")"
 	exit
@@ -39,8 +41,11 @@ pacman --noconfirm -S alsa alsa-utils pavucontrol pulseaudio
 
 pacman --noconfirm -S vlc qbittorrent tldr tokei tree
 
-# For screenshots. Grim is for screenshots. Slurp is for screenshoting a selected part of the screen.
+# For screenshots. Grim is for screenshots. Slurp is for screenshoting a selected part of the screen. (wayland both)
 pacman --noconfirm -S grim slurp
+
+# Blue light filter (wayland)
+pacman --noconfirm -S gammastep
 
 # Za kompajlovanje, koristi se za AUR
 pacman -noconfirm --needed base-devel
@@ -95,7 +100,6 @@ sudo chown -Rv $SUDO_USER $USER_HOME/.local/
 
 sudo cp -rvp backup/.config/* $USER_HOME/.config/
 
-sudo cp -rvp backup/.config/waybar $USER_HOME/.config/waybar
 sudo cp -rvp backup/.scripts/* $USER_HOME/.scripts
 sudo cp -rvp backup/.fonts/* $USER_HOME/.fonts/
 

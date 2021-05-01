@@ -1,11 +1,5 @@
-#TODO danas:
-     1. bookmark resi, da moze ceo browser da se obrise
-     1. bookmark na fedori resi, mozda prenesi?
-     1. instaliraj arch opet
 #TODO RICE (prio 1):
      * bluetooth
-     * spotify
-     * discord
      * waybar,
           * luke smith video za temperature, ima jos nesto, ima video na jutubu za zscroll
           * workspace-ovi ima na youtube-u i na unixporn ideje, msm da imam jednu dobru u bookmarks
@@ -23,22 +17,16 @@
 #TODO backup:
      * ukloniti sve x11/i3 specific stvari iz sway configa. ima vrv mnogo vise stvari nego sto mislis koje treba da se uklone. msm da bi najbolji nacin bio da pogledam default sway config, pogledam moj, i izbacim sve iz mog sto ne znam tacno sta radi
      * dafuq is .config/zsh/.zcompdump?, vrv ne treba da bude u backupu
-     * proveriti u virtual machine da li sve radi pre nego sto obrisem trenutni arch sistem
-     * videti da pre nego sto pacman -S sway, prvo skinem mesa drivere ili one druge, treba videti koji se nude od ta 2
      * mozda staviti da se bluetooth module pali tek kada upalim sway? https://wiki.archlinux.org/index.php/Sway#Manage_Sway-specific_daemons_with_systemd
      * vim :PlugInstall i dalje nije automatski izgleda, ako budes automatizovao pazi posto se skripta nece raditi kao user account nego kao admin account
-     * da pita za username, i onda je full instalacija sa sudo account-a, i da pita za driver koji se koristi, nvidia ili mesa
      * brave/firefox, njihovi settings i bookmarks potencijalno, ako budem njih dodavao, neka bude van github repositoryija, nego gitignore
-     * awesome font mozda moze samo da se skine direktno iz repositorija (pacman -S ttf-font-awesome), mozda moze i na fedori
-     * caps lock i escape swap vec u samom tty-u, ne oslanjaj se na sway
-     * u install skripti, nemoj koristiti sudo, neko neku promenljivu, tipa $AUTH, i onda mogu staviti umesto nje "doas" umesto "sudo".
+     * screenshot sa selectovanjem i dalje ne radi (bar fajl nije save-ovan)
      * svaviti wlsunset(aur?) ili gammastep u install skriptu i ukloniti onog drugog ako je vec tamo. isto uraditi za config files i scripts files
      * ukloniti nekoriscene skripte u ~/.scripts
      * kad stisten F1 ispise ti sva objasnjenja za shorctute. luke smith ima u larbs nesto ovako. nesto potencijalno mozda za linux generalno one fajlove sa drajva
      * navnodno (proveri) --no-startup-id, ne radi nista u sway-u, tako da se moze obrisati, mada, mozda bi bilo dobro ostaviti za backwards comptability?
-     * ukloniti .vim (msm da se koristi za plug-inove)
-     * ukloniti .mozilla, ili samo koristiti brave kek
-     * screenshot sa selectovanjem i dalje ne radi (bar fajl nije save-ovan)
+     * namestiti da brave radi native wayland
+     * dodati opcionu skriptu (ne u install.sh, nego sastrane da stoji) koja skine spotify discord (brave?) (msm da ce trebati aur helper za ovo)
 
 ## rice (prio 2)
      * sway mechanics:
@@ -84,8 +72,16 @@
      * vim, okej tip https://github.com/infernotnt/sway-dotfiles
      * neki key binding-i za transparency, npr da ima jedan key koji smanji transparency trenutnog focusiranog prozora ili svih trenutno otvorenih terimnala ili tako nesto
 
+     * waybar:
+          * termometar za temperaturu da bude napunjen do kraja ili skroz prazan
 
 
+# backup, nepotrebno, samo random ideje:
+
+     * da pita za username, i onda je full instalacija sa sudo account-a, i da pita za driver koji se koristi, nvidia ili mesa
+     * caps lock i escape swap vec u samom tty-u, ne oslanjaj se na sway
+     * ukloniti .vim (msm da se koristi za plug-inove)
+     * u install skripti, nemoj koristiti sudo, neko neku promenljivu, tipa $AUTH, i onda mogu staviti umesto nje "doas" umesto "sudo".
 
 #guide
 ##waybar:
@@ -105,19 +101,16 @@
      * brightness
 
 #waybar random ideje:
-     * termometar za temperaturu da bude napunjen do kraja ili skroz prazan
 
 
 #TODO USER - PRE-INSTALL
-     * pre svega, mozda namestiti pacman config da bude lep dok se sve skida, ako moze bez sed, bilo bi super
-     * username? depends on the installer i guess, maby just make it so the user has to run with an alredy made non root account (but still in sudoers file)?
      * set your grahics card drivers
 
 #TODO USER - POST-INSTALL:
-     * change ~/.config/git/config
      * visudo, add yourself to wheel and make it so password isn't required(TODO: this is perhaps possible to automate)
-     * your location for gammastep (.config/gammastep)
+     * change ~/.config/git/config
      * keyboard layout (english and serbian by default)
+     * pacman config (/etc/pacman.conf)
 
 #===========================================================================================
 

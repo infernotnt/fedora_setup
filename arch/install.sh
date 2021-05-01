@@ -52,6 +52,11 @@ pacman --noconfirm -S grim slurp
 # Za kompajlovanje, koristi se za AUR (iskljucen radi minimalizma)
 pacman -noconfirm --needed base-devel
 
+# xorg-xwayland     - Needed for brave-browser. (he can't play videos on native (not sure, maybe fixable)
+# xorg-xeyes        - Used for telling what program is running native wayland and which program is running xwayland
+pacman -noconfirm xorg-xwayland xorg-xeyes
+
+
 # Ne znam da li ovo ukljucuje server
 pacman --noconfirm openssh
 

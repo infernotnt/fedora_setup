@@ -12,13 +12,12 @@ exec hash dbus-update-activation-environment 2>/dev/null && dbus-update-activati
 set $mod Mod4
 set $alt Mod1
 set $terminal alacritty
-set $browser brave-browser
+set $browser brave
 set $file_browser pcmanfm
 font pango:System San Francisco Display 8
 
 
-# Impacts screen during the day, fuck off
-#exec_always ~/.scripts/run_gammastep.sh
+# Bluelight filter (the scripts is used it doesn't start mutiple instances of wlsunset)
 exec_always ~/.scripts/run_wlsunset.sh
 
 

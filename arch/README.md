@@ -1,5 +1,8 @@
+#TODO danas:
+     1. bookmark resi, da moze ceo browser da se obrise
+     1. bookmark na fedori resi, mozda prenesi?
+     1. instaliraj arch opet
 #TODO RICE (prio 1):
-     * workspace
      * bluetooth
      * spotify
      * discord
@@ -14,6 +17,7 @@
      * iz nekog razloga run_gammastep.sh ostane upaljen u pozadini stalno? vidi da li treba staviti exit na kraju skirpte, i vidi da li su i sve ostale skripte tako da ostaju u pozadini ukljucene, zasto?, mozda i tamo treba staviti taj exit na kraju
      * pipewire je ukljucen u pozadini i trosi resurse, dependency na neki drugi package je, wtfff
      * Korisne skripte (Misc. Scripts): https://github.com/swaywm/sway/wiki/Useful-add-ons-for-sway
+     * workspace
 
 
 #TODO backup:

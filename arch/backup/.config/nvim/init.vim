@@ -9,7 +9,7 @@
 "3., stvari koje jos ne znam sta rade, ali ce mi mozda biti korisno jednog dana (think: window navigation)
 
 "Vim note taking------------------------------------------------------------------------------------------------------------
-
+" tabing (org mode?), http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
 
 "================================================================================================================================================
 

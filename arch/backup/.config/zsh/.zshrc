@@ -95,7 +95,7 @@ alias rmdir="rmdir -v"
 alias ls="ls -h --color=auto --group-directories-first"
 alias grep="grep --color=auto"
 alias diff="diff --color=auto"
-alias tree="tree -C"
+alias tree="tree -C" # Makes it colored
 alias df="df -h"
 alias du="du -h"
 

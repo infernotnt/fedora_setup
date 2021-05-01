@@ -1,5 +1,9 @@
+#alacritty ricing:
+     * padding
+     *
 #TODO RICE (prio 1):
      * bluetooth
+          * mozda da se moduli pale tek kad se sway upali
      * waybar,
           * luke smith video za temperature, ima jos nesto, ima video na jutubu za zscroll
           * workspace-ovi ima na youtube-u i na unixporn ideje, msm da imam jednu dobru u bookmarks
@@ -37,6 +41,8 @@
      * volume control keybinds (potencijalno slicni kao windows 10, ako ih on uopste ima), i ona macka sto pop-uje
      * DOBRA IDEJA: da napravim kao drugi "mod" gde se korsiti scratchpad za: calculator, neki terminal i application launcher (da bi se sve brze palilo, pogotov application launcher), i tako neke stvari koje nisu toliko optimalne za idle usage ali su generlano korisne. Napravi da se lako, i tipa sa jednom komandom moze izaci iz ovog moda.
      * dodati window border arch linux svetlo plavu opciju, i ostaviti onu fedora opciju
+     * file browser windows-like look (mental outlaw msm?)
+     * papyrus ikonice svi koriste
      * aur
      * bluelight, i na waybar da bude gore neka click-able oznaka, mozda neki sway shortcut, mozda da bude uvek upaljeno u pozadini, ne znam stvarno. Ikonica na sway moze da bude npr neko oko ili tako nesto
      * dugme na waybar za sync note-ova na google drive? (ikonica kao strelice koje idu u krug)
@@ -54,7 +60,11 @@
      * bluelight, toggle (shorcut? ili samo dovojlno da se klikne nesto na tray? mozda custom module da napravim ali da izgleda kao da je na tray-u samo da bi mogao da bude clickable??)za bluelight
      * u konzoli kada uzmem proslu komandu <Escape, k> ne moze da se brise na <C-w> vecina komande
      * zsh da ne smara na auto-completion-u, videti da neka smaranja ostanu, npr ona sto retko budu
-     * kul fonts
+     * kul fonts (proveriti da li je system san francisco instaliran)
+     * brave fast scroll
+     * zsh, tab completion navigation h/j/k/l da radi i kad je terminal mali?
+     * zvuk kada se utakne usb
+     * ona macka kada se pojacava zvuk
 
 # rice , nepotrebno, samo random ideje:
      * dodati padding na alacritty (window manager bi trebao ovo da radi a ne terminal)
@@ -82,6 +92,10 @@
      * caps lock i escape swap vec u samom tty-u, ne oslanjaj se na sway
      * ukloniti .vim (msm da se koristi za plug-inove)
      * u install skripti, nemoj koristiti sudo, neko neku promenljivu, tipa $AUTH, i onda mogu staviti umesto nje "doas" umesto "sudo".
+
+#navodno okej programi:
+     * pazi, moving between directiories in cli
+     * hyperfine, tool for benchmarking
 
 #guide
 ##waybar:

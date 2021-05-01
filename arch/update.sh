@@ -25,9 +25,9 @@ sudo cp -rvp ~/.scripts/* backup/.scripts/
 sudo cp -vp ~/.local/share/fonts/* backup/.local/share/fonts
 
 sudo cp -vp ~/.zshenv backup/.zshenv
-sudo cp -vp ~/.bashrc backup/.bashrc
-sudo cp -vp ~/.profile backup/.profile
+#sudo cp -vp ~/.bashrc backup/.bashrc
+#sudo cp -vp ~/.profile backup/.profile
 
 sudo cp -vp ~/.inputrc backup/.inputrc
 
-sudo cp -vp ~/Pictures/wallpaper/* backup/wallpaper/
+sudo cp -vp ~/Pictures/wallpaper/wallpaper backup/wallpaper

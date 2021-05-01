@@ -23,7 +23,7 @@ USER_HOME=$(getent passwd $SUDO_USER | cut -d: -f6)
 
 sudo hostnamectl set-hostname archio
 
-pacman --noconfirm -S sudo man-db zsh htop neofetch parted fzf tree tokei neovim
+pacman --noconfirm -S sudo man-db zsh htop parted fzf neovim
 
 #NOTE: don't install if you have nvidia graphics card
 pacman --noconfirm -S mesa
@@ -39,13 +39,13 @@ pacman --noconfirm -S git youtube-dl shellcheck cmatrix playerctl
 
 pacman --noconfirm -S alsa alsa-utils pavucontrol pulseaudio
 
-pacman --noconfirm -S vlc qbittorrent tldr tokei tree
+pacman --noconfirm -S vlc qbittorrent tldr tokei tree neofetch
 
 # For screenshots. Grim is for screenshots. Slurp is for screenshoting a selected part of the screen. (wayland both)
 pacman --noconfirm -S grim slurp
 
-# Blue light filter (wayland)
-pacman --noconfirm -S gammastep
+# Blue light filter (wayland) (disabled 'cause wl-sunset>gammstep)
+#pacman --noconfirm -S gammastep
 
 # Za kompajlovanje, koristi se za AUR (iskljucen radi minimalizma)
 #pacman -noconfirm --needed base-devel
@@ -120,7 +120,7 @@ sudo -u $SUDO_USER curl -fLo "${XDG_DATA_HOME:-$USER_HOME/.local/share}"/nvim/si
 #ovo treba da instalira sve plug-inove(preko PlugInstall) koje se nalaze u ~/.vimrc
 sudo -u $SUDO_USER nvim -es -u ${USER_HOME}/.vimrc -i NONE -c "PlugInstall" -c "qa"
 
-chsh -s /bin/zsh $SUDO_USER # Changes the default shell from presumably bash to zsh
+chsh -s /bin/zsh $SUDO_USER # Changes the default shell from (presumably) bash to zsh, you must relog for this to take effect
 
 #!!!!STVARI KOJE USER KOJI INSTALIRA MORA DA URADI:
 #1. polybar internet speed da se namesti:

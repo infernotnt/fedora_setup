@@ -36,6 +36,9 @@
      * ukloniti nekoriscene skripte u ~/.scripts
      * kad stisten F1 ispise ti sva objasnjenja za shorctute. luke smith ima u larbs nesto ovako. nesto potencijalno mozda za linux generalno one fajlove sa drajva
      * navnodno (proveri) --no-startup-id, ne radi nista u sway-u, tako da se moze obrisati, mada, mozda bi bilo dobro ostaviti za backwards comptability?
+     * ukloniti .vim (msm da se koristi za plug-inove)
+     * ukloniti .mozilla, ili samo koristiti brave kek
+     * screenshot sa selectovanjem i dalje ne radi (bar fajl nije save-ovan)
 
 ## rice (prio 2)
      * sway mechanics:

@@ -37,7 +37,8 @@ pacman --noconfirm -S firefox alacritty
 
 pacman --noconfirm -S git youtube-dl shellcheck cmatrix playerctl
 
-pacman --noconfirm -S alsa alsa-utils pavucontrol pulseaudio
+pacman --noconfirm -S alsa pavucontrol pulseaudio
+#seems unnecessary? pacman --noconfirm -S alsa-utils
 
 pacman --noconfirm -S vlc qbittorrent tldr tokei tree neofetch
 

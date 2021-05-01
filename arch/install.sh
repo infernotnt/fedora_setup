@@ -47,8 +47,9 @@ pacman --noconfirm -S grim slurp
 # Blue light filter (wayland) (disabled 'cause wl-sunset>gammstep)
 #pacman --noconfirm -S gammastep
 
+# MAXIMAL
 # Za kompajlovanje, koristi se za AUR (iskljucen radi minimalizma)
-#pacman -noconfirm --needed base-devel
+pacman -noconfirm --needed base-devel
 
 # Ne znam da li ovo ukljucuje server
 pacman --noconfirm openssh

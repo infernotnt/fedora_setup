@@ -1,13 +1,11 @@
 # Man page help:
 # man 5 sway
 # searchuj: smart, CRTIERIA, inverse_outer
+
 # Fix for GTK+ application taking 20 seconds to start (namely, waybar) (https://github.com/swaywm/sway/wiki)
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
-#ako ti baguje mnogo toga probaj da obrises nautilus i koristis neki drugi file explorer, wayland fuck that shit
-#koriste se vim-like key bindings na mnogim mestima(uglavnom h,j,k,l stvari)
-#TODO:? mozda dodati veci border kod file browser windowa zbog toga sto je belo na granicama pa se teze vidi
 #mozda da dodamo ovo sto oni stavljaju "--no-startup-id" na krsa stvari, pogledaj na netu sta to radi
 set $mod Mod4
 set $alt Mod1
@@ -16,34 +14,21 @@ set $browser brave
 set $file_browser pcmanfm
 font pango:System San Francisco Display 8
 
+#TODO: pogledaj u man 5 sway, posle namestanj workspace-ova(otprilike)          focus_wrapping workspace
 
-# Bluelight filter (the scripts is used it doesn't start mutiple instances of wlsunset)
-exec_always ~/.scripts/run_wlsunset.sh
+# (TODO: iskluceno jer skripta baguje) Bluelight filter (the scripts is used it doesn't start mutiple instances of wlsunset)
+#exec_always ~/.scripts/run_wlsunset.sh
+#----------jes(not really: default good but just in case i guess)
 
 
-## Screenshot whole screen (first part of command saves the screenshot, second part of the commands saves it to system clipboard)
-#bindsym Print exec grim -c ~/Pictures/screenshots/screenshot-$(date +"%Y-%m-%d-%H-%M-%S").png ; exec ~/.scripts/copy_most_recent_screenshot_to_clipboard.sh
-## Screenshot selection (shorcut like in Windows 10)(first part of command saves the screenshot, second part of the commands saves it to system clipboard)
-#bindsym $mod+Shift+s exec grim -c -g "$(slurp -d)" ~/Pictures/screenshots/screenshot-$(date +"%Y-%m-%d-%H-%M-%S").png ; exec ~/.scripts/copy_most_recent_screenshot_to_clipboard.sh
+#TODO, dodati negde u notes i komentar da moze i mega op resize na DUGME + desni klik
+floating_modifier $mod normal
+#------------------------------------------------------------------------
 
 # Screenshot whole screen (first part of command saves the screenshot, second part of the commands saves it to system clipboard)
 bindsym Print exec grim -c - | wl-copy ; exec ~/.scripts/save_clipboard_to_image.sh
 # Screenshot selection (shorcut like in Windows 10)(first part of command saves the screenshot, second part of the commands saves it to system clipboard)
 bindsym $mod+Shift+s exec grim -c -g "$(slurp -d)" - | wl-copy ; exec ~/.scripts/save_clipboard_to_image.sh
-
-#============================
-#smart_gaps inverse_outer on
-#smart_gaps on
-#smart_borders no_gaps
-
-
-
-# Default gaps stuff
-#set $innerDefault 0
-#set $outerDefault 0
-#gaps inner 10
-#gaps outer 10
-#=============================
 
 #Scratchpad stuff I guess
 ## Move the currently focused window to the scratchpad
@@ -53,37 +38,44 @@ bindsym $mod+Shift+s exec grim -c -g "$(slurp -d)" - | wl-copy ; exec ~/.scripts
 #bindsym $mod+minus scratchpad show
 #
 #==============
-set $mute_mic_and_sound exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle ; exec --no-startup-id pactl set-sink-mute 0 1
 
-#TODO: resize, floating i obican da budu iste brzine, i da moze i gore i desno u isto vreme
+#TODO?: resize, floating i obican da budu iste brzine, i da moze i gore i desno u isto vreme
 #TODO: scratchpad, ali da se ne upali odma tamo kao kod luke smitha, nego neki shortcut koji TRENUTNO upaljen window posalje u scratchpad, recimo pacman -Syu, ili tako nesto sto treba da se ceka, i onda kada zavrsi mogu da ga vratim. Mada umesto ovoga moze samo i stacked layout, ne znam jos. A mogu i da imam jedan workspace gde saljem tako stvari koje treba kad se cekaju. Sve u svemu, zakljucak mi je da mi vrv nece trebati scratchpad. idk dud
-#TODO: dodati da se floating window moze misem pomerati
-#TODO: Increase hitbox of resizing windows(stacked and floating)
 
-#Ovako treba lista da izgleda 0.keyboard          1.term,kill,split        2.rofi              3.foucs,move,resize                4.float             5.workspace
-
-
-#Polybar launch
-#exec_always --no-startup-id ~/.config/polybar/scripts/launch.sh
+#WAYLAND
 bar {
      swaybar_command waybar
 }
 
+# Change window focus (vim-like)
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Move focused window(vim-like)
+bindsym $mod+Ctrl+h move left 30
+bindsym $mod+Ctrl+j move down 30
+bindsym $mod+Ctrl+k move up 30
+bindsym $mod+Ctrl+l move right 30
 
 
-#SWAY
+# Opens terminal
+bindsym $mod+Return exec --no-startup-id $terminal
+
+
+# Kills the currently focused window
+# TODO: consider the luke smith shit(maybe its good for scratchpads??)
+bindsym $mod+control+d kill
+
+#WAYLAND
 # Window border (1 pixel is more aesthetic but less practical)
 default_border pixel 2
 
-#exec_always swayidle timeout 3 'if pgrep -x swaylock; then swaymsg "output * dpms off"; fi'
 
-#exec swayidle -w \
-#	timeout 3 'swaylock' \
-#	timeout 5 'swaymsg "output * dpms off"' \
-#	resume 'swaymsg "output * dpms on"'
 
-#
-#SWAY
+
+#WAYLAND
 # Disable mouse acceleration, TODO, videti da li radi, i strpati ispod negde?
 input * accel_profile flat
 #input * {
@@ -99,12 +91,6 @@ input "type:keyboard" {
      xkb_layout us,hr,rs
 }
 
-# Opens terminal
-bindsym $mod+Return exec --no-startup-id $terminal
-
-# Kills the currently focused window
-# TODO: consider the luke smith shit(maybe its good for scratchpads??)
-bindsym $mod+control+d kill
 
 
 
@@ -112,16 +98,12 @@ bindsym $mod+control+d kill
 # TODO: Toggles in which orientation a new window will open(horizontal/vertical)
 bindsym $mod+t split toggle
 
-
-#====================
-#ideja:
+# Very usefull. Super/Windows key starts (and kills) application launcher. Windows 10 like
 bindcode --release 133 exec --no-startup-id ~/.scripts/sway/start_application_launcher.sh
 
 # Enable window settings for application launcher window called EXCATLY "application_launcher"
 for_window [title="^application_launcher$"] floating enable, border none, opacity 0.8, move position center, resize set 800 300
 for_window [app_id="zenity"] floating enable, border none, move position center, resize set 800 300
-#====================
-
 
 # Rofi, the application launcher. Extremely usefull.
 # Super key enables rofi. What follows is similar to what happens when you press the Super/Windows key on Windows 10
@@ -131,38 +113,39 @@ for_window [app_id="zenity"] floating enable, border none, move position center,
 # Searches all programs (gui and terminal-like)
 #bindsym $mod+d exec  --no-startup-id rofi -show run -matching fuzzy -theme Arc-Dark
 
-
-
-# Change window focus (vim-like)
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
-
-# Move focused window(vim-like)
-bindsym $mod+Ctrl+h move left 30
-bindsym $mod+Ctrl+j move down 30
-bindsym $mod+Ctrl+k move up 30
-bindsym $mod+Ctrl+l move right 30
-
+# ===================================================
 # Resize currently focused window (vim-like)
-bindsym $mod+$alt+h		exec --no-startup-id "bash ~/.scripts/sway/resize left"
-bindsym $mod+$alt+j		exec --no-startup-id "bash ~/.scripts/sway/resize down"
-bindsym $mod+$alt+k		exec --no-startup-id "bash ~/.scripts/sway/resize up"
-bindsym $mod+$alt+l		exec --no-startup-id "bash ~/.scripts/sway/resize right"
+#bindsym $mod+$alt+h resize shrink width  10px
+#bindsym $mod+$alt+j resize grow   height 10px
+#bindsym $mod+$alt+k resize shrink height 10px
+#bindsym $mod+$alt+l resize grow   width  10px
+
+bindsym $mod+alt+h exec  ~/.scripts/i3-smart-resize "Left" "1 px or 1 ppt"
+bindsym $mod+alt+j exec ~/.scripts/i3-smart-resize "Right" "1 px or 1 ppt"
+bindsym $mod+alt+k exec    ~/.scripts/i3-smart-resize "Up" "1 px or 1 ppt"
+bindsym $mod+alt+l exec  ~/.scripts/i3-smart-resize "Down" "1 px or 1 ppt"
+# ===================================================
+
+# Scratchpad DEFAULT (TODO? zasto kad vratim window iz scratchpada je vec floating, neki moj setting ovo poremecava?)
+# Move the currently focused window to the scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+minus scratchpad show
 
 
 
 
+#TODO, bolji key bindingi za ovo, mozda ukloniti jedan od ovih, i videti kako ovo za split radi, da li moze da primi child opet
 bindsym $mod+y layout stacking
 bindsym $mod+u layout tabbed
+bindsym $mod+p toggle split
 
-
-
-# Toggles currenty focused window floating/stacking (TODO, space za floating shit-ove?)
+# Toggles currenty focused window floating/stacking
 bindsym $mod+$alt+space floating toggle
 
-# Toggles selection mode (floating or stacking)
+# Toggles selection mode
 bindsym $mod+space focus mode_toggle
 
 
@@ -180,20 +163,17 @@ bindsym $mod+r reload
 
 
 
-# SWAY
+# WAYLAND
 # Wallpaper
 #exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper/wallpaper
 output "*" bg ~/Pictures/wallpaper/wallpaper fill
 
 
-# Requires on pulseaudio. TODO: also change workspace on other monitors?
-# Disables all sound, mutes microphone, moves to a new workspace and opens innocent looking programs
-bindsym $mod+Shift+Delete $mute_mic_and_sound ; workspace $ws9 ; exec --no-startup-id $terminal -e htop ; exec --no-startup-id $file_browser
 
 
 bindsym $mod+Shift+Escape     exec --no-startup-id killall sway
 
-#NE RADI NA SWAY
+#NE RADI NA WAYLAND
 #set $freeze Distraction-free mode (super+shift+f to reactivate bindings)
 #mode "$freeze" { bindsym $mod+Shift+f mode "default"
 #}
@@ -205,7 +185,7 @@ bindsym $mod+Shift+Escape     exec --no-startup-id killall sway
 # Lock the screen
 # NOTE: this is not 100% secure, it can be bypassed if you try
 # NOTE: no encryption is used
-#SWAY
+#WAYLAND
 #bindsym $mod+s exec swaylock --color=000000
 bindsym $mod+s exec ~/.scripts/sway/swaylock.sh
 
@@ -229,15 +209,24 @@ bindsym $mod+a exec --no-startup-id ddspawn dropdowncalc -f mono:pixelsize=24
 bindsym $mod+Shift+b	floating toggle; sticky toggle; exec --no-startup-id hover left
 bindsym $mod+Shift+n	floating toggle; sticky toggle; exec --no-startup-id hover right
 
-bindsym $mod+Shift+x exec --no-startup-id "sudo poweroff"
-bindsym $mod+Shift+r exec --no-startup-id "sudo restart"
 
 
 #TODO
-# #---Workspace Bindings---# #
+# TODO, on_output (ili samo output?) msm da je mozda jako bitno, ne znam, msm da je vezano za monitor
+# #---Workspace Bindings---# #---------------------------------------------------------------------------------------------------------
 
-bindsym $mod+o sticky toggle #TODO
-bindsym $mod+g workspace prev #TODO
+# Requires on pulseaudio. TODO: also change workspace on other monitors?
+# Disables all sound, mutes microphone, moves to a new workspace and opens innocent looking programs
+#-----------
+
+#bindsym $mod+Tab		workspace back_and_forth
+#bindsym $mod+semicolon		workspace next
+#bindsym $mod+backslash		workspace back_and_forth
+
+#TODO
+bindsym $mod+o sticky toggle
+#TODO
+bindsym $mod+g workspace prev
 
 # TODO
 bindsym $mod+Shift+h          move workspace to output left
@@ -245,28 +234,47 @@ bindsym $mod+Shift+j          move workspace to output down
 bindsym $mod+Shift+k          move workspace to output up
 bindsym $mod+Shift+l          move workspace to output right
 
-#bindsym $mod+Home		workspace $ws1
-#bindsym $mod+Shift+Home		move container to workspace $ws1
-#bindsym $mod+End		workspace $ws10
-#bindsym $mod+Shift+End		move container to workspace $ws10
+#
+bindsym $mod+m workspace prev
+bindsym $mod+comma workspace next
+bindsym $mod+slash workspace back_and_forth
+
+bindsym $mod+$alt+m	move container to workspace prev
+bindsym $mod+$alt+comma move container to workspace next
+# ======
+
+# switch to workspace
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+
+# Move focused container to workspace (TODO: proveri da li radi ovo uopste)
+bindsym $mod+Ctrl+1 move container to workspace number 1
+bindsym $mod+Ctrl+2 move container to workspace number 2
+bindsym $mod+Ctrl+3 move container to workspace number 3
+bindsym $mod+Ctrl+4 move container to workspace number 4
+bindsym $mod+Ctrl+5 move container to workspace number 5
+bindsym $mod+Ctrl+6 move container to workspace number 6
+bindsym $mod+Ctrl+7 move container to workspace number 7
+bindsym $mod+Ctrl+8 move container to workspace number 8
+bindsym $mod+Ctrl+9 move container to workspace number 9
+
+
+# ---relatively useles, za mis ona dugmadi sa strane
 #bindsym $mod+Prior		workspace prev
 #bindsym $mod+Shift+Prior	move container to workspace prev
 #bindsym $mod+Next		workspace next
 #bindsym $mod+Shift+Next		move container to workspace next
-#bindsym $mod+Tab		workspace back_and_forth
-#bindsym $mod+XF86Back		workspace prev
-#bindsym $mod+Shift+XF86Back	move container to workspace prev
-#bindsym $mod+XF86Forward	workspace next
-#bindsym $mod+Shift+XF86Forward	move container to workspace next
-#bindsym $mod+semicolon		workspace next
-#bindsym $mod+apostrophe		split horizontal ;; exec $terminal
-#bindsym $mod+slash		split vertical ;; exec $terminal
-#bindsym $mod+Shift+slash	kill
-#bindsym $mod+backslash		workspace back_and_forth
+
 # #---End of Workspace Bindings---# #
 
-
-#------------------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -286,27 +294,13 @@ bindsym $mod+Shift+l          move workspace to output right
 #for_window [title="calc"] resize set 800 300
 #for_window [title="calc"] border pixel 2
 
+set $mute_mic_and_sound exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle ; exec --no-startup-id pactl set-sink-mute 0 1
+bindsym $mod+Shift+Delete $mute_mic_and_sound ; workspace $ws9 ; exec --no-startup-id $terminal -e htop ; exec --no-startup-id $file_browser
+
 #------------------------------------------------------------------------------------------------
 
 
-
-#TODO
-# Workspace stuff
-bindsym $mod+Home workspace $ws1
-bindsym $mod+$alt+Home move container to workspace $ws1
-bindsym $mod+End workspace $ws9
-bindsym $mod+$alt+End move container to workspace $ws9
-
-bindsym $mod+m			workspace prev
-bindsym $mod+comma			workspace next
-
-bindsym $mod+slash			workspace back_and_forth
-
-bindsym $mod+$alt+m			move container to workspace prev
-bindsym $mod+$alt+comma		move container to workspace next
-# End of workspace stuff
-
-
+# TODO: ukloni ovo i ostavi default(mozda??)
 # Window borders and stuff------------------------------------------------------------------------
 # Active window border color (the color is taken from fedora 2021 logo)
 set $active-bg-color             #3c6eb4ff
@@ -339,60 +333,18 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 #bindsym $mod+$alt+v gaps inner current minus 5
 #bindsym $mod+z gaps outer current plus 5
 #bindsym $mod+$alt+z gaps outer current minus 5
+#============================
+#smart_gaps inverse_outer on
+#smart_gaps on
+#smart_borders no_gaps
 
-#==============================================================================
 
-# WORKSPACE-ovi
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
 
-# switch to workspace
-bindsym $mod+1 workspace number $ws1
-bindsym $mod+2 workspace number $ws2
-bindsym $mod+3 workspace number $ws3
-bindsym $mod+4 workspace number $ws4
-bindsym $mod+5 workspace number $ws5
-bindsym $mod+6 workspace number $ws6
-bindsym $mod+7 workspace number $ws7
-bindsym $mod+8 workspace number $ws8
-bindsym $mod+9 workspace number $ws9
-
-# move focused container to workspace
-bindsym $mod+$alt+1 move container to workspace number $ws1
-bindsym $mod+$alt+2 move container to workspace number $ws2
-bindsym $mod+$alt+3 move container to workspace number $ws3
-bindsym $mod+$alt+4 move container to workspace number $ws4
-bindsym $mod+$alt+5 move container to workspace number $ws5
-bindsym $mod+$alt+6 move container to workspace number $ws6
-bindsym $mod+$alt+7 move container to workspace number $ws7
-bindsym $mod+$alt+8 move container to workspace number $ws8
-bindsym $mod+$alt+9 move container to workspace number $ws9
-
-# I have no stuff under this line is ---------------------------------------------------------------------------------
-
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
-
-# Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+# Default gaps stuff
+#set $innerDefault 0
+#set $outerDefault 0
+#gaps inner 10
+#gaps outer 10
+#=============================
+#bindsym $mod+Shift+x exec --no-startup-id "sudo poweroff"
+#bindsym $mod+Shift+r exec --no-startup-id "sudo restart"

@@ -12,9 +12,14 @@
 " tabing (org mode?), http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
 
 "================================================================================================================================================
+" Move selected a line up or down
+" meh: vnoremap J :m '>+1<CR>gv=gv
+" meh: vnoremap K :m '<-2<CR>gv=gv
+" meh: nnoremap <leader>w :w<Enter>
 
+nnoremap <leader>/ :noh<Enter>
 
-"------------------------------------------------------------------------------------------------------------
+"================================================================================================================================================
 
 "TODO: smanjiti malkice onaj waste-ovan space ispod kucanja editor komande, msm da sam imao setting koji to radi ili ga idalje imam negde
 
@@ -25,17 +30,15 @@ set laststatus=2
 
 "TEST---------
 
-" TODO, does not work: Y    -treba da kopira od kursora do kraja reda, a on kopira ceo red, kao da sam uradio yy umesto Y
-" essential (geohot) shit: ----------------------------------------------------------------------------
+syntax enable
+" TODO, does not work: Y    -treba da kopira od kursora do kraja reda, a on kopira ceo red, kao da sam uradio yy umesto Y essential (geohot) shit: ----------------------------------------------------------------------------
 set background=dark
-
 
 " Copy/paste from and to system with Ctrl-c and Ctrl-p . Potentially better than sharing the vim copy/paste clipboard with the system. This will only put it to the system clipboard if you do Ctr+c (in visual mode) and Ctrl+p(any mode). If using this, disable the line "set clipboard=unnamedplus". (the system clipboard is in the "+ register)
 "vnoremap <C-c> "+y
 "noremap <C-v> "+P
 
 " Enables syntax highlighting
-syntax enable
 
 set tabstop=10
 
@@ -56,14 +59,18 @@ filetype plugin on
 " Enables highlighting when searching with "/", to disable do // or ":nohl"
 set hlsearch
 
+" Make search canse insenitive, you can make it sensitive with \C
+set ignorecase
+
+" Highlights as you search
+set incsearch
+
 " Enable relative lines
 set relativenumber
 
 " Makes your current line show the actual line number in the file (used for "set relativenumber")
 set number
 
-" Highlights as you search
-set incsearch
 
 
 " F6 compiles currently open file based on file type
@@ -105,7 +112,7 @@ set mouse=a
 set nowrap
 
 " When you scroll up/down, it makes your screen move before your cursor hits the last/first line
-"set scrolloff=8
+set scrolloff=5
 
 set smartindent " Idk, some say you should use, some say you shouldn't
 
@@ -242,6 +249,7 @@ set hidden
 " idk, something for history, useful for undotree(the last 2)(TODO, pogledaj sve ovo neki drugi dan)
 set noswapfile
 set nobackup
+"set nowritebackup  -  mozda
 set undodir=~/.vim/undodir
 set undofile
 
@@ -273,7 +281,7 @@ set completeopt=menuone,noinsert,noselect
 " END OF SECTION---------------------------------------------
 
 " usefull plugins (apparently):
-"         pictures in terminal: Uberzug, coc, nerdtree, fzf (ili Ctrl P), vis.vim", lightline, airline, telescope, vim-which-key(keybind helper), nvim colorizer (oboji hex boje u terminalu), treesitter, undotree, fugitive, AG(search), tpope/vim-surround, Plugin stuff, smoothscroll (da se ne izgubis kad skrolas)
+"         pictures in terminal: Uberzug, coc, nerdtree, fzf (ili Ctrl P), vis.vim", lightline, airline, telescope, vim-which-key(keybind helper), nvim colorizer (oboji hex boje u terminalu), treesitter, undotree, fugitive, AG(search), tpope/vim-surround, Plugin stuff, smoothscroll (da se ne izgubis kad skrolas), snipmate, nerdcommenter, vim-easymotion, vim-fugitive (git stuff), vim gitgutter, delimitMate (automaticly close quotes and brackets)
 call plug#begin("~/.vim/plugged")
 Plug 'gruvbox-community/gruvbox'        " Colorscheme
 Plug 'tomasiser/vim-code-dark'          " Colorscheme

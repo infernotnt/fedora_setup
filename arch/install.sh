@@ -23,6 +23,8 @@ USER_HOME=$(getent passwd $SUDO_USER | cut -d: -f6)
 
 sudo hostnamectl set-hostname archio
 
+pacman --noconfirm -Syu
+
 pacman --noconfirm -S sudo man-db zsh htop parted fzf neovim
 
 #NOTE: don't install if you have nvidia graphics card
@@ -30,6 +32,9 @@ pacman --noconfirm -S mesa
 
 #NOTE: don't install if going for a minimal install
 #pacman --noconfirm -S noto-fonts
+#MAXIMAL
+# Used for arch linux logo icon for waybar
+pacman --noconfirm -S ttf-font-logos
 
 pacman --noconfirm -S sway swaylock swaybg waybar
 
@@ -52,6 +57,7 @@ pacman --noconfirm -S grim slurp
 # Za kompajlovanje, koristi se za AUR (iskljucen radi minimalizma)
 pacman -noconfirm --needed base-devel
 
+# MAXIMAL
 # xorg-xwayland     - Needed for brave-browser. (he can't play videos on native (not sure, maybe fixable)
 # xorg-xeyes        - Used for telling what program is running native wayland and which program is running xwayland
 pacman -noconfirm xorg-xwayland xorg-xeyes
@@ -64,6 +70,7 @@ pacman --noconfirm openssh
 # imv               -  image viewer
 pacman --noconfirm -S wl-clipboard imv
 
+# MAXIMAL VRLO MAXIMAL
 #TODO, dodati da pita korisnika na pocetku (zajedno sa username i driver i ovo), da li zeli da skine latex, i da uzima tipa 2.5GB ili tako nesto
 #pacman --noconfirm -S pandoc texlive-most
 

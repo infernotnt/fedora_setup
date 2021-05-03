@@ -1,7 +1,18 @@
+#todo:
+     * waybar bez workspace
+     * waybar workspace + sway workspace
+     * sway
+     * note taking malkice
+     * bluetooth
 #alacritty ricing:
-     * padding
-     *
+     * padding?
+     * scrolling: multiplier=10? (ubrza scroll)
+     * draw_bold_text_with_bright_colors = true?
+     * key binding za otvaranje novog terminala u trenutnom directoriju (neki copy paste na ctrl? https://www.youtube.com/watch?v=S5ra0DUDZww&list=PLhoH5vyxr6QpGSDfaYLxOgjCzCej6q0kP&index=8)
+          - { key
+     * pogledaj chrisatmachine? video opet
 #TODO RICE (prio 1):
+     * run_wlsunset.sh ne radi. ovo se vidi npr kad refresh-ujes sway
      * bluetooth
           * mozda da se moduli pale tek kad se sway upali
      * waybar,
@@ -9,6 +20,7 @@
           * workspace-ovi ima na youtube-u i na unixporn ideje, msm da imam jednu dobru u bookmarks
           * kliktanje na bluetooth module upale blueman
           * spotify module, sa dugmadima za premotavanje pesme i potencijalno pauziranje
+
      * sort celog sway configa?, da bi mogao posle da dodajem nova sranja
 
      * iz nekog razloga run_wlsunset.sh ostane upaljen u pozadini stalno? vidi da li treba staviti exit na kraju skirpte, i vidi da li su i sve ostale skripte tako da ostaju u pozadini ukljucene, zasto?, mozda i tamo treba staviti taj exit na kraju
@@ -21,7 +33,6 @@
 #TODO backup:
      * ukloniti sve x11/i3 specific stvari iz sway configa. ima vrv mnogo vise stvari nego sto mislis koje treba da se uklone. msm da bi najbolji nacin bio da pogledam default sway config, pogledam moj, i izbacim sve iz mog sto ne znam tacno sta radi
      * dafuq is .config/zsh/.zcompdump?, vrv ne treba da bude u backupu
-     * mozda staviti da se bluetooth module pali tek kada upalim sway? https://wiki.archlinux.org/index.php/Sway#Manage_Sway-specific_daemons_with_systemd
      * vim :PlugInstall i dalje nije automatski izgleda, ako budes automatizovao pazi posto se skripta nece raditi kao user account nego kao admin account
      * brave/firefox, njihovi settings i bookmarks potencijalno, ako budem njih dodavao, neka bude van github repositoryija, nego gitignore
      * screenshot sa selectovanjem i dalje ne radi (bar fajl nije save-ovan)
@@ -37,27 +48,29 @@
           * na sway-u mi se cini da resize nije konstantne brzine nego se menja sa velicinom prozora
           * all floating shit, dodati i u fedora setup
           * dodati da se floating windowi mogu "snap-ovati" kao na windowsu 10, onako u cetvrtine
+          * DOBRA IDEJA: da napravim kao drugi "mod" gde se korsiti scratchpad za: calculator, neki terminal i application launcher (da bi se sve brze palilo, pogotov application launcher), i tako neke stvari koje nisu toliko optimalne za idle usage ali su generlano korisne. Napravi da se lako, i tipa sa jednom komandom moze izaci iz ovog moda.
+          * usefull tools for sway(https://github.com/swaywm/sway/wiki/Useful-add-ons-for-sway): login, logout manager
+          * note: okej velicina za browser? 1024 x 820(ili obrnuto?)
 
      * volume control keybinds (potencijalno slicni kao windows 10, ako ih on uopste ima), i ona macka sto pop-uje
-     * DOBRA IDEJA: da napravim kao drugi "mod" gde se korsiti scratchpad za: calculator, neki terminal i application launcher (da bi se sve brze palilo, pogotov application launcher), i tako neke stvari koje nisu toliko optimalne za idle usage ali su generlano korisne. Napravi da se lako, i tipa sa jednom komandom moze izaci iz ovog moda.
      * dodati window border arch linux svetlo plavu opciju, i ostaviti onu fedora opciju
      * file browser windows-like look (mental outlaw msm?)
      * papyrus ikonice svi koriste
      * aur
-     * bluelight, i na waybar da bude gore neka click-able oznaka, mozda neki sway shortcut, mozda da bude uvek upaljeno u pozadini, ne znam stvarno. Ikonica na sway moze da bude npr neko oko ili tako nesto
-     * dugme na waybar za sync note-ova na google drive? (ikonica kao strelice koje idu u krug)
-     * numix icon theme?. papirus icons navodno dobar, waybar icon theme pogledati komenatar u .config/waybar/config
 
+     bluetooth:
+          * mozda staviti da se bluetooth module pali tek kada upalim sway? https://wiki.archlinux.org/index.php/Sway#Manage_Sway-specific_daemons_with_systemd
+          * bluelight, toggle (shorcut? ili samo dovojlno da se klikne nesto na tray? mozda custom module da napravim ali da izgleda kao da je na tray-u samo da bi mogao da bude clickable??)za bluelight
      * waybar:
           * mozda ove skripte za shutdown kad kliknes na dugme u waybar-u da ne pale "zenity" nego dmenu, luke smith msm da ima video nesto slicno o tome za dmenu
           * waybar: ona dugmadi za: screen lock, suspend, restart, power off: da se sva stave na jedno dugme, koje kad kliknes expand-uje se. ako to upste moze u waybar-u.
           * seperator na right modules izmedju tray-a (ili kako god se zove, ono za recimo discord i gammashift itd...) i ostalih stvari desno od njega (net itd...)
           * staviti vreme da bude negde distinguishable, da mogu jako lagano da samo glance-ujem i da vidim, npr u cosak ili tako nesto. Kako windows radi? (mozda stavi ispod toga jezik pa bude vislje nego drugi moduli)
+          * bluelight, i na waybar da bude gore neka click-able oznaka, mozda neki sway shortcut, mozda da bude uvek upaljeno u pozadini, ne znam stvarno. Ikonica na sway moze da bude npr neko oko ili tako nesto
+          * dugme na waybar za sync note-ova na google drive? (ikonica kao strelice koje idu u krug)
+          * numix icon theme?. papirus icons navodno dobar, waybar icon theme pogledati komenatar u .config/waybar/config
 
-     * usefull tools for sway(https://github.com/swaywm/sway/wiki/Useful-add-ons-for-sway): login, logout manager
-     * quote za rice na dnu fajla
      * wlsusnset, navodno vise lightweight, mozda ne smara kao gammastep, pogledaj (najvrv koristi wlsusnset)
-     * bluelight, toggle (shorcut? ili samo dovojlno da se klikne nesto na tray? mozda custom module da napravim ali da izgleda kao da je na tray-u samo da bi mogao da bude clickable??)za bluelight
      * u konzoli kada uzmem proslu komandu <Escape, k> ne moze da se brise na <C-w> vecina komande
      * zsh da ne smara na auto-completion-u, videti da neka smaranja ostanu, npr ona sto retko budu
      * kul fonts (proveriti da li je system san francisco instaliran)
@@ -70,7 +83,6 @@
      * dodati padding na alacritty (window manager bi trebao ovo da radi a ne terminal)
      * pipes.sh kao lockscreen (https://github.com/pipeseroni/pipes.sh)
      * cbonsai na log-inu
-     * waybar: kad kliknes na sat, ili datum ili tako nesto, upali se kalendar (malo nepotrebno, mogu samo da koristim google calendar ili tako nesto)
      ## look into it:
           * dircolors
           * base16 themes? (tip koji je spomenuo je hard hard core ricer, mozda je previse ovo)
@@ -84,7 +96,7 @@
 
      * waybar:
           * termometar za temperaturu da bude napunjen do kraja ili skroz prazan
-
+          * waybar: kad kliknes na sat, ili datum ili tako nesto, upali se kalendar (malo nepotrebno, mogu samo da koristim google calendar ili tako nesto)
 
 # backup, nepotrebno, samo random ideje:
 

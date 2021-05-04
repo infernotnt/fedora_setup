@@ -1,8 +1,22 @@
 #ovim redom uciti markdown:
-     1.   basic
+     1.   basic(rwxrob)
      1.   common(github related??)
-     1.   pandoc(equations n shit)
+     1.   pandoc(equations n shit)(brody)
 
+#markdown editors and plugins(https://www.youtube.com/watch?v=cbfQm1tO6K8)
+     * VSCode
+          * Default Markdown Plugin
+          * Pandoc markdown Plguin(s)
+     * Gitlab and Github
+     * (emacs) https://github.com/jrblevin/markdown-mode-guide
+     * (perfect, but no vim mode, and not foss) typora
+     * joplinapp.org
+     * zettlr
+     * aret.io
+     * hackmd.io
+     * markdownlivepreview.com
+
+#================================================================================================================
 # Things you can format:
 1. Headings
 1. Lists

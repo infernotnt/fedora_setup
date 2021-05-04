@@ -81,8 +81,8 @@ export FILE_BROWSER="pcmanfm"
 #=================================================
 
 alias sudo="sudo "
-alias d="sudo dnf"
-alias D="sudo dnf -y"
+#alias d="sudo dnf"
+#alias D="sudo dnf -y"
 alias v="nvim"
 #alias nvim="nvim -S ~/.vimrc"
 alias mkdir="mkdir -pv"
@@ -133,6 +133,7 @@ alias cfr="nvim ~/fedora_setup/arch/README.md"
 alias cfs="nvim ~/.config/sway/config"
 alias cdc="cd ~/.config"
 alias cds="cd ~/.scripts"
+alias cdm="cd ~/fedora_setup/markdown/"
 
 alias cda="cd ~/fedora_setup/arch"
 alias p="sudo pacman"

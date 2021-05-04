@@ -40,7 +40,7 @@ set background=dark
 
 " Enables syntax highlighting
 
-set tabstop=10
+set tabstop=2
 
 set expandtab
 
@@ -51,7 +51,7 @@ let mapleader =  " "
 set autoindent
 
 " vidi da li je essential, grupisati sa: set tabstop=
-set softtabstop=10
+set softtabstop=2
 
 " todo?
 filetype plugin on
@@ -82,11 +82,12 @@ autocmd FileType cpp nnoremap <f6> <esc>:w<enter>:!g++ -std=c++17 %:p -o %:p:r<e
 
 
 " Automatically deletes all trailing whitespaces on file save
-autocmd BufWritePre * %s/\s\+$//e
+"autocmd BufWritePre * %s/\s\+$//e
 
 " Spell check (o for ortography??), staviti mozda da detektuje na kojoj sam tastaturi i da taj jezik checkuje?
-nnoremap <leader>o :setlocal spell! spelllang=en_us<CR>
-
+nnoremap <leader>e :setlocal spell! spelllang=en_us<Enter>
+nnoremap <leader>s :setlocal spell! spelllang=sr_rs<Enter>
+"nnoremap <leader>l :setlocal spell! spelllang=sr_latin<Enter>
 
 " Enables autocompletion for file names
 set path+=**
@@ -161,7 +162,7 @@ set backspace=indent,eol,start
 
 " Makes tabbing smarted and realizes you have 2 vs 4
 " TODO:
-"set smarttab
+set smarttab
 
 
 " TODO: idk irl (Always show tabs)
@@ -172,8 +173,9 @@ set backspace=indent,eol,start
 "TODO: idk, recommended by coc
 "set nowritebackup
 
-" TODO
-set noshowmode " We don't need to see things like --INSER-- anymore (TODO, disable make it acutally show the mode)
+" We don't need to see things like --INSER-- anymore (TODO, disable make it acutally show the mode)
+"set noshowmode
+set showmode
 
 "remapings section:
 
@@ -220,15 +222,15 @@ set formatoptions-=cro " TODO: ne radi| Disable automatic commenting on new line
 " TODO: kad budem radio latex/markdown/cpp/c/python, staviti da se uvek kompajluje na isto dugme?
 
 " TODO: vidi ovo, |luke smith|, syntax check za .sh fajlove, i da je sugestije(za .sh fajlove)
-map <leader>s :!clear && shellcheck -x %<CR>
+map <leader>c :!clear && shellcheck -x %<Enter>
 
 "------------------------------------------------------------------------------------------------------------
 
 " set the tab length in spaces
 " auto indentation on new line
-set shiftwidth=5
+set shiftwidth=2
 
-" makes new tabs in insert mode become spaces
+" (vrv ukljuci?)makes new tabs in insert mode become spaces
 "set expandtab
 
 " probably something similar to shiftwidth, I have no idea
@@ -247,12 +249,29 @@ set shiftwidth=5
 set hidden
 
 " idk, something for history, useful for undotree(the last 2)(TODO, pogledaj sve ovo neki drugi dan)
-set noswapfile
-set nobackup
-"set nowritebackup  -  mozda
 set undodir=~/.vim/undodir
 set undofile
 
+" rwxrob(onaj deda) settings for backup n stuff ---- TODO
+set nobackup
+set noswapfile
+set nowritebackup
+
+set noruler
+set statusline=
+set statusline+=%*\ %<%.60F%*                      " path, trunc to 80 length
+set statusline+=\ [%{strlen(&ft)?&ft:'none'}]      " filetype
+set statusline+=%*\ %l:%c%*                        " current line and column
+set statusline+=%*\ %p%%%*                         " percentage
+
+" Make Y consistent with D and C (yank til end)
+nnoremap Y y$
+
+set wildmenu
+
+" todo idk
+set omnifunc=syntaxcomplete#Complete
+" -----
 
 
 " TODO
@@ -269,8 +288,8 @@ set completeopt=menuone,noinsert,noselect
 " idk, the bar on the left of line numbers, useful for git integration apparently
 "set signcolumn=yes
 
-" idk, apparently not worth it, gives more space for displaying messages, but takes away from working space (the thing on the bottom of the screen)
-"set cmdheight=2
+" (stavi u default useless) idk, apparently not worth it, gives more space for displaying messages, but takes away from working space (the thing on the bottom of the screen)
+set cmdheight=1
 
 " Idk, TODO, Having longer updatetime(default is 4000ms = 4s) leads to more noticiable delays and poor user experience.
 "set updatetime=50
@@ -285,7 +304,9 @@ set completeopt=menuone,noinsert,noselect
 call plug#begin("~/.vim/plugged")
 Plug 'gruvbox-community/gruvbox'        " Colorscheme
 Plug 'tomasiser/vim-code-dark'          " Colorscheme
-Plug 'glacambre/firenvim'
+Plug 'vim-pandoc/vim-pandoc'            " Markdown
+Plug 'vim-pandoc/vim-pandoc-syntax'     " Markdown
+"Plug 'glacambre/firenvim'
 call plug#end()
 
 " Vim-studio-dark colortheme for everything except for markdown (.md) files

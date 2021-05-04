@@ -1,3 +1,8 @@
+#ovim redom uciti markdown:
+     1.   basic
+     1.   common(github related??)
+     1.   pandoc(equations n shit)
+
 # Things you can format:
 1. Headings
 1. Lists

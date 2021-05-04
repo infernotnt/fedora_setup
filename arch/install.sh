@@ -33,21 +33,22 @@ pacman --noconfirm -S mesa
 #NOTE: don't install if going for a minimal install
 #pacman --noconfirm -S noto-fonts
 #MAXIMAL
-# Used for arch linux logo icon for waybar
-pacman --noconfirm -S ttf-font-logos
+# Used for arch linux logo icon for waybar DOES NOT WORK
+#pacman --noconfirm -S ttf-nerd-fonts-symbols
 
 pacman --noconfirm -S sway swaylock swaybg waybar
 
 pacman --noconfirm -S firefox alacritty
 
-pacman --noconfirm -S git youtube-dl shellcheck cmatrix playerctl
+pacman --noconfirm -S youtube-dl shellcheck cmatrix playerctl
+
+pacman --noconfirm -S zip unzip git tldr tokei tree neofetch
+
 
 pacman --noconfirm -S alsa pavucontrol pulseaudio
-#seems unnecessary? pacman --noconfirm -S alsa-utils
+#seems unnecessary? pacman --noconfirm -S alsa-utils TODO
 
-pacman --noconfirm -S vlc qbittorrent tldr tokei tree neofetch
-
-# For screenshots. Grim is for screenshots. Slurp is for screenshoting a selected part of the screen. (wayland both)
+pacman --noconfirm -S vlc qbittorrent # For screenshots. Grim is for screenshots. Slurp is for screenshoting a selected part of the screen. (wayland both)
 pacman --noconfirm -S grim slurp
 
 # Blue light filter (wayland) (disabled 'cause wl-sunset>gammstep)

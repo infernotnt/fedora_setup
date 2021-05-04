@@ -42,7 +42,6 @@
 
               // Modules configuration
               // "sway/workspaces": {
-              //     "disable-scroll": true,
               //     "all-outputs": true,
               //     "format": "{name}: {icon}",
               //     "format-icons": {
@@ -55,8 +54,27 @@
               //         "focused": "",
               //         "default": ""
               //     }
-              // },
-
+              // },//        
+    "sway/workspaces": {
+        "persistent_workspaces": {
+             "1": [],
+             "2": [],
+             "3": [],
+             "4": [],
+             "5": [],
+        },
+        "disable-scroll": false,
+        "disable-click": false,
+        "enable-bar-scroll": false,
+        "all-outputs": true,
+       // "current-only": true,
+        "format": "{icon}",
+        "format-icons": {
+//                "persistent": "",
+                "focused": "",
+                "default": "",
+        },
+    },
     "sway/language": {
         "format": " {} ",
         "max-length": 10
@@ -77,7 +95,7 @@
     },
           // USEFULL icons from awesome font     -      -    (user lock)  -   -    -     -  (align) -   (elipsis)  -     -      -         -       (th)     - 
     "custom/menu": {
-              "format": "  ",//alternative: 
+              "format": " ",//alternative(arch logo, nerf font symbols): 
               //"on-click": "rofi -combi-modi drun,ssh -show combi",
               "on-click": "~/.scripts/sway/start_application_launcher.sh",
               "tooltip": false

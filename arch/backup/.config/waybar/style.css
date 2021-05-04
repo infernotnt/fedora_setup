@@ -83,7 +83,13 @@ window#waybar.bottom {
 	border-radius: 0;
 	color: @foreground;
 }
-
+#workspaces button.current_output{
+	border-style: solid;
+	border-width: 2 0 0 0;
+	border-color: @moj;
+	border-radius: 0;
+	color: #aabbff;
+}
 #mode {
 	color: @orange;
 }

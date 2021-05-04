@@ -15,7 +15,7 @@
 " Move selected a line up or down
 " meh: vnoremap J :m '>+1<CR>gv=gv
 " meh: vnoremap K :m '<-2<CR>gv=gv
-" meh: nnoremap <leader>w :w<Enter>
+nnoremap <leader>w :w<Enter>
 
 nnoremap <leader>/ :noh<Enter>
 

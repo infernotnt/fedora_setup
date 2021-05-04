@@ -99,7 +99,7 @@ input "type:keyboard" {
 bindsym $mod+t split toggle
 
 # Very usefull. Super/Windows key starts (and kills) application launcher. Windows 10 like
-bindcode --release 133 exec --no-startup-id ~/.scripts/sway/start_application_launcher.sh
+bindcode --release 133 exec --no-startup-id ~/.scripts/sway/toggle_application_launcher.sh
 
 # Enable window settings for application launcher window called EXCATLY "application_launcher"
 for_window [title="^application_launcher$"] floating enable, border none, opacity 0.8, move position center, resize set 800 300
@@ -120,10 +120,15 @@ for_window [app_id="zenity"] floating enable, border none, move position center,
 #bindsym $mod+$alt+k resize shrink height 10px
 #bindsym $mod+$alt+l resize grow   width  10px
 
-bindsym $mod+alt+h exec  ~/.scripts/i3-smart-resize "Left" "1 px or 1 ppt"
-bindsym $mod+alt+j exec ~/.scripts/i3-smart-resize "Right" "1 px or 1 ppt"
-bindsym $mod+alt+k exec    ~/.scripts/i3-smart-resize "Up" "1 px or 1 ppt"
-bindsym $mod+alt+l exec  ~/.scripts/i3-smart-resize "Down" "1 px or 1 ppt"
+bindsym $mod+$alt+h		exec --no-startup-id "bash ~/.scripts/sway/rs left"
+bindsym $mod+$alt+j		exec --no-startup-id "bash ~/.scripts/sway/rs down"
+bindsym $mod+$alt+k		exec --no-startup-id "bash ~/.scripts/sway/rs up"
+bindsym $mod+$alt+l		exec --no-startup-id "bash ~/.scripts/sway/rs right"
+
+#bindsym $mod+alt+h exec  ~/.scripts/i3-smart-resize "Left" "1 px or 1 ppt"
+#bindsym $mod+alt+j exec ~/.scripts/i3-smart-resize "Right" "1 px or 1 ppt"
+#bindsym $mod+alt+k exec    ~/.scripts/i3-smart-resize "Up" "1 px or 1 ppt"
+#bindsym $mod+alt+l exec  ~/.scripts/i3-smart-resize "Down" "1 px or 1 ppt"
 # ===================================================
 
 # Scratchpad DEFAULT (TODO? zasto kad vratim window iz scratchpada je vec floating, neki moj setting ovo poremecava?)
@@ -187,7 +192,7 @@ bindsym $mod+Shift+Escape     exec --no-startup-id killall sway
 # NOTE: no encryption is used
 #WAYLAND
 #bindsym $mod+s exec swaylock --color=000000
-bindsym $mod+s exec ~/.scripts/sway/swaylock.sh
+bindsym $mod+s exec swaylock
 
 # Makes the currently focused window fullscreen
 bindsym $mod+f fullscreen toggle

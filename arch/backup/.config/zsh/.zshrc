@@ -1,12 +1,3 @@
-#environment variables============================
-export EDITOR="nvim"
-export VISUAL="nvim"
-export TERMINAL="alacritty"
-export BROWSER="brave-browser"
-export FILE_BROWSER="pcmanfm"
-
-#export MANPAGER='nvim +Man!' # Enables highlighting on man pages, TODO: bolje je kad nvim nije man pager jer se cursor pojavljuje i tako neke stvari, bilo bi bolje mozda kad bi se vratilo na native ali kada bi jos i moglo da bude rice-ovano aka highlightovano, a mozda i da ostavim kao sa nvim-a, ali da samo koristim pravi naci za kretanje
-#=================================================
 # The following lines were added by compinstall
 
 #zstyle ':completion:*' auto-description 'specify %d'
@@ -79,7 +70,15 @@ zle -N zle-line-init
 echo -ne '\e[6 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[6 q' ;} # Use beam shape cursor for each new prompt.
 
-#------------------------------------------------------------
+#environment variables============================
+export EDITOR="nvim"
+export VISUAL="nvim"
+export TERMINAL="alacritty"
+export BROWSER="brave-browser"
+export FILE_BROWSER="pcmanfm"
+
+#export MANPAGER='nvim +Man!' # Enables highlighting on man pages, TODO: bolje je kad nvim nije man pager jer se cursor pojavljuje i tako neke stvari, bilo bi bolje mozda kad bi se vratilo na native ali kada bi jos i moglo da bude rice-ovano aka highlightovano, a mozda i da ostavim kao sa nvim-a, ali da samo koristim pravi naci za kretanje
+#=================================================
 
 alias sudo="sudo "
 alias d="sudo dnf"

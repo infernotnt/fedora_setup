@@ -23,6 +23,7 @@
 
      * sort celog sway configa?, da bi mogao posle da dodajem nova sranja
 
+     * namestiti da radi swaylock onog tipa, kakav god da je, al bar da radi, msm da je problem za sad sto swaylock totalno ignorise file koji sam mu dao (~/.config/swaylock/config)
      * iz nekog razloga run_wlsunset.sh ostane upaljen u pozadini stalno? vidi da li treba staviti exit na kraju skirpte, i vidi da li su i sve ostale skripte tako da ostaju u pozadini ukljucene, zasto?, mozda i tamo treba staviti taj exit na kraju
      * iz nekog razloga run_gammastep.sh ostane upaljen u pozadini stalno? vidi da li treba staviti exit na kraju skirpte, i vidi da li su i sve ostale skripte tako da ostaju u pozadini ukljucene, zasto?, mozda i tamo treba staviti taj exit na kraju
      * pipewire je ukljucen u pozadini i trosi resurse, dependency na neki drugi package je, wtfff
@@ -51,6 +52,7 @@
           * DOBRA IDEJA: da napravim kao drugi "mod" gde se korsiti scratchpad za: calculator, neki terminal i application launcher (da bi se sve brze palilo, pogotov application launcher), i tako neke stvari koje nisu toliko optimalne za idle usage ali su generlano korisne. Napravi da se lako, i tipa sa jednom komandom moze izaci iz ovog moda.
           * usefull tools for sway(https://github.com/swaywm/sway/wiki/Useful-add-ons-for-sway): login, logout manager
           * note: okej velicina za browser? 1024 x 820(ili obrnuto?)
+          * procitati auto_back_and_forth workspace valjda tako nesto? stvarno pogledaj! (msm da je u man 5 sway)
 
      * volume control keybinds (potencijalno slicni kao windows 10, ako ih on uopste ima), i ona macka sto pop-uje
      * dodati window border arch linux svetlo plavu opciju, i ostaviti onu fedora opciju

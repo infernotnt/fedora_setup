@@ -136,6 +136,7 @@ alias cds="cd ~/.scripts"
 alias cdm="cd ~/fedora_setup/markdown/"
 
 alias cda="cd ~/fedora_setup/arch"
+alias er="nvim ~/fedora_setup/arch/README.md"
 alias p="sudo pacman"
 alias P="sudo pacman --noconfirm"
 alias g="git add . ; git commit -m "c" ; git push"

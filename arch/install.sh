@@ -36,6 +36,9 @@ pacman --noconfirm -S mesa
 # Used for arch linux logo icon for waybar DOES NOT WORK
 #pacman --noconfirm -S ttf-nerd-fonts-symbols
 
+#MAXIMAL
+#pacman --noconfirm -S libreoffice
+
 pacman --noconfirm -S sway swaylock swaybg waybar
 
 pacman --noconfirm -S firefox alacritty

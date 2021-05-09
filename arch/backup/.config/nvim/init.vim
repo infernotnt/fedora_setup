@@ -1,4 +1,4 @@
-" Do ":so%" after changing the config file to reflect the changes(only works in this file) light or dark theme
+" Do ":so%" after changing the config file to reflect the changes(only works in this file)
 
 " For help about any nvim command (anything from this file) do: ':h <command>'
 
@@ -8,8 +8,42 @@
 "2., stvari koje ne moram bas da koristim, ali korisne su ponekad, samo ne treba bas da mi stoje ukljucene jer krse vim filozofiju ili tako nesto (think: misem da mozes da pomeras gde ces biti, better tabbing...)
 "3., stvari koje jos ne znam sta rade, ali ce mi mozda biti korisno jednog dana (think: window navigation)
 
+
+" Something for Windows 10 comptability
+set nocompatible
+
+"plugin stuff =====================================================================================================================================
+" usefull plugins (apparently):
+"         pictures in terminal: Uberzug, coc, nerdtree, fzf (ili Ctrl P), vis.vim", lightline, airline, telescope, vim-which-key(keybind helper), nvim colorizer (oboji hex boje u terminalu), treesitter, undotree, fugitive, AG(search), tpope/vim-surround, Plugin stuff, smoothscroll (da se ne izgubis kad skrolas), snipmate, nerdcommenter, vim-easymotion, vim-fugitive (git stuff), vim gitgutter, delimitMate (automaticly close quotes and brackets)
+call plug#begin("~/.vim/plugged")
+    Plug 'gruvbox-community/gruvbox'        " Colorscheme
+    Plug 'tomasiser/vim-code-dark'          " Colorscheme
+
+    " Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
+    " Plug 'kblin/vim-fountain'
+    Plug 'vim-pandoc/vim-pandoc'            " Markdown
+    Plug 'vim-pandoc/vim-pandoc-syntax'     " Markdown
+    
+    " Plug 'plasticboy/vim-markdown'
+    " Plug 'godlygeek/tabular'
+    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+  
+    "Plug 'glacambre/firenvim'
+    "Plug 'reedes/vim-pencil'
+call plug#end()
+" Markdown preview https://github.com/iamcco/markdown-preview.nvim =========================================================
+nmap <C-s> <Plug>MarkdownPreview
+
+"======================================================================================================================================================================================================
+" Refresh the to reflect the new vim config (it's usually best to just restart vim) (TODO, obrisi vrv, meh, ko ce pamtit ovo)
+"nnoremap <C-s>  :source ~/.config/nvim/init.vim<Enter>
+
 "Vim note taking------------------------------------------------------------------------------------------------------------
 " tabing (org mode?), http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
+
+" Set the leader key to " " (space)
+let mapleader =  " "
 
 "================================================================================================================================================
 " Move selected a line up or down
@@ -25,13 +59,14 @@ nnoremap <leader>/ :noh<Enter>
 
 "TEST---------
 
-" Always display the status line (TODO: idk irl)
+" Always display the status line (TODO: idk irl, stavi u deafult stuff)
 set laststatus=2
 
 "TEST---------
 
 syntax enable
-" TODO, does not work: Y    -treba da kopira od kursora do kraja reda, a on kopira ceo red, kao da sam uradio yy umesto Y essential (geohot) shit: ----------------------------------------------------------------------------
+
+" Theme (e.g. light or dark theme)
 set background=dark
 
 " Copy/paste from and to system with Ctrl-c and Ctrl-p . Potentially better than sharing the vim copy/paste clipboard with the system. This will only put it to the system clipboard if you do Ctr+c (in visual mode) and Ctrl+p(any mode). If using this, disable the line "set clipboard=unnamedplus". (the system clipboard is in the "+ register)
@@ -40,18 +75,16 @@ set background=dark
 
 " Enables syntax highlighting
 
-set tabstop=2
+set tabstop=4
 
 set expandtab
 
-" Set the leader key to " " (space)
-let mapleader =  " "
 
 " Enables auto indentation. Indents the next line like the current one.
 set autoindent
 
 " vidi da li je essential, grupisati sa: set tabstop=
-set softtabstop=2
+set softtabstop=4
 
 " todo?
 filetype plugin on
@@ -74,26 +107,38 @@ set number
 
 
 " F6 compiles currently open file based on file type
-" Compile markdown (.md) files to the pdf equivalent
-autocmd FileType markdown nnoremap <f6> <esc>:w<enter> :silent !pandoc %:p -o %:p:r.pdf &<enter>
+" Compile markdown (.md) files to the pdf equivalent, and open it in brave //TODO open it in $BROWSER
+autocmd FileType markdown nnoremap <f6> <esc>:w<enter> :silent !pandoc %:p -o %:p:r.pdf &<enter> ; brave %:p:r.pdf
 " Compile C++ code (TODO: open resulting program in new window or something like that?)
 autocmd FileType cpp nnoremap <f6> <esc>:w<enter>:!g++ -std=c++17 %:p -o %:p:r<enter>
+autocmd FileType c nnoremap <f6> <esc>:w<enter>:!gcc %:p -o %:p:r<enter>
 
 
 
 " Automatically deletes all trailing whitespaces on file save
 "autocmd BufWritePre * %s/\s\+$//e
 
+"spell spelllang=en_us, sr_rs
+"spell spelllang=en_us
+"spell spelllang=en
+
 " Spell check (o for ortography??), staviti mozda da detektuje na kojoj sam tastaturi i da taj jezik checkuje?
 nnoremap <leader>e :setlocal spell! spelllang=en_us<Enter>
-nnoremap <leader>s :setlocal spell! spelllang=sr_rs<Enter>
+nnoremap <leader>s :setlocal spell! spelllang=sr_RS<Enter>
 "nnoremap <leader>l :setlocal spell! spelllang=sr_latin<Enter>
 
-" Enables autocompletion for file names
-set path+=**
+
+" Auto completion ignore case
+set wildignorecase
 
 " Autocomplete commands, files, everything. Ctrl+n(n=next), Ctrl+p(p=previous)
 set wildmode=longest,list,full
+
+" TODO: actually, idk
+set omnifunc=syntaxcomplete#Complete
+
+" Enables autocompletion for file names
+set path+=**
 
 " ----- Optional - SECTION: ------------------------------------------------------------------------------
 
@@ -104,13 +149,12 @@ set clipboard=unnamedplus
 set mouse=a
 
 
-"highlight Cursorline cterm=bold
 
 " Enables transparency. Makes your background be like the usual
 "highlight normal guibg=none
 
-" Makes is so when you run out of screen space, the text doesn't wrap to a new line
-set nowrap
+" Makes is so when you run out of screen space, the text doesn't wrap to a new line //TODO: potencijalno, wrap ostaviti za markdown file-ove a za programiranje iskljuciti. Takodje definitivno staviti map j gj  -  i stagod
+set wrap
 
 " When you scroll up/down, it makes your screen move before your cursor hits the last/first line
 set scrolloff=5
@@ -122,6 +166,7 @@ set title
 
 " Enables the graphical line on your current line
 "set cursorline
+"highlight Cursorline cterm=bold
 
 " Replace all globally is aliased to S (S = substitute)
 nnoremap S :%s//g<left><left>
@@ -174,7 +219,7 @@ set smarttab
 "set nowritebackup
 
 " We don't need to see things like --INSER-- anymore (TODO, disable make it acutally show the mode)
-"set noshowmode
+"set noshowmode, TODO - nesto override-uje ovo, vrv nesto ispod ovoga.  najbolje da skontam sta to over-ride-uje, ili da stavim na dno fajla ako ne mogu da skontam
 set showmode
 
 "remapings section:
@@ -228,7 +273,7 @@ map <leader>c :!clear && shellcheck -x %<Enter>
 
 " set the tab length in spaces
 " auto indentation on new line
-set shiftwidth=2
+set shiftwidth=4
 
 " (vrv ukljuci?)makes new tabs in insert mode become spaces
 "set expandtab
@@ -299,15 +344,6 @@ set cmdheight=1
 
 " END OF SECTION---------------------------------------------
 
-" usefull plugins (apparently):
-"         pictures in terminal: Uberzug, coc, nerdtree, fzf (ili Ctrl P), vis.vim", lightline, airline, telescope, vim-which-key(keybind helper), nvim colorizer (oboji hex boje u terminalu), treesitter, undotree, fugitive, AG(search), tpope/vim-surround, Plugin stuff, smoothscroll (da se ne izgubis kad skrolas), snipmate, nerdcommenter, vim-easymotion, vim-fugitive (git stuff), vim gitgutter, delimitMate (automaticly close quotes and brackets)
-call plug#begin("~/.vim/plugged")
-Plug 'gruvbox-community/gruvbox'        " Colorscheme
-Plug 'tomasiser/vim-code-dark'          " Colorscheme
-Plug 'vim-pandoc/vim-pandoc'            " Markdown
-Plug 'vim-pandoc/vim-pandoc-syntax'     " Markdown
-"Plug 'glacambre/firenvim'
-call plug#end()
 
 " Vim-studio-dark colortheme for everything except for markdown (.md) files
 autocmd BufEnter * colorscheme codedark
@@ -321,10 +357,17 @@ autocmd BufEnter *.md colorscheme gruvbox
 " TODO this shit
 "set noswapfile " doesn't create swap files
 "set omnifunc=syntaxcomplete#Complete
+
+" Fold stuff==============================
+set foldenable
+
+nnoremap , za
 "enable folding
 
-"set foldmethod=indent
+" TODO, igraj se sa ovim?
+set foldmethod=marker
 "set foldlevel=99
+"==========================================
 
 " NEKI FAJL, EVO CELI CONTETNI OVDE
 
@@ -361,6 +404,7 @@ autocmd BufEnter *.md colorscheme gruvbox
 "
 "" " Paste from clipboard
 "nnoremap <leader>p "+p
+"================================================================================================================================================
 "nnoremap <leader>P "+P
 "vnoremap <leader>p "+p
 "vnoremap <leader>P "+P
@@ -368,3 +412,5 @@ autocmd BufEnter *.md colorscheme gruvbox
 " Better indenting, ovo vrv bolje ne koristiti, jer moze samo . command da se koristi
 "vnoremap < <gv
 "vnoremap > >gv
+
+"nnoremap <Tab> %

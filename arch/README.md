@@ -3,6 +3,9 @@
 * entr - do things when some file(s) change
 * locate
 
+## drive backup
+    * dodati u install skriptu rclone config
+    * dodati rclone config u gitignore
 ## todo:
      * waybar bez workspace
      * waybar workspace + sway workspace

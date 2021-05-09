@@ -1,4 +1,5 @@
 
+#
 # Note taking vim markdown pandoc
 
 ## Neke random ideje:
@@ -12,6 +13,8 @@
 * korisni argumenti za komandu pandoc:
   * -H     -mozda
   * --table-of-contents
+
+* autocompile entr, luke smith: <https://www.youtube.com/watch?v=9KAp_zWeI34>
 
 ## Rendering rwxrob
 

@@ -1,17 +1,23 @@
-#todo:
+## kinda daemon/services that are kinda usefull:
+* cronie - for cronjobs and stuff
+* entr - do things when some file(s) change
+* locate
+
+## todo:
      * waybar bez workspace
      * waybar workspace + sway workspace
      * sway
      * note taking malkice
      * bluetooth
-#alacritty ricing:
+## alacritty ricing:
      * padding?
      * scrolling: multiplier=10? (ubrza scroll)
      * draw_bold_text_with_bright_colors = true?
      * key binding za otvaranje novog terminala u trenutnom directoriju (neki copy paste na ctrl? https://www.youtube.com/watch?v=S5ra0DUDZww&list=PLhoH5vyxr6QpGSDfaYLxOgjCzCej6q0kP&index=8)
           - { key
      * pogledaj chrisatmachine? video opet
-#TODO RICE (prio 1):
+#
+## TODO RICE (prio 1):
      * run_wlsunset.sh ne radi. ovo se vidi npr kad refresh-ujes sway
      * bluetooth
           * mozda da se moduli pale tek kad se sway upali
@@ -31,7 +37,7 @@
      * workspace
 
 
-#TODO backup:
+## TODO backup:
      * ukloniti sve x11/i3 specific stvari iz sway configa. ima vrv mnogo vise stvari nego sto mislis koje treba da se uklone. msm da bi najbolji nacin bio da pogledam default sway config, pogledam moj, i izbacim sve iz mog sto ne znam tacno sta radi
      * dafuq is .config/zsh/.zcompdump?, vrv ne treba da bude u backupu
      * vim :PlugInstall i dalje nije automatski izgleda, ako budes automatizovao pazi posto se skripta nece raditi kao user account nego kao admin account
@@ -81,7 +87,7 @@
      * zvuk kada se utakne usb
      * ona macka kada se pojacava zvuk
 
-# rice , nepotrebno, samo random ideje:
+## rice , nepotrebno, samo random ideje:
      * dodati padding na alacritty (window manager bi trebao ovo da radi a ne terminal)
      * pipes.sh kao lockscreen (https://github.com/pipeseroni/pipes.sh)
      * cbonsai na log-inu
@@ -100,19 +106,19 @@
           * termometar za temperaturu da bude napunjen do kraja ili skroz prazan
           * waybar: kad kliknes na sat, ili datum ili tako nesto, upali se kalendar (malo nepotrebno, mogu samo da koristim google calendar ili tako nesto)
 
-# backup, nepotrebno, samo random ideje:
+## backup, nepotrebno, samo random ideje:
 
      * da pita za username, i onda je full instalacija sa sudo account-a, i da pita za driver koji se koristi, nvidia ili mesa
      * caps lock i escape swap vec u samom tty-u, ne oslanjaj se na sway
      * ukloniti .vim (msm da se koristi za plug-inove)
      * u install skripti, nemoj koristiti sudo, neko neku promenljivu, tipa $AUTH, i onda mogu staviti umesto nje "doas" umesto "sudo".
 
-#navodno okej programi:
+## navodno okej programi:
      * pazi, moving between directiories in cli
      * hyperfine, tool for benchmarking
 
-#guide
-##waybar:
+## guide
+## waybar:
      * kliktanje na program u taskbaru: levi klik - focus; middle click - iskljuci
      * kad naciljas na procesor module pise koliko koji core trosi
      * kliktanje na cpu/memory module pali htop
@@ -123,18 +129,18 @@
           * TODO: srednji klik - mute zvuk
      * input language change: alt+shift (like in windows 10) (default: english, serbian latin, serbian cyrilic
 
-#TODO laptop:
+## TODO laptop:
      * wifi, signal strength na ikonici i ime mreze
      * baterija
      * brightness
 
-#waybar random ideje:
+## waybar random ideje:
 
 
-#TODO USER - PRE-INSTALL
+## TODO USER - PRE-INSTALL
      * set your grahics card drivers
 
-#TODO USER - POST-INSTALL:
+## TODO USER - POST-INSTALL:
      * visudo, add yourself to wheel and make it so password isn't required(TODO: this is perhaps possible to automate)
      * change ~/.config/git/config
      * keyboard layout (english and serbian by default)
@@ -179,15 +185,17 @@ pacman -Si, information for a package
 pacman -Qi, information for a locally installed package
 U file-u /etc/pacman.conf:
 
-# Misc options
+### Misc options
+```
 #UseSyslog
 Color
 TotalDownload
 CheckSpace
 VerbosePkgLists
 ILoveCandy
+```
 
-#Quote za rice:
+## Quote za rice:
 In my opinion, what matter the most to make your desktop experience look elegant is to make colors consistent across apps.
 
 Start at base16, it is a way to standardize coloring across apps. Choose a color scheme (you can create your own but I would start by one of the defaults). This can be some gruesome work, as some apps are not so friendly to customization.

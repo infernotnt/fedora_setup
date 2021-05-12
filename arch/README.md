@@ -116,11 +116,14 @@
      * ukloniti .vim (msm da se koristi za plug-inove)
      * u install skripti, nemoj koristiti sudo, neko neku promenljivu, tipa $AUTH, i onda mogu staviti umesto nje "doas" umesto "sudo".
 
-## navodno okej programi:
-     * pazi, moving between directiories in cli
-     * hyperfine, tool for benchmarking
+## kul programi
+* sherlock (github) - trazi tvoj username na mnogim sajtovima
+* navodno okej programi:
+    * pazi, moving between directiories in cli
+    * hyperfine, tool for benchmarking
 
 ## guide
+     * ~/.scripts/ is in the PATH variable
 ## waybar:
      * kliktanje na program u taskbaru: levi klik - focus; middle click - iskljuci
      * kad naciljas na procesor module pise koliko koji core trosi

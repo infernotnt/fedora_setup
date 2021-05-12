@@ -79,7 +79,6 @@ set tabstop=4
 
 set expandtab
 
-
 " Enables auto indentation. Indents the next line like the current one.
 set autoindent
 
@@ -104,35 +103,23 @@ set relativenumber
 " Makes your current line show the actual line number in the file (used for "set relativenumber")
 set number
 
-
-
 " F6 compiles currently open file based on file type
 " Compile markdown (.md) files to the pdf equivalent, and open it in brave //TODO open it in $BROWSER
-autocmd FileType markdown nnoremap <f6> <esc>:w<enter> :silent !pandoc %:p -o %:p:r.pdf &<enter> ; brave %:p:r.pdf
+autocmd FileType markdown noremap <f6> <esc>:w<enter> :silent !pandoc %:p -o %:p:r.pdf <enter>
 " Compile C++ code (TODO: open resulting program in new window or something like that?)
 autocmd FileType cpp nnoremap <f6> <esc>:w<enter>:!g++ -std=c++17 %:p -o %:p:r<enter>
 autocmd FileType c nnoremap <f6> <esc>:w<enter>:!gcc %:p -o %:p:r<enter>
-
-
-
-" Automatically deletes all trailing whitespaces on file save
-"autocmd BufWritePre * %s/\s\+$//e
-
-"spell spelllang=en_us, sr_rs
-"spell spelllang=en_us
-"spell spelllang=en
 
 " Spell check (o for ortography??), staviti mozda da detektuje na kojoj sam tastaturi i da taj jezik checkuje?
 nnoremap <leader>e :setlocal spell! spelllang=en_us<Enter>
 nnoremap <leader>s :setlocal spell! spelllang=sr_RS<Enter>
 "nnoremap <leader>l :setlocal spell! spelllang=sr_latin<Enter>
 
+" Autocomplete commands, files, everything. Ctrl+n(n=next), Ctrl+p(p=previous)
+set wildmode=longest,list,full
 
 " Auto completion ignore case
 set wildignorecase
-
-" Autocomplete commands, files, everything. Ctrl+n(n=next), Ctrl+p(p=previous)
-set wildmode=longest,list,full
 
 " TODO: actually, idk
 set omnifunc=syntaxcomplete#Complete
@@ -142,19 +129,25 @@ set path+=**
 
 " ----- Optional - SECTION: ------------------------------------------------------------------------------
 
-" Enables changing your cursor position with mouse (you should use this very rarely)
-" Makes vim share the copy paste clipboard with the system
 
+" Makes vim share the copy paste clipboard with the system
 set clipboard=unnamedplus
+
+" Enables changing your cursor position with mouse (you should use this very rarely)
 set mouse=a
 
-
-
-" Enables transparency. Makes your background be like the usual
+" Enables transparency. Background becomes like the terminal one
 "highlight normal guibg=none
 
-" Makes is so when you run out of screen space, the text doesn't wrap to a new line //TODO: potencijalno, wrap ostaviti za markdown file-ove a za programiranje iskljuciti. Takodje definitivno staviti map j gj  -  i stagod
-set wrap
+" Disable wrap
+set nowrap
+
+" Enable wrap for markdown files
+autocmd BufEnter *.md set wrap
+
+" Vim-studio-dark colortheme for everything except for markdown (.md) files
+autocmd BufEnter * colorscheme codedark
+autocmd BufEnter *.md colorscheme gruvbox
 
 " When you scroll up/down, it makes your screen move before your cursor hits the last/first line
 set scrolloff=5
@@ -345,9 +338,10 @@ set cmdheight=1
 " END OF SECTION---------------------------------------------
 
 
-" Vim-studio-dark colortheme for everything except for markdown (.md) files
-autocmd BufEnter * colorscheme codedark
-autocmd BufEnter *.md colorscheme gruvbox
+
+" For better navigation with wrapped lines
+noremap j gj
+noremap k gk
 
 " Makes nvim background same as regular terminal. Used for transparency
 "highlight normal guibg=none

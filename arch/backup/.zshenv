@@ -1,5 +1,3 @@
-export ZDOTDIR=$HOME/.config/zsh
-
 # Disables the useless "less" command history file that is usualy put in the home directory
 export LESSHISTFILE="-"
 

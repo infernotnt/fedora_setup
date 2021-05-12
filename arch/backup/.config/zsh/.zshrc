@@ -1,3 +1,4 @@
+export PATH=./.scripts:$PATH
 # The following lines were added by compinstall
 
 #zstyle ':completion:*' auto-description 'specify %d'
@@ -140,6 +141,10 @@ alias er="nvim ~/fedora_setup/arch/README.md"
 alias p="sudo pacman"
 alias P="sudo pacman --noconfirm"
 alias g="git add . ; git commit -m "c" ; git push"
+
+alias cloud="~/.scripts/rclone/rclone.sh"
+alias cdmat="cd ~/sync/skola/maturski"
+alias cdfiz="cd ~/sync/skola/fizika"
 
 #alias bluelight="gammastep -l 44:21"
 #alias brave-browser="~/brave-bin.sh -enable-features=UseOzonePlatform --ozone-platform=wayland"

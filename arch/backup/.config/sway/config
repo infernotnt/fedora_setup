@@ -17,7 +17,7 @@ font pango:System San Francisco Display 8
 #TODO: pogledaj u man 5 sway, posle namestanj workspace-ova(otprilike)          focus_wrapping workspace
 
 # (TODO: iskluceno jer skripta baguje) Bluelight filter (the scripts is used it doesn't start mutiple instances of wlsunset)
-#exec_always ~/.scripts/run_wlsunset.sh
+exec_always ~/.scripts/run_wlsunset.sh
 #----------jes(not really: default good but just in case i guess)
 
 
@@ -88,7 +88,8 @@ input "type:keyboard" {
      # grp:alt_shift_toggle - Change keybaord language input with Alt + Shift
      # Note: to trigger several options, you need to list them separated with a comma
      xkb_options "caps:swapescape",grp:alt_shift_toggle
-     xkb_layout us,hr,rs
+     #xkb_layout us,hr,rs
+     xkb_layout us,hr
 }
 
 

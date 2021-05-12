@@ -147,10 +147,11 @@
      * set your grahics card drivers
 
 ## TODO USER - POST-INSTALL:
-     * visudo, add yourself to wheel and make it so password isn't required(TODO: this is perhaps possible to automate)
-     * change ~/.config/git/config
-     * keyboard layout (english and serbian by default)
-     * pacman config (/etc/pacman.conf)
+* visudo, add yourself to wheel and make it so password isn't required(TODO: this is perhaps possible to automate)
+* change ~/.config/git/config
+* keyboard layout (english and serbian by default)
+* pacman config (/etc/pacman.conf)
+* set up rclonesync for google drive  (the --first-run thing, see TODO(onaj fajl sa githuba))
 
 #===========================================================================================
 

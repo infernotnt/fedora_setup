@@ -47,6 +47,8 @@ pacman --noconfirm -S youtube-dl shellcheck cmatrix playerctl
 
 pacman --noconfirm -S zip unzip git tldr tokei tree neofetch
 
+# For google cloud sync (python3 for bidirectional sync: https://github.com/cjnaz/rclonesync-V2 )
+pacman --noconfirm -S rclone python3
 
 pacman --noconfirm -S alsa pavucontrol pulseaudio
 #seems unnecessary? pacman --noconfirm -S alsa-utils TODO

@@ -1,5 +1,10 @@
 # TODO sutra
-* rclonesync readme linija 48, mozda uzeti a taman i videti te sve opcije sto se koriste
+
+* vreme
+* bluetooth
+* vim markdown syntax
+* live vim markdown preview
+* brave
 
 ## kinda daemon/services that are kinda usefull:
 * cronie - for cronjobs and stuff

@@ -16,8 +16,8 @@ font pango:System San Francisco Display 8
 
 # Monitor setup ----------------------------------
 # Puts my 2 monitors in correct order, correct resolution and refresh rate
-output DVI-D-1 pos 0 0 rez 1920x1080@60Hz
-output HDMI-A-1 pos 1920 0 1920x1080@74.986Hz
+output DVI-D-1 pos 0 0 res 1920x1080@60Hz
+output HDMI-A-1 pos 1920 0 res 1920x1080@74.986Hz
 
 # Puts the starting workspaces on each monitor
 workspace 1 output HDMI-A-1
@@ -27,7 +27,7 @@ workspace 2 output DVI-D-1
 #TODO: pogledaj u man 5 sway, posle namestanj workspace-ova(otprilike)          focus_wrapping workspace
 
 # (TODO: iskluceno jer skripta baguje) Bluelight filter (the scripts is used it doesn't start mutiple instances of wlsunset)
-exec_always ~/.scripts/run_wlsunset.sh
+exec_always ~/.scripts/run-wlsunset
 #----------jes(not really: default good but just in case i guess)
 
 

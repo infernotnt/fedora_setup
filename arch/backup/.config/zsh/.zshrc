@@ -1,4 +1,5 @@
-export PATH=./.scripts:$PATH
+# Addition to PATH variable
+export PATH=/home/milos/.scripts:$PATH
 # The following lines were added by compinstall
 
 #zstyle ':completion:*' auto-description 'specify %d'

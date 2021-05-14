@@ -1,3 +1,6 @@
+# TODO sutra
+* rclonesync readme linija 48, mozda uzeti a taman i videti te sve opcije sto se koriste
+
 ## kinda daemon/services that are kinda usefull:
 * cronie - for cronjobs and stuff
 * entr - do things when some file(s) change
@@ -54,6 +57,9 @@
      * dodati opcionu skriptu (ne u install.sh, nego sastrane da stoji) koja skine spotify discord (brave?) (msm da ce trebati aur helper za ovo)
 
 ## rice (prio 2)
+     * note taking:
+        * povecati zoom, da bude vise clear. 
+        * da malo vise izgleda kao: <https://www.youtube.com/watch?v=SzA2YODtgK4>
      * sway mechanics:
           * na sway-u mi se cini da resize nije konstantne brzine nego se menja sa velicinom prozora
           * all floating shit, dodati i u fedora setup
@@ -152,9 +158,10 @@
 * keyboard layout (english and serbian by default)
 * pacman config (/etc/pacman.conf)
 * set up rclonesync for google drive  (the --first-run thing, see TODO(onaj fajl sa githuba))
+* ~/.config/zsh/.zshrc  - change PATH addition to your username (default is /home/milos/.scripts/)
+* set up your monitor alignment <~/.config/sway/config>
 
-#===========================================================================================
-
+# Pacman guide
 
 Downloaded compressed packages are still kept on the system at /var/cache/pacman/pkg/
 

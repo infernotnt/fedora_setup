@@ -19,6 +19,8 @@ call plug#begin("~/.vim/plugged")
     Plug 'gruvbox-community/gruvbox'        " Colorscheme
     Plug 'tomasiser/vim-code-dark'          " Colorscheme
 
+    Plug 'dhruvasagar/vim-table-mode'
+    
     " Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
     " Plug 'kblin/vim-fountain'
@@ -32,6 +34,9 @@ call plug#begin("~/.vim/plugged")
     "Plug 'glacambre/firenvim'
     "Plug 'reedes/vim-pencil'
 call plug#end()
+
+let g:table_mode_corner='+'
+
 " Markdown preview https://github.com/iamcco/markdown-preview.nvim =========================================================
 nmap <C-s> <Plug>MarkdownPreview
 

@@ -33,8 +33,3 @@ Znaci: najbolji nacin za pandoc je taj browser sync, ili sta vec, vrv nesto veza
 * Vim surround, za <www.stagod.com>, i tako neke stvari mozda?
  
  ---
-
-* Smejem se kad se ona nesto ljuti
-* Mrzi me ici u radnju
-* Namerno je nervirao
-* Ne mogu pricati sa njom 5 minuta

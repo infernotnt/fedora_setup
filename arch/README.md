@@ -127,6 +127,8 @@
 * navodno okej programi:
     * pazi, moving between directiories in cli
     * hyperfine, tool for benchmarking
+* entr <https://github.com/eradman/entr>
+* cronie
 
 ## guide
      * ~/.scripts/ is in the PATH variable
@@ -140,6 +142,13 @@
           * desni klik - mute mikrofon
           * TODO: srednji klik - mute zvuk
      * input language change: alt+shift (like in windows 10) (default: english, serbian latin, serbian cyrilic
+    * vim
+        * <leader> IS - space
+        * <leader> /    - no highlight (:noh)
+        * <leader> tm   - table mode (:TableModeToggle) <https://github.com/dhruvasagar/vim-table-mode>
+        * <leader> tr   - table mode realign (:TableModeRealign)
+        * <leader> tt   - format existing content into table (visualy select multiple lines and then Tableize) (:Tableize)
+        * <leader> tic  - table mode insert column
 
 ## TODO laptop:
      * wifi, signal strength na ikonici i ime mreze

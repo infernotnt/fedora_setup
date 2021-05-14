@@ -35,7 +35,7 @@ call plug#begin("~/.vim/plugged")
     "Plug 'reedes/vim-pencil'
 call plug#end()
 
-let g:table_mode_corner='+'
+let g:table_mode_corner='|'
 
 " Markdown preview https://github.com/iamcco/markdown-preview.nvim =========================================================
 nmap <C-s> <Plug>MarkdownPreview

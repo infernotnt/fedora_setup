@@ -210,6 +210,25 @@ Result:
 
 ## Tables
 
+A good table: 
+
+| name            | address                  | phone                        |
+|-----------------|--------------------------|------------------------------|
+| John Adams      | 1600 Pennsylvania Avenue | 0123456789                   |
+|-----------------|--------------------------|------------------------------|
+| Sherlock Holmes | 221B Baker Street        | 0987654321                   |
+| Just some       | random text              | without horizontal seperator |
+
+  : A fricking table my dude
+
+Use [vim-table-mode](https://github.com/dhruvasagar/vim-table-mode) for making tables relatively automatically (:TableModeToggle)
+
+### vim-table-mode
+* <leader> tm   - table mode toggle (:TableModeToggle)
+* <leader> tr   - table mode realign (:TableModeRealign)
+* <leader> tt   - format existing content into table (visualy select multiple lines and then Tableize) (:Tableize)
+* <leader> tic  - table mode insert column
+
 Just don't use them. If you need them, use pandoc markdown (https://pandoc.org/MANUAL.html#tables) instead of Github Flavored Markdown. For basic Markdown it is more important to maintain comptability and no one agrees on how tables should be done. It is one of the most hotly debated topics in the Markdown community.
 
 ## Table of contents

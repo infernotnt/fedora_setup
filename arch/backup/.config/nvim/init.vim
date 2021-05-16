@@ -19,23 +19,30 @@ call plug#begin("~/.vim/plugged")
     Plug 'gruvbox-community/gruvbox'        " Colorscheme
     Plug 'tomasiser/vim-code-dark'          " Colorscheme
 
-    Plug 'dhruvasagar/vim-table-mode'
+    Plug 'dhruvasagar/vim-table-mode'       " For tables (pandoc compatible)
     
+    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
     " Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-
     " Plug 'kblin/vim-fountain'
     Plug 'vim-pandoc/vim-pandoc'            " Markdown
     Plug 'vim-pandoc/vim-pandoc-syntax'     " Markdown
-    
     " Plug 'plasticboy/vim-markdown'
     " Plug 'godlygeek/tabular'
-    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
   
     "Plug 'glacambre/firenvim'
     "Plug 'reedes/vim-pencil'
 call plug#end()
 
+" Settings for Plugin: vim-table-mode ============================================================
+" (DOESNT WORK: https://www.youtube.com/watch?v=XdDUGAePASA&t=535s) grid_tables for pandoc (must use monospace font)
+"let g:table_mode_corner='+'
+"let g:table_mode_corner_corner='+'
+"let g:table_mode_header_fillchar='='
+
+
+" For pandoc pipe_tables (does NOT require monospace font), they don't supports lists in them, so they are inferior to grid_tables 
 let g:table_mode_corner='|'
+" ==========================================================================================
 
 " Markdown preview https://github.com/iamcco/markdown-preview.nvim =========================================================
 nmap <C-s> <Plug>MarkdownPreview
@@ -74,11 +81,26 @@ syntax enable
 " Theme (e.g. light or dark theme)
 set background=dark
 
+"================================================================================================================================================
 " Copy/paste from and to system with Ctrl-c and Ctrl-p . Potentially better than sharing the vim copy/paste clipboard with the system. This will only put it to the system clipboard if you do Ctr+c (in visual mode) and Ctrl+p(any mode). If using this, disable the line "set clipboard=unnamedplus". (the system clipboard is in the "+ register)
 "vnoremap <C-c> "+y
 "noremap <C-v> "+P
 
-" Enables syntax highlighting
+
+" " Copy to clipboard
+"vnoremap  <leader>y  "+y
+"nnoremap  <leader>Y  "+yg_
+"nnoremap  <leader>y  "+y
+"nnoremap  <leader>yy  "+yy
+"
+"" " Paste from clipboard
+"nnoremap <leader>p "+p
+"nnoremap <leader>P "+P
+"vnoremap <leader>p "+p
+"vnoremap <leader>P "+P
+" Makes vim share the copy paste clipboard with the system
+set clipboard=unnamedplus
+"==============================================================================
 
 set tabstop=4
 
@@ -110,7 +132,7 @@ set number
 
 " F6 compiles currently open file based on file type
 " Compile markdown (.md) files to the pdf equivalent, and open it in brave //TODO open it in $BROWSER
-autocmd FileType markdown noremap <f6> <esc>:w<enter> :silent !pandoc %:p -o %:p:r.pdf <enter>
+autocmd FileType markdown noremap <f6> <esc>:w<enter> :!pandoc %:p -o %:p:r.pdf <enter>
 " Compile C++ code (TODO: open resulting program in new window or something like that?)
 autocmd FileType cpp nnoremap <f6> <esc>:w<enter>:!g++ -std=c++17 %:p -o %:p:r<enter>
 autocmd FileType c nnoremap <f6> <esc>:w<enter>:!gcc %:p -o %:p:r<enter>
@@ -135,8 +157,6 @@ set path+=**
 " ----- Optional - SECTION: ------------------------------------------------------------------------------
 
 
-" Makes vim share the copy paste clipboard with the system
-set clipboard=unnamedplus
 
 " Enables changing your cursor position with mouse (you should use this very rarely)
 set mouse=a
@@ -395,18 +415,6 @@ set foldmethod=marker
 
 " dobro resenje za copy paste?
 "
-" " Copy to clipboard
-"vnoremap  <leader>y  "+y
-"nnoremap  <leader>Y  "+yg_
-"nnoremap  <leader>y  "+y
-"nnoremap  <leader>yy  "+yy
-"
-"" " Paste from clipboard
-"nnoremap <leader>p "+p
-"================================================================================================================================================
-"nnoremap <leader>P "+P
-"vnoremap <leader>p "+p
-"vnoremap <leader>P "+P
 
 " Better indenting, ovo vrv bolje ne koristiti, jer moze samo . command da se koristi
 "vnoremap < <gv

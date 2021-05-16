@@ -48,6 +48,11 @@
      * workspace
 
 
+## TODO Note taking ideas
+
+* switch to ReST (grid_table in pandoc) type table (supports lists), [vim-table-mode](https://github.com/dhruvasagar/vim-table-mode) is currently bugged, and ReST compatible tables do not work because of the bugged corner setting
+
+
 ## TODO backup:
      * ukloniti sve x11/i3 specific stvari iz sway configa. ima vrv mnogo vise stvari nego sto mislis koje treba da se uklone. msm da bi najbolji nacin bio da pogledam default sway config, pogledam moj, i izbacim sve iz mog sto ne znam tacno sta radi
      * dafuq is .config/zsh/.zcompdump?, vrv ne treba da bude u backupu
@@ -60,8 +65,11 @@
      * navnodno (proveri) --no-startup-id, ne radi nista u sway-u, tako da se moze obrisati, mada, mozda bi bilo dobro ostaviti za backwards comptability?
      * namestiti da brave radi native wayland
      * dodati opcionu skriptu (ne u install.sh, nego sastrane da stoji) koja skine spotify discord (brave?) (msm da ce trebati aur helper za ovo)
+     * baciti github star na sve stvari koje koristim, ukljucujuci vim plugin-ove i brave vim plug-in
 
 ## rice (prio 2)
+     * PS1 kao lex(quines) ili nixcasts
+     * shortcut za otvaranje novog alacritty windowa u trenutnom directorijumu (chrisatmachine alacritty video)
      * note taking:
         * povecati zoom, da bude vise clear. 
         * da malo vise izgleda kao: <https://www.youtube.com/watch?v=SzA2YODtgK4>

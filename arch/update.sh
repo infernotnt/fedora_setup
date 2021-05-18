@@ -20,6 +20,7 @@ sudo cp -rvp ~/.config/gammastep backup/.config/gammastep
 sudo cp -rvp ~/.config/zsh backup/.config/zsh
 sudo cp -rvp ~/.config/nvim backup/.config/nvim
 sudo cp -rvp ~/.config/git backup/.config/git
+sudo cp -rvp ~/.config/emacs backup/.config/emacs
 
 sudo cp -rvp ~/.scripts/* backup/.scripts/
 sudo cp -vp ~/.local/share/fonts/* backup/.local/share/fonts

@@ -1,0 +1,2 @@
+;;; Generated package description from evil-expat.el  -*- no-byte-compile: t -*-
+(define-package "evil-expat" "20190521.714" "Evil ex commands" '((emacs "24.3") (evil "1.0.0")) :commit "f4fcd0aa3edc359adb5c986b5dd9188d220d84e2" :authors '(("edkolev" . "evgenysw@gmail.com")) :maintainer '("edkolev" . "evgenysw@gmail.com") :keywords '("emulations" "evil" "vim") :url "http://github.com/edkolev/evil-expat")

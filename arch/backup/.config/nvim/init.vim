@@ -26,12 +26,16 @@ call plug#begin("~/.vim/plugged")
     " Plug 'kblin/vim-fountain'
     Plug 'vim-pandoc/vim-pandoc'            " Markdown
     Plug 'vim-pandoc/vim-pandoc-syntax'     " Markdown
-    " Plug 'plasticboy/vim-markdown'
-    " Plug 'godlygeek/tabular'
+    
+    "Plug 'godlygeek/tabular'
+    "Plug 'plasticboy/vim-markdown'
   
     "Plug 'glacambre/firenvim'
     "Plug 'reedes/vim-pencil'
 call plug#end()
+
+" Enables you to increment (or decrement) letters with Ctrl+a (decrement - Ctrl+x)
+set nrformats+=alpha
 
 " Settings for Plugin: vim-table-mode ============================================================
 " (DOESNT WORK: https://www.youtube.com/watch?v=XdDUGAePASA&t=535s) grid_tables for pandoc (must use monospace font)

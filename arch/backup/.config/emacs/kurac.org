@@ -1,4 +1,0 @@
-* root topic - TAB and S-TAB to toggle tolding
-** child topic
-   sdfsdfasdfasdfasdfasdfasdasdfasdfsdfasdfasdfasdfsdfasdfasdfasdfsdfchild topic text
-jkasdfkjasdfkjasfasdf

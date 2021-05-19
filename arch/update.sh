@@ -16,7 +16,6 @@ mkdir -pv backup/.config/emacs
 
 sudo cp -rvp ~/.config/sway backup/.config/sway
 sudo cp -rvp ~/.config/waybar backup/.config/waybar
-sudo cp -rvp ~/.config/gammastep backup/.config/gammastep
 
 sudo cp -rvp ~/.config/zsh backup/.config/zsh
 sudo cp -rvp ~/.config/nvim backup/.config/nvim

@@ -3,7 +3,16 @@
   C-c r         refresh emacs config file (~/.conig/emacs/config.org)
   C-return      Open terminal
   M-s           Avi (plugin/package)
+  C-x r         Save with sudo? (r = root)
 * Minor settings
+** auto brackets (electric) (OFF)
+   #+begin_src emacs-lisp
+;     (setq electric-pair-pairs '(
+;				 (?\( . ?\))
+;				 (?\[ . ?\])
+;				 ))
+;     (electric-pair-mode t)
+   #+end_src
 #+begin_src emacs-lisp
   ; disable starting screen
   (setq inhibit-startup-message t)
@@ -54,6 +63,36 @@
 
 #+end_src
 
+* Org mode
+** basic config
+   #+begin_src emacs-lisp
+     (setq org-src-window-setup 'current-window) ; When you "C-c '", opens in current window instead of openning another one
+   #+end_src
+** org-bullets
+#+begin_src emacs-lisp
+
+  (use-package org-bullets
+    :ensure t
+    :config
+    (add-hook 'org-mode-hook (lambda () (org-bullets-mode))))
+
+#+end_src
+** other stuff
+#+begin_src emacs-lisp
+  ; Enables the "<s TAB" code snippet for #+begin_src
+  (require 'org-tempo)
+
+  ;; ORG MODE
+  ;; auto-indent an org-mode file
+  ;(add-hook 'org-mode-hook
+  ;(lambda()
+  ;(Local-set-key (kbd "C-c C-c") 'org-table-align)
+  ;(local-set-key (kbd "C-c C-f") 'org-table-calc-current-TBLFM)
+  ;(org-indent-mode t)))
+
+
+#+end_src
+
 * Evil mode
 #+begin_src emacs-lisp
 
@@ -78,6 +117,23 @@
 ;(define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
 
 #+end_src
+* Convenient functions
+** non evil mode stuff (OFF)
+*** kill whole word (OFF, i'm using evil mode, so no need for this)
+    #+begin_src emacs-lisp
+      (defun kill-whole-word ()
+        (interactive)
+        (backward-ward)
+        (kill-word 1))
+      (global-set-key (kbd "C-c w w") 'kill-whole-word)
+    #+end_src
+  Good plugins: hungry-delete
+* sudo edit
+  #+begin_src emacs-lisp
+    (use-package sudo-edit
+      :ensure t
+      :bind ("C-x r" . sudo-edit)) ; r = root TODO, bolji keybind?
+  #+end_src
 * Terminal
 #+begin_src emacs-lisp
   (defvar my-term-shell "/bin/zsh")
@@ -92,39 +148,8 @@
 
 #+end_src
 
-* Org
-#+begin_src emacs-lisp
-
-  (use-package org-bullets
-    :ensure t
-    :config
-    (add-hook 'org-mode-hook (lambda () (org-bullets-mode))))
-
-  ; Enables the "<s TAB" code snippet for #+begin_src
-  (require 'org-tempo)
-
-  ;; ORG MODE
-  ;; auto-indent an org-mode file
-  ;(add-hook 'org-mode-hook
-  ;(lambda()
-  ;(Local-set-key (kbd "C-c C-c") 'org-table-align)
-  ;(local-set-key (kbd "C-c C-f") 'org-table-calc-current-TBLFM)
-  ;(org-indent-mode t)))
-
-
-#+end_src
-
-* Beacon
-#+begin_src emacs-lisp
-  ; Package that shows your cursor position on new buffer
-  ;(use-package beacon
-  ;  :ensure t
-  ;  :init
-  ;  (beacon-mode 1))
-
-#+end_src 
-
 * Which-key
+  This plugin/package shows you the /key bindings/chords/ when you start typing some but you don't finish (you have to wait a little bit). e.g. C-x
 #+begin_src emacs-lisp
 ; install which key
 (use-package which-key
@@ -134,7 +159,7 @@
 #+end_src
 
 * Ido
-  *TODO: Good alternatives to Ido are /helm/ and /swiper/* (mozda nadji koji je dobar sa evil mode-om, i org mode-om)
+  *TODO: Good alternatives to Ido are /helm/ and /swiper/* (mozda nadji koji je dobar sa evil mode-om, i org mode-om) (najvrv koristi helm jer msm da je mnooogo popularniji od ostalih)
   Ido essentialy makes it nicer to do stuff like open files, change buffers... (shows options, better autocompletion)
 ** Enable ido mode
 #+begin_src emacs-lisp
@@ -164,12 +189,7 @@
    #+begin_src emacs-lisp
      (global-set-key (kbd "C-x C-b") 'ido-switch-buffer)
    #+end_src
-* buffers
-  Uncle dave, meh msm da ne radi sa evil mode-om, a i mogu samo koristiti file exporer.
-  #+begin_src emacs-lisp
-    (global-set-key (kbd "C-x b") `ibuffer)
-  #+end_src
-* avi
+* avi (not using it)
   #+begin_src emacs-lisp
     (use-package avy
       :ensure t
@@ -191,3 +211,59 @@
        (org-babel-load-file (expand-file-name "~/.config/emacs/config.org")))
      (global-set-key (kbd "C-c r") 'config-reload)
    #+end_src
+
+* rainbow
+  Shows colors in emacs when viewing hexadecimal colors. e.g. #FF6933
+  #+begin_src emacs-lisp
+    (use-package rainbow-mode
+    :ensure t
+    :init (rainbow-mode 1))
+  #+end_src
+  
+* buffers (evil mode incompatable??)
+  Uncle dave, meh msm da ne radi sa evil mode-om, a i mogu samo koristiti file exporer.
+  #+begin_src emacs-lisp
+    (global-set-key (kbd "C-x b") `ibuffer)
+  #+end_src
+* Beacon (OFF, not using it)
+#+begin_src emacs-lisp
+  ; Package that shows your cursor position on new buffer
+  ;(use-package beacon
+  ;  :ensure t
+  ;  :init
+  ;  (beacon-mode 1))
+
+#+end_src 
+* switch-window (OFF, idk what it does)
+  #+begin_src emacs-lisp
+;    (use-package switch-window
+;      :ensure t
+;      :config
+;      (setq switch-window-input-style 'minibuffer)
+;      (setq switch-window-increase 4)
+;      (setq switch-window-threshold 2)
+;      (setq switch-window-shortcut-style 'qwery) ; optional, TODO?
+;      (setq switch-window-qwerty-shortcuts ; goes with last option
+;	    '("a" "s" "d" "f" "j" "k" "l")) ; TODO C-o ne radi jer koristim evil mode
+;      :bind ; TODO, ono "a" "s" "d"... i te stvari ne rade, nego mi ispisuje brojeve umesto toga
+;      ([remap other-window] . switch-window))
+  #+end_src
+  
+* window splitting functions (OFF, idk what it does)
+  Idk what this stuff is, someting related to the last option thing (switch-window). Idk what either of them do entirely.
+  #+begin_src emacs-lisp
+;    (defun split-and-follow-horizontally ()
+;      (interactive)
+;      (split-window-below)
+;      (balanca-windows)
+;      (other-window 1))
+;    (global-key-set (kbd "C-x 2") 'split-and-follow-horizontally)
+;  
+;    (defun split-and-follow-vertically ()
+;      (interactive)
+;      (split-window-right)
+;      (balanca-windows)
+;      (other-window 1))
+;    (global-key-set (kbd "C-x 3") 'split-and-follow-vertically)
+  
+  #+end_src

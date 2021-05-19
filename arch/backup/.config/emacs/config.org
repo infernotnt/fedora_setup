@@ -95,27 +95,41 @@
   ;(org-indent-mode t)))
 #+end_src
 * Evil mode
+** download and enable evil
+#+begin_src emacs-lisp
+  (use-package evil
+    :ensure t
+    ;:defer .1 ;; don't block emacs when starting, load evil immediately after startup
+    :init
+    :config
+    (evil-mode)
+    (message "Loading evil-mode...done"))
+
+#+end_src
+** evil-org mode
+   #+begin_src emacs-lisp
+     (use-package evil-org
+       :ensure t
+       :after org
+       :hook (org-mode . (lambda () evil-org-mode))
+       :config
+       (require 'evil-org-agenda)
+       (evil-org-agenda-set-keys))
+   #+end_src
+** evil stuff
 #+begin_src emacs-lisp
 
-(use-package evil
-  :ensure t
-  ;:defer .1 ;; don't block emacs when starting, load evil immediately after startup
-  :init
-  :config
-  (evil-mode)
-  (message "Loading evil-mode...done"))
-
-; Treat Wrapped line scrolling as single lines
-(define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
-(define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
-; (TODO: not working, also don't know if i need everything(for things like using caps for escape AND ctrl)) esc quits pretty much anything (like pending prompts in the minibuffer)
-;(define-key evil-normal-state-map [escape] 'keyboard-quit)
-;(define-key evil-visual-state-map [escape] 'keyboard-quit)
-;(define-key minibuffer-local-map [escape] 'minibuffer-keyboard-quit)
-;(define-key minibuffer-local-ns-map [escape] 'minibuffer-keyboard-quit)
-;(define-key minibuffer-local-completion-map [escape] 'minibuffer-keyboard-quit)
-;(define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
-;(define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
+  ; Treat Wrapped line scrolling as single lines
+  (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
+  (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+  ; (TODO: not working, also don't know if i need everything(for things like using caps for escape AND ctrl)) esc quits pretty much anything (like pending prompts in the minibuffer)
+  ;(define-key evil-normal-state-map [escape] 'keyboard-quit)
+  ;(define-key evil-visual-state-map [escape] 'keyboard-quit)
+  ;(define-key minibuffer-local-map [escape] 'minibuffer-keyboard-quit)
+  ;(define-key minibuffer-local-ns-map [escape] 'minibuffer-keyboard-quit)
+  ;(define-key minibuffer-local-completion-map [escape] 'minibuffer-keyboard-quit)
+  ;(define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
+  ;(define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
 
 #+end_src
 * autocomplete
@@ -136,7 +150,7 @@
       (setq dashboard-banner-logo-title "Stecks"))
   #+end_src
 * modeline
-** spaceline (TODO: pick better bottom bar than this one)
+** spaceline (TODO: pick better line that
    #+begin_src emacs-lisp
      (use-package spaceline
        :ensure t
@@ -330,3 +344,13 @@
     (display-time-mode 1)
   #+end_src
   
+
+
+
+* jedan
+** dva
+** tri
+* cetiri
+** pet
+*** sedam   
+** sest

@@ -1,3 +1,5 @@
+#+TITLE: Emacs config.org
+#+STARTUP: fold
 * Key bindings
   C-c e         open emacs config file (~/.conig/emacs/config.org)
   C-c r         refresh emacs config file (~/.conig/emacs/config.org)
@@ -25,7 +27,7 @@
   (scroll-bar-mode -1) ; Disable visible scrollbar
   (tool-bar-mode -1) ; Disable the toolbar
   ;(tooltip-mode -1) ; Disable tooltips
-  (set-fringe-mode 10) ; TODO Give some breathing room
+  ;(set-fringe-mode 10) ; TODO Give some breathing room
   (menu-bar-mode -1) ; Disable menu bar
 
   ;(setq visible-bell t) ; Set up the visible bell
@@ -68,60 +70,176 @@
 
 #+end_src
 
+** Save my location within a file
+
+Using =save-place-mode= saves the location of point for every file I visit. If I
+close the file or close the editor, then later re-open it, point will be at the
+last place I visited.
+
+#+begin_src emacs-lisp
+  (save-place-mode t)
+#+end_src
+
+** Always indent with spaces
+
+Never use tabs. Tabs are the devil’s whitespace.
+
+#+begin_src emacs-lisp
+  (setq-default indent-tabs-mode nil)
+#+end_src
+
 * Org mode
-** basic config
-   #+begin_src emacs-lisp
-     (setq org-src-window-setup 'current-window) ; When you "C-c '", opens in current window instead of openning another one
-   #+end_src
-   
-** org-bullets
+** Display preferences
+
+For shortened headers: shows "⤵" instead of "...".
+
+#+begin_src emacs-lisp
+  (setq org-ellipsis "⤵")
+#+end_src
+
+Hide slashes and stars that show /italic/ and *bold*.
+
+#+begin_src emacs-lisp
+  (setq org-hide-emphasis-markers t)
+#+end_src
+
+Use syntax highlighting in source blocks while editing.
+
+#+begin_src emacs-lisp
+  (setq org-src-fontify-natively t)
+#+end_src
+
+
+
+Pretty bullets instead of asterisks for headlines.
+"Better" alternative to org-bullets is org-superstar ([[https://www.youtube.com/watch?v=gsbw8CQGrM8][watch from 7:00]])
 #+begin_src emacs-lisp
   (use-package org-bullets
     :ensure t
     :config
-    (add-hook 'org-mode-hook (lambda () (org-bullets-mode))))
+    (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 #+end_src
-** other stuff
-#+begin_src emacs-lisp
-  ; Enables the "<s TAB" code snippet for #+begin_src
-  (require 'org-tempo)
 
-  ;; ORG MODE
-  ;; auto-indent an org-mode file
-  ;(add-hook 'org-mode-hook
-  ;(lambda()
-  ;(Local-set-key (kbd "C-c C-c") 'org-table-align)
-  ;(local-set-key (kbd "C-c C-f") 'org-table-calc-current-TBLFM)
-  ;(org-indent-mode t)))
+Use syntax highlighting in source blocks while editing.
+
+#+begin_src emacs-lisp
+  (setq org-src-fontify-natively t)
 #+end_src
+
+Enables the "<s TAB" code snippet for #+begin_src
+#+begin_src emacs-lisp
+  (require 'org-tempo)
+#+end_src
+
+Sets scratch buffer to org mode:
+#+begin_src emacs-lisp
+  (setq initial-major-mode 'org-mode)
+#+end_src
+
+When editing a code snippet, use the current window rather than popping open a
+new one (which shows the same information).
+
+#+begin_src emacs-lisp
+  (setq org-src-window-setup 'current-window)
+#+end_src
+
+Quickly insert a block of elisp (usefull for this config file):
+
+#+begin_src emacs-lisp
+  (add-to-list 'org-structure-template-alist
+               '("el" . "src emacs-lisp"))
+#+end_src
+
+Don't indent newly expanded blocks, even if they're under a heading.
+
+#+begin_src emacs-lisp
+  (setq org-adapt-indentation nil)
+#+end_src
+
+** Inline $$LaTeX$$ and Images
+
+Enable inline rendering of $$LaTeX$$.
+
+#+begin_src emacs-lisp
+  (setq org-startup-latex-with-latex-preview t)
+#+end_src
+
+
+Enable inline rendering of images.
+
+#+begin_src emacs-lisp
+  (org-toggle-inline-images)
+#+end_src
+
+** Exporting
+
+Translate regular ol' straight quotes to typographically-correct curly quotes
+when exporting.
+
+#+begin_src emacs-lisp
+  (setq org-export-with-smart-quotes t)
+#+end_src
+
+Don't ask before evaluating code blocks.
+
+#+begin_src emacs-lisp
+  (setq org-confirm-babel-evaluate nil)
+#+end_src
+
 * Evil mode
-** download and enable evil
+   
+Download and enable evil.
+
 #+begin_src emacs-lisp
   (use-package evil
     :ensure t
     ;:defer .1 ;; don't block emacs when starting, load evil immediately after startup
     :init
+    (setq evil-want-integration t) ;; This is on by default
+    (setq evil-want-keybinding nil) ; For evil-complete
     :config
-    (evil-mode)
+    (evil-mode 1)
     (message "Loading evil-mode...done"))
-
 #+end_src
-** evil-org mode
-   #+begin_src emacs-lisp
-     (use-package evil-org
-       :ensure t
-       :after org
-       :hook (org-mode . (lambda () evil-org-mode))
-       :config
-       (require 'evil-org-agenda)
-       (evil-org-agenda-set-keys))
-   #+end_src
-** evil stuff
+
+Install =evil-collection=, which provides evil-friendly bindings for many modes.
+
+#+begin_src emacs-lisp
+;  (use-package evil-collection
+;    :after evil
+;    :ensure t
+;    :config
+;    :custom (evil-collection-setup-minibuffer t)
+;    :custom (evil-collection-calendar-want-org-bindings t)
+;    (setq evil-collection-mode-list
+;          '(which-key))
+;    (evil-collection-init))
+#+end_src
+
+Evil-org
+- Indent with =M-h/j/k/l=
+- Indent with => or <=
+- Manipulate tables with =M-h/j/k/l=
+- gj, move between headers (or source blocks, or whatever)
+- vim text object "ae", (ae=an element)
+
+#+begin_src emacs-lisp
+;  (use-package evil-org
+;    :ensure t
+;    :after org
+;    :hook (org-mode . (lambda () evil-org-mode))
+;    :config
+;    (require 'evil-org-agenda)
+;    (evil-org-agenda-set-keys))
+#+end_src
+
+Evil stuff.
 #+begin_src emacs-lisp
 
   ; Treat Wrapped line scrolling as single lines
   (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
   (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+
   ; (TODO: not working, also don't know if i need everything(for things like using caps for escape AND ctrl)) esc quits pretty much anything (like pending prompts in the minibuffer)
   ;(define-key evil-normal-state-map [escape] 'keyboard-quit)
   ;(define-key evil-visual-state-map [escape] 'keyboard-quit)
@@ -132,14 +250,6 @@
   ;(define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
 
 #+end_src
-* autocomplete
- Currenlty using /company/, /auto-completion/ is probably better.
- #+begin_src emacs-lisp
-   (use-package company
-     :ensure t
-     :init
-     (add-hook 'after-init-hook 'global-company-mode))
- #+end_src
 * dashboard
   #+begin_src emacs-lisp
     (use-package dashboard
@@ -170,28 +280,6 @@
        (diminish 'rainbow-mode)
        )
    #+end_src 
-* Convenient functions
-** non evil mode stuff (OFF)
-*** kill whole word (OFF, i'm using evil mode, so no need for this)
-    #+begin_src emacs-lisp
-      (defun kill-whole-word ()
-        (interactive)
-        (backward-ward)
-        (kill-word 1))
-      (global-set-key (kbd "C-c w w") 'kill-whole-word)
-    #+end_src
-  Good plugins: hungry-delete
-** copy whole line (OFF)
-   #+begin_src emacs-lisp
-;     (defun copy-whole-line ()
-;       (interactive)
-;       (save-excursion
-;	 (kill-new
-;	  (buffer-substring
-;	   (point-atbol)
-;	   (point-at-eol)))))
-;     (global-set-key (kbd "C-c w ]") 'copy-whole-line)
-   #+end_src
 * sudo edit
   #+begin_src emacs-lisp
     (use-package sudo-edit
@@ -222,7 +310,41 @@
   (which-key-mode))
 #+end_src
 
-* Ido
+* config edit/reload
+
+  Edit
+
+   #+begin_src emacs-lisp
+     (defun config-visit ()
+       (interactive)
+       (find-file "~/.config/emacs/config.org"))
+     (global-set-key (kbd "C-c e") 'config-visit)
+   #+end_src
+
+  Reload
+
+   #+begin_src emacs-lisp
+     (defun config-reload ()
+       (interactive)
+       (org-babel-load-file (expand-file-name "~/.config/emacs/config.org")))
+     (global-set-key (kbd "C-c r") 'config-reload)
+   #+end_src
+
+* rainbow
+** TODO Shows colors in emacs when viewing hexadecimal colors. e.g. #FF6933
+  #+begin_src emacs-lisp
+    (use-package rainbow-mode
+    :ensure t
+    :init (rainbow-mode 1))
+    #+end_src TODO 
+** TODO colors brackets in pairs
+  #+begin_src emacs-lisp
+    (use-package rainbow-delimiters
+      :ensure t
+      :init
+      (rainbow-delimiters-mode 1))
+  #+end_src 
+* Ido (TODO replace)
   *TODO: Good alternatives to Ido are /helm/ and /swiper/* (mozda nadji koji je dobar sa evil mode-om, i org mode-om) (najvrv koristi helm jer msm da je mnooogo popularniji od ostalih)
   Ido essentialy makes it nicer to do stuff like open files, change buffers... (shows options, better autocompletion)
 ** Enable ido mode
@@ -253,73 +375,8 @@
    #+begin_src emacs-lisp
      (global-set-key (kbd "C-x C-b") 'ido-switch-buffer)
    #+end_src
-* avi (not using it)
-  #+begin_src emacs-lisp
-    (use-package avy
-      :ensure t
-      :bind
-      ("M-s" . avy-goto-char))
-  #+end_src
-* config edit/reload
-** edit
-   #+begin_src emacs-lisp
-     (defun config-visit ()
-       (interactive)
-       (find-file "~/.config/emacs/config.org"))
-     (global-set-key (kbd "C-c e") 'config-visit)
-   #+end_src
-** reload
-   #+begin_src emacs-lisp
-     (defun config-reload ()
-       (interactive)
-       (org-babel-load-file (expand-file-name "~/.config/emacs/config.org")))
-     (global-set-key (kbd "C-c r") 'config-reload)
-   #+end_src
-
-* rainbow
-** Shows colors in emacs when viewing hexadecimal colors. e.g. #FF6933
-  #+begin_src emacs-lisp
-    (use-package rainbow-mode
-    :ensure t
-    :init (rainbow-mode 1))
-  #+end_src
-** colors brackets in pairs
-  #+begin_src emacs-lisp
-    (use-package rainbow-delimiters
-      :ensure t
-      :init
-      (rainbow-delimiters-mode 1))
-  #+end_src 
-* buffers (evil mode incompatable??)
-  Uncle dave, meh msm da ne radi sa evil mode-om, a i mogu samo koristiti file exporer.
-  #+begin_src emacs-lisp
-    (global-set-key (kbd "C-x b") `ibuffer)
-  #+end_src
-* Beacon (OFF, not using it)
-#+begin_src emacs-lisp
-  ; Package that shows your cursor position on new buffer
-  ;(use-package beacon
-  ;  :ensure t
-  ;  :init
-  ;  (beacon-mode 1))
-
-#+end_src 
-* switch-window (OFF, idk what it does)
-  #+begin_src emacs-lisp
-;    (use-package switch-window
-;      :ensure t
-;      :config
-;      (setq switch-window-input-style 'minibuffer)
-;      (setq switch-window-increase 4)
-;      (setq switch-window-threshold 2)
-;      (setq switch-window-shortcut-style 'qwery) ; optional, TODO?
-;      (setq switch-window-qwerty-shortcuts ; goes with last option
-;	    '("a" "s" "d" "f" "j" "k" "l")) ; TODO C-o ne radi jer koristim evil mode
-;      :bind ; TODO, ono "a" "s" "d"... i te stvari ne rade, nego mi ispisuje brojeve umesto toga
-;      ([remap other-window] . switch-window))
-  #+end_src
-  
-* window splitting functions (OFF, idk what it does)
+* OFF, or I don't know 
+** window splitting functions (OFF, idk what it does)
   Idk what this stuff is, someting related to the last option thing (switch-window). Idk what either of them do entirely.
   #+begin_src emacs-lisp
 ;    (defun split-and-follow-horizontally ()
@@ -337,20 +394,70 @@
 ;    (global-key-set (kbd "C-x 3") 'split-and-follow-vertically)
   
   #+end_src
+** switch-window (OFF, idk what it does)
 
-* clock (OFF)
   #+begin_src emacs-lisp
-    (setq display-time-24hr-format t)
-    (display-time-mode 1)
+;    (use-package switch-window
+;      :ensure t
+;      :config
+;      (setq switch-window-input-style 'minibuffer)
+;      (setq switch-window-increase 4)
+;      (setq switch-window-threshold 2)
+;      (setq switch-window-shortcut-style 'qwery) ; optional, TODO?
+;      (setq switch-window-qwerty-shortcuts ; goes with last option
+;	    '("a" "s" "d" "f" "j" "k" "l")) ; TODO C-o ne radi jer koristim evil mode
+;      :bind ; TODO, ono "a" "s" "d"... i te stvari ne rade, nego mi ispisuje brojeve umesto toga
+;      ([remap other-window] . switch-window))
   #+end_src
   
+** Beacon (OFF, not using it)
+#+begin_src emacs-lisp
+  ; Package that shows your cursor position on new buffer
+  ;(use-package beacon
+  ;  :ensure t
+  ;  :init
+  ;  (beacon-mode 1))
 
+#+end_src 
+** buffers (evil mode incompatable??)
+  Uncle dave, meh msm da ne radi sa evil mode-om, a i mogu samo koristiti file exporer.
+  #+begin_src emacs-lisp
+    (global-set-key (kbd "C-x b") `ibuffer)
+  #+end_src
 
-
-* jedan
-** dva
-** tri
-* cetiri
-** pet
-*** sedam   
-** sest
+** avi (not using it)
+  #+begin_src emacs-lisp
+    (use-package avy
+      :ensure t
+      :bind
+      ("M-s" . avy-goto-char))
+  #+end_src
+** non evil mode stuff (OFF)
+*** kill whole word (OFF, i'm using evil mode, so no need for this)
+    #+begin_src emacs-lisp
+      (defun kill-whole-word ()
+        (interactive)
+        (backward-ward)
+        (kill-word 1))
+      (global-set-key (kbd "C-c w w") 'kill-whole-word)
+    #+end_src
+  Good plugins: hungry-delete
+** copy whole line (OFF)
+   #+begin_src emacs-lisp
+;     (defun copy-whole-line ()
+;       (interactive)
+;       (save-excursion
+;	 (kill-new
+;	  (buffer-substring
+;	   (point-atbol)
+;	   (point-at-eol)))))
+;     (global-set-key (kbd "C-c w ]") 'copy-whole-line)
+   #+end_src
+** autocomplete (OFF)
+ Currenlty using /company/, /auto-completion/ is probably better.
+ #+begin_src emacs-lisp
+  ; (use-package company
+  ;   :ensure t
+  ;   :init
+  ;   (add-hook 'after-init-hook 'global-company-mode))
+ #+end_src

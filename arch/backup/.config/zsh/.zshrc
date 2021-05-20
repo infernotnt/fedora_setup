@@ -82,12 +82,12 @@ export FILE_BROWSER="pcmanfm"
 #export MANPAGER='nvim +Man!' # Enables highlighting on man pages, TODO: bolje je kad nvim nije man pager jer se cursor pojavljuje i tako neke stvari, bilo bi bolje mozda kad bi se vratilo na native ali kada bi jos i moglo da bude rice-ovano aka highlightovano, a mozda i da ostavim kao sa nvim-a, ali da samo koristim pravi naci za kretanje
 #=================================================
 
-alias sudo="sudo "
 #alias d="sudo dnf"
 #alias D="sudo dnf -y"
+
+alias sudo="sudo "
 alias v="nvim"
 alias e="$EDITOR"
-#alias nvim="nvim -S ~/.vimrc"
 alias mkdir="mkdir -pv"
 alias mkd="mkdir -pv"
 alias cp="cp -vi"
@@ -139,16 +139,18 @@ PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magent
 #export LS_COLORS=cxgxfxexbxegedabagacad
 #-----
 # Just some small conviniences
-alias cfv="nvim ~/.config/nvim/init.vim"
-alias cfz="nvim ~/.config/zsh/.zshrc"
-alias cfr="nvim ~/fedora_setup/arch/README.md"
-alias cfs="nvim ~/.config/sway/config"
+alias cfv="$EDITOR ~/.config/nvim/init.vim"
+alias cfz="$EDITOR ~/.config/zsh/.zshrc"
+alias cfr="$EDITOR ~/fedora_setup/arch/README.md"
+alias cfe="$EDITOR ~/.config/emacs/config.org"
+alias cfs="$EDITOR ~/.config/sway/config"
+
 alias cdc="cd ~/.config"
 alias cds="cd ~/.scripts"
 alias cdm="cd ~/fedora_setup/markdown/"
 
 alias cda="cd ~/fedora_setup/arch"
-alias er="nvim ~/fedora_setup/arch/README.md"
+alias er="$EDITOR ~/fedora_setup/arch/README.md"
 alias p="sudo pacman"
 alias P="sudo pacman --noconfirm"
 alias g="git add . ; git commit -m "c" ; git push"

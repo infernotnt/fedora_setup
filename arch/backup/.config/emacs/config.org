@@ -1,17 +1,21 @@
 #+TITLE: Emacs config.org
 #+STARTUP: fold
+#+STARTUP: latexpreview
+
 * Key bindings
-  C-c e         open emacs config file (~/.conig/emacs/config.org)
-  C-c r         refresh emacs config file (~/.conig/emacs/config.org)
-  C-return      Open terminal
-  M-s           Avi (plugin/package)
-  C-x r         Save with sudo? (r = root)
+C-c e         open emacs config file (~/.conig/emacs/config.org)
+C-c r         refresh emacs config file (~/.conig/emacs/config.org)
+C-return      Open terminal
+M-s           Avi (plugin/package)
+C-x r         Save with sudo? (r = root)
+(OFF)C-c s         Show/hide markup (s = show)
+** TODO put this in aha.org
 * Minor settings
 ** show lines and column on the modeline
-   #+begin_src emacs-lisp
-     (line-number-mode 1)
-     (column-number-mode 1)
-   #+end_src
+#+begin_src emacs-lisp
+  (line-number-mode 1)
+  (column-number-mode 1)
+#+end_src
 ** auto brackets (electric) (OFF)
    #+begin_src emacs-lisp
 ;     (setq electric-pair-pairs '(
@@ -88,6 +92,23 @@ Never use tabs. Tabs are the devil’s whitespace.
   (setq-default indent-tabs-mode nil)
 #+end_src
 
+** line numbers
+
+
+Line numbers OFF
+
+#+begin_src emacs-lisp
+;  (global-display-line-numbers-mode) ; Display line numbers
+#+end_src
+
+** default programs
+
+Set default browser to Brave.
+#+begin_src emacs-lisp
+  (setq browse-url-browser-function 'browse-url-generic
+        browse-url-generic-program "chromium-browser")
+#+end_src
+
 * Org mode
 ** Display preferences
 
@@ -97,10 +118,10 @@ For shortened headers: shows "⤵" instead of "...".
   (setq org-ellipsis "⤵")
 #+end_src
 
-Hide slashes and stars that show /italic/ and *bold*.
+Hide slashes and stars that show /italic/ and *bold*. (OFF)
 
 #+begin_src emacs-lisp
-  (setq org-hide-emphasis-markers t)
+;  (setq org-hide-emphasis-markers t)
 #+end_src
 
 Use syntax highlighting in source blocks while editing.
@@ -158,20 +179,51 @@ Don't indent newly expanded blocks, even if they're under a heading.
 
 ** Inline $$LaTeX$$ and Images
 
-Enable inline rendering of $$LaTeX$$.
+#+begin_src emacs-lisp
+  (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.5))
+#+end_src
+
+Render images in emacs with <width>. If <width> is "nil", then use "#+attr_latex: :width <number>" if specified, and if not, then just use the actual image width.
+
+#+begin_src emacs-lisp
+  (setq org-image-actual-width 300)
+#+end_src
+
+(NOT WORKING)Enable inline rendering of $$LaTeX$$.
 
 #+begin_src emacs-lisp
   (setq org-startup-latex-with-latex-preview t)
 #+end_src
 
 
-Enable inline rendering of images.
+(NOT WORKING)Enable inline rendering of images.
 
 #+begin_src emacs-lisp
   (org-toggle-inline-images)
 #+end_src
 
 ** Exporting
+
+Save, compile, open in pdf viewer:
+
+#+begin_src emacs-lisp
+  (defun my-compile-org-to-latex-pdf-and-open ()
+    (interactive)
+    (save-buffer)
+    (org-open-file (org-latex-export-to-pdf)))
+
+  (define-key org-mode-map (kbd "<f6>") 'my-compile-org-to-latex-pdf-and-open)
+
+#+end_src
+
+
+     (defun config-visit ()
+       (interactive)
+       (find-file "~/.config/emacs/config.org"))
+     (global-set-key (kbd "C-c e") 'config-visit)
+
+
+
 
 Translate regular ol' straight quotes to typographically-correct curly quotes
 when exporting.
@@ -249,6 +301,83 @@ Evil stuff.
   ;(define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
   ;(define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
 
+#+end_src
+* Convenient functions
+** TODO not working
+#+begin_src emacs-lisp
+;   (defun org-toggle-emphasis ()
+;     "Toggle hiding/showing of org emphasize markers."
+;     (interactive)
+;     (if org-hide-emphasis-markers
+;       (set-variable 'org-hide-emphasis-markers nil)
+;       (set-variable 'org-hide-emphasis-markers t)
+;       (org-mode-restart)))
+;   (define-key org-mode-map (kbd "C-c s") 'org-toggle-emphasis)
+#+end_src
+
+* yasnippet
+
+Enable yasnippet
+
+#+begin_src emacs-lisp
+  ;(use-package yasnippet
+  ;  :ensure t)
+#+end_src
+
+I keep my snippets in =.config/emacs/snippets=, and I always want =yasnippet= enabled.
+
+#+begin_src emacs-lisp
+  ;(setq yas-snippet-dirs '("~/.config/emacs/snippets"))
+  ;(yas-global-mode 1)
+#+end_src
+
+Disable yasnippet auto indentation.
+
+#+begin_src emacs-lisp
+  ;(setq yas-indent-line 'auto)
+#+end_src
+
+* srpski keymap
+#+begin_src emacs-lisp
+;  (define-key evil-normal-state-map "х" 'evil-shift-left)
+;  (define-key evil-normal-state-map "ј" 'evil-insert)
+;  (define-key evil-normal-state-map "к" 'evil-insert)
+;  (define-key evil-normal-state-map "л" 'evil-insert)
+;  (define-key evil-normal-state-map "" 'evil-insert)
+;  (define-key evil-normal-state-map "" 'evil-insert)
+;  (define-key evil-normal-state-map "" 'evil-insert)
+;  (define-key evil-normal-state-map "" 'evil-insert)
+;  (define-key evil-normal-state-map "и" 'evil-insert)
+#+end_src
+
+
+#+begin_src emacs-lisp
+  ;(defun org-export-translate-to-lang (term-translations &optional lang)
+  ;  "Adds desired translations to `org-export-dictionary'.
+  ;   TERM-TRANSLATIONS is alist consisted of term you want to translate
+  ;   and its corresponding translation, first as :default then as :html and
+  ;   :utf-8. LANG is language you want to translate to."
+  ;  (dolist (term-translation term-translations)
+  ;    (let* ((term (car term-translation))
+  ;           (translation-default (nth 1 term-translation))
+  ;           (translation-html (nth 2 term-translation))
+  ;           (translation-utf-8 (nth 3 term-translation))
+  ;           (term-list (assoc term org-export-dictionary))
+  ;           (term-langs (cdr term-list)))
+  ;      (setcdr term-list (append term-langs
+  ;                                (list
+  ;                                 (list lang
+  ;                                       :default translation-default
+  ;                                       :html translation-html
+  ;                                       :utf-8 translation-utf-8)))))))
+  ;
+  ;(org-export-translate-to-lang '(("Table of Contents"
+  ;                                 "Sadržaj"
+  ;                                 "Sadr&#382;aj"
+  ;                                 "Sadržaj")
+  ;                                ("Another term"
+  ;                                 "coilogji"))
+  ;                              "sr")
 #+end_src
 * dashboard
   #+begin_src emacs-lisp
@@ -331,19 +460,21 @@ Evil stuff.
    #+end_src
 
 * rainbow
-** TODO Shows colors in emacs when viewing hexadecimal colors. e.g. #FF6933
-  #+begin_src emacs-lisp
-    (use-package rainbow-mode
-    :ensure t
-    :init (rainbow-mode 1))
-    #+end_src TODO 
-** TODO colors brackets in pairs
-  #+begin_src emacs-lisp
-    (use-package rainbow-delimiters
+** Shows colors in emacs when viewing hexadecimal colors. e.g. #FF6933
+#+begin_src emacs-lisp
+  (use-package rainbow-mode
       :ensure t
-      :init
-      (rainbow-delimiters-mode 1))
-  #+end_src 
+      :init (rainbow-mode 1))
+#+end_src
+
+** colors brackets in pairs
+#+begin_src emacs-lisp
+  (use-package rainbow-delimiters
+    :ensure t
+    :init
+    (rainbow-delimiters-mode 1))
+#+end_src 
+
 * Ido (TODO replace)
   *TODO: Good alternatives to Ido are /helm/ and /swiper/* (mozda nadji koji je dobar sa evil mode-om, i org mode-om) (najvrv koristi helm jer msm da je mnooogo popularniji od ostalih)
   Ido essentialy makes it nicer to do stuff like open files, change buffers... (shows options, better autocompletion)

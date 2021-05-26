@@ -12,7 +12,7 @@ then
     rclone --verbose sync --progress ~/sync $REMOTE:/sync
 elif [ $1 == "sync" ]
 then
-    ~/.scripts/rclonesync ~/sync $REMOTE:/sync
+    ~/.scripts/rclonesync --rc-verbose ~/sync $REMOTE:/sync
 else
     printf "ERROR: Argument not recognized (see ~/scripts/rclone/rclone.sh)"
 fi

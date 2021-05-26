@@ -16,8 +16,8 @@ font pango:System San Francisco Display 8
 
 # Monitor setup ----------------------------------
 # Puts my 2 monitors in correct order, correct resolution and refresh rate
-output DVI-D-1 pos 0 0 res 1920x1080@60Hz
-output HDMI-A-1 pos 1920 0 res 1920x1080@74.986Hz
+output DVI-D-1 pos 1920 0 res 1920x1080@60Hz
+output HDMI-A-1 pos 0 0 res 1920x1080@74.986Hz
 
 # Puts the starting workspaces on each monitor
 workspace 1 output HDMI-A-1
@@ -98,8 +98,8 @@ input "type:keyboard" {
      # grp:alt_shift_toggle - Change keybaord language input with Alt + Shift
      # Note: to trigger several options, you need to list them separated with a comma
      xkb_options "caps:swapescape",grp:alt_shift_toggle
-     xkb_layout us,hr,rs
-     #xkb_layout us,hr
+     xkb_layout us,rs
+     #xkb_layout us,hr,rs
 }
 
 

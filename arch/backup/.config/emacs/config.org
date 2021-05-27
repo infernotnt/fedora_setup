@@ -202,7 +202,25 @@ Render images in emacs with <width>. If <width> is "nil", then use "#+attr_latex
   (org-toggle-inline-images)
 #+end_src
 
+** Other stuff
+
+Don't ask before evaluating code blocks.
+
+#+begin_src emacs-lisp
+  (setq org-confirm-babel-evaluate nil)
+#+end_src
+
 ** Exporting
+*** Exporting
+
+Translate regular ol' straight quotes to typographically-correct curly quotes
+when exporting.
+
+#+begin_src emacs-lisp
+  (setq org-export-with-smart-quotes t)
+#+end_src
+
+*** $LaTeX$
 
 Save, compile, open in pdf viewer:
 
@@ -216,26 +234,10 @@ Save, compile, open in pdf viewer:
 
 #+end_src
 
-
-     (defun config-visit ()
-       (interactive)
-       (find-file "~/.config/emacs/config.org"))
-     (global-set-key (kbd "C-c e") 'config-visit)
-
-
-
-
-Translate regular ol' straight quotes to typographically-correct curly quotes
-when exporting.
+Put page break after table of contents.
 
 #+begin_src emacs-lisp
-  (setq org-export-with-smart-quotes t)
-#+end_src
-
-Don't ask before evaluating code blocks.
-
-#+begin_src emacs-lisp
-  (setq org-confirm-babel-evaluate nil)
+  (setq org-latex-toc-command "\\tableofcontents \\clearpage")
 #+end_src
 
 * Evil mode
@@ -286,6 +288,8 @@ Evil-org
 #+end_src
 
 Evil stuff.
+TODO: visual g$ i g^ kada je visaul line mode ukljucen, ovo moze samo da se uradi tako sto ukljucim sve te visual shitove kad skontam da je file org mode
+
 #+begin_src emacs-lisp
 
   ; Treat Wrapped line scrolling as single lines

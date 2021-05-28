@@ -2,8 +2,9 @@
 #+LATEX_CLASS_OPTIONS: [12pt, a4paper, oneside]
 #+LATEX_HEADER: \usepackage[a4paper, left=1.925cm, right=1.925cm, bottom=2.54cm, top=2.54cm]{geometry}
 #+LATEX_HEADER: \usepackage{mathptmx}
-#+LATEX_HEADER: \usepackage[english, serbian]{babel}
+#+LATEX_HEADER: \usepackage[english, serbian, serbianc, japanese]{babel}
 #+LATEX_HEADER: \usepackage{physics}
+#+LATEX_HEADER: \usepackage{amsmath}
 
 #+LATEX_HEADER: \usepackage{fancyhdr}
 #+LATEX_HEADER: \fancyhf{}

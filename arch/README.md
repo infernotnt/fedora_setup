@@ -1,10 +1,4 @@
-# TODO sutra
-
-* vreme
-* bluetooth
-* vim markdown syntax
-* live vim markdown preview
-* brave
+## Vim, Markdown
 
 ## kinda daemon/services that are kinda usefull:
 * cronie - for cronjobs and stuff
@@ -14,12 +8,14 @@
 ## drive backup
     * dodati u install skriptu rclone config
     * dodati rclone config u gitignore
+
 ## todo:
      * waybar bez workspace
      * waybar workspace + sway workspace
      * sway
      * note taking malkice
      * bluetooth
+
 ## alacritty ricing:
      * padding?
      * scrolling: multiplier=10? (ubrza scroll)
@@ -27,7 +23,7 @@
      * key binding za otvaranje novog terminala u trenutnom directoriju (neki copy paste na ctrl? https://www.youtube.com/watch?v=S5ra0DUDZww&list=PLhoH5vyxr6QpGSDfaYLxOgjCzCej6q0kP&index=8)
           - { key
      * pogledaj chrisatmachine? video opet
-#
+
 ## TODO RICE (prio 1):
      * run_wlsunset.sh ne radi. ovo se vidi npr kad refresh-ujes sway
      * bluetooth

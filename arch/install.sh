@@ -132,6 +132,11 @@ sudo mkdir -pv $USER_HOME/Pictures/wallpaper
 sudo cp backup/wallpaper $USER_HOME/Pictures/wallpaper/wallpaper
 sudo mkdir -pv $USER_HOME/Pictures/screenshots
 
+# Set default pdf viewer to "mupdf"
+xdg-mime default mupdf.desktop application/pdf
+
+# Be able to read and write NTFS
+sudo pacman -S ntfs-3g
 
 #download za vim-plug. vim-plug ti daje da skidas plugin-ove za vim/nvim
 #mozda bez sudo?

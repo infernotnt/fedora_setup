@@ -97,8 +97,10 @@ input "type:keyboard" {
      # "caps:swapescape" - Swaps caps lock and escape keys
      # grp:alt_shift_toggle - Change keybaord language input with Alt + Shift
      # Note: to trigger several options, you need to list them separated with a comma
+     
      xkb_options "caps:swapescape",grp:alt_shift_toggle
-     xkb_layout us,rs
+     #xkb_options "caps:swapescape"
+     xkb_layout us,hr
      #xkb_layout us,hr,rs
 }
 

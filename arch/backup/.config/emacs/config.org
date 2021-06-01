@@ -110,6 +110,28 @@ Set default browser to Brave.
 #+end_src
 
 ** (set-frame-font Times
+* Spell sheck
+
+#+begin_src emacs-lisp
+  (setq ispell-program-name "hunspell")
+  (setq ispell-local-dictionary "sr")
+  (setq ispell-local-dictionary-alist
+        '(("sr" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil nil nil utf-8)))
+  (flyspell-mode 1)
+  
+  
+
+
+  (setq ispell-program-name "hunspell")
+  (setq ispell-hunspell-dict-paths-alist
+  '(("sr" "/home/milos/kita/sr.aff")))
+
+  (setq ispell-local-dictionary "sr")
+  (setq ispell-local-dictionary-alist
+  '(("sr" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil ("-d" "sr") nil utf-8)))
+  (flyspell-mode 1)
+#+end_src
+
 * Org mode
 ** Display preferences
 
@@ -218,7 +240,7 @@ Bolji naslovi, bez boja, veci su (namesti na svoje, do tad je OFF, TODO)
 Render images in emacs with <width>. If <width> is "nil", then use "#+attr_latex: :width <number>" if specified, and if not, then just use the actual image width.
 
 #+begin_src emacs-lisp
-  (setq org-image-actual-width 300)
+  (setq org-image-actual-width 450)
 #+end_src
 
 (NOT WORKING)Enable inline rendering of $$LaTeX$$.

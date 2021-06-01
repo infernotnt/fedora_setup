@@ -1,3 +1,22 @@
+# Novo
+
+* bluetooth
+* bluelight (shorcut toggle?)
+* font
+* vimrc structure
+* native brave
+* polybar workspaces
+* sway shortcuts
+* emacs
+  * font
+  * word processor
+  * god mode, leader mode
+  * evil org
+  * evil surround
+  * equation addon
+  * hide addon (stack exchange)
+
+
 ## Vim, Markdown
 
 ## kinda daemon/services that are kinda usefull:

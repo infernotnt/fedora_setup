@@ -34,6 +34,7 @@
      * sway
      * note taking malkice
      * bluetooth
+     * map-ovati sway da radi na latinicnim karakterima i cirilicnim
 
 ## alacritty ricing:
      * padding?

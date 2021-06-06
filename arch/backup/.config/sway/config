@@ -100,7 +100,7 @@ input "type:keyboard" {
      
      xkb_options "caps:swapescape",grp:alt_shift_toggle
      #xkb_options "caps:swapescape"
-     xkb_layout us,hr
+     xkb_layout us,rs
      #xkb_layout us,hr,rs
 }
 
@@ -189,7 +189,8 @@ output "*" bg ~/Pictures/wallpaper/wallpaper fill
 
 
 
-bindsym $mod+Shift+Escape     exec --no-startup-id killall sway
+# Iskljuceno jer nekad sjebem kad radim "Win + Shift + S" screenshot
+#bindsym $mod+Shift+Escape     exec --no-startup-id killall sway
 
 #NE RADI NA WAYLAND
 #set $freeze Distraction-free mode (super+shift+f to reactivate bindings)

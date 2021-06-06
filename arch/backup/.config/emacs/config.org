@@ -256,7 +256,7 @@ Render images in emacs with <width>. If <width> is "nil", then use "#+attr_latex
   (org-toggle-inline-images)
 #+end_src
 
-** Other stuff
+** Org-Babel
 
 Don't ask before evaluating code blocks.
 
@@ -264,6 +264,19 @@ Don't ask before evaluating code blocks.
   (setq org-confirm-babel-evaluate nil)
 #+end_src
 
+Enable org-babel evaluation in different languages
+
+#+begin_src emacs-lisp
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((python . t)))
+
+  (org-babel-do-load-languages
+   'org-babel-load-languages '((C . t)))
+#+end_src
+
+
+** Other stuff
 ** Exporting
 *** Exporting
 

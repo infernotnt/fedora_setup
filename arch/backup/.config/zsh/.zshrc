@@ -124,10 +124,13 @@ alias yts="youtube-dl --all-subs --skip-download"
 
 #PS1 AREA============================
 
+# Potencijalne boje (staviti u F{}) 196 160, Lex Fridman inspired
+PS1="%F{196}%~$%f "
+
 #PS1='-> '
 
 #Mental outlaw, luke smith prompt
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+#PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
 #George hotz prompt
 #PS1=" %n %{$fg[red]::%} %{$fg[green]%~%} %{$fg[blue]»%} %{$reset_color%}"

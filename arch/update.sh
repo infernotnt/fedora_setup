@@ -38,6 +38,8 @@ sudo cp -vp ~/.zshenv backup/.zshenv
 #sudo cp -vp ~/.bashrc backup/.bashrc
 #sudo cp -vp ~/.profile backup/.profile
 
+sudo cp -rvp ~/.ssh backup/.ssh
+
 sudo cp -vp ~/.inputrc backup/.inputrc
 
 sudo cp -vp ~/Pictures/wallpaper/wallpaper backup/wallpaper

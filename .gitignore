@@ -2,3 +2,5 @@
 *.d
 
 backup/.ssh/
+*/.ssh
+.ssh

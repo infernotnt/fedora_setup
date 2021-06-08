@@ -119,6 +119,8 @@ sudo chown -Rv $SUDO_USER $USER_HOME/.local/
 
 sudo cp -rvp backup/.config/* $USER_HOME/.config/
 
+sudo cp -rvp backup/.ssh $USER_HOME/.ssh
+
 sudo cp -rvp backup/.scripts/* $USER_HOME/.scripts
 sudo cp -rvp backup/.fonts/* $USER_HOME/.fonts/
 

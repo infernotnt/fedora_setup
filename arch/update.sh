@@ -13,7 +13,6 @@ sudo rm -vr ./backup
 mkdir -pv backup/.config
 mkdir -pv backup/.scripts
 mkdir -pv backup/.local/share/fonts
-mkdir -pv backup/wallpaper
 
 mkdir -pv backup/.config/emacs
 mkdir -pv backup/.config/emacs/my_templates_ms

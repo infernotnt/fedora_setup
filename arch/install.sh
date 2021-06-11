@@ -11,9 +11,6 @@ echo "WARNING: The ONLY way to run this is with sudo, \"sudo ./fedora_setup.sh\"
 echo "Make sure you ran it this way."
 sleep 3
 
-#TODO, videti da li qbittorrent radi
-#TODO, update skripta moze da bude ista na oba.
-#TODO, ssh u update skriptu
 #TODO, home directory cleanup
 #TODO, mooozda kao 3 skripte za install, jedna radi arch specific, druga radi fedora specific, i treca radi generalno
 
@@ -138,7 +135,7 @@ sudo mkdir -pv $USER_HOME/Pictures/screenshots
 xdg-mime default mupdf.desktop application/pdf
 
 # Be able to read and write NTFS
-sudo pacman -S ntfs-3g
+sudo pacman --noconfirm -S ntfs-3g
 
 #download za vim-plug. vim-plug ti daje da skidas plugin-ove za vim/nvim
 #mozda bez sudo?

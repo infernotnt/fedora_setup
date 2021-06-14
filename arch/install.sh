@@ -22,7 +22,7 @@ sudo hostnamectl set-hostname archio
 
 pacman --noconfirm -Syu
 
-pacman --noconfirm -S sudo man-db zsh htop parted fzf neovim
+pacman --noconfirm -S sudo man-db zsh htop parted fzf neovim emacs
 
 #NOTE: don't install if you have nvidia graphics card
 pacman --noconfirm -S mesa
@@ -128,7 +128,7 @@ sudo cp -vp backup/.inputrc $USER_HOME/.inputrc
 sudo fc-cache -f -v
 
 sudo mkdir -pv $USER_HOME/Pictures/wallpaper
-sudo cp backup/wallpaper $USER_HOME/Pictures/wallpaper/wallpaper
+sudo cp -r backup/wallpaper $USER_HOME/Pictures/wallpaper/
 sudo mkdir -pv $USER_HOME/Pictures/screenshots
 
 # Set default pdf viewer to "mupdf"

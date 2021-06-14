@@ -17,6 +17,7 @@ mkdir -pv backup/.local/share/fonts
 mkdir -pv backup/.config/emacs
 mkdir -pv backup/.config/emacs/my_templates_ms
 
+mkdir -pv backup/wallpaper
 #--------------
 
 sudo cp -rvp ~/.config/sway backup/.config/sway
@@ -41,4 +42,4 @@ sudo cp -rvp ~/.ssh backup/.ssh
 
 sudo cp -vp ~/.inputrc backup/.inputrc
 
-sudo cp -vp ~/Pictures/wallpaper/wallpaper backup/wallpaper
+sudo cp -vp ~/Pictures/wallpaper/wallpaper backup/wallpaper/wallpaper

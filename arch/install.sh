@@ -58,7 +58,7 @@ pacman --noconfirm -S grim slurp
 
 # MAXIMAL
 # Za kompajlovanje, koristi se za AUR (iskljucen radi minimalizma)
-pacman -noconfirm --needed base-devel
+pacman --noconfirm -S --needed base-devel
 
 # MAXIMAL
 # xorg-xwayland     - Needed for brave-browser. (he can't play videos on native (not sure, maybe fixable)
@@ -67,7 +67,7 @@ pacman --noconfirm -S xorg-xwayland xorg-xeyes
 
 
 # Ne znam da li ovo ukljucuje server
-pacman --noconfirm openssh
+pacman --noconfirm -S openssh
 
 # wl-clipboard      -  copy pasting
 # imv               -  image viewer

@@ -15,7 +15,6 @@ mkdir -pv backup/.scripts
 mkdir -pv backup/.local/share/fonts
 
 mkdir -pv backup/.config/emacs
-mkdir -pv backup/.config/emacs/my_templates_ms
 
 mkdir -pv backup/wallpaper
 #--------------

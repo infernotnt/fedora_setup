@@ -3,11 +3,11 @@
 # Fontovi mozda ne rade: https://wiki.archlinux.org/index.php/fonts
 # Pogledati na tom sajtu chmod 444 i dodavanje u neki direktorijum (manual installation)
 if [[ $EUID > 0 ]]
-then echo "Please run as root user. sudo.(The ONLY way you should is \"sudo ./install.sh\")"
+then echo "Please run as root (or just use sudo)."
 	exit
 fi
 
-echo "WARNING: The ONLY way to run this is with sudo, \"sudo ./install.sh\"."
+echo "WARNING: The ONLY way to run this is as root (or sudo).\n"
 echo "Make sure you ran it this way."
 sleep 3
 
@@ -121,14 +121,14 @@ cp -v backup/.profile $USER_HOME/.profile
 cp -v backup/.inputrc $USER_HOME/.inputrc
 
 
-mkdir -pv $USER_HOME/Pictures/wallpaper
-cp -r backup/wallpaper/* $USER_HOME/Pictures/wallpaper/*
+mkdir -pv $USER_HOME/Pictures/
+cp -r backup/wallpaper/ $USER_HOME/Pictures/wallpaper/
 mkdir -pv $USER_HOME/Pictures/screenshots
 
 fc-cache -f -v
 
 # Make sure all the files are owned by the local user and not by the root account
-chown -Rv $USERNAME $USER_HOME/*
+chown -Rv $USERNAME $USER_HOME/
 #chown -Rv $USERNAME $USER_HOME/.config
 #chown -Rv $USERNAME $USER_HOME/.scripts
 #chown -Rv $USERNAME $USER_HOME/.local

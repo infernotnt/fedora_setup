@@ -19,6 +19,7 @@ TODO:
 * <Ctrl-Y> copy path to clipboard
 * mozda ripgrep intergracija
 * Alt-C ali za hidden file-ove
+* onaj file tree kao `nixcasts`
 
 https://www.youtube.com/watch?v=qgG5Jhi_Els
 
@@ -30,10 +31,17 @@ https://github.com/junegunn/fzf#using-linux-package-managers
 https://github.com/junegunn/fzf/wiki/Configuring-shell-key-bindings
 
 
+
 ## Alacritty
 
 Ctrl+Shift+Enter - new terminal in current directory
 Ctrl+Shift+Space - vi mode
+
+## gledaj
+
+https://www.youtube.com/watch?v=f9EbD6iY9zI
+
+https://mike.place/2017/fzf-fd/
 
 # Novo
 

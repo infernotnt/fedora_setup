@@ -77,6 +77,9 @@ pacman --noconfirm -S wl-clipboard imv
 #TODO, dodati da pita korisnika na pocetku (zajedno sa username i driver i ovo), da li zeli da skine latex, i da uzima tipa 2.5GB ili tako nesto
 #pacman --noconfirm -S pandoc texlive-most
 
+# Be able to read and write NTFS
+sudo pacman --noconfirm -S ntfs-3g
+
 #======Bluetooth
 
 pacman --noconfirm -S bluez bluez-utils
@@ -107,12 +110,16 @@ sudo mkdir -v $USER_HOME/.config
 sudo mkdir -v $USER_HOME/.scripts
 sudo mkdir -pv $USER_HOME/.local/share/fonts
 
+sudo mkdir -pv $USER_HOME/.cache/temp_my_ms
+sudo mkdir -pv $USER_HOME/.cache/temp_my_ms/youtube-dl
+
 # Give correct ownership to the folders
 sudo chown -Rv $SUDO_USER $USER_HOME/.config
 sudo chown -Rv $SUDO_USER $USER_HOME/.scripts
 sudo chown -Rv $SUDO_USER $USER_HOME/.local/
+sudo chown -Rv $SUDO_USER $USER_HOME/.cache/temp_my_ms
 
-
+sudo mkdir -pv $USER_HOME/.cache/temp_my_personall_ms
 
 sudo cp -rvp backup/.config/* $USER_HOME/.config/
 
@@ -131,20 +138,19 @@ sudo mkdir -pv $USER_HOME/Pictures/wallpaper
 sudo cp -r backup/wallpaper $USER_HOME/Pictures/wallpaper/
 sudo mkdir -pv $USER_HOME/Pictures/screenshots
 
-# Set default pdf viewer to "mupdf"
-xdg-mime default mupdf.desktop application/pdf
-
-# Be able to read and write NTFS
-sudo pacman --noconfirm -S ntfs-3g
-
 #download za vim-plug. vim-plug ti daje da skidas plugin-ove za vim/nvim
 #mozda bez sudo?
 sudo -u $SUDO_USER curl -fLo "${XDG_DATA_HOME:-$USER_HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 #ovo treba da instalira sve plug-inove(preko PlugInstall) koje se nalaze u ~/.vimrc
-sudo -u $SUDO_USER nvim -es -u ${USER_HOME}/.vimrc -i NONE -c "PlugInstall" -c "qa"
+sudo -u $SUDO_USER nvim --headless +PlugInstall +qall
+#sudo -u $SUDO_USER nvim -es -u ${USER_HOME}/.vimrc -i NONE -c "PlugInstall" -c "qa"
 
 chsh -s /bin/zsh $SUDO_USER # Changes the default shell from (presumably) bash to zsh, you must relog for this to take effect
+
+
+# Set default pdf viewer to "mupdf"
+#xdg-mime default mupdf.desktop application/pdf
 
 #!!!!STVARI KOJE USER KOJI INSTALIRA MORA DA URADI:
 #1. polybar internet speed da se namesti:

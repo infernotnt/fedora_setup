@@ -1,0 +1,31 @@
+#!/bin/bash
+
+mkdir -pv ~/.cache/temp_my_ms/youtube-dl/
+
+if [ $1 == "auto" ]
+then
+    subtitle="--write-auto-sub"
+    link=$2
+elif [ $1 == "all" ]
+then
+    subtitle="--all-subs"
+    link=$2
+elif [ $1 == "lang" ]
+then
+    subtitle="--write-sub --sub-lang $2"
+    link=$3
+else
+    printf "ERROR: Argument not recognized (see ~/.scripts/yts)\n"
+    exit 1
+fi
+
+printf "Subtitle = $subtitle \n"
+printf "Link = $link \n"
+
+rm -f $HOME/.cache/temp_my_ms/youtube-dl/izlaz-*
+
+youtube-dl --skip-download --output '$HOME/.cache/temp_my_ms/youtube-dl/izlaz-%(title)s-%(upload_date)s-%(id)s' $subtitle $link
+
+$EDITOR izlaz-*
+
+exit 0

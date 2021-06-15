@@ -14,7 +14,8 @@ elif [ $1 == "sync" ]
 then
     ~/.scripts/rclonesync --rc-verbose ~/sync $REMOTE:/sync
 else
-    printf "ERROR: Argument not recognized (see ~/scripts/rclone/rclone.sh)"
+    printf "ERROR: Argument not recognized (see ~/.scripts/rclone/rclone.sh)"
+    exit 1
 fi
 
-exit 1
+exit 0

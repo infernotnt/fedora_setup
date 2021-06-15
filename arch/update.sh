@@ -25,6 +25,7 @@ sudo cp -rvp ~/.config/waybar backup/.config/waybar
 sudo cp -rvp ~/.config/zsh backup/.config/zsh
 sudo cp -rvp ~/.config/nvim backup/.config/nvim
 sudo cp -rvp ~/.config/git backup/.config/git
+sudo cp -rvp ~/.config/alacritty backup/.config/alacritty
 
 sudo cp -vp ~/.config/mimeapps.list
 

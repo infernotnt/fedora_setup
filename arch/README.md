@@ -29,6 +29,12 @@ https://github.com/junegunn/fzf#using-linux-package-managers
 
 https://github.com/junegunn/fzf/wiki/Configuring-shell-key-bindings
 
+
+## Alacritty
+
+Ctrl+Shift+Enter - new terminal in current directory
+Ctrl+Shift+Space - vi mode
+
 # Novo
 
 * bluetooth

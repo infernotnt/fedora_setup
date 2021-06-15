@@ -119,7 +119,7 @@ sudo cp -rvp backup/.config/* $USER_HOME/.config/
 sudo cp -rvp backup/.ssh $USER_HOME/.ssh
 
 sudo cp -rvp backup/.scripts/* $USER_HOME/.scripts
-sudo cp -rvp backup/.fonts/* $USER_HOME/.fonts/
+sudo cp -rvp backup/.local/share/fonts/* $USER_HOME/.local/share/fonts/
 
 sudo cp -vp backup/.zshenv $USER_HOME/.zshenv
 sudo cp -vp backup/.profile $USER_HOME/.profile

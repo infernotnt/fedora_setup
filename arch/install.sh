@@ -19,19 +19,17 @@ USER_HOME=/home/$USERNAME/
 
 useradd $USERNAME -m -g wheel
 
-sudo hostnamectl set-hostname archio
+hostnamectl set-hostname archio
 
 pacman --noconfirm -Syu
 
 pacman --noconfirm -S sudo man-db zsh htop parted fzf neovim emacs
 
-#NOTE: don't install if you have nvidia graphics card
+# NOTE: don't install if you have nvidia graphics card
 pacman --noconfirm -S mesa
 
-pacman --noconfirm -S ttf-jetbrains-mono
 
-#MAXIMAL
-#pacman --noconfirm -S libreoffice
+pacman --noconfirm -S ttf-jetbrains-mono
 
 pacman --noconfirm -S sway swaylock swaybg waybar
 
@@ -98,49 +96,38 @@ sudo -u $USERNAME curl -fLo "${XDG_DATA_HOME:-$USER_HOME/.local/share}"/nvim/sit
 
 # Ovo treba da instalira sve plug-inove(preko PlugInstall) koje se nalaze u ~/.vimrc
 sudo -u $USERNAME nvim -es -u ${USER_HOME}/.vimrc -i NONE -c "PlugInstall" -c "qa"
+
 #--------------------------------------------------------------------------------------------------------
 
+mkdir -v $USER_HOME/.config
+mkdir -v $USER_HOME/.scripts
+mkdir -pv $USER_HOME/.local/share/fonts
+
+mkdir -pv $USER_HOME/.cache/temp_my_ms
+mkdir -pv $USER_HOME/.cache/temp_my_ms/youtube-dl
+
+cp -rv backup/.config/* $USER_HOME/.config/
+cp -rv backup/.ssh $USER_HOME/.ssh
+cp -rv backup/.scripts/* $USER_HOME/.scripts
+cp -rv backup/.local/share/fonts/* $USER_HOME/.local/share/fonts/
+
+cp -v backup/.zshenv $USER_HOME/.zshenv
+cp -v backup/.profile $USER_HOME/.profile
+cp -v backup/.inputrc $USER_HOME/.inputrc
+
+
+mkdir -pv $USER_HOME/Pictures/wallpaper
+cp -r backup/wallpaper/* $USER_HOME/Pictures/wallpaper/*
+mkdir -pv $USER_HOME/Pictures/screenshots
+
+fc-cache -f -v
+
 # Make sure all the files are owned by the local user and not by the root account
-sudo chown -Rv $USERNAME *
+chown -Rv $USERNAME $USER_HOME/*
+#chown -Rv $USERNAME $USER_HOME/.config
+#chown -Rv $USERNAME $USER_HOME/.scripts
+#chown -Rv $USERNAME $USER_HOME/.local
+#chown -Rv $USERNAME $USER_HOME/.cache
 
-sudo mkdir -v $USER_HOME/.config
-sudo mkdir -v $USER_HOME/.scripts
-sudo mkdir -pv $USER_HOME/.local/share/fonts
-
-sudo mkdir -pv $USER_HOME/.cache/temp_my_ms
-sudo mkdir -pv $USER_HOME/.cache/temp_my_ms/youtube-dl
-
-# Give correct ownership to the folders
-sudo chown -Rv $USERNAME $USER_HOME/.config
-sudo chown -Rv $USERNAME $USER_HOME/.scripts
-sudo chown -Rv $USERNAME $USER_HOME/.local/
-sudo chown -Rv $USERNAME $USER_HOME/.cache/temp_my_ms
-
-sudo mkdir -pv $USER_HOME/.cache/temp_my_personall_ms
-
-sudo cp -rvp backup/.config/* $USER_HOME/.config/
-
-sudo cp -rvp backup/.ssh $USER_HOME/.ssh
-
-sudo cp -rvp backup/.scripts/* $USER_HOME/.scripts
-sudo cp -rvp backup/.local/share/fonts/* $USER_HOME/.local/share/fonts/
-
-sudo cp -vp backup/.zshenv $USER_HOME/.zshenv
-sudo cp -vp backup/.profile $USER_HOME/.profile
-sudo cp -vp backup/.inputrc $USER_HOME/.inputrc
-
-sudo fc-cache -f -v
-
-sudo mkdir -pv $USER_HOME/Pictures/wallpaper
-sudo cp -r backup/wallpaper/* $USER_HOME/Pictures/wallpaper/*
-sudo mkdir -pv $USER_HOME/Pictures/screenshots
-
-# Download za vim-plug. vim-plug ti daje da skidas plugin-ove za vim/nvim
-# Mozda bez sudo?
-sudo -u $USERNAME curl -fLo "${XDG_DATA_HOME:-$USER_HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-# Ovo treba da instalira sve plug-inove(preko PlugInstall) koje se nalaze u ~/.vimrc
-sudo -u $USERNAME nvim --headless +PlugInstall +qall
-# sudo -u $SUDO_USER nvim -es -u ${USER_HOME}/.vimrc -i NONE -c "PlugInstall" -c "qa"
-
-chsh -s /bin/zsh $USERNAME # Changes the default shell from (presumably) bash to zsh, you must relog for this to take effect
+# Changes the default shell from (presumably) bash to zsh, you must relog for this to take effect
+chsh -s /bin/zsh $USERNAME 

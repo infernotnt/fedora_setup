@@ -204,9 +204,7 @@ output "*" bg ~/Pictures/wallpaper/wallpaper fill
 # Lock the screen
 # NOTE: this is not 100% secure, it can be bypassed if you try
 # NOTE: no encryption is used
-#WAYLAND
-#bindsym $mod+s exec swaylock --color=000000
-bindsym $mod+s exec swaylock
+bindsym $mod+s exec ~/.scripts/sway/swaylock.sh
 
 # Makes the currently focused window fullscreen
 bindsym $mod+f fullscreen toggle

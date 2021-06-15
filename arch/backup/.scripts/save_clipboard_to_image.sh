@@ -25,3 +25,5 @@ screenshotFileName="screenshot-$(date +%Y-%m-%d-%H-%M-%S)"
 pathToScreenshot="$HOME/Pictures/screenshots/$screenshotFileName"
 
 wl-paste --type image/png >$pathToScreenshot
+
+exit 0

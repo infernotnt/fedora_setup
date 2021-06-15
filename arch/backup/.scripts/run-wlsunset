@@ -16,3 +16,4 @@ if [ $output2 == 0 ]
      then wlsunset -l 45 -L 20
 fi
 
+exit 0

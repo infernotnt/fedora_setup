@@ -26,6 +26,8 @@ sudo cp -rvp ~/.config/zsh backup/.config/zsh
 sudo cp -rvp ~/.config/nvim backup/.config/nvim
 sudo cp -rvp ~/.config/git backup/.config/git
 
+sudo cp -vp ~/.config/mimeapps.list
+
 sudo cp -rvp ~/.config/emacs/init.el backup/.config/emacs/init.el
 sudo cp -rvp ~/.config/emacs/config.org backup/.config/emacs/config.org
 sudo cp -rvp ~/.config/emacs/my_templates_ms backup/.config/emacs/my_templates_ms

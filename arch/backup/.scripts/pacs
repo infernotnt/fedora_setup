@@ -1,3 +1,3 @@
 #!/bin/bash
 
-pacman -Sq --list | fzf -m | xargs -r -n 1 'sudo pacman -S'
+sudo pacman -S $(pacman -Slq | fzf -m --preview="pacman -Si {}" --preview-window=:hidden --bind=space:toggle-preview)

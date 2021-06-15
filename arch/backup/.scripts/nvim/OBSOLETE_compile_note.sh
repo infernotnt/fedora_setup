@@ -24,3 +24,4 @@ pandoc \
 #     -o "$outputFile" &
 ##     -o "$target/$outputFile" $filename &
 
+exit 0

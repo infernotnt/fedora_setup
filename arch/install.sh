@@ -27,6 +27,8 @@ pacman --noconfirm -S sudo man-db zsh htop parted fzf neovim emacs
 #NOTE: don't install if you have nvidia graphics card
 pacman --noconfirm -S mesa
 
+
+pacman --noconfirm -S ttf-jetbrains-mono
 #NOTE: don't install if going for a minimal install
 #pacman --noconfirm -S noto-fonts
 #MAXIMAL

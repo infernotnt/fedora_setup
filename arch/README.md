@@ -1,3 +1,34 @@
+# FZF
+
+
+-e        - exact flag
+C-n C-p   - next - previous
+Tab       - select
+shift+tab - deselect
+
+\*\*<TAB> - auto complete
+<Ctrl-T>  - paste onto command line
+<Alt -C>  - change directory
+<Ctrl-R>  - search history
+
+ssh \*\*<TAB>
+kill <TAB>
+
+TODO:
+* bat za preview
+* <Ctrl-Y> copy path to clipboard
+* mozda ripgrep intergracija
+* Alt-C ali za hidden file-ove
+
+https://www.youtube.com/watch?v=qgG5Jhi_Els
+
+dotfiles onog tipa: https://github.com/samoshkin/dotfiles
+
+https://github.com/junegunn/fzf#using-linux-package-managers
+
+
+https://github.com/junegunn/fzf/wiki/Configuring-shell-key-bindings
+
 # Novo
 
 * bluetooth

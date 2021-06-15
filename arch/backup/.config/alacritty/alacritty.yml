@@ -1,6 +1,80 @@
 key_bindings:
   - { key: Return,   mods: Control|Shift, action: SpawnNewInstance }
 
+font:
+  normal:
+    family: Jet Brains Mono
+    style: Regular
+
+  bold:
+    family: Jet Brains Mono
+    style: Bold
+
+  italic:
+    family: Jet Brains Mono
+    style: Italic
+
+  bold_italic:
+    family: Jet Brains Mono
+    style: Bold Italic
+
+  size: 11
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # NOTE: example configurations is at /usr/share/doc/alacritty/example/alacritty.yml
 
 # Configuration for Alacritty, the GPU enhanced terminal emulator.

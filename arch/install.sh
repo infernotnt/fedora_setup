@@ -137,7 +137,7 @@ sudo cp -vp backup/.inputrc $USER_HOME/.inputrc
 sudo fc-cache -f -v
 
 sudo mkdir -pv $USER_HOME/Pictures/wallpaper
-sudo cp -r backup/wallpaper $USER_HOME/Pictures/wallpaper/
+sudo cp -r backup/wallpaper/* $USER_HOME/Pictures/wallpaper/*
 sudo mkdir -pv $USER_HOME/Pictures/screenshots
 
 #download za vim-plug. vim-plug ti daje da skidas plugin-ove za vim/nvim

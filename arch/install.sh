@@ -3,20 +3,24 @@
 # Fontovi mozda ne rade: https://wiki.archlinux.org/index.php/fonts
 # Pogledati na tom sajtu chmod 444 i dodavanje u neki direktorijum (manual installation)
 if [[ $EUID > 0 ]]
-then echo "Please run with sudo.(The ONLY way you should is \"sudo ./install_fedora_setup.sh\")"
+then echo "Please run with sudo.(The ONLY way you should is \"sudo ./install.sh\")"
 	exit
 fi
 
-echo "WARNING: The ONLY way to run this is with sudo, \"sudo ./fedora_setup.sh\"."
+echo "WARNING: The ONLY way to run this is with sudo, \"sudo ./install.sh\"."
 echo "Make sure you ran it this way."
 sleep 3
+
+printf "Your username: "
+read USERNAME
 
 #TODO, home directory cleanup
 #TODO, mooozda kao 3 skripte za install, jedna radi arch specific, druga radi fedora specific, i treca radi generalno
 
-#mozda nije potrebno skinuti alsa i alsa-utlis kad se vec skida pulseaudio
+# Mozda nije potrebno skinuti alsa i alsa-utlis kad se vec skida pulseaudio
 
-USER_HOME=$(getent passwd $SUDO_USER | cut -d: -f6)
+#USER_HOME=$(getent passwd $SUDO_USER | cut -d: -f6)
+USER_HOME=/home/$USERNAME/
 
 sudo hostnamectl set-hostname archio
 
@@ -29,9 +33,9 @@ pacman --noconfirm -S mesa
 
 
 pacman --noconfirm -S ttf-jetbrains-mono
-#NOTE: don't install if going for a minimal install
+# NOTE: don't install if going for a minimal install
 #pacman --noconfirm -S noto-fonts
-#MAXIMAL
+# MAXIMAL
 # Used for arch linux logo icon for waybar DOES NOT WORK
 #pacman --noconfirm -S ttf-nerd-fonts-symbols
 
@@ -97,16 +101,16 @@ rfkill unblock bluetooth
 #======
 
 
-#download za vim-plug. vim-plug ti daje da skidas plugin-ove za vim/nvim
-#mozda bez sudo?
-sudo -u $SUDO_USER curl -fLo "${XDG_DATA_HOME:-$USER_HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# Download za vim-plug. vim-plug ti daje da skidas plugin-ove za vim/nvim
+# Mozda bez sudo?
+sudo -u $USERNAME curl -fLo "${XDG_DATA_HOME:-$USER_HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-#ovo treba da instalira sve plug-inove(preko PlugInstall) koje se nalaze u ~/.vimrc
-sudo -u $SUDO_USER nvim -es -u ${USER_HOME}/.vimrc -i NONE -c "PlugInstall" -c "qa"
+# Ovo treba da instalira sve plug-inove(preko PlugInstall) koje se nalaze u ~/.vimrc
+sudo -u $USERNAME nvim -es -u ${USER_HOME}/.vimrc -i NONE -c "PlugInstall" -c "qa"
 #--------------------------------------------------------------------------------------------------------
 
-#make sure all the files are owned by the local user and not by the root account
-sudo chown -Rv $SUDO_USER *
+# Make sure all the files are owned by the local user and not by the root account
+sudo chown -Rv $USERNAME *
 
 sudo mkdir -v $USER_HOME/.config
 sudo mkdir -v $USER_HOME/.scripts
@@ -116,10 +120,10 @@ sudo mkdir -pv $USER_HOME/.cache/temp_my_ms
 sudo mkdir -pv $USER_HOME/.cache/temp_my_ms/youtube-dl
 
 # Give correct ownership to the folders
-sudo chown -Rv $SUDO_USER $USER_HOME/.config
-sudo chown -Rv $SUDO_USER $USER_HOME/.scripts
-sudo chown -Rv $SUDO_USER $USER_HOME/.local/
-sudo chown -Rv $SUDO_USER $USER_HOME/.cache/temp_my_ms
+sudo chown -Rv $USERNAME $USER_HOME/.config
+sudo chown -Rv $USERNAME $USER_HOME/.scripts
+sudo chown -Rv $USERNAME $USER_HOME/.local/
+sudo chown -Rv $USERNAME $USER_HOME/.cache/temp_my_ms
 
 sudo mkdir -pv $USER_HOME/.cache/temp_my_personall_ms
 
@@ -140,15 +144,15 @@ sudo mkdir -pv $USER_HOME/Pictures/wallpaper
 sudo cp -r backup/wallpaper/* $USER_HOME/Pictures/wallpaper/*
 sudo mkdir -pv $USER_HOME/Pictures/screenshots
 
-#download za vim-plug. vim-plug ti daje da skidas plugin-ove za vim/nvim
-#mozda bez sudo?
-sudo -u $SUDO_USER curl -fLo "${XDG_DATA_HOME:-$USER_HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# Download za vim-plug. vim-plug ti daje da skidas plugin-ove za vim/nvim
+# Mozda bez sudo?
+sudo -u $USERNAME curl -fLo "${XDG_DATA_HOME:-$USER_HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-#ovo treba da instalira sve plug-inove(preko PlugInstall) koje se nalaze u ~/.vimrc
-sudo -u $SUDO_USER nvim --headless +PlugInstall +qall
-#sudo -u $SUDO_USER nvim -es -u ${USER_HOME}/.vimrc -i NONE -c "PlugInstall" -c "qa"
+# Ovo treba da instalira sve plug-inove(preko PlugInstall) koje se nalaze u ~/.vimrc
+sudo -u $USERNAME nvim --headless +PlugInstall +qall
+# sudo -u $SUDO_USER nvim -es -u ${USER_HOME}/.vimrc -i NONE -c "PlugInstall" -c "qa"
 
-chsh -s /bin/zsh $SUDO_USER # Changes the default shell from (presumably) bash to zsh, you must relog for this to take effect
+chsh -s /bin/zsh $USERNAME # Changes the default shell from (presumably) bash to zsh, you must relog for this to take effect
 
 
 # Set default pdf viewer to "mupdf"

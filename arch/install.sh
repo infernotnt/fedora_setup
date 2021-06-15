@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 
 # Fontovi mozda ne rade: https://wiki.archlinux.org/index.php/fonts
 # Pogledati na tom sajtu chmod 444 i dodavanje u neki direktorijum (manual installation)

@@ -3,7 +3,7 @@
 # Fontovi mozda ne rade: https://wiki.archlinux.org/index.php/fonts
 # Pogledati na tom sajtu chmod 444 i dodavanje u neki direktorijum (manual installation)
 if [[ $EUID > 0 ]]
-then echo "Please run with sudo.(The ONLY way you should is \"sudo ./install.sh\")"
+then echo "Please run as root user. sudo.(The ONLY way you should is \"sudo ./install.sh\")"
 	exit
 fi
 
@@ -11,6 +11,8 @@ echo "WARNING: The ONLY way to run this is with sudo, \"sudo ./install.sh\"."
 echo "Make sure you ran it this way."
 sleep 3
 
+
+# User creation ===
 printf "Your username: "
 read USERNAME
 
@@ -18,6 +20,9 @@ read USERNAME
 USER_HOME=/home/$USERNAME/
 
 useradd $USERNAME -m -g wheel
+
+passwd $USERNAME
+# ===
 
 hostnamectl set-hostname archio
 

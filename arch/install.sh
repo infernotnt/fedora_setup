@@ -63,7 +63,7 @@ pacman -noconfirm --needed base-devel
 # MAXIMAL
 # xorg-xwayland     - Needed for brave-browser. (he can't play videos on native (not sure, maybe fixable)
 # xorg-xeyes        - Used for telling what program is running native wayland and which program is running xwayland
-pacman -noconfirm xorg-xwayland xorg-xeyes
+pacman --noconfirm -S xorg-xwayland xorg-xeyes
 
 
 # Ne znam da li ovo ukljucuje server

@@ -1,0 +1,32 @@
+* Prio 1
+
+Bluetooth
+Wlsunset
+
+* Prio 2
+
+path .zshrc da bude nezavistan od imena usera
+
+Emacs:
+  - Optimizacija
+  - Spellcheck 
+  - auto correct (ne bas auto, kliknes i on te vodi)
+  - Da radi bez latex
+
+waybar:
+ - fonts
+ - workspaces
+
+Install script
+ - Passwd install
+ - Driver install
+ - Texlive
+
+Brave native
+
+* Prio 3
+
+Clean skripta:
+ - sway
+ - nvim
+ - waybar, waybar css

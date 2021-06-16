@@ -279,16 +279,16 @@ Quickly insert a block of elisp (usefull for this config file):
                '("el" . "src emacs-lisp"))
 #+end_src
 
-Quickly insert a block of C:
+Quickly insert a block of C (off because <c interferes with #+begin_center)
 
-#+begin_src emacs-lisp
+#+begin_src OFF
   (add-to-list 'org-structure-template-alist
                '("c" . "src c"))
 #+end_src
 
 Quickly insert a block of C++:
 
-#+begin_src emacs-lisp
+#+begin_src OFF
   (add-to-list 'org-structure-template-alist
                '("cpp" . "src cpp"))
 #+end_src
@@ -487,7 +487,7 @@ Indent with 2 spaces.
 #+end_src
 
 
-* Spell sheck NE RADI
+* Spell sheck TODO
 
 #+begin_src emacs-lisp
   (setq ispell-program-name "hunspell")
@@ -623,65 +623,65 @@ Reload
 
 Enable yasnippet
 
-#+begin_src emacs-lisp
-  ;(use-package yasnippet
-  ;  :ensure t)
+#+begin_src OFF
+  (use-package yasnippet
+    :ensure t)
 #+end_src
 
 I keep my snippets in =.config/emacs/snippets=, and I always want =yasnippet= enabled.
 
-#+begin_src emacs-lisp
-  ;(setq yas-snippet-dirs '("~/.config/emacs/snippets"))
-  ;(yas-global-mode 1)
+#+begin_src OFF
+  (setq yas-snippet-dirs '("~/.config/emacs/snippets"))
+  (yas-global-mode 1)
 #+end_src
 
 Disable yasnippet auto indentation.
 
-#+begin_src emacs-lisp
-  ;(setq yas-indent-line 'auto)
+#+begin_src OFF
+  (setq yas-indent-line 'auto)
 #+end_src
 
 ** srpski keymap
-#+begin_src emacs-lisp
-;  (define-key evil-normal-state-map "х" 'evil-shift-left)
-;  (define-key evil-normal-state-map "ј" 'evil-insert)
-;  (define-key evil-normal-state-map "к" 'evil-insert)
-;  (define-key evil-normal-state-map "л" 'evil-insert)
-;  (define-key evil-normal-state-map "" 'evil-insert)
-;  (define-key evil-normal-state-map "" 'evil-insert)
-;  (define-key evil-normal-state-map "" 'evil-insert)
-;  (define-key evil-normal-state-map "" 'evil-insert)
-;  (define-key evil-normal-state-map "и" 'evil-insert)
+#+begin_src OFF
+  (define-key evil-normal-state-map "х" 'evil-shift-left)
+  (define-key evil-normal-state-map "ј" 'evil-insert)
+  (define-key evil-normal-state-map "к" 'evil-insert)
+  (define-key evil-normal-state-map "л" 'evil-insert)
+  (define-key evil-normal-state-map "" 'evil-insert)
+  (define-key evil-normal-state-map "" 'evil-insert)
+  (define-key evil-normal-state-map "" 'evil-insert)
+  (define-key evil-normal-state-map "" 'evil-insert)
+  (define-key evil-normal-state-map "и" 'evil-insert)
 #+end_src
 
 
-#+begin_src emacs-lisp
-  ;(defun org-export-translate-to-lang (term-translations &optional lang)
-  ;  "Adds desired translations to `org-export-dictionary'.
-  ;   TERM-TRANSLATIONS is alist consisted of term you want to translate
-  ;   and its corresponding translation, first as :default then as :html and
-  ;   :utf-8. LANG is language you want to translate to."
-  ;  (dolist (term-translation term-translations)
-  ;    (let* ((term (car term-translation))
-  ;           (translation-default (nth 1 term-translation))
-  ;           (translation-html (nth 2 term-translation))
-  ;           (translation-utf-8 (nth 3 term-translation))
-  ;           (term-list (assoc term org-export-dictionary))
-  ;           (term-langs (cdr term-list)))
-  ;      (setcdr term-list (append term-langs
-  ;                                (list
-  ;                                 (list lang
-  ;                                       :default translation-default
-  ;                                       :html translation-html
-  ;                                       :utf-8 translation-utf-8)))))))
-  ;
-  ;(org-export-translate-to-lang '(("Table of Contents"
-  ;                                 "Sadržaj"
-  ;                                 "Sadr&#382;aj"
-  ;                                 "Sadržaj")
-  ;                                ("Another term"
-  ;                                 "coilogji"))
-  ;                              "sr")
+#+begin_src OFF
+  (defun org-export-translate-to-lang (term-translations &optional lang)
+    "Adds desired translations to `org-export-dictionary'.
+     TERM-TRANSLATIONS is alist consisted of term you want to translate
+     and its corresponding translation, first as :default then as :html and
+     :utf-8. LANG is language you want to translate to."
+    (dolist (term-translation term-translations)
+      (let* ((term (car term-translation))
+             (translation-default (nth 1 term-translation))
+             (translation-html (nth 2 term-translation))
+             (translation-utf-8 (nth 3 term-translation))
+             (term-list (assoc term org-export-dictionary))
+             (term-langs (cdr term-list)))
+        (setcdr term-list (append term-langs
+                                  (list
+                                   (list lang
+                                         :default translation-default
+                                         :html translation-html
+                                         :utf-8 translation-utf-8)))))))
+  
+  (org-export-translate-to-lang '(("Table of Contents"
+                                   "Sadržaj"
+                                   "Sadr&#382;aj"
+                                   "Sadržaj")
+                                  ("Another term"
+                                   "coilogji"))
+                                "sr")
 #+end_src
 ** OFF, or I don't know 
 *** window splitting functions (OFF, idk what it does)

@@ -96,11 +96,37 @@ alias tree="tree -C" # Makes it colored
 alias df="df -h"
 alias du="du -h"
 
+alias g="git add . ; git commit -m "c" ; git push"
+alias ga="git add ."        # ga = Git Add
+alias gc="git commit -m"    # gc = Git Commit
+alias gp="git push"         # gp = Git Push
+alias gs="git status"       # gs = Git Status
+
 alias starwars="telnet towel.blinkenlights.nl"
 alias bt="blueman-manager"
 alias snd="pavucontrol"
 alias term="exec alacritty&" # Opens terminal in current directory
 
+
+# Just some small conviniences===========
+alias cfv="$EDITOR ~/.config/nvim/init.vim"
+alias cfz="$EDITOR ~/.config/zsh/.zshrc"
+alias cfr="$EDITOR ~/fedora_setup/arch/README.md"
+alias cfe="$EDITOR ~/.config/emacs/config.org"
+alias cfs="$EDITOR ~/.config/sway/config"
+alias cdc="cd ~/.config"
+alias cds="cd ~/.scripts"
+
+alias cda="cd ~/fedora_setup/arch"
+alias er="$EDITOR ~/fedora_setup/arch/README.md"
+alias p="sudo pacman"
+alias P="sudo pacman --noconfirm"
+
+#===================
+
+#alias bluelight="gammastep -l 44:21"
+#alias brave-browser="~/brave-bin.sh -enable-features=UseOzonePlatform --ozone-platform=wayland"
+#
 # FZF ======================
 # MUST be after zsh vim mode. Enables fzf <Ctrl+T>, <Ctrl+R>, <Alt+C>
 source /usr/share/fzf/key-bindings.zsh
@@ -132,27 +158,6 @@ PS1="%F{196}%~$%f "
 # george hotz colors for macOS, does NOT work on linux, might consider converting it to linux
 #export LS_COLORS=cxgxfxexbxegedabagacad
 #-----
-# Just some small conviniences
-alias cfv="$EDITOR ~/.config/nvim/init.vim"
-alias cfz="$EDITOR ~/.config/zsh/.zshrc"
-alias cfr="$EDITOR ~/fedora_setup/arch/README.md"
-alias cfe="$EDITOR ~/.config/emacs/config.org"
-alias cfs="$EDITOR ~/.config/sway/config"
-
-alias cdc="cd ~/.config"
-alias cds="cd ~/.scripts"
-alias cdm="cd ~/fedora_setup/markdown/"
-
-alias cda="cd ~/fedora_setup/arch"
-alias er="$EDITOR ~/fedora_setup/arch/README.md"
-alias p="sudo pacman"
-alias P="sudo pacman --noconfirm"
-alias g="git add . ; git commit -m "c" ; git push"
-
-alias cdmat="cd ~/sync/skola/maturski"
-
-#alias bluelight="gammastep -l 44:21"
-#alias brave-browser="~/brave-bin.sh -enable-features=UseOzonePlatform --ozone-platform=wayland"
 
 
 # Adds color to man pages

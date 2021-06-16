@@ -1,13 +1,11 @@
 * Prio 1
 
-skripta za screenshot koja zapravo radi (prestiti iz swayconfig u skriptu)
-
 Wlsunset
 install san francisco https://aur.archlinux.org/packages/otf-san-francisco-mono/
 brave
 
 vim da radi u install script     - posle novog install-a
-Potvrditi da sync radi na novom kompu
+Potvrditi da sync radi na novom kompu    -    Osigurati se da cron install u skripti radi. Osigurati se da sam cronjob radi
 
 * Prio 2
 
@@ -52,4 +50,3 @@ Ukloniti .zshcompdump nekako
 
 luke_info.sh (u fedora_setup)
 
-Osigurati se da cron install u skripti radi. Osigurati se da sam cronjob radi

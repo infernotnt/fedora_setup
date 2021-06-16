@@ -30,7 +30,7 @@ pacman --noconfirm -S sudo man-db parted vi tree zip unzip git python3 rclone
 pacman --noconfirm -S alsa pavucontrol pulseaudio
 
 # Command line stuff
-pacman --noconfirm tldr tokei neofetch ripgrep fzf neovim emacs zsh openssh gcc ntfs-3g htop
+pacman --noconfirm -S tldr tokei neofetch ripgrep fzf neovim emacs zsh openssh gcc ntfs-3g htop
 pacman --noconfirm -S youtube-dl shellcheck cmatrix playerctl
 
 
@@ -70,24 +70,24 @@ sudo -u $USERNAME nvim -es -u ${USER_HOME}/.vimrc -i NONE -c "PlugInstall" -c "q
 #------------------------
 
 
-mkdir -v $USER_HOME/.config
-mkdir -v $USER_HOME/.scripts
-mkdir -pv $USER_HOME/.local/share/fonts
+mkdir -v    $USER_HOME/.config
+mkdir -v    $USER_HOME/.scripts
+mkdir -pv   $USER_HOME/.local/share/fonts
 
-mkdir -pv $USER_HOME/.cache/temp_my_ms
+mkdir -pv   $USER_HOME/.cache/temp_my_ms
 
-cp -rv backup/.config/* $USER_HOME/.config/
-cp -rv backup/.ssh $USER_HOME/.ssh
-cp -rv backup/.scripts/* $USER_HOME/.scripts
-cp -rv backup/.local/share/fonts/* $USER_HOME/.local/share/fonts/
+cp -rv backup/.config/*                 $USER_HOME/.config/
+cp -rv backup/.ssh                      $USER_HOME/.ssh
+cp -rv backup/.scripts/*                $USER_HOME/.scripts
+cp -rv backup/.local/share/fonts/*      $USER_HOME/.local/share/fonts/
 
-cp -v backup/.zshenv $USER_HOME/.zshenv
-cp -v backup/.profile $USER_HOME/.profile
-cp -v backup/.inputrc $USER_HOME/.inputrc
+cp -v backup/.zshenv                    $USER_HOME/.zshenv
+cp -v backup/.profile                   $USER_HOME/.profile
+cp -v backup/.inputrc                   $USER_HOME/.inputrc
 
 # Wallpaper
-mkdir -pv $USER_HOME/Pictures/
-cp -r backup/wallpaper/ $USER_HOME/Pictures/wallpaper/
+mkdir -pv                               $USER_HOME/Pictures/
+cp -r backup/wallpaper/                 $USER_HOME/Pictures/wallpaper/
 
 # Screenshots
 mkdir -pv $USER_HOME/Pictures/screenshots

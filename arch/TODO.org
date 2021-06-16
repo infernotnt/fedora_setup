@@ -2,7 +2,7 @@
 
 chronie drive sync
 skripta za screenshot koja zapravo radi (prestiti iz swayconfig u skriptu)
-Drive sync
+Drive sync                                                                      - rclonesync --first-sync db:/sync/ ~/sync
 
 Wlsunset
 install san francisco https://aur.archlinux.org/packages/otf-san-francisco-mono/
@@ -10,6 +10,7 @@ brave
 
 Bluetooth                        - kad prestane da radi
 vim da radi u install script     - posle novog install-a
+Potvrditi da sync radi na novom kompu
 
 * Prio 2
 
@@ -45,7 +46,11 @@ Clean skripta:
  - waybar, waybar css
  - uklniti .config/nvim/.net...
 
+locate, find itd...
+
 sync:
  - ukloniti sve instanace "milos" i zameniti sa ~ itd
 
 Ukloniti .zshcompdump nekako
+
+

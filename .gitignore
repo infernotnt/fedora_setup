@@ -1,6 +1,13 @@
 # Prerequisites
-*.d
 
 backup/.ssh/
 */.ssh
 .ssh
+.ssh/
+*/.ssh/
+*/.ssh/*
+
+rclone
+rclone.conf
+rclone/rclone.conf
+*/rclone.conf

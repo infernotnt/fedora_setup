@@ -11,8 +11,6 @@ brave
 
 * Prio 2
 
-Nov line counter (mozda), Skripta za brojanje git linija reda ( u temp directory)
-
 Emacs:
   - Optimizacija
   - Spellcheck 
@@ -30,9 +28,19 @@ Install script
 
 Brave native
 
+onaj system monitor
+
 * Prio 3
+
+fzf scroll kao na drugim skriptama za fzf da bude i na "pacs", mozda da stavim da je unique definicija fzf
 
 Clean skripta:
  - sway
  - nvim
  - waybar, waybar css
+ - uklniti .config/nvim/.net...
+
+sync:
+ - ukloniti sve instanace "milos" i zameniti sa ~ itd
+
+Ukloniti .zshcompdump nekako

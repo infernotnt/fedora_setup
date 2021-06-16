@@ -22,10 +22,10 @@ fi
 printf "Subtitle = $subtitle \n"
 printf "Link = $link \n"
 
-rm -f $HOME/.cache/temp_my_ms/youtube-dl/izlaz-*
+rm $HOME/.cache/temp_my_ms/youtube-dl/izlaz-*
 
 youtube-dl --skip-download --output '$HOME/.cache/temp_my_ms/youtube-dl/izlaz-%(title)s-%(upload_date)s-%(id)s' $subtitle $link
 
-$EDITOR izlaz-*
+$EDITOR izlaz*
 
 exit 0

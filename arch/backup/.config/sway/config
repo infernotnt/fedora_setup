@@ -6,13 +6,12 @@
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
-#mozda da dodamo ovo sto oni stavljaju "--no-startup-id" na krsa stvari, pogledaj na netu sta to radi
 set $mod Mod4
 set $alt Mod1
 set $terminal alacritty
 set $browser brave
 set $file_browser pcmanfm
-font pango:System San Francisco Display Regular
+font pango:SFNS Display:style=Regular
 
 # Monitor setup ----------------------------------
 # Puts my 2 monitors in correct order, correct resolution and refresh rate
@@ -71,7 +70,7 @@ bindsym $mod+Ctrl+l move right 30
 
 
 # Opens terminal
-bindsym $mod+Return exec --no-startup-id $terminal
+bindsym $mod+Return exec $terminal
 
 
 # Kills the currently focused window
@@ -112,7 +111,7 @@ input "type:keyboard" {
 bindsym $mod+t split toggle
 
 # Very usefull. Super/Windows key starts (and kills) application launcher. Windows 10 like
-bindcode --release 133 exec --no-startup-id ~/.scripts/sway/toggle_application_launcher.sh
+bindcode --release 133 exec ~/.scripts/sway/toggle_application_launcher.sh
 
 # Enable window settings for application launcher window called EXCATLY "application_launcher"
 for_window [title="^application_launcher$"] floating enable, border none, opacity 0.8, move position center, resize set 800 300
@@ -133,10 +132,10 @@ for_window [app_id="zenity"] floating enable, border none, move position center,
 #bindsym $mod+$alt+k resize shrink height 10px
 #bindsym $mod+$alt+l resize grow   width  10px
 
-bindsym $mod+$alt+h		exec --no-startup-id "bash ~/.scripts/sway/rs left"
-bindsym $mod+$alt+j		exec --no-startup-id "bash ~/.scripts/sway/rs down"
-bindsym $mod+$alt+k		exec --no-startup-id "bash ~/.scripts/sway/rs up"
-bindsym $mod+$alt+l		exec --no-startup-id "bash ~/.scripts/sway/rs right"
+bindsym $mod+$alt+h		exec "bash ~/.scripts/sway/rs left"
+bindsym $mod+$alt+j		exec "bash ~/.scripts/sway/rs down"
+bindsym $mod+$alt+k		exec "bash ~/.scripts/sway/rs up"
+bindsym $mod+$alt+l		exec "bash ~/.scripts/sway/rs right"
 
 #bindsym $mod+alt+h exec  ~/.scripts/i3-smart-resize "Left" "1 px or 1 ppt"
 #bindsym $mod+alt+j exec ~/.scripts/i3-smart-resize "Right" "1 px or 1 ppt"
@@ -168,10 +167,10 @@ bindsym $mod+space focus mode_toggle
 
 
 # Opens the preffered web browser
-bindsym $mod+w exec --no-startup-id $browser
+bindsym $mod+w exec $browser
 
 # Opens the preffered file browser
-bindsym $mod+e exec --no-startup-id $file_browser
+bindsym $mod+e exec $file_browser
 
 
 
@@ -219,12 +218,12 @@ bindsym $mod+f fullscreen toggle
 #-------------------------------------------------------------------------------------------
 
 #TODO: namesti da ovo radi, izmeni celu komandu ako treba
-bindsym $mod+a exec --no-startup-id ddspawn dropdowncalc -f mono:pixelsize=24
+bindsym $mod+a exec ddspawn dropdowncalc -f mono:pixelsize=24
 
 
 #TODO, does not hover where it should
-bindsym $mod+Shift+b	floating toggle; sticky toggle; exec --no-startup-id hover left
-bindsym $mod+Shift+n	floating toggle; sticky toggle; exec --no-startup-id hover right
+bindsym $mod+Shift+b	floating toggle; sticky toggle; exec hover left
+bindsym $mod+Shift+n	floating toggle; sticky toggle; exec hover right
 
 
 
@@ -311,8 +310,8 @@ bindsym $mod+Ctrl+9 move container to workspace number 9
 #for_window [title="calc"] resize set 800 300
 #for_window [title="calc"] border pixel 2
 
-set $mute_mic_and_sound exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle ; exec --no-startup-id pactl set-sink-mute 0 1
-bindsym $mod+Shift+Delete $mute_mic_and_sound ; workspace $ws9 ; exec --no-startup-id $terminal -e htop ; exec --no-startup-id $file_browser
+set $mute_mic_and_sound exec pactl set-source-mute @DEFAULT_SOURCE@ toggle ; exec pactl set-sink-mute 0 1
+bindsym $mod+Shift+Delete $mute_mic_and_sound ; workspace $ws9 ; exec $terminal -e htop ; exec $file_browser
 
 #------------------------------------------------------------------------------------------------
 

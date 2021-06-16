@@ -501,7 +501,7 @@ Indent with 2 spaces.
 
   (setq ispell-program-name "hunspell")
   (setq ispell-hunspell-dict-paths-alist
-  '(("sr" "/home/milos/kita/sr.aff")))
+  '(("sr" "/home/ne/asdf/sr.aff")))
 
   (setq ispell-local-dictionary "sr")
   (setq ispell-local-dictionary-alist

@@ -106,7 +106,6 @@ mkdir -v $USER_HOME/.scripts
 mkdir -pv $USER_HOME/.local/share/fonts
 
 mkdir -pv $USER_HOME/.cache/temp_my_ms
-mkdir -pv $USER_HOME/.cache/temp_my_ms/youtube-dl
 
 cp -rv backup/.config/* $USER_HOME/.config/
 cp -rv backup/.ssh $USER_HOME/.ssh

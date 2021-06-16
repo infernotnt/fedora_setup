@@ -1,6 +1,5 @@
 # FZF
 
-
 -e        - exact flag
 C-n C-p   - next - previous
 Tab       - select
@@ -20,6 +19,7 @@ TODO:
 * mozda ripgrep intergracija
 * Alt-C ali za hidden file-ove
 * onaj file tree kao `nixcasts`
+* onaj prompt sranje, da bude iste boje kao terminal text color
 
 https://www.youtube.com/watch?v=qgG5Jhi_Els
 

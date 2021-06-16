@@ -9,6 +9,8 @@ Wlsunset
 install san francisco https://aur.archlinux.org/packages/otf-san-francisco-mono/
 brave
 
+skripta za screenshot koja zapravo radi (prestiti iz swayconfig u skriptu)
+
 * Prio 2
 
 Emacs:

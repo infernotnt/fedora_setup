@@ -2,7 +2,7 @@
 # man 5 sway
 # searchuj: smart, CRTIERIA, inverse_outer
 
-# Fix for GTK+ application taking 20 seconds to start (namely, waybar) (https://github.com/swaywm/sway/wiki)
+# Fix bug for GTK+ application taking 20 seconds to start (namely, waybar) (https://github.com/swaywm/sway/wiki)
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
@@ -25,16 +25,12 @@ workspace 2 output DVI-D-1
 
 #TODO: pogledaj u man 5 sway, posle namestanj workspace-ova(otprilike)          focus_wrapping workspace
 
-# (TODO: iskluceno jer skripta baguje) Bluelight filter (the scripts is used it doesn't start mutiple instances of wlsunset)
-exec_always ~/.scripts/run-wlsunset
-#----------jes(not really: default good but just in case i guess)
-
+# Toggle wlsunset (b = bluelight)
+bindsym $mod+b exec ~/.scripts/toggle-wlsunset
 
 #TODO, dodati negde u notes i komentar da moze i mega op resize na DUGME + desni klik
 floating_modifier $mod normal
 #------------------------------------------------------------------------
-
-
 
 # Screenshot whole screen (first part of command saves the screenshot, second part of the commands saves it to system clipboard)
 bindsym Print exec take-screenshot
@@ -42,14 +38,6 @@ bindsym Print exec take-screenshot
 bindsym $mod+Shift+s exec exec take-screenshot snip
 
 #====
-
-# Screenshot whole screen (first part of command saves the screenshot, second part of the commands saves it to system clipboard)
-#bindsym Print exec grim -c - | wl-copy ; exec ~/.scripts/save_clipboard_to_image.sh
-# Screenshot selection (shorcut like in Windows 10)(first part of command saves the screenshot, second part of the commands saves it to system clipboard)
-#bindsym $mod+Shift+s exec grim -c -g "$(slurp -d)" - | wl-copy ; exec ~/.scripts/save_clipboard_to_image.sh
-
-
-
 
 #Scratchpad stuff I guess
 ## Move the currently focused window to the scratchpad
@@ -234,7 +222,7 @@ bindsym $mod+a exec ddspawn dropdowncalc -f mono:pixelsize=24
 
 
 #TODO, does not hover where it should
-bindsym $mod+Shift+b	floating toggle; sticky toggle; exec hover left
+#bindsym $mod+Shift+b	floating toggle; sticky toggle; exec hover left
 bindsym $mod+Shift+n	floating toggle; sticky toggle; exec hover right
 
 

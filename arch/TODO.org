@@ -1,18 +1,24 @@
 * Prio 1
 
-Wlsunset
-install san francisco https://aur.archlinux.org/packages/otf-san-francisco-mono/
-brave
+aur:
+  Wlsunset
+  install san francisco https://aur.archlinux.org/packages/otf-san-francisco-mono/
+  brave
 
 vim da radi u install script     - posle novog install-a
 Potvrditi da sync radi na novom kompu    -    Osigurati se da cron install u skripti radi. Osigurati se da sam cronjob radi
+
+
+Emacs:
+  - auto correct (ne bas auto, kliknes i on te vodi)
+sway floating terminal (calc je python?)
+system monitor
 
 * Prio 2
 
 Emacs:
   - Optimizacija, daemon?
   - Spellcheck 
-  - auto correct (ne bas auto, kliknes i on te vodi)
   - Da radi bez latex
 
 sway:
@@ -28,8 +34,6 @@ Install script
  - Texlive
 
 Brave native
-
-onaj system monitor
 
 * Prio 3
 

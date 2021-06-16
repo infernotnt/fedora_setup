@@ -1,0 +1,23 @@
+#!/bin/bash
+
+mkdir -pv $HOME/Pictures/screenshots
+
+if [ -z $1 ] # Regular screenshot
+then
+    grim -c - | wl-copy
+    path="$HOME/Pictures/screenshots/screenshot-$(date +%s)"
+    wl-paste > $path
+
+elif [ $1 == "snip" ] # Screenshoting only a part of the screen a.k.a. snipping
+then
+    grim -c -g "$(slurp -d)" - | wl-copy
+    path="$HOME/Pictures/screenshots/screenshot-$(date +%s)"
+    wl-paste > $path
+else
+    printf "ERROR: Unreckognized argument (see ~/.scripts/take-screenshot)\n"
+    exit 1
+fi
+
+printf "$path"
+
+exit 0

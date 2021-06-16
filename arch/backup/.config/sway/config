@@ -34,10 +34,22 @@ exec_always ~/.scripts/run-wlsunset
 floating_modifier $mod normal
 #------------------------------------------------------------------------
 
+
+
 # Screenshot whole screen (first part of command saves the screenshot, second part of the commands saves it to system clipboard)
-bindsym Print exec grim -c - | wl-copy ; exec ~/.scripts/save_clipboard_to_image.sh
+bindsym Print exec take-screenshot
 # Screenshot selection (shorcut like in Windows 10)(first part of command saves the screenshot, second part of the commands saves it to system clipboard)
-bindsym $mod+Shift+s exec grim -c -g "$(slurp -d)" - | wl-copy ; exec ~/.scripts/save_clipboard_to_image.sh
+bindsym $mod+Shift+s exec exec take-screenshot snip
+
+#====
+
+# Screenshot whole screen (first part of command saves the screenshot, second part of the commands saves it to system clipboard)
+#bindsym Print exec grim -c - | wl-copy ; exec ~/.scripts/save_clipboard_to_image.sh
+# Screenshot selection (shorcut like in Windows 10)(first part of command saves the screenshot, second part of the commands saves it to system clipboard)
+#bindsym $mod+Shift+s exec grim -c -g "$(slurp -d)" - | wl-copy ; exec ~/.scripts/save_clipboard_to_image.sh
+
+
+
 
 #Scratchpad stuff I guess
 ## Move the currently focused window to the scratchpad

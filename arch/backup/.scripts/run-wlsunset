@@ -2,18 +2,13 @@
 
 # This script checks if wlsunset is running, if it isn't, then it will start it. If it is already running, the script does nothing.
 
-output1=$(ps -aux | grep "wlsunset" | grep -v "grep wlsunset" ".scripts/run-wlsunset")
+output1=$(ps aux | grep "wlsunset" | grep -v "grep wlsunset" ".scripts/run-wlsunset")
 
-output2=$(printf "$output1" | wc -c)
+printf "output1=$output1"
 
-printf "output1=$output1 TOOOOOOOOOOOOO"
-echo $output1
-
-#echo output2=
-#echo $output2
-
-if [ $output2 == 0 ]
-     then wlsunset -l 45 -L 20
+if [ -z $output1 ]
+then
+    wlsunset -l 45 -L 20
 fi
 
 exit 0

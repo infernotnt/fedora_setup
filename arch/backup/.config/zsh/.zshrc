@@ -1,5 +1,5 @@
 # Addition to PATH variable
-export PATH=/home/milos/.scripts:$PATH
+export PATH=~/.scripts:$PATH
 
 # Python stuff
 #export PATH="/home/milos/miniconda3/bin:$PATH"

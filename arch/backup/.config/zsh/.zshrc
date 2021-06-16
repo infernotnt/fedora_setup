@@ -2,7 +2,7 @@
 export PATH=/home/milos/.scripts:$PATH
 
 # Python stuff
-export PATH="/home/milos/miniconda3/bin:$PATH"
+#export PATH="/home/milos/miniconda3/bin:$PATH"
 # The following lines were added by compinstall
 
 #zstyle ':completion:*' auto-description 'specify %d'

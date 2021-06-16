@@ -30,7 +30,7 @@ pacman --noconfirm -S sudo man-db parted vi tree zip unzip git python3 rclone
 pacman --noconfirm -S alsa pavucontrol pulseaudio
 
 # Command line stuff
-pacman --noconfirm -S tldr tokei neofetch ripgrep fzf neovim emacs zsh openssh gcc ntfs-3g htop
+pacman --noconfirm -S tldr tokei neofetch ripgrep fzf neovim emacs zsh openssh gcc ntfs-3g htop cronie
 pacman --noconfirm -S youtube-dl shellcheck cmatrix playerctl
 
 
@@ -41,8 +41,7 @@ pacman --noconfirm -S mesa
 pacman --noconfirm -S sway swaylock swaybg waybar
 pacman --noconfirm -S wl-clipboard
 pacman --noconfirm -S xorg-xwayland xorg-xeyes
-pacman --noconfirm -S img swappy
-pacman --noconfirm -S grim slurp
+pacman --noconfirm -S img swappy grim slurp
 
 # Gui
 pacman --noconfirm -S alacritty
@@ -95,7 +94,10 @@ mkdir -pv $USER_HOME/Pictures/screenshots
 fc-cache -f -v
 
 # ==== Personal ======
-cp -rv backup/.ssh                      $USER_HOME/.ssh
+# Sets up crontab/cronjob for $USER
+crontab -e -u $USERNAME     backup/cronjob
+
+cp -rv backup/.ssh          $USER_HOME/.ssh
 
 # https://github.com/cjnaz/rclonesync-V2
 sudo -u $USERNAME mkdir $USER_HOME/sync

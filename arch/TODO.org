@@ -51,3 +51,5 @@ sync:
 Ukloniti .zshcompdump nekako
 
 luke_info.sh (u fedora_setup)
+
+Osigurati se da cron install u skripti radi. Osigurati se da sam cronjob radi

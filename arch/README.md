@@ -189,13 +189,6 @@ https://mike.place/2017/fzf-fd/
           * termometar za temperaturu da bude napunjen do kraja ili skroz prazan
           * waybar: kad kliknes na sat, ili datum ili tako nesto, upali se kalendar (malo nepotrebno, mogu samo da koristim google calendar ili tako nesto)
 
-## backup, nepotrebno, samo random ideje:
-
-     * da pita za username, i onda je full instalacija sa sudo account-a, i da pita za driver koji se koristi, nvidia ili mesa
-     * caps lock i escape swap vec u samom tty-u, ne oslanjaj se na sway
-     * ukloniti .vim (msm da se koristi za plug-inove)
-     * u install skripti, nemoj koristiti sudo, neko neku promenljivu, tipa $AUTH, i onda mogu staviti umesto nje "doas" umesto "sudo".
-
 ## kul programi
 * sherlock (github) - trazi tvoj username na mnogim sajtovima
 * navodno okej programi:
@@ -223,13 +216,6 @@ https://mike.place/2017/fzf-fd/
         * <leader> tr   - table mode realign (:TableModeRealign)
         * <leader> tt   - format existing content into table (visualy select multiple lines and then Tableize) (:Tableize)
         * <leader> tic  - table mode insert column
-
-## TODO laptop:
-     * wifi, signal strength na ikonici i ime mreze
-     * baterija
-     * brightness
-
-## waybar random ideje:
 
 
 ## TODO USER - PRE-INSTALL

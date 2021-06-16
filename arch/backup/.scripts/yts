@@ -1,6 +1,8 @@
 #!/bin/bash
 
-mkdir -pv ~/.cache/temp_my_ms/youtube-dl/
+subdir="$HOME/.cache/temp_my_ms/yts"
+
+mkdir -pv "$subdir"
 
 if [ $1 == "auto" ]
 then
@@ -22,10 +24,11 @@ fi
 printf "Subtitle = $subtitle \n"
 printf "Link = $link \n"
 
-rm $HOME/.cache/temp_my_ms/youtube-dl/izlaz-*
+cd $subdir
+rm "izlaz-"*
 
-youtube-dl --skip-download --output '$HOME/.cache/temp_my_ms/youtube-dl/izlaz-%(title)s-%(upload_date)s-%(id)s' $subtitle $link
+youtube-dl --skip-download --restrict-filenames --output './izlaz-%(title)s-%(upload_date)s-%(id)s' $subtitle $link
 
-$EDITOR izlaz*
+$EDITOR "izlaz-"*
 
 exit 0

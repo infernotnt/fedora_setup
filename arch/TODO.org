@@ -1,11 +1,17 @@
 * Prio 1
 
 Bluetooth
+chronie drive sync
+vim da radi u install script
+
+Drive sync
 Wlsunset
+install san francisco https://aur.archlinux.org/packages/otf-san-francisco-mono/
+brave
 
 * Prio 2
 
-path .zshrc da bude nezavistan od imena usera
+Nov line counter (mozda), Skripta za brojanje git linija reda ( u temp directory)
 
 Emacs:
   - Optimizacija

@@ -28,13 +28,10 @@ hostnamectl set-hostname archio
 
 pacman --noconfirm -Syu
 
-pacman --noconfirm -S sudo man-db zsh htop parted fzf neovim emacs
+pacman --noconfirm -S sudo man-db zsh htop parted neovim emacs
 
 # NOTE: don't install if you have nvidia graphics card
 pacman --noconfirm -S mesa
-
-
-pacman --noconfirm -S ttf-jetbrains-mono
 
 pacman --noconfirm -S sway swaylock swaybg waybar
 
@@ -42,7 +39,7 @@ pacman --noconfirm -S firefox alacritty
 
 pacman --noconfirm -S youtube-dl shellcheck cmatrix playerctl
 
-pacman --noconfirm -S zip unzip git tldr tokei tree neofetch
+pacman --noconfirm -S zip unzip git tldr tokei tree neofetch ripgrep fzf 
 
 # For google cloud sync (python3 for bidirectional sync: https://github.com/cjnaz/rclonesync-V2 )
 pacman --noconfirm -S rclone python3

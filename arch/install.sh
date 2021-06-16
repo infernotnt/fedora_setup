@@ -14,7 +14,7 @@ printf "Creating new user. Username: "
 read USERNAME
 
 #USER_HOME=$(getent passwd $SUDO_USER | cut -d: -f6)
-USER_HOME=/home/$USERNAME/
+USER_HOME=/home/$USERNAME
 
 useradd $USERNAME -m -g wheel --groups lp
 
@@ -77,7 +77,6 @@ mkdir -pv   $USER_HOME/.local/share/fonts
 mkdir -pv   $USER_HOME/.cache/temp_my_ms
 
 cp -rv backup/.config/*                 $USER_HOME/.config/
-cp -rv backup/.ssh                      $USER_HOME/.ssh
 cp -rv backup/.scripts/*                $USER_HOME/.scripts
 cp -rv backup/.local/share/fonts/*      $USER_HOME/.local/share/fonts/
 
@@ -95,8 +94,18 @@ mkdir -pv $USER_HOME/Pictures/screenshots
 # Install fonts placed in .local
 fc-cache -f -v
 
+# ==== Personal ======
+cp -rv backup/.ssh                      $USER_HOME/.ssh
+
+# https://github.com/cjnaz/rclonesync-V2
+sudo -u $USERNAME mkdir $USER_HOME/sync
+sudo -u $USERNAME $USER_HOME/.scripts/rclonesync --first-sync --verbose db:/sync $USER_HOME/sync/
+# ====================
+
 # Make sure all the files are owned by the local user and not by the root account
 chown -Rv $USERNAME $USER_HOME/
 
 # Changes the default shell from zsh, you must relog for this to take effect
 chsh -s /bin/zsh $USERNAME 
+
+

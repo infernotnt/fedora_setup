@@ -1,10 +1,7 @@
-# Addition to PATH variable
-export PATH=~/.scripts:$PATH
+# Environment variables are in ~/.zshenv
+# Path variable is in ~/.zshenv
 
-# Python stuff
-#export PATH="/home/milos/miniconda3/bin:$PATH"
-# The following lines were added by compinstall
-
+#-------------------------------------------------------------------
 #zstyle ':completion:*' auto-description 'specify %d'
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
 #zstyle ':completion:*' format 'Completing %d'
@@ -21,6 +18,7 @@ zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p
 zstyle ':completion:*' use-compctl true
 zstyle ':completion:*' verbose true
 zstyle :compinstall filename "$HOME/.config/zsh/.zshrc"
+#-------------------------------------------------------------------
 
 # NOTE: you CAN still use many emacs(and other) style commands in vim (either modes), e.g. Ctrl+w, Ctrl+d, Ctrl+l
 
@@ -75,12 +73,6 @@ zle -N zle-line-init
 echo -ne '\e[6 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[6 q' ;} # Use beam shape cursor for each new prompt.
 
-#environment variables============================
-export EDITOR="nvim"
-export VISUAL="nvim"
-export TERMINAL="alacritty"
-export BROWSER="brave"
-export FILE_BROWSER="pcmanfm"
 
 #export MANPAGER='nvim +Man!' # Enables highlighting on man pages, TODO: bolje je kad nvim nije man pager jer se cursor pojavljuje i tako neke stvari, bilo bi bolje mozda kad bi se vratilo na native ali kada bi jos i moglo da bude rice-ovano aka highlightovano, a mozda i da ostavim kao sa nvim-a, ali da samo koristim pravi naci za kretanje
 #=================================================
@@ -89,7 +81,7 @@ export FILE_BROWSER="pcmanfm"
 #alias D="sudo dnf -y"
 
 alias sudo="sudo "
-alias v="nvim"
+alias v="$EDITOR"
 alias e="$EDITOR"
 alias mkdir="mkdir -pv"
 alias mkd="mkdir -pv"
@@ -111,8 +103,9 @@ alias term="exec alacritty&" # Opens terminal in current directory
 
 # FZF ======================
 # MUST be after zsh vim mode. Enables fzf <Ctrl+T>, <Ctrl+R>, <Alt+C>
-. /usr/share/fzf/key-bindings.zsh
-. /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+
 
 
 #export FZF_DEFAULT_OPTS="--no-mouse --height 50% -1 --reverse --multi --inline-info --preview='[[ \$(file --mime {}) =- binary ]] && echo {} is a binary file || (bat --style=numbers --color=always {} ||k"

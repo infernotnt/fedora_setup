@@ -1,23 +1,26 @@
 * Prio 1
 
-Bluetooth
 chronie drive sync
-vim da radi u install script
-
+skripta za screenshot koja zapravo radi (prestiti iz swayconfig u skriptu)
 Drive sync
+
 Wlsunset
 install san francisco https://aur.archlinux.org/packages/otf-san-francisco-mono/
 brave
 
-skripta za screenshot koja zapravo radi (prestiti iz swayconfig u skriptu)
+Bluetooth                        - kad prestane da radi
+vim da radi u install script     - posle novog install-a
 
 * Prio 2
 
 Emacs:
-  - Optimizacija
+  - Optimizacija, daemon?
   - Spellcheck 
   - auto correct (ne bas auto, kliknes i on te vodi)
   - Da radi bez latex
+
+sway:
+ - dmenu, floating window, floating calculator
 
 waybar:
  - fonts

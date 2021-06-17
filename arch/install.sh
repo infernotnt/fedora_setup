@@ -104,6 +104,8 @@ sudo -u $USERNAME curl -fLo "${XDG_DATA_HOME:-$USER_HOME/.local/share}"/nvim/sit
 sudo -u $USERNAME nvim -es -u ${USER_HOME}/.vimrc -i NONE -c "PlugInstall" -c "qa"
 
 
+mkdir -pv /home/user/share/dict/hunspell-custom
+cp -v backup/dictionaries/* /home/user/share/dict/hunspell-custom/
 #------------------------
 
 

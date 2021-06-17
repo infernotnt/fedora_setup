@@ -47,3 +47,6 @@ sudo cp -v ~/.inputrc                          backup/.inputrc
 sudo cp -v ~/Pictures/wallpaper/wallpaper      backup/wallpaper/wallpaper
 
 crontab -l > backup/crontab
+
+mkdir -pv backup/dictionaries
+cp -rv /usr/share/dict/hunspell-custom/ backup/dictionaries/

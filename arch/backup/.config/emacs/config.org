@@ -490,46 +490,25 @@ Indent with 2 spaces.
 * Spell sheck TODO
 
 #+begin_src emacs-lisp
-
-  (setq ispell-program-name "hunspell")
-
-  (setq ispell-dictionary "sr-Latn")
-
+  (setq auto-window-vscroll nil)
 #+end_src
 
 #+begin_src emacs-lisp
+
+  (setq ispell-program-name "hunspell") ; Use hunspell (hunspell binary needs to be in PATH environment path)(instead of the default "ispell")
+
+  (setq ispell-dictionary "sr-Latn")      ; Latinica
+  ;(setq ispell-dictionary "sr")           ; Cirilica
+  ;(setq ispell-dictionary "en_US")
+
+#+end_src
+
+Enable spellcheck (flyspell-mode) in text files
+
+#+begin_src OFF
   (dolist (hook '(text-mode-hook))
     (add-hook hook (lambda () (flyspell-mode 1))))
 #+end_src
-
-#+begin_src OFF
-  (use-package flyspell
-    :config
-    (dolist (hook prose-mode-hooks)
-      (add-hook hook 'flyspell-mode)))
-#+end_src
-
-#+begin_src OFF
-  (setq ispell-program-name "hunspell")
-  (setq ispell-local-dictionary "sr")
-  (setq ispell-local-dictionary-alist
-        '(("sr" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil nil nil utf-8)))
-  (flyspell-mode 1)
-  
-  
-
-
-  (setq ispell-program-name "hunspell")
-  (setq ispell-hunspell-dict-paths-alist
-  '(("sr" "/home/ne/asdf/sr.aff")))
-
-  (setq ispell-local-dictionary "sr")
-  (setq ispell-local-dictionary-alist
-  '(("sr" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil ("-d" "sr") nil utf-8)))
-  (flyspell-mode 1)
-#+end_src
-
-
 
 * Ido (TODO replace)
   *TODO: Good alternatives to Ido are /helm/ and /swiper/* (mozda nadji koji je dobar sa evil mode-om, i org mode-om) (najvrv koristi helm jer msm da je mnooogo popularniji od ostalih)
@@ -576,7 +555,8 @@ Indent with 2 spaces.
 
 * modeline
 ** spaceline (TODO: pick better line that
-#+begin_src emacs-lisp
+
+#+begin_src OFF
   (use-package spaceline
     :ensure t
     :config

@@ -3,6 +3,8 @@ export ZDOTDIR=$HOME/.config/zsh
 # Addition to PATH variable
 export PATH=~/.scripts:$PATH
 
+export DICPATH=/usr/share/dict/hunspell-custom
+
 # Disables the useless "less" command history file that is usualy put in the home directory
 export LESSHISTFILE="-"
 

@@ -27,6 +27,9 @@ system monitor
 
 * Prio 2
 
+Emacs spell check:
+ - spell check koji radi za sve reci u fajlu, a ne samo one na koje hoverujem
+
 Skripta, backup:
     paru:
         wlsunset

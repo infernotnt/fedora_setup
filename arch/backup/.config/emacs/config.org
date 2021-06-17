@@ -490,6 +490,16 @@ Indent with 2 spaces.
 * Spell sheck TODO
 
 #+begin_src emacs-lisp
+  (dolist (hook '(text-mode-hook))
+    (add-hook hook (lambda () (flyspell-mode 1))))
+
+  ;(use-package flyspell
+  ;  :config
+  ;  (dolist (hook prose-mode-hooks)
+  ;    (add-hook hook 'flyspell-mode)))
+#+end_src
+
+#+begin_src OFF
   (setq ispell-program-name "hunspell")
   (setq ispell-local-dictionary "sr")
   (setq ispell-local-dictionary-alist

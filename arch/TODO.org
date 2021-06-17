@@ -1,13 +1,8 @@
 * Plan za sutra
 
-1. Paru:
-     wlsunset
-     san francisco
-     brave
+1. emacs stuff (opciono)
 
-2. emacs stuff (opciono)
-
-3. novi sistem (ne diraj stari!!!, dodaj treci)
+2. novi sistem (ne diraj stari!!!, dodaj treci)
     1. radi sve od juce (i sync)
     2. vim da radi
     3. bluetooth da radi
@@ -31,6 +26,12 @@ system monitor
 
 * Prio 2
 
+Skripta, backup:
+    paru:
+        wlsunset
+        san francisco
+        brave
+
 Emacs:
   - Optimizacija, daemon?
   - Spellcheck 
@@ -42,6 +43,7 @@ sway:
 waybar:
  - fonts
  - workspaces
+ - wlsunset applet (da znam kad je ukljuceno)
 
 Install script
  - Passwd install

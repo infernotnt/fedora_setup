@@ -31,7 +31,7 @@ pacman --noconfirm -S alsa pavucontrol pulseaudio
 
 # Command line stuff
 pacman --noconfirm -S tldr tokei neofetch ripgrep fzf neovim emacs zsh openssh gcc ntfs-3g htop cronie
-pacman --noconfirm -S youtube-dl shellcheck cmatrix playerctl
+pacman --noconfirm -S youtube-dl shellcheck cmatrix playerctl translate-shell qrencode
 
 
 # Drivers
@@ -54,10 +54,48 @@ systemctl enable --now bluetooth.service
 pacman --noconfirm -S blueman
 rfkill unblock bluetooth
 
-# Maximal install
+# ============  Maximal install =================
 pacman --noconfirm -S --needed base-devel
+
+# --- Install paru (AUR helper) ----
+#cd ~
+#git clone https://aur.archlinux.org/paru.git
+#makepkg -si --asdeps --noconfirm
+#rm -rf ~/paru
+#
+#paru -S brave-bin otf-san-francisco wlsunset
+# ----------------------------------
+# -----------Without paru-----------
+
+cd ~
+mkdir -pv aur
+cd aur
+
+git clone https://aur.archlinux.org/brave-bin.git
+cd brave-bin
+makepkg -si --asdeps --noconfirm
+cd ../
+
+git clone https://aur.archlinux.org/packages/wlsunset/
+cd wlsunset
+makepkg -si --asdeps --noconfirm
+cd ../
+
+git clone https://aur.archlinux.org/packages/otf-san-francisco/
+cd otf-san-francisco
+makepkg -si --asdeps --noconfirm
+cd ../
+
+cd ~
+rm -rfv aur
+
+
+# ----------------------------------
+
 #pacman --noconfirm -S --needed texlive-most 
 #pacman --noconfirm -S --needed libreoffice-still pandoc
+
+# ===============================================
 
 # Neovim plugins
 # Download vim-plug

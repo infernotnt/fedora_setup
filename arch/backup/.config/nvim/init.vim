@@ -283,10 +283,8 @@ inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 set encoding=utf-8
 set fileencoding=utf-8
 
-set formatoptions-=cro " TODO: ne radi| Disable automatic commenting on new line
-
-
-" TODO: kad budem radio latex/markdown/cpp/c/python, staviti da se uvek kompajluje na isto dugme?
+" Disable automatic commenting on new line
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " TODO: vidi ovo, |luke smith|, syntax check za .sh fajlove, i da je sugestije(za .sh fajlove)
 map <leader>c :!clear && shellcheck -x %<Enter>

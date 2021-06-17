@@ -24,7 +24,7 @@
           "sway/workspaces"
     ],
     "modules-right": [
-              "tray",//nisam isprobao, TODO
+              "tray",
               "network",
               "pulseaudio",
               "clock",//TODO

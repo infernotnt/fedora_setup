@@ -2,6 +2,8 @@
 # man 5 sway
 # searchuj: smart, CRTIERIA, inverse_outer
 
+#TODO: pogledaj u man 5 sway, posle namestanj workspace-ova(otprilike)          focus_wrapping workspace
+
 # Fix bug for GTK+ application taking 20 seconds to start (namely, waybar) (https://github.com/swaywm/sway/wiki)
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
@@ -13,32 +15,28 @@ set $browser brave
 set $file_browser pcmanfm
 font pango:SFNS Display:style=Regular
 
-# Monitor setup ----------------------------------
-# Puts my 2 monitors in correct order, correct resolution and refresh rate
+# Personal
+# Monitor setup Puts my 2 monitors in correct order, correct resolution and refresh rate
 output DVI-D-1 pos 1920 0 res 1920x1080@60Hz
 output HDMI-A-1 pos 0 0 res 1920x1080@74.986Hz
 
+# Personal
 # Puts the starting workspaces on each monitor
 workspace 1 output HDMI-A-1
 workspace 2 output DVI-D-1
-#--------------------------------------------------
-
-#TODO: pogledaj u man 5 sway, posle namestanj workspace-ova(otprilike)          focus_wrapping workspace
 
 # Toggle wlsunset (b = bluelight)
 bindsym $mod+b exec ~/.scripts/toggle-wlsunset
 
 #TODO, dodati negde u notes i komentar da moze i mega op resize na DUGME + desni klik
 floating_modifier $mod normal
-#------------------------------------------------------------------------
 
 # Screenshot whole screen (first part of command saves the screenshot, second part of the commands saves it to system clipboard)
 bindsym Print exec take-screenshot
 # Screenshot selection (shorcut like in Windows 10)(first part of command saves the screenshot, second part of the commands saves it to system clipboard)
 bindsym $mod+Shift+s exec exec take-screenshot snip
 
-#====
-
+#===========================================
 #Scratchpad stuff I guess
 ## Move the currently focused window to the scratchpad
 #bindsym $mod+Shift+minus move scratchpad
@@ -46,12 +44,20 @@ bindsym $mod+Shift+s exec exec take-screenshot snip
 ## If there are multiple scratchpad windows, this command cycles through them.
 #bindsym $mod+minus scratchpad show
 #
-#==============
+#
+#
+# Scratchpad DEFAULT (TODO? zasto kad vratim window iz scratchpada je vec floating, neki moj setting ovo poremecava?)
+# Move the currently focused window to the scratchpad
+#bindsym $mod+Shift+minus move scratchpad
 
-#TODO?: resize, floating i obican da budu iste brzine, i da moze i gore i desno u isto vreme
-#TODO: scratchpad, ali da se ne upali odma tamo kao kod luke smitha, nego neki shortcut koji TRENUTNO upaljen window posalje u scratchpad, recimo pacman -Syu, ili tako nesto sto treba da se ceka, i onda kada zavrsi mogu da ga vratim. Mada umesto ovoga moze samo i stacked layout, ne znam jos. A mogu i da imam jedan workspace gde saljem tako stvari koje treba kad se cekaju. Sve u svemu, zakljucak mi je da mi vrv nece trebati scratchpad. idk dud
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+#bindsym $mod+minus scratchpad show
+#
+#=========================================================
 
-#WAYLAND
+# TODO send active window to scrathpad (unneccesary? samo koristi drugi workpace?)
+
 bar {
      swaybar_command waybar
 }
@@ -68,27 +74,20 @@ bindsym $mod+Ctrl+j move down 30
 bindsym $mod+Ctrl+k move up 30
 bindsym $mod+Ctrl+l move right 30
 
-
-# Opens terminal
+# Opens terminal emulator
 bindsym $mod+Return exec $terminal
 
 
 # Kills the currently focused window
-# TODO: consider the luke smith shit(maybe its good for scratchpads??)
 bindsym $mod+control+d kill
 
-#WAYLAND
 # Window border (1 pixel is more aesthetic but less practical)
 default_border pixel 2
 
-
-
-
-#WAYLAND
-# Disable mouse acceleration, TODO, videti da li radi, i strpati ispod negde?
+# Disable mouse acceleration
 input * accel_profile flat
-#input * {
-#}
+
+# Keyboard settings
 input "type:keyboard" {
      repeat_rate 25
      repeat_delay 250
@@ -103,14 +102,10 @@ input "type:keyboard" {
      xkb_layout us,hr,rs
 }
 
-
-
-
-#TODO: gde
-# TODO: Toggles in which orientation a new window will open(horizontal/vertical)
+# Toggles in which orientation a new window will open(horizontal/vertical)
 bindsym $mod+t split toggle
 
-# Very usefull. Super/Windows key starts (and kills) application launcher. Windows 10 like
+# Very usefull. Super/Windows key toggles application launcher. Windows 10 like
 bindcode --release 133 exec ~/.scripts/sway/toggle_application_launcher.sh
 
 # Enable window settings for application launcher window called EXCATLY "application_launcher"
@@ -127,32 +122,17 @@ for_window [app_id="zenity"] floating enable, border none, move position center,
 
 # ===================================================
 # Resize currently focused window (vim-like)
-#bindsym $mod+$alt+h resize shrink width  10px
-#bindsym $mod+$alt+j resize grow   height 10px
-#bindsym $mod+$alt+k resize shrink height 10px
-#bindsym $mod+$alt+l resize grow   width  10px
+bindsym $mod+$alt+h resize shrink width  10px
+bindsym $mod+$alt+j resize grow   height 10px
+bindsym $mod+$alt+k resize shrink height 10px
+bindsym $mod+$alt+l resize grow   width  10px
 
-bindsym $mod+$alt+h		exec "bash ~/.scripts/sway/rs left"
-bindsym $mod+$alt+j		exec "bash ~/.scripts/sway/rs down"
-bindsym $mod+$alt+k		exec "bash ~/.scripts/sway/rs up"
-bindsym $mod+$alt+l		exec "bash ~/.scripts/sway/rs right"
+#bindsym $mod+$alt+h		exec "bash ~/.scripts/sway/rs left"
+#bindsym $mod+$alt+j		exec "bash ~/.scripts/sway/rs down"
+#bindsym $mod+$alt+k		exec "bash ~/.scripts/sway/rs up"
+#bindsym $mod+$alt+l		exec "bash ~/.scripts/sway/rs right"
 
-#bindsym $mod+alt+h exec  ~/.scripts/i3-smart-resize "Left" "1 px or 1 ppt"
-#bindsym $mod+alt+j exec ~/.scripts/i3-smart-resize "Right" "1 px or 1 ppt"
-#bindsym $mod+alt+k exec    ~/.scripts/i3-smart-resize "Up" "1 px or 1 ppt"
-#bindsym $mod+alt+l exec  ~/.scripts/i3-smart-resize "Down" "1 px or 1 ppt"
 # ===================================================
-
-# Scratchpad DEFAULT (TODO? zasto kad vratim window iz scratchpada je vec floating, neki moj setting ovo poremecava?)
-# Move the currently focused window to the scratchpad
-bindsym $mod+Shift+minus move scratchpad
-
-# Show the next scratchpad window or hide the focused scratchpad window.
-# If there are multiple scratchpad windows, this command cycles through them.
-bindsym $mod+minus scratchpad show
-
-
-
 
 #TODO, bolji key bindingi za ovo, mozda ukloniti jedan od ovih, i videti kako ovo za split radi, da li moze da primi child opet
 bindsym $mod+y layout stacking
@@ -165,40 +145,20 @@ bindsym $mod+$alt+space floating toggle
 # Toggles selection mode
 bindsym $mod+space focus mode_toggle
 
-
 # Opens the preffered web browser
 bindsym $mod+w exec $browser
 
 # Opens the preffered file browser
 bindsym $mod+e exec $file_browser
 
-
-
-
 # Restarts sway, use after changing (and saving) the config file for i3
 bindsym $mod+r reload
 
-
-
-# WAYLAND
 # Wallpaper
-#exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper/wallpaper
 output "*" bg ~/Pictures/wallpaper/wallpaper fill
-
-
-
 
 # Iskljuceno jer nekad sjebem kad radim "Win + Shift + S" screenshot
 #bindsym $mod+Shift+Escape     exec --no-startup-id killall sway
-
-#NE RADI NA WAYLAND
-#set $freeze Distraction-free mode (super+shift+f to reactivate bindings)
-#mode "$freeze" { bindsym $mod+Shift+f mode "default"
-#}
-#bindsym $mod+Shift+f		mode "$freeze" ;; exec --no-startup-id notify-send "Distraction-free mode activated." "Press Super+Shift+f to return."
-
-
-
 
 # Lock the screen
 # NOTE: this is not 100% secure, it can be bypassed if you try
@@ -211,9 +171,6 @@ bindsym $mod+f fullscreen toggle
 # Compton, used for vsync, transparency and stuff
 # NOTE: compton might impact GAMING performance, usefull video: https://www.youtube.com/watch?v=3esPpe-fclIe
 # TODO: ukloniti ovo, wtf se desava, takodje: iz nekog razloga kad se pali kompjuter compton ne radi kako treba, a kad uradim Mod+R posle paljenja proradi?(ovo je mozda do ovog sleep 1 i zapravo mi se sve cini)
-
-
-
 
 #-------------------------------------------------------------------------------------------
 
@@ -338,8 +295,6 @@ client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-co
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $indicator-inactive-color
 #------------------------------------------------------------------------------------------------------------
 
-
-
 # Gaps stuff ==================================================================
 
 #
@@ -354,13 +309,8 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 #smart_gaps on
 #smart_borders no_gaps
 
-
-
 # Default gaps stuff
 #set $innerDefault 0
 #set $outerDefault 0
 #gaps inner 10
 #gaps outer 10
-#=============================
-#bindsym $mod+Shift+x exec --no-startup-id "sudo poweroff"
-#bindsym $mod+Shift+r exec --no-startup-id "sudo restart"

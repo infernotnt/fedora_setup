@@ -25,7 +25,7 @@ printf "Subtitle = $subtitle \n"
 printf "Link = $link \n"
 
 cd $subdir
-rm "izlaz-"*
+rm -v "izlaz-"*
 
 youtube-dl --skip-download --restrict-filenames --output './izlaz-%(title)s-%(upload_date)s-%(id)s' $subtitle $link
 

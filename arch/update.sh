@@ -50,3 +50,5 @@ crontab -l > backup/crontab
 
 mkdir -pv backup/dictionaries
 cp -rv /usr/share/dict/hunspell-custom/* backup/dictionaries/
+
+sudo chown -R $USER ./*

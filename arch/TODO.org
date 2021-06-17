@@ -1,64 +1,28 @@
-* Plan za sutra
+* Plan
 
-1. emacs stuff (opciono)
-    - ako ispell moze jako lako da doda srpski cirilicu i latinicu onda to, inace ---> hunspell
-
-2. novi sistem (ne diraj stari!!!, dodaj treci)
-    1. radi sve od juce (i sync)
+1. skripta, backup: tek kada dodam jos dosta toga (novi sistem (ne diraj stari!!!, dodaj treci))
+    1. radi sve od juce
+    2. sync da radi
+    3. cron da radi
     2. vim da radi
     3. bluetooth da radi
     4. da radi paru n stuff
+    5. vim da radi u install script     - posle novog install-a
+    6. spellcheck
+
+emacs:
+ * note, helm fzf ripgrep...
+ * optimizacija
 
 * Prio 1
 
-aur:
-  Wlsunset
-  install san francisco https://aur.archlinux.org/packages/otf-san-francisco-mono/
-  brave
-
-vim da radi u install script     - posle novog install-a
-Potvrditi da sync radi na novom kompu    -    Osigurati se da cron install u skripti radi. Osigurati se da sam cronjob radi
-
-
-Emacs:
-  - auto correct (ne bas auto, kliknes i on te vodi)
-sway floating terminal (calc je python?)
-system monitor
-
 * Prio 2
-
-Emacs spell check:
- - spell check koji radi za sve reci u fajlu, a ne samo one na koje hoverujem
-
-Skripta, backup:
-    paru:
-        wlsunset
-        san francisco
-        brave
 
 Emacs:
   - Optimizacija, daemon?
   - Spellcheck 
   - Da radi bez latex
-
-sway:
- - dmenu, floating window, floating calculator
-
-waybar:
- - fonts
- - workspaces
- - wlsunset applet (da znam kad je ukljuceno)
-
-Install script
- - Passwd install
- - Driver install
- - Texlive
-
-Brave native
-
-* Prio 3
-
-fzf scroll kao na drugim skriptama za fzf da bude i na "pacs", mozda da stavim da je unique definicija fzf
+  - spell check koji radi za sve reci u fajlu, a ne samo one na koje hoverujem
 
 Clean skripta:
  - sway
@@ -66,13 +30,31 @@ Clean skripta:
  - waybar, waybar css
  - uklniti .config/nvim/.net...
 
-locate, find itd...
+system monitor
 
-sync:
- - ukloniti sve instanace "milos" i zameniti sa ~ itd
+sway:
+ - dmenu, floating window, floating calculator
+
+sync na paljenju i gasenju (poweroff i restart?)
+
+Brave native
+
+* Prio 3
+
+
+locate, find itd...
 
 Ukloniti .zshcompdump nekako
 
-luke_info.sh (u fedora_setup)
+waybar:
+ - fonts
+ - workspaces
+ - wlsunset applet (da znam kad je ukljuceno)
+ - luke_info.sh (u fedora_setup)
 
 stavi da je qr kod floating (win+q <=> to-barcode)
+
+Install script
+ - Passwd install
+ - Driver install
+ - Texlive

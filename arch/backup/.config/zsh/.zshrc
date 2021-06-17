@@ -81,6 +81,7 @@ preexec() { echo -ne '\e[6 q' ;} # Use beam shape cursor for each new prompt.
 #alias D="sudo dnf -y"
 
 alias sudo="sudo "
+alias o="xdg-open"
 alias v="$EDITOR"
 alias e="$EDITOR"
 alias mkdir="mkdir -pv"

@@ -1,7 +1,7 @@
 #!/bin/bash
 #ova linija ispod obrise stari ./backup da bi se novi lepo kopirao
 
-if [[ $EUID = 0 ]]
+if [[ $EUID == 0 ]]
 	then echo "Please run WITHOUT sudo(or root/superuser access)."
 	exit
 fi
@@ -45,3 +45,5 @@ sudo cp -rv ~/.ssh                             backup/.ssh
 sudo cp -v ~/.inputrc                          backup/.inputrc
 
 sudo cp -v ~/Pictures/wallpaper/wallpaper      backup/wallpaper/wallpaper
+
+crontab -l > backup/crontab

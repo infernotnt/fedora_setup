@@ -168,6 +168,10 @@ bindsym $mod+s exec ~/.scripts/sway/swaylock.sh
 # Makes the currently focused window fullscreen
 bindsym $mod+f fullscreen toggle
 
+# Puts currently copied stuff into a QR code (q = Qr code)
+bindsym $mod+q exec to-barcode
+
+
 # Compton, used for vsync, transparency and stuff
 # NOTE: compton might impact GAMING performance, usefull video: https://www.youtube.com/watch?v=3esPpe-fclIe
 # TODO: ukloniti ovo, wtf se desava, takodje: iz nekog razloga kad se pali kompjuter compton ne radi kako treba, a kad uradim Mod+R posle paljenja proradi?(ovo je mozda do ovog sleep 1 i zapravo mi se sve cini)

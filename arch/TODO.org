@@ -1,6 +1,7 @@
 * Plan za sutra
 
 1. emacs stuff (opciono)
+    - ako ispell moze jako lako da doda srpski cirilicu i latinicu onda to, inace ---> hunspell
 
 2. novi sistem (ne diraj stari!!!, dodaj treci)
     1. radi sve od juce (i sync)
@@ -71,3 +72,4 @@ Ukloniti .zshcompdump nekako
 
 luke_info.sh (u fedora_setup)
 
+stavi da je qr kod floating (win+q <=> to-barcode)

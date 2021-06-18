@@ -22,8 +22,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("00445e6f15d31e9afaa23ed0d765850e9cd5e929be5e8e63b114a3346236c44c" "0fffa9669425ff140ff2ae8568c7719705ef33b7a927a0ba7c5e2ffcfac09b75" default))
  '(package-selected-packages
-   '(doom-modeline python-mode minions solarized-theme solarized-dark-theme evil-surround auto-compile avy smex ido-vertical-mode rainbow-delimiters rainbow-mode which-key sudo-edit diminish spaceline dashboard evil org-bullets use-package)))
+   '(doom-themes doom-1337 vscode-dark-plus-theme doom-modeline python-mode minions solarized-theme solarized-dark-theme evil-surround auto-compile avy smex ido-vertical-mode rainbow-delimiters rainbow-mode which-key sudo-edit diminish spaceline dashboard evil org-bullets use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

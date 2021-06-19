@@ -7,5 +7,5 @@
 #                       Day of Week (0-6 or Sun-Sat)
 #                           Command
   */5    *    *    *    *   source ~/.zshenv && cloud sync >> ~/.backup_sync/sync_log.txt 2>&1
-  0      */12 *    *    *   source ~/.zshenv && backup-sync >> ~/.backup_sync/backup_sync_log.txt
+  0      */6 *    *    *   source ~/.zshenv && backup-sync >> ~/.backup_sync/backup_sync_log.txt
 

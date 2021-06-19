@@ -41,7 +41,7 @@ pacman --noconfirm -S mesa
 pacman --noconfirm -S sway swaylock swaybg waybar
 pacman --noconfirm -S wl-clipboard
 pacman --noconfirm -S xorg-xwayland xorg-xeyes
-pacman --noconfirm -S img swappy grim slurp
+pacman --noconfirm -S imv swappy grim slurp
 
 # Gui
 pacman --noconfirm -S alacritty
@@ -104,7 +104,7 @@ chown -Rv $USERNAME $USER_HOME/*
 # Download vim-plug
 sudo -u $USERNAME curl -fLo "${XDG_DATA_HOME:-$USER_HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 # Install plugins with vim-plug (:PlugInstall)
-nvim --headless +PlugInstall +qall
+sudo -u $USERNAME nvim --headless +PlugInstall +qall
 
 mkdir -pv /home/user/share/dict/hunspell-custom
 cp -v backup/dictionaries/* /home/user/share/dict/hunspell-custom/

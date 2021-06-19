@@ -142,7 +142,7 @@ fc-cache -f -v
 
 # ==== Personal ======
 # Sets up crontab/cronjob for $USER
-crontab -e -u $USERNAME     backup/crontab
+crontab -u -e $USERNAME     backup/crontab
 
 cp -rv backup/.ssh          $USER_HOME/.ssh
 

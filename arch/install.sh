@@ -49,7 +49,7 @@ pacman --noconfirm -S firefox
 pacman --noconfirm -S vlc qbittorrent
 
 # Bluetooth (mostly left to user to configure)
-pacman --noconfirm -S bluez bluez-utils
+pacman --noconfirm -S bluez bluez-utils pulseaudio-bluetooth
 systemctl enable --now bluetooth.service
 pacman --noconfirm -S blueman
 rfkill unblock bluetooth

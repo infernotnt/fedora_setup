@@ -67,27 +67,27 @@ pacman --noconfirm -S --needed base-devel
 # ----------------------------------
 # -----------Without paru-----------
 
-cd ~
-mkdir -pv aur
-cd aur
-
-git clone https://aur.archlinux.org/brave-bin.git
-cd brave-bin
-makepkg -si --asdeps --noconfirm
-cd ../
-
-git clone https://aur.archlinux.org/packages/wlsunset/
-cd wlsunset
-makepkg -si --asdeps --noconfirm
-cd ../
-
-git clone https://aur.archlinux.org/packages/otf-san-francisco/
-cd otf-san-francisco
-makepkg -si --asdeps --noconfirm
-cd ../
-
-cd ~
-rm -rfv aur
+#cd ~
+#mkdir -pv aur
+#cd aur
+#
+#git clone https://aur.archlinux.org/brave-bin.git
+#cd brave-bin
+#makepkg -si --asdeps --noconfirm
+#cd ../
+#
+#git clone https://aur.archlinux.org/packages/wlsunset/
+#cd wlsunset
+#makepkg -si --asdeps --noconfirm
+#cd ../
+#
+#git clone https://aur.archlinux.org/packages/otf-san-francisco/
+#cd otf-san-francisco
+#makepkg -si --asdeps --noconfirm
+#cd ../
+#
+#cd ~
+#rm -rfv aur
 
 
 # ----------------------------------
@@ -97,16 +97,23 @@ rm -rfv aur
 
 # ===============================================
 
+
 # Neovim plugins
+# Set correct permissions
+chown -Rv $USERNAME $USER_HOME/*
 # Download vim-plug
 sudo -u $USERNAME curl -fLo "${XDG_DATA_HOME:-$USER_HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 # Install plugins with vim-plug (:PlugInstall)
-sudo -u $USERNAME nvim -es -u ${USER_HOME}/.vimrc -i NONE -c "PlugInstall" -c "qa"
-
+nvim --headless +PlugInstall +qall
 
 mkdir -pv /home/user/share/dict/hunspell-custom
 cp -v backup/dictionaries/* /home/user/share/dict/hunspell-custom/
 #------------------------
+
+mkdir /mnt/sda1 ; mkdir /mnt/sda2 ; mkdir /mnt/sda3 ; mkdir /mnt/sda4
+mkdir /mnt/sdb1 ; mkdir /mnt/sdb2 ; mkdir /mnt/sdb3 ; mkdir /mnt/sdb4
+mkdir /mnt/sdc1 ; mkdir /mnt/sdc2 ; mkdir /mnt/sdc3 ; mkdir /mnt/sdc4
+mkdir /mnt/sdd1 ; mkdir /mnt/sdd2 ; mkdir /mnt/sdd3 ; mkdir /mnt/sdd4
 
 
 mkdir -v    $USER_HOME/.config
@@ -135,7 +142,7 @@ fc-cache -f -v
 
 # ==== Personal ======
 # Sets up crontab/cronjob for $USER
-crontab -e -u $USERNAME     backup/cronjob
+crontab -e -u $USERNAME     backup/crontab
 
 cp -rv backup/.ssh          $USER_HOME/.ssh
 
@@ -149,5 +156,4 @@ chown -Rv $USERNAME $USER_HOME/
 
 # Changes the default shell from zsh, you must relog for this to take effect
 chsh -s /bin/zsh $USERNAME 
-
 

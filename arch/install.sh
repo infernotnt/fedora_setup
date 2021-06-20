@@ -13,7 +13,6 @@ sleep 3
 printf "Creating new user. Username: "
 read USERNAME
 
-#USER_HOME=$(getent passwd $SUDO_USER | cut -d: -f6)
 USER_HOME=/home/$USERNAME
 
 useradd $USERNAME -m -g wheel --groups lp
@@ -142,7 +141,7 @@ fc-cache -f -v
 
 # ==== Personal ======
 # Sets up crontab/cronjob for $USER
-crontab -u -e $USERNAME     backup/crontab
+crontab -u $USERNAME        backup/crontab
 
 cp -rv backup/.ssh          $USER_HOME/.ssh
 
@@ -156,4 +155,3 @@ chown -Rv $USERNAME $USER_HOME/
 
 # Changes the default shell from zsh, you must relog for this to take effect
 chsh -s /bin/zsh $USERNAME 
-

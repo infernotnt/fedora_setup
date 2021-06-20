@@ -455,6 +455,23 @@ I'd rather skip it.
 * Programming environments
 ** Python
 
+#+begin_src emacs-lisp
+  (use-package python-mode)
+
+  ; Elpy enables automatic indentation, auto-completion, syntax checking, etc.
+
+  (use-package elpy
+    :ensure t)
+  (elpy-enable)
+
+  ; Use flycheck for syntax checking
+
+  (add-hook 'elpy-mode-hook 'flycheck-mode)
+
+#+end_src
+
+*** Not used
+
 #+begin_src OFF
   (use-package python-mode)
 #+end_src

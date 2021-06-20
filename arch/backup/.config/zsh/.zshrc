@@ -96,6 +96,8 @@ alias diff="diff --color=auto"
 alias tree="tree -C" # Makes it colored
 alias df="df -h"
 alias du="du -h"
+alias ka="killall -v"
+alias killall="killall -v"
 
 alias g="git add . ; git commit -m "c" ; git push"
 alias ga="git add ."        # ga = Git Add

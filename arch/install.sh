@@ -33,8 +33,8 @@ pacman --noconfirm -S tldr tokei neofetch ripgrep fzf neovim emacs zsh openssh g
 pacman --noconfirm -S youtube-dl shellcheck cmatrix playerctl translate-shell qrencode
 
 
-# Drivers
-pacman --noconfirm -S mesa
+# Graphics card specific
+pacman --noconfirm -S mesa radeontop
 
 # Wayland
 pacman --noconfirm -S sway swaylock swaybg waybar

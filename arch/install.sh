@@ -32,7 +32,6 @@ pacman --noconfirm -S alsa pavucontrol pulseaudio
 pacman --noconfirm -S tldr tokei neofetch ripgrep fzf neovim emacs zsh openssh gcc ntfs-3g htop cronie
 pacman --noconfirm -S youtube-dl shellcheck cmatrix playerctl translate-shell qrencode
 
-
 # Graphics card specific
 pacman --noconfirm -S mesa radeontop
 
@@ -54,7 +53,7 @@ pacman --noconfirm -S blueman
 rfkill unblock bluetooth
 
 # ============  Maximal install =================
-pacman --noconfirm -S --needed base-devel
+pacman --noconfirm -S --needed base-devel noto-fonts-emoji
 
 # --- Install paru (AUR helper) ----
 #cd ~

@@ -36,28 +36,6 @@ bindsym Print exec take-screenshot
 # Screenshot selection (shorcut like in Windows 10)(first part of command saves the screenshot, second part of the commands saves it to system clipboard)
 bindsym $mod+Shift+s exec exec take-screenshot snip
 
-#===========================================
-#Scratchpad stuff I guess
-## Move the currently focused window to the scratchpad
-#bindsym $mod+Shift+minus move scratchpad
-## Show the next scratchpad window or hide the focused scratchpad window.
-## If there are multiple scratchpad windows, this command cycles through them.
-#bindsym $mod+minus scratchpad show
-#
-#
-#
-# Scratchpad DEFAULT (TODO? zasto kad vratim window iz scratchpada je vec floating, neki moj setting ovo poremecava?)
-# Move the currently focused window to the scratchpad
-#bindsym $mod+Shift+minus move scratchpad
-
-# Show the next scratchpad window or hide the focused scratchpad window.
-# If there are multiple scratchpad windows, this command cycles through them.
-#bindsym $mod+minus scratchpad show
-#
-#=========================================================
-
-# TODO send active window to scrathpad (unneccesary? samo koristi drugi workpace?)
-
 bar {
      swaybar_command waybar
 }
@@ -76,7 +54,6 @@ bindsym $mod+Ctrl+l move right 30
 
 # Opens terminal emulator
 bindsym $mod+Return exec $terminal
-
 
 # Kills the currently focused window
 bindsym $mod+control+d kill
@@ -112,27 +89,11 @@ bindcode --release 133 exec ~/.scripts/sway/toggle_application_launcher.sh
 for_window [title="^application_launcher$"] floating enable, border none, opacity 0.8, move position center, resize set 800 300
 for_window [app_id="zenity"] floating enable, border none, move position center, resize set 800 300
 
-# Rofi, the application launcher. Extremely usefull.
-# Super key enables rofi. What follows is similar to what happens when you press the Super/Windows key on Windows 10
-# You can change rofi themes. The list is in /usr/share/rofi/themes
-# Searches gui programs only
-#bindcode --release 133 exec --no-startup-id rofi -show drun -matching fuzzy -theme Arc-Dark
-# Searches all programs (gui and terminal-like)
-#bindsym $mod+d exec  --no-startup-id rofi -show run -matching fuzzy -theme Arc-Dark
-
-# ===================================================
 # Resize currently focused window (vim-like)
 bindsym $mod+$alt+h resize shrink width  10px
 bindsym $mod+$alt+j resize grow   height 10px
 bindsym $mod+$alt+k resize shrink height 10px
 bindsym $mod+$alt+l resize grow   width  10px
-
-#bindsym $mod+$alt+h		exec "bash ~/.scripts/sway/rs left"
-#bindsym $mod+$alt+j		exec "bash ~/.scripts/sway/rs down"
-#bindsym $mod+$alt+k		exec "bash ~/.scripts/sway/rs up"
-#bindsym $mod+$alt+l		exec "bash ~/.scripts/sway/rs right"
-
-# ===================================================
 
 #TODO, bolji key bindingi za ovo, mozda ukloniti jedan od ovih, i videti kako ovo za split radi, da li moze da primi child opet
 bindsym $mod+y layout stacking
@@ -157,9 +118,6 @@ bindsym $mod+r reload
 # Wallpaper
 output "*" bg ~/Pictures/wallpaper/wallpaper fill
 
-# Iskljuceno jer nekad sjebem kad radim "Win + Shift + S" screenshot
-#bindsym $mod+Shift+Escape     exec --no-startup-id killall sway
-
 # Lock the screen
 # NOTE: this is not 100% secure, it can be bypassed if you try
 # NOTE: no encryption is used
@@ -171,54 +129,29 @@ bindsym $mod+f fullscreen toggle
 # Puts currently copied stuff into a QR code (q = Qr code)
 bindsym $mod+q exec to-barcode
 
-
-# Compton, used for vsync, transparency and stuff
-# NOTE: compton might impact GAMING performance, usefull video: https://www.youtube.com/watch?v=3esPpe-fclIe
-# TODO: ukloniti ovo, wtf se desava, takodje: iz nekog razloga kad se pali kompjuter compton ne radi kako treba, a kad uradim Mod+R posle paljenja proradi?(ovo je mozda do ovog sleep 1 i zapravo mi se sve cini)
-
-#-------------------------------------------------------------------------------------------
-
 #TODO: namesti da ovo radi, izmeni celu komandu ako treba
 bindsym $mod+a exec ddspawn dropdowncalc -f mono:pixelsize=24
-
 
 #TODO, does not hover where it should
 #bindsym $mod+Shift+b	floating toggle; sticky toggle; exec hover left
 bindsym $mod+Shift+n	floating toggle; sticky toggle; exec hover right
 
-
-
-#TODO
-# TODO, on_output (ili samo output?) msm da je mozda jako bitno, ne znam, msm da je vezano za monitor
-# #---Workspace Bindings---# #---------------------------------------------------------------------------------------------------------
-
-# Requires on pulseaudio. TODO: also change workspace on other monitors?
-# Disables all sound, mutes microphone, moves to a new workspace and opens innocent looking programs
-#-----------
-
-#bindsym $mod+Tab		workspace back_and_forth
-#bindsym $mod+semicolon		workspace next
-#bindsym $mod+backslash		workspace back_and_forth
-
-#TODO
+# TODO ----------------------------------------
 bindsym $mod+o sticky toggle
-#TODO
 bindsym $mod+g workspace prev
 
-# TODO
 bindsym $mod+Shift+h          move workspace to output left
 bindsym $mod+Shift+j          move workspace to output down
 bindsym $mod+Shift+k          move workspace to output up
 bindsym $mod+Shift+l          move workspace to output right
 
-#
 bindsym $mod+m workspace prev
 bindsym $mod+comma workspace next
 bindsym $mod+slash workspace back_and_forth
 
 bindsym $mod+$alt+m	move container to workspace prev
 bindsym $mod+$alt+comma move container to workspace next
-# ======
+# --------------------------------------------
 
 # switch to workspace
 bindsym $mod+1 workspace number 1
@@ -242,42 +175,12 @@ bindsym $mod+Ctrl+7 move container to workspace number 7
 bindsym $mod+Ctrl+8 move container to workspace number 8
 bindsym $mod+Ctrl+9 move container to workspace number 9
 
-
-# ---relatively useles, za mis ona dugmadi sa strane
-#bindsym $mod+Prior		workspace prev
-#bindsym $mod+Shift+Prior	move container to workspace prev
-#bindsym $mod+Next		workspace next
-#bindsym $mod+Shift+Next		move container to workspace next
-
-# #---End of Workspace Bindings---# #
-
-#------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-
-#------------------------------------------------------------------------------------------
-#todo, maybe use speedcrunch, maybe use python?
-#exec_always --no-startup-id $terminal --title dropcalc
-
-#for_window [title="dropcalc"] floating enable
-#for_window [title="dropcalc"] move scratchpad
-#for_window [title="dropcalc"] resize set 800 300
-#for_window [title="dropcalc"] border pixel 2
-#
-#bindsym $mod+u [title="dropcalc"] scratchpad show; [title="dropdown"] move position center
-#
-#bindsym $mod+i exec --no-startup-id $terminal --title calc
-#for_window [title="calc"] floating enable
-#for_window [title="calc"] resize set 800 300
-#for_window [title="calc"] border pixel 2
-
 set $mute_mic_and_sound exec pactl set-source-mute @DEFAULT_SOURCE@ toggle ; exec pactl set-sink-mute 0 1
 bindsym $mod+Shift+Delete $mute_mic_and_sound ; workspace $ws9 ; exec $terminal -e htop ; exec $file_browser
 
 #------------------------------------------------------------------------------------------------
 
 
-# TODO: ukloni ovo i ostavi default(mozda??)
 # Window borders and stuff------------------------------------------------------------------------
 # Active window border color (the color is taken from fedora 2021 logo)
 set $active-bg-color             #3c6eb4ff
@@ -298,23 +201,3 @@ client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-co
 client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $indicator-inactive-color
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $indicator-inactive-color
 #------------------------------------------------------------------------------------------------------------
-
-# Gaps stuff ==================================================================
-
-#
-#bindsym $mod+$alt+t gaps inner current set $innerDefault; gaps outer current set $outterDefault
-#bindsym $mod+$alt+d gaps inner current set 0; gaps outer current set 0
-#bindsym $mod+v gaps inner current plus 5
-#bindsym $mod+$alt+v gaps inner current minus 5
-#bindsym $mod+z gaps outer current plus 5
-#bindsym $mod+$alt+z gaps outer current minus 5
-#============================
-#smart_gaps inverse_outer on
-#smart_gaps on
-#smart_borders no_gaps
-
-# Default gaps stuff
-#set $innerDefault 0
-#set $outerDefault 0
-#gaps inner 10
-#gaps outer 10

@@ -1,6 +1,6 @@
 export ZDOTDIR=$HOME/.config/zsh
 
-# Addition to PATH variable
+# Additions to PATH variable
 export PATH=~/.scripts:$PATH
 
 export DICPATH=/usr/share/dict/hunspell-custom

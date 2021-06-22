@@ -31,26 +31,23 @@ bindsym $mod+b exec ~/.scripts/toggle-wlsunset
 floating_modifier $mod normal
 
 # Screenshot whole screen (first part of command saves the screenshot, second part of the commands saves it to system clipboard)
-bindsym Print exec take-screenshot
+bindsym Print exec ~/.scripts/take-screenshot
 # Screenshot selection (shorcut like in Windows 10)(first part of command saves the screenshot, second part of the commands saves it to system clipboard)
-bindsym $mod+Shift+s exec exec take-screenshot snip
+bindsym $mod+Shift+s exec ~/.scripts/take-screenshot snip
 
 bar {
      swaybar_command waybar
 }
 
-#exec_always ~/.scripts/sway/ensure_dropdown_terminal.sh dropdown_terminal
-exec_always alacritty --title dropdown_terminal
-exec_always emacs --daemon
+exec emacs --daemon
 
-#for_window [title="dropdown_*"] floating enable
-#for_window [title="kurac"] resize set width 300 px height 100 px
-for_window [title="kurac"] floating enable
-#for_window [title="dropdown_*"] move container to scratchpad
-#for_window [title="dropdown_*"] move position center
-
-#for_window [title="dropdown_*"] sticky enable
-#for_window [title="dropdown_*"] border pixel 1
+exec_always ~/.scripts/sway/ensure_dropdown_terminal.sh dropdown_terminal
+for_window [title="dropdown_*"] floating enable
+for_window [title="dropdown_terminal"] resize set width 700 px height 400 px
+for_window [title="dropdown_*"] move position center
+for_window [title="dropdown_*"] move container to scratchpad
+for_window [title="dropdown_*"] sticky enable
+for_window [title="dropdown_*"] border pixel 1
 bindsym $mod+d scratchpad show
 
 
@@ -72,7 +69,7 @@ bindsym $mod+Ctrl+l move right 30
 bindsym $mod+Return exec $terminal
 
 # Kills the currently focused window
-bindsym $mod+control+d kill
+bindsym $mod+$alt+d kill
 
 # Window border (1 pixel is more aesthetic but less practical)
 default_border pixel 2
@@ -99,7 +96,7 @@ input "type:keyboard" {
 bindsym $mod+s split toggle
 
 # Very usefull. Super/Windows key toggles application launcher. Windows 10 like
-#bindcode --release 133 exec ~/.scripts/sway/toggle_application_launcher.sh application_launcher
+bindcode --release 133 exec ~/.scripts/sway/toggle_application_launcher.sh application_launcher
 
 # Enable window settings for application launcher window called EXCATLY "application_launcher"
 for_window [title="^application_launcher$"] floating enable, border none, opacity 0.8, move position center, resize set 800 300

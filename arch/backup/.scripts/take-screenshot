@@ -12,7 +12,7 @@ then
     grim -c -g "$(slurp -d)" - | wl-copy
     wl-paste > $path
 else
-    printf "ERROR: Unreckognized argument (see ~/.scripts/take-screenshot)\n"
+    printf "ERROR: Unrecognized argument (see ~/.scripts/take-screenshot)\n"
     exit 1
 fi
 

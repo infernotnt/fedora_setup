@@ -171,7 +171,7 @@ For shortened headers: shows "⤵" instead of "...".
 Hide slashes and stars that show /italic/ and *bold*.
 
 #+begin_src OFF
-;  (setq org-hide-emphasis-markers t)
+  (setq org-hide-emphasis-markers t)
 #+end_src
 
 Use syntax highlighting in source blocks while editing.
@@ -187,11 +187,23 @@ Pretty bullets instead of asterisks for headlines.
     :ensure t
     :config
     (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+
+  ;(use-package org-bullets
+  ;   :ensure t
+  ;   :init (add-hook 'org-mode-hook 'org-bullets-mode))
 #+end_src
 
-Sets scratch buffer to org mode:
 #+begin_src emacs-lisp
-  (setq initial-major-mode 'org-mode)
+;  (use-package org
+;    :init
+;    (font-lock-add-keywords 'org-mode
+;     '(("^ +\\([-*]\\) "
+;            (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•")))))))
+#+end_src
+
+  Sets scratch buffer to org mode:
+#+begin_src emacs-lisp
+    (setq initial-major-mode 'org-mode)
 #+end_src
 
 When editing a code snippet, use the current window rather than popping open a
@@ -325,15 +337,17 @@ Put page break after table of contents.
 
 * UI
 ** Theme
-*** Solarized dark
+*** Solarized
 
-#+begin_src OFF
+#+begin_src emacs-lisp
   (use-package solarized-theme)
-  (load-theme 'solarized-light t)
+
+  ;(load-theme 'solarized-light t)
+  (load-theme 'solarized-dark t)
 
 #+end_src
 
-** VS code dark+
+*** VS code dark+
 
 #+begin_src OFF
   (use-package vscode-dark-plus-theme
@@ -344,8 +358,8 @@ Put page break after table of contents.
   (setq vscode-dark-plus-box-org-todo nil)
 #+end_src
 
-** 
-#+begin_src emacs-lisp
+**** 
+#+begin_src OFF
   (use-package doom-themes
     :ensure t
     :config

@@ -20,6 +20,9 @@ zstyle ':completion:*' verbose true
 zstyle :compinstall filename "$HOME/.config/zsh/.zshrc"
 #-------------------------------------------------------------------
 
+# Don't prompt for "y/n" when doing "rm foo/*"
+setopt rmstarsilent
+
 # NOTE: you CAN still use many emacs(and other) style commands in vim (either modes), e.g. Ctrl+w, Ctrl+d, Ctrl+l
 
 autoload -U colors && colors # For the zsh prompt color code to be human readable
@@ -83,6 +86,7 @@ preexec() { echo -ne '\e[6 q' ;} # Use beam shape cursor for each new prompt.
 alias sudo="sudo "
 alias o="xdg-open"
 alias v="$EDITOR"
+alias em="emacsclient -nc"
 alias e="$EDITOR"
 alias mkdir="mkdir -pv"
 alias mkd="mkdir -pv"

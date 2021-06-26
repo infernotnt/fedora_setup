@@ -106,12 +106,12 @@ set shiftwidth=4
 " Disable wrap
 set nowrap
 
-" F6 compiles currently open file based on file type
+" F5 compiles currently open file based on file type
 " Compile markdown (.md) files to the pdf equivalent, and open it in brave //TODO open it in $BROWSER
-autocmd FileType markdown noremap <f6> <esc>:w<enter> :!pandoc %:p -o %:p:r.pdf <enter>
+autocmd FileType markdown noremap <f5> <esc>:w<enter> :!pandoc %:p -o %:p:r.pdf <enter>
 " Compile C++ code (TODO: open resulting program in new window or something like that?)
-autocmd FileType cpp nnoremap <f6> <esc>:w<enter>:!g++ -std=c++17 %:p -o %:p:r<enter>
-autocmd FileType c nnoremap <f6> <esc>:w<enter>:!gcc %:p -o %:p:r<enter>
+autocmd FileType cpp nnoremap <f5> <esc>:w<enter>:!g++ -std=c++17 -lncurses %:p -o %:p:r<enter>
+autocmd FileType c nnoremap <f5> <esc>:w<enter>:!gcc %:p -o %:p:r<enter>
 
 " Spell check (o for ortography??), staviti mozda da detektuje na kojoj sam tastaturi i da taj jezik checkuje?
 nnoremap <leader>e :setlocal spell! spelllang=en_us<Enter>

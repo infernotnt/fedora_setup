@@ -160,7 +160,24 @@ Don't indent newly expanded blocks, even if they're under a heading.
   (setq org-adapt-indentation nil)
 #+end_src
 
+Sets scratch buffer to org mode:
+#+begin_src emacs-lisp
+    (setq initial-major-mode 'org-mode)
+#+end_src
+
 ** Display preferences
+
+Enable =visual-line-mode= in all *org* files.
+
+#+begin_src emacs-lisp
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (visual-line-mode t))
+            t)
+
+  ;(with-eval-after-load 'org       
+  ;  (add-hook 'org-mode-hook #'visual-line-mode))
+#+end_src
 
 For shortened headers: shows "⤵" instead of "...".
 
@@ -199,11 +216,6 @@ Pretty bullets instead of asterisks for headlines.
 ;    (font-lock-add-keywords 'org-mode
 ;     '(("^ +\\([-*]\\) "
 ;            (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•")))))))
-#+end_src
-
-  Sets scratch buffer to org mode:
-#+begin_src emacs-lisp
-    (setq initial-major-mode 'org-mode)
 #+end_src
 
 When editing a code snippet, use the current window rather than popping open a

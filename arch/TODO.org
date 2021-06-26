@@ -16,6 +16,8 @@ emacs:
 
 * Prio 1
 
+naci bolji shorcut sa dropdown terminal
+
 * Prio 2
 
 Emacs:

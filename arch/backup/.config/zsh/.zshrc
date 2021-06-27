@@ -113,6 +113,7 @@ alias starwars="telnet towel.blinkenlights.nl"
 alias bt="blueman-manager"
 alias snd="pavucontrol"
 alias term="exec alacritty&" # Opens terminal in current directory
+alias c="ipython"
 
 
 # Just some small conviniences===========

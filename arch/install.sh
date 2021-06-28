@@ -104,8 +104,8 @@ sudo -u $USERNAME curl -fLo "${XDG_DATA_HOME:-$USER_HOME/.local/share}"/nvim/sit
 # Install plugins with vim-plug (:PlugInstall)
 sudo -u $USERNAME nvim --headless +PlugInstall +qall
 
-mkdir -pv /home/user/share/dict/hunspell-custom
-cp -v backup/dictionaries/* /home/user/share/dict/hunspell-custom/
+mkdir -pv /usr/share/dict/hunspell-custom
+cp -v backup/dictionaries/* /usr/share/dict/hunspell-custom/
 #------------------------
 
 mkdir /mnt/sda1 ; mkdir /mnt/sda2 ; mkdir /mnt/sda3 ; mkdir /mnt/sda4

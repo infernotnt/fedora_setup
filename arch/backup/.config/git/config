@@ -1,5 +1,5 @@
 [user]
-	email = infernotnt@gmail.com
+	email = infernotnt@protonmail.com
 	name = infernotnt
 [filter "lfs"]
 	clean = git-lfs clean -- %f

@@ -1,3 +1,13 @@
+* Nov plan
+
+vim config install
+brave install
+fonts install
+polybar fonts mixing
+wlsunset
+brave config
+
+
 * Plan
 
 1. skripta, backup: tek kada dodam jos dosta toga (novi sistem (ne diraj stari!!!, dodaj treci))

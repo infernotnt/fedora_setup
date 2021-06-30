@@ -115,6 +115,7 @@ alias snd="pavucontrol"
 alias term="exec alacritty&" # Opens terminal in current directory
 alias c="ipython"
 
+alias comp="/home/milos/reviv2/compile.sh"
 
 # Just some small conviniences===========
 alias cfv="$EDITOR ~/.config/nvim/init.vim"

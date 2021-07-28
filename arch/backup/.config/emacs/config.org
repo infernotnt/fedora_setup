@@ -76,7 +76,13 @@ Never use tabs. Tabs are the devil’s whitespace.
   (setq scroll-conservatively 100)
 #+end_src
 
+** disable backup file
+#+begin_src emacs-lisp
+  (setq make-backup-files nil)
+#+end_src
 * Evil mode
+
+** a
 
 Download and enable evil.
 
@@ -151,6 +157,17 @@ TODO: visual g$ i g^ kada je visaul line mode ukljucen, ovo moze samo da se urad
   ;(define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
 
 #+end_src
+
+
+** custom bindings from vim
+
+#+begin_src emacs-lisp
+  (define-key evil-normal-state-map (kbd "SPC") 'evil-toggle-fold)
+  (define-key evil-normal-state-map (kbd "S") (kbd ":%s//g"))
+  ;(define-key evil-normal-state-map (kbd "<Space>") (kbd "za"))
+  ;(global-set-key (kbd "C-c C-r") 'ivy-resume)
+#+end_src
+
 * Org mode
 ** General settings
 

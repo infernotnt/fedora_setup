@@ -54,6 +54,7 @@ rfkill unblock bluetooth
 
 # ============  Maximal install =================
 pacman --noconfirm -S --needed base-devel noto-fonts-emoji
+pacman --noconfirm -S cmake ninja
 
 # --- Install paru (AUR helper) ----
 #cd ~

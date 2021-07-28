@@ -126,7 +126,7 @@ alias cfs="$EDITOR ~/.config/sway/config"
 alias cdc="cd ~/.config"
 alias cds="cd ~/.scripts"
 
-alias cda="cd ~/fedora_setup/arch"
+alias cda="cd ~/dev/fedora_setup/arch/"
 alias er="$EDITOR ~/fedora_setup/arch/README.md"
 alias p="sudo pacman"
 alias P="sudo pacman --noconfirm"
